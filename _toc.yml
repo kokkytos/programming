@@ -5,18 +5,18 @@ format: jb-book
 root: notebooks/intro
 chapters:
 - file: notebooks/Lesson_1
-- file: notebooks/Lesson_2
-- file: notebooks/Lesson_3
-- file: notebooks/Lesson_4
-- file: notebooks/Lesson_5
-- file: notebooks/Lesson_6
-- file: notebooks/Lesson_7
-- file: notebooks/Lesson_8
-- file: notebooks/Lesson_9
-- file: notebooks/Lesson_10
-- file: notebooks/Lesson_11
-- file: notebooks/Lesson_12
-- file: notebooks/Lesson_13
+#- file: notebooks/Lesson_2
+#- file: notebooks/Lesson_3
+#- file: notebooks/Lesson_4
+#- file: notebooks/Lesson_5
+#- file: notebooks/Lesson_6
+#- file: notebooks/Lesson_7
+#- file: notebooks/Lesson_8
+#- file: notebooks/Lesson_9
+#- file: notebooks/Lesson_10
+#- file: notebooks/Lesson_11
+#- file: notebooks/Lesson_12
+#- file: notebooks/Lesson_13
 - file: notebooks/bibliography
 #- file: notebooks/markdown-notebooks.md
 #- file: notebooks

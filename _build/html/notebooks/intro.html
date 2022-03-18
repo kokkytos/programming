@@ -38,12 +38,9 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -103,66 +100,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Lesson_1.html">
    1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_5.html">
-   5. Συναρτήσεις
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συμβολοσειρές/Δομές Δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_7.html">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_8.html">
-   8.  Πίνακες και διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9.  Πίνακες και διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_10.html">
-   10. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Ανάλυση διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Γεωεπεξεργασία ψηφιδωτών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_13.html">
-   13. Ανάλυση ψηφιδωτών δεδομένων
   </a>
  </li>
  <li class="toctree-l1">
@@ -259,6 +196,11 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Περίγραμμα του μαθήματος
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
    Αξιολόγηση
   </a>
  </li>
@@ -284,6 +226,11 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Περίγραμμα του μαθήματος
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
    Αξιολόγηση
   </a>
  </li>
@@ -304,28 +251,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Τίτλος Μαθήματος:  Προγραμματισμός Η/Υ</p>
 <p>Κατηγορία Μαθήματος: Επιλογής</p>
 <p>Εξάμηνο: Εαρινό</p>
-<p>Το μάθημα εισάγει τους φοιτητές στις βασικές έννοιες και αρχές του προγραμματισμού και είναι προσαρμοσμένο στις ανάγκες και στο υπόβαθρο των χωροτακτών. Στόχος του μαθήματος είναι να αποκτήσουν οι φοιτητές τις αναγκαίες γνώσεις για την επεξεργασία και ανάλυση δεδομένων, την αυτοματοποίηση διαδικασιών και την σύνταξη σεναρίων (scripts) για την αναπαραγωγισιμότητα της ερευνάς τους. Πέρα από τις βασικές αρχές προγραμματισμού η διδασκαλία επεκτείνεται σε εξειδικευμένες θεματικές ενότητες που αφορούν τα γεωχωρικά δεδομένα και την ανάλυσή τους μέσω προγραμματισμού. Η διδασκαλία θα στηριχθεί στην Python, μια σύγχρονη, ευρέως διαδεδομένη και υψηλού επιπέδου γλώσσα προγραμματισμού. Επιπλέον, όπου κριθεί αναγκαίο θα επιδειχτούν, συμπληρωματικά, διαδικασίες με την γλώσσα προγραμματισμού R.</p>
+<div class="section" id="id2">
+<h2>Περίγραμμα του μαθήματος<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Το μάθημα εισάγει τους φοιτητές στις βασικές έννοιες και αρχές του προγραμματισμού και είναι προσαρμοσμένο στις ανάγκες και στο υπόβαθρο των χωροτακτών. Στόχος του μαθήματος είναι να αποκτήσουν οι φοιτητές τις αναγκαίες γνώσεις για την επεξεργασία και ανάλυση δεδομένων, την αυτοματοποίηση διαδικασιών και την σύνταξη σεναρίων (scripts) για την αναπαραγωγισιμότητα της ερευνάς τους. Πέρα από τις βασικές αρχές προγραμματισμού η διδασκαλία επεκτείνεται σε εξειδικευμένες θεματικές ενότητες που αφορούν τα γεωχωρικά δεδομένα και την ανάλυσή τους μέσω προγραμματισμού. Η διδασκαλία θα στηριχθεί στην <a class="reference external" href="https://www.python.org/">Python</a>, μια σύγχρονη, ευρέως διαδεδομένη και υψηλού επιπέδου γλώσσα προγραμματισμού. Επιπλέον, όπου κριθεί αναγκαίο, θα επιδειχτούν συμπληρωματικά διαδικασίες με την γλώσσα προγραμματισμού <a class="reference external" href="https://www.r-project.org/">R</a>.</p>
 <p>Το πρόγραμμα των διαλέξεων καθώς και η προτεινόμενη βιβλιογραφία παρατίθενται στην συνέχεια.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Εκφράσεις, τελεστές</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Έλεγχος ροής εκτέλεσης</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Συναρτήσεις</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συμβολοσειρές/Δομές Δεδομένων</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8.  Πίνακες και διαγράμματα</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9.  Πίνακες και διαγράμματα</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Ανάλυση διανυσματικών δεδομένων</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_13.html">13. Ανάλυση ψηφιδωτών δεδομένων</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Βιβλιογραφία</a></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>Αξιολόγηση<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2>Αξιολόγηση<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Η αξιολόγηση γίνεται:</p>
 <ul class="simple">
 <li><p>50% από ατομικές ασκήσεις στην διάρκεια του εξαμήνου.</p></li>
