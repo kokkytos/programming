@@ -38,12 +38,9 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -55,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
-    <link rel="prev" title="13. Ανάλυση ψηφιδωτών δεδομένων" href="Lesson_13.html" />
+    <link rel="prev" title="1. Εισαγωγή στον προγραμματισμό" href="Lesson_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
     
@@ -103,66 +100,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Lesson_1.html">
    1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_5.html">
-   5. Συναρτήσεις
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συμβολοσειρές/Δομές Δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_7.html">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_8.html">
-   8.  Πίνακες και διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9.  Πίνακες και διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_10.html">
-   10. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Ανάλυση διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Γεωεπεξεργασία ψηφιδωτών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_13.html">
-   13. Ανάλυση ψηφιδωτών δεδομένων
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -252,24 +189,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Περιεχόμενα
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python">
-   Python:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#r">
-   R:
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -282,24 +201,6 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Περιεχόμενα </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python">
-   Python:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#r">
-   R:
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -308,24 +209,15 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>Βιβλιογραφία<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
-<p>Η κύρια ύλη του μαθήματος καλύπτεται από τα ακόλουθα συγγράμματα:</p>
-<div class="section" id="python">
-<h2>Python:<a class="headerlink" href="#python" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
-<ul class="simple">
-<li><p>Μανής, Γ., 2015. Εισαγωγή στον Προγραμματισμό με αρωγό τη γλώσσα Python.  Αθήνα: Σύνδεσμος Ελληνικών Ακαδημαϊκών Βιβλιοθηκών. Διαθέσιμο στο: <a class="reference external" href="http://hdl.handle.net/11419/2745">http://hdl.handle.net/11419/2745</a></p></li>
-<li><p>Καλαφατούδης Σ., Σταμούλης Γ., 2018. Προγραμματισμός με την Python, Αθήνα, Εκδόσεις Νέων Τεχνολογιών.</p></li>
-<li><p>Αγγελιδάκης, Ν., 2015. Εισαγωγή στον προγραμματισμό με την Python, Ηράκλειο. βιβλ.] Διαθέσιμο στο: <a class="reference external" href="http://aggelid.mysch.gr/pythonbook/INTRODUCTION_TO_COMPUTER_PROGRAMMING_WITH_PYTHON.pdf">http://aggelid.mysch.gr/pythonbook/INTRODUCTION_TO_COMPUTER_PROGRAMMING_WITH_PYTHON.pdf</a></p></li>
-<li><p>Lawhead, J., 2019. Learning geospatial analysis with Python: understand GIS fundamentals and perform remote sensing data analysis using Python 3.7, Third edition. ed. Packt Publishing, Birmingham Mumbai.</p></li>
-</ul>
-</div>
-<div class="section" id="r">
-<h2>R:<a class="headerlink" href="#r" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
-<ul class="simple">
-<li><p>Βερύκιος B., Καγκλής B., Σταυρόπουλος H., 2015. Η επιστήμη των δεδομένων μέσα από τη γλώσσα R, Αθήνα: Σύνδεσμος Ελληνικών Ακαδημαϊκών Βιβλιοθηκών. Διαθέσιμο στο: <a class="reference external" href="http://hdl.handle.net/11419/2965">http://hdl.handle.net/11419/2965</a></p></li>
-<li><p>Καλογήρου, Σ., 2015. Χωρική ανάλυση. [ηλεκτρ. βιβλ.] Αθήνα:Σύνδεσμος Ελληνικών Ακαδημαϊκών Βιβλιοθηκών. Διαθέσιμο στο: <a class="reference external" href="http://hdl.handle.net/11419/5029">http://hdl.handle.net/11419/5029</a></p></li>
-<li><p>Ντζούφρας, Ι., Καρλής, Δ., 2015. Εισαγωγή στον προγραμματισμό και στη στατιστική ανάλυση με R. [ηλεκτρ. βιβλ.] Αθήνα:Σύνδεσμος Ελληνικών Ακαδημαϊκών Βιβλιοθηκών. Διαθέσιμο στο: <a class="reference external" href="http://hdl.handle.net/11419/2601">http://hdl.handle.net/11419/2601</a></p></li>
-</ul>
-</div>
+<p id="id2"><dl class="citation">
+<dt class="label" id="id6"><span class="brackets">1</span></dt>
+<dd><p>Νικόλαος Aγγελιδάκης. <em>Εισαγωγή στον προγραμματισμό με την Python</em>. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">2</span></dt>
+<dd><p>Thomas Cormen, editor. <em>Introduction to algorithms</em>. MIT Press, Cambridge, Mass, 3rd ed edition, 2009. ISBN 978-0-262-03384-8 978-0-262-53305-8. OCLC: ocn311310321.</p>
+</dd>
+</dl>
+</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -353,11 +245,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_13.html" title="προηγούμενο σελίδα">
+    <a class='left-prev' id="prev-link" href="Lesson_1.html" title="προηγούμενο σελίδα">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">13. Ανάλυση ψηφιδωτών δεδομένων</p>
+            <p class="prev-next-title">1. Εισαγωγή στον προγραμματισμό</p>
         </div>
     </a>
 </div>

@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/leonidas/anaconda3/lib/python3.7/asyncio/base_events.py", line 583, in run_until_complete
+    return future.result()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import graphviz
+
+f = graphviz.Digraph('finite_state_machine', filename='fsm.gv')
+f.attr(rankdir='LR', size='8,5')
+
+f.attr('node', shape='doublecircle')
+f.node('Αρχικό πρόγραμμα')
+
+
+f.attr('node', shape='rectangle')
+f.edge('Αρχικό πρόγραμμα', 'Μεταγλωττιστής')
+f.attr('node', shape='doublecircle')
+f.edge('Μεταγλωττιστής', 'Τελικό πρόγραμμα')
+f.attr('node', shape='rectangle')
+f.edge('Τελικό πρόγραμμα', 'Συνδετής')
+f.attr('node', shape='doublecircle', style='filled',fillcolor='lightgrey', color='blue')
+f.edge('Συνδετής', 'Εκτελέσιμο')
+
+f
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-00b6ee57d034>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mgraphviz[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mf[0m [0;34m=[0m [0mgraphviz[0m[0;34m.[0m[0mDigraph[0m[0;34m([0m[0;34m'finite_state_machine'[0m[0;34m,[0m [0mfilename[0m[0;34m=[0m[0;34m'fsm.gv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mf[0m[0;34m.[0m[0mattr[0m[0;34m([0m[0mrankdir[0m[0;34m=[0m[0;34m'LR'[0m[0;34m,[0m [0msize[0m[0;34m=[0m[0;34m'8,5'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'graphviz'
+ModuleNotFoundError: No module named 'graphviz'
+
