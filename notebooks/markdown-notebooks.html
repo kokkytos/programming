@@ -199,6 +199,9 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -323,8 +326,8 @@ See the YAML at the top of this page for example.</p></li>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "kokkytos/programming",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
