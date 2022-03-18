@@ -43,3 +43,6 @@ sphinx:
     language: el
   extra_extensions:
     - sphinx_proof
+
+launch_buttons:
+  thebe                  : true
