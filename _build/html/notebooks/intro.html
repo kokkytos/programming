@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -279,7 +282,19 @@ Development Environment, IDE).</p>
 <p>Η διαδικασία μετατροπής του πηγαίου κώδικα σε εκτελέσιμο αρχείο περιγράφεται στο παρακάτω διάγραμμα:</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_1_1_0.svg" src="../_images/Lesson_1_1_0.svg" /></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">00</span><span class="n">b6ee57d034</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">f</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;finite_state_machine&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fsm.gv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">f</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;8,5&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;graphviz&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="figure align-default" id="figure-programming">
 <a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 0px;" /></a>
@@ -307,14 +322,6 @@ Development Environment, IDE).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;an example&quot;</span>
-         <span class="o">^</span>
-<span class="ne">SyntaxError</span>: &#39;(&#39; was never closed
-</pre></div>
-</div>
-</div>
 </div>
 <ol class="simple">
 <li><p><em>σφάλμα εκτέλεσης</em> (run-time errors) τα οποία συμβαίνουν κατά την εκτέλεση του προγράμματος παρότι δεν υπάρχουν σφάλματα σύνταξης. Χαρακτηριστικά παραδείγματα τέτοιων λαθών είναι η διαίρεση με το μηδέν, η πρόσβαση σε ένα στοιχείο μιας λίστας εκτός του εύρους της, η ανάγνωση ενός αρχείου το οποίο δεν υπάρχει, ή η πρόσβαση σε ένα ανύπαρκτο object. Τα σφάλματα εκτέλεσης έχουν επικρατήσει να αναφέρονται και ως «bugs» <a class="footnote-reference brackets" href="#bug" id="id21">1</a>.
@@ -323,16 +330,6 @@ Development Environment, IDE).</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-
-<span class="ne">ZeroDivisionError</span>: division by zero
 </pre></div>
 </div>
 </div>
@@ -350,11 +347,6 @@ Development Environment, IDE).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο μέσος όρος των δύο αριθμών είναι: 8.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Το παραπάνω είναι σφάλμα λογικής γιατί έπρεπε να γραφτεί ως εξής (δώστε προσοχή στις παρενθέσεις που δίνουν προτεραιότητα στις πράξεις):</p>
 <div class="cell tag_raises-exception docutils container">
@@ -364,11 +356,6 @@ Development Environment, IDE).</p>
 
 <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ο μέσος όρος των δύο αριθμών είναι:&#39;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο μέσος όρος των δύο αριθμών είναι: 5.0
 </pre></div>
 </div>
 </div>
@@ -421,31 +408,6 @@ H Python είναι διαδραστική υπό την έννοια ότι ο 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="to-o-thonny">
@@ -453,7 +415,8 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 <p>Η συγγραφή κώδικα θα γίνει στο ολοκληρωμένο περιβάλλον ανάπτυξης (Integrated Development Environment, IDE) <a class="reference external" href="https://thonny.org/">thonny</a>.
 Δεν απαιτείται η προεγκατάσταση της Python καθώς το thonny έρχεται με ενσωματωμένη την γλώσσα προγραμματισμού Python 3.7 και διατίθεται για Windows, Mac και Linux.
 Το thonny αποτελεί εκπαιδευτικό περιβάλλον για την συγγραφή και αποσφαλμάτωση κώδικα Python. Για τον λόγο αυτό διαθέτει πολύ συγκεκριμένες αλλά ζωτικές λειτουργίες και δεν είναι επιφορτισμένο με δυνατότητες που απαιτούνται από προχωρημένους προγραμματιστές. Το Γραφικό Περιβάλλον Χρήστη (GUI, Graphical User Interface) είναι λιτό ώστε να μην αποπροσανατολίζει τον αρχάριο χρήστη. Το thonny παρέχει βοηθητικές λειτουργίες για τον χρήστη όπως είναι η σήμανση συντακτικών λαθών, η αυτόματη συμπλήρωση κώδικα και η ευκολία στην επέκταση των λειτουργίων της Python με την εγκατάσταση συμπληρωματικών πακέτων.</p>
-<p>Ενναλλακτικά, στους χρήστες παρέχεται online περιβάλλον ανάπτυξης που βασίζεται στο <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a>. Η χρήση του δεν απαιτεί την εγκατάσταση λογισμικού παρά μόνον έναν απλό φυλλομετρητή (προτείνεται Chrome, Safari ή Firefox). Το online περιβάλλον Jupyter είναι προσβάσιμο από εδώ:</p>
+<p>Ενναλλακτικά, στους χρήστες παρέχεται online περιβάλλον ανάπτυξης που βασίζεται στο <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a>. Η χρήση του δεν απαιτεί την εγκατάσταση λογισμικού παρά μόνον έναν απλό φυλλομετρητή (προτείνεται Chrome, Safari ή Firefox). Το online περιβάλλον Jupyter είναι προσβάσιμο από εδώ:
+<a class="reference external" href="https://kokkytos.github.io/programming">https://kokkytos.github.io/programming</a></p>
 <div class="figure align-default" id="figure-thonny">
 <a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Εικ. 3 </span><span class="caption-text">Το περιβάλλον εργασία thonny.</span><a class="headerlink" href="#figure-thonny" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">¶</a></p>
@@ -471,11 +434,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
-</pre></div>
-</div>
-</div>
 </div>
 <p>Τι παρατηρείτε; Η Python λειτούργησε σαν μια απλή αριθμομηχανή.</p>
 <p>Στην συνέχεια δοκιμάστε να τρέξετε την παρακάτω εντολή γραμμή προς γραμμή:</p>
@@ -488,11 +446,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
-</pre></div>
-</div>
-</div>
 </div>
 <p>Το αποτέλεσμα είναι το ίδιο με το προηγούμενο.</p>
 <p>Δώστε την παρακάτω εντολή. Αντικαταστήστε την συμβολοσειρά <em>AnyName</em> με το ονομά σας.</p>
@@ -502,20 +455,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Εκτύπωση&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>  <span class="n">name</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Εκτύπωση 0 : AnyName
-Εκτύπωση 1 : AnyName
-Εκτύπωση 2 : AnyName
-Εκτύπωση 3 : AnyName
-Εκτύπωση 4 : AnyName
-Εκτύπωση 5 : AnyName
-Εκτύπωση 6 : AnyName
-Εκτύπωση 7 : AnyName
-Εκτύπωση 8 : AnyName
-Εκτύπωση 9 : AnyName
 </pre></div>
 </div>
 </div>
@@ -537,11 +476,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Είσαι ακίνητος&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
     <span class="k">if</span> <span class="n">speed</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Τρέχεις αργά&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Τρέχεις γρήγορα
 </pre></div>
 </div>
 </div>
@@ -586,8 +520,8 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "kokkytos/programming",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
