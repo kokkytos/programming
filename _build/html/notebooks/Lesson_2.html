@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Τιμές, τύποι και μεταβλητές &#8212; Προγραμματισμός Η/Υ</title>
+    <title>2. Τιμές, τύποι και μεταβλητές. Συμβολοσειρές &#8212; Προγραμματισμός Η/Υ</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="Βιβλιογραφία" href="bibliography.html" />
+    <link rel="prev" title="1. Εισαγωγή στον προγραμματισμό" href="Lesson_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
     
@@ -95,10 +97,15 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Lesson_1.html">
    1. Εισαγωγή στον προγραμματισμό
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
   </a>
  </li>
  <li class="toctree-l1">
@@ -208,6 +215,89 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Περιεχόμενα
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   Σταθερές (Constants)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literal-constants">
+   Κυριολεκτικές σταθερές (literal constants)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Τύποι δεδομένων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strings">
+   Συμβολοσειρές (Strings)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Χαρακτήρες διαφυγής,κενά, νέες γραμμές
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raw-strings">
+   Ανεπεξέργαστες συμβολοσειρές (Raw Strings)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Αφαίρεση κενών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenation">
+   Συνένωση (Concatenation) συμβολοσειρών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Συνένωση συμβολοσειρών και μεταβλητών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format">
+   Η μέθοδος format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reserved-words">
+   Δεσμευμένες λέξεις (reserved words)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-case">
+   Αλλαγή Πεζών Κεφαλαίων (Convert case)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Μήκος συμβολοσειράς
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find">
+   Η μέθοδος find
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -215,11 +305,94 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2.  Τιμές, τύποι και μεταβλητές</h1>
+                <h1>2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Περιεχόμενα </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   Σταθερές (Constants)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literal-constants">
+   Κυριολεκτικές σταθερές (literal constants)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Τύποι δεδομένων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strings">
+   Συμβολοσειρές (Strings)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Χαρακτήρες διαφυγής,κενά, νέες γραμμές
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raw-strings">
+   Ανεπεξέργαστες συμβολοσειρές (Raw Strings)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Αφαίρεση κενών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenation">
+   Συνένωση (Concatenation) συμβολοσειρών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Συνένωση συμβολοσειρών και μεταβλητών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format">
+   Η μέθοδος format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reserved-words">
+   Δεσμευμένες λέξεις (reserved words)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-case">
+   Αλλαγή Πεζών Κεφαλαίων (Convert case)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Μήκος συμβολοσειράς
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find">
+   Η μέθοδος find
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -227,16 +400,468 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>2.  Τιμές, τύποι και μεταβλητές<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<h1>2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div class="section" id="constants">
+<h2>Σταθερές (Constants)<a class="headerlink" href="#constants" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>H Python δεν διαθέτει προκαθορισμένες <em>σταθερές</em> όπως άλλες γλώσσες προγραμματισμού.
+Όμως κατά σύμβαση και όχι κατά κανόνα έχει συμφωνηθεί οι <em>σταθερές</em> να ονοματίζονται με κεφαλαίους χαρακτήρες.
+Η αδυναμία της Python στην περίπτωση της δήλωσης <em>σταθερών</em> είναι ότι επιτρέπεται η αλλαγή των τιμών τους
+Παρακάτω παρατίθεται ένα παράδειγμα δήλωσης <em>σταθερών</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RATIO_FEET_TO_METERS</span> <span class="o">=</span> <span class="mf">3.281</span>
+<span class="n">RATIO_LB_TO_KG</span> <span class="o">=</span> <span class="mf">2.205</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="literal-constants">
+<h2>Κυριολεκτικές σταθερές (literal constants)<a class="headerlink" href="#literal-constants" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η κυριολεκτική <em>σταθερά</em> ή τιμή είναι ένας αριθμός, ή χαρακτήρας ή μιά συμβολοσειρά. Για παράδειγμα τα παρακάτω
+αποτελούν τιμές: <em>3.25</em> (στην python η υποδιαστολή ορίζεται με . και όχι ,), <em>«ένα τυχαίο κείμενο»</em>,  <em>5.25e-1</em>.
+Αυτές οι τιμές δεν μεταβάλλονται κατά τη διάρκεια εκτέλεσης του προγράμματος γι” αυτό και λέγονται σταθερές. Μπορούν να εκχωρηθούν σε μεταβλητές
+και να χρησιμοποιηθούν σαν τελεστέοι σε λογικές εκφράσεις ή σαν παραμέτροι σε συναρτήσεις.</p>
+</div>
+<div class="section" id="id2">
+<h2>Τύποι δεδομένων<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Οι τιμές ανήκουν σε τρεις τύπους δεδομένων (data types) ή κλάσσεις (class):</p>
+<ul class="simple">
+<li><p>τους ακέραιους αριθμούς (integer) π.χ. το 15</p></li>
+<li><p>τους αριθμούς κινητής υποδιαστολής (floating point) π.χ. το 201.25)</p></li>
+<li><p>τις συμβολοσειρές (string) π.χ. το «Time is money»</p></li>
+</ul>
+<p>Με την εντολή <code class="docutils literal notranslate"><span class="pre">type</span></code> ο διερμηνευτής μας απαντάει με τον τύπο της τιμής, όπως παρακάτω:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;No news, good news.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
+</div>
+</div>
+</div>
+<p>Η Python είναι <em>Dynamic typing</em> δηλαδή δεν ο τύπος των μεταβλητών δεν προκαθορίζεται κατά την συγγραφή αλλά κατά την εκτέλεση.</p>
+</div>
+<div class="section" id="strings">
+<h2>Συμβολοσειρές (Strings)<a class="headerlink" href="#strings" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μια συμβολοσειρά είναι μια ακολουθία από χαρακτήρες όπως το <code class="docutils literal notranslate"><span class="pre">&quot;Το</span> <span class="pre">πεπρωμένον</span> <span class="pre">φυγείν</span> <span class="pre">αδύνατον.&quot;</span></code>.
+Μπορεί να είναι σε κάθε γλώσσα που υποστηρίζεται από το πρώτυπου Unicode. Οι συμβολοσειρές περικλείονται σε μονά, διπλά ή τριπλά εισαγωγικά.
+Με τριπλά εισαγωγικά μπορούν να ενσωματωθούν με ευκολία συμβολοσειρές σε πολλές γραμμές και πολλαπλά εισαγωγικά εντός αυτόν.
+Ακολουθούν παραδείγματα συμβολοσειρά.</p>
+</div>
+<div class="section" id="id3">
+<h2>Χαρακτήρες διαφυγής,κενά, νέες γραμμές<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μπορούμε να σπάσουμε μια συμβολοσειρά κατά την συγγραφή σε νέα γραμμή με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\</span></code> και κατά την εκτέλεση με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\n</span></code> π.χ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;There is no smoke </span><span class="se">\</span>
+<span class="s1">without fire&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no smoke without fire
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;There is no smoke </span><span class="se">\n</span><span class="s1">without fire&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no smoke 
+without fire
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ή να ορίσουμε κενά με το <code class="docutils literal notranslate"><span class="pre">\t</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;There is no smoke </span><span class="se">\t</span><span class="s1">without fire&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no smoke 	without fire
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ο χαρακτήρας <code class="docutils literal notranslate"><span class="pre">\</span></code> είναι χαρακτήρας διαφυγής που απενεργοποιεί την ειδική λειτουργία των παραπάνω ή την παράθεση εισαγωγικών μεσα σε εισαγωγικά.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no smoke </span><span class="se">\\</span><span class="s1">n without fire&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no smoke \n without fire
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Where there</span><span class="se">\&#39;</span><span class="s1">s a will, there</span><span class="se">\&#39;</span><span class="s1">s a way&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Where there&#39;s a will, there&#39;s a way
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="raw-strings">
+<h2>Ανεπεξέργαστες συμβολοσειρές (Raw Strings)<a class="headerlink" href="#raw-strings" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Παρόμοιο αποτέλεσμα με τα παραπάνω πετυχαίνουμε τις ανεπεξέργαστες συμβολοσειρές οι οποίες ορίζονται με ένα r σαν πρόθεμα</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;It was made by \n συνέχεια&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It was made by \n συνέχεια
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Αφαίρεση κενών<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Σε αρκετές περιπτώσεις οι συμβολοσειρές περιέχουν κενά είτε στην αρχή είτε στο τέλος.
+Για παράδειγμα οι παρακάτω συμβολοσειρές δεν είναι το ίδιες για την Python. Και επιβεβαιώνεται σε μέσω ελέγχου ισότητας.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">departmentA</span><span class="o">=</span><span class="s1">&#39;ΤΜΧΠΑ&#39;</span>
+<span class="n">departmentB</span> <span class="o">=</span> <span class="s1">&#39; ΤΜΧΠΑ &#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">departmentA</span> <span class="o">==</span> <span class="n">departmentB</span><span class="p">)</span> <span class="c1">#not equal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για την αφαίρεση των κένων αριστερά, δεξιά ή ταυτόχρονα και στις δύο πλευρές της συμβολοσειρας χρησιμοποιούμε την μέθοδο <code class="docutils literal notranslate"><span class="pre">strip</span></code> και τις παραλλαγές της <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> και <code class="docutils literal notranslate"><span class="pre">lstrip</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">departmentB</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">departmentB</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">departmentB</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ΤΜΧΠΑ
+ΤΜΧΠΑ 
+ΤΜΧΠΑ
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatenation">
+<h2>Συνένωση (Concatenation) συμβολοσειρών<a class="headerlink" href="#concatenation" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η απλή παράθεση συμβολοσειρών οδηγεί στην συνενωσή τους δηλ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Curiosity &quot;</span> <span class="s2">&quot;killed &quot;</span> <span class="s1">&#39;the &#39;</span> <span class="s1">&#39;&#39;&#39;cat&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Curiosity killed the cat
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Συνένωση συμβολοσειρών και μεταβλητών<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η συνένωση μεταβλητών και συμβολοσειρών γίνεται με τον τελεστη <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span><span class="o">=</span><span class="s1">&#39;Βόλος&#39;</span>
+<span class="n">perifereia</span><span class="o">=</span><span class="s1">&#39;Θεσσαλία&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O &#39;</span><span class="o">+</span><span class="n">city</span><span class="o">+</span><span class="s1">&#39; είναι πόλη της Ελλάδα στην &#39;</span> <span class="o">+</span><span class="n">perifereia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O Βόλος είναι πόλη της Ελλάδα στην Θεσσαλία
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="format">
+<h2>Η μέθοδος format<a class="headerlink" href="#format" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Άλλη μια πιο πρακτική μέθοδος κατά την συννένωση μεταβλητών και συμβολοσειρών είναι η μέθοδος format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O </span><span class="si">{0}</span><span class="s1"> έχει υψόμετρο </span><span class="si">{1}</span><span class="s1"> μέτρα&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Όλυμπος&quot;</span><span class="p">,</span> <span class="mi">2918</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O </span><span class="si">{}</span><span class="s1"> έχει υψόμετρο </span><span class="si">{}</span><span class="s1"> μέτρα&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Όλυμπος&quot;</span><span class="p">,</span> <span class="mi">2918</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O </span><span class="si">{name}</span><span class="s1"> έχει υψόμετρο </span><span class="si">{height}</span><span class="s1"> μέτρα&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Σμόλικας&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span> <span class="mi">2637</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O Όλυμπος έχει υψόμετρο 2918 μέτρα
+O Όλυμπος έχει υψόμετρο 2918 μέτρα
+O Σμόλικας έχει υψόμετρο 2637 μέτρα
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reserved-words">
+<h2>Δεσμευμένες λέξεις (reserved words)<a class="headerlink" href="#reserved-words" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Ορισμένες λέξεις έχουν ιδιαίτερη σημασία για την python και δεν μπορούν να χρησιμοποιηθούν σαν ονόματα μεταβλητών. Τα παρακάτω κομμάτια κώδικα θα εκδηλώσουν σφάλμα μεταγλώττισης.</p>
+<p>Πρόκειται για 33 λέξεις στην τρέχουσα έκδοση της Python.
+Μπορούμε να δούμε ποιές είναι αυτές οι δεσμεύνες λέξεις με την παρακάτω εντολή:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Here is a list of the Python keywords.  Enter any keyword to get more help.
+
+False               class               from                or
+None                continue            global              pass
+True                def                 if                  raise
+and                 del                 import              return
+as                  elif                in                  try
+assert              else                is                  while
+async               except              lambda              with
+await               finally             nonlocal            yield
+break               for                 not                 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Γενικά με την εντολή <code class="docutils literal notranslate"><span class="pre">help</span></code> καλούμε για βοήθεια και πληροφορίες την Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function abs in module builtins:
+
+abs(x, /)
+    Return the absolute value of the argument.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function max in module builtins:
+
+max(...)
+    max(iterable, *[, default=obj, key=func]) -&gt; value
+    max(arg1, arg2, *args, *[, key=func]) -&gt; value
+    
+    With a single iterable argument, return its biggest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the largest argument.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-case">
+<h2>Αλλαγή Πεζών Κεφαλαίων (Convert case)<a class="headerlink" href="#convert-case" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μπορούμε να κάνουμε αλλαγή ανάμεσα σε κεφαλαία και πεζά με τις παρακάτω μεθόδους συμβολοσειρών:<code class="docutils literal notranslate"><span class="pre">upper()</span></code>, <code class="docutils literal notranslate"><span class="pre">title()</span></code>, <code class="docutils literal notranslate"><span class="pre">lower()</span></code>.
+Αξίζει να σημειώσουμε ότι οι μέθοδοι αυτές δεν έχουν επίδραση στην μεταβλητή που τις καλούμε αλλά πρέπει να επαναεκχωρήσουμε το αποτέλεσμα της μεθόδου στην μεταβλητή με το ίδιο όνομα.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agios</span><span class="o">=</span><span class="s2">&quot;άγιος νικόλαος&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">agios</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">agios</span><span class="p">)</span> <span class="c1"># ο agios παραμένει &quot;άγιος νικόλαος&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">agios</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ΑΓΊΑ ΕΛΈΝΗ&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="n">agios</span> <span class="o">=</span> <span class="n">agios</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">agios</span><span class="p">)</span> <span class="c1"># ο agios μετά την εκχώρηση στην ίδια μεταβλητή γινεται ΆΓΙΟΣ ΝΙΚΌΛΑΟΣ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ΆΓΙΟΣ ΝΙΚΌΛΑΟΣ
+άγιος νικόλαος
+Άγιος Νικόλαος
+αγία ελένη
+ΆΓΙΟΣ ΝΙΚΌΛΑΟΣ
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Οι συμβολοσειρές αποτελούνται από ακολουθίες χαρακτήρων με σταθερό μέγεθος
+και μη μεταβαλλόμενα περιεχόμενα. Αυτό σημαίνει ότι δεν είναι δυνατόν να προστίθενται ή να αφαιρούνται
+χαρακτήρες, ούτε να τροποποιούνται τα περιεχόμενα του αλφαριθμητικού.
+Πρόκειται για μια μη μεταβαλλόμενη (immutable) δομή της Python.
+Η αρίθμηση των χαρακτήρων σε ένα αλφαριθμητικό ξεκινάει από το 0.</p>
+<p>Έτσι στην συμβολοσειρά <code class="docutils literal notranslate"><span class="pre">country</span> <span class="pre">=</span> <span class="pre">Ελλάδα</span></code> έχουμε:</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[0]</span></code> → Ε (η αρίθμηση ξεκινά από το 0)</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[1]</span></code> → λ</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[2]</span></code> → λ</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[3]</span></code> → ά</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[4]</span></code> → δ</p>
+<p><code class="docutils literal notranslate"><span class="pre">country[5]</span></code> → α</p>
+<p>Η παραπάνω συμβολοσειρά έχει μήκος 6 χαρακτήρες.</p>
+</div>
+<div class="section" id="id7">
+<h2>Μήκος συμβολοσειράς<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μέσω της συνάρτησης <code class="docutils literal notranslate"><span class="pre">len</span></code> η Python μας επιστρέφει το μήκος συμβολοσειράς δηλαδή το πλήθος των χαρακτήρων (μαζί με τα κενά) από τους οποιούς αποτελείται.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Ή τώρα ή ποτέ.&#39;</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="find">
+<h2>Η μέθοδος find<a class="headerlink" href="#find" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η μέθοδος <code class="docutils literal notranslate"><span class="pre">find</span></code> μας επιτρέπει να αναζητήσουμε μια συμβολοσειρά μέσα σε μια άλλη συμβολοσειρά.
+Η μέθοδος μας επιστρέφει την τοποθεσία από την ξεκινάει η αναζητούμενη συμβολοσειρά δηλαδή τον δείκτη (index) στην οποία εντοπίζεται
+ο πρώτος χαρακτηρας της αναζητούμενης συμβολοσειράς μέσα στα περιεχόμενα της αρχικής συμβολοσειράς.
+Στην παρακάτω συμβολοσειρά θα αναζητήσουμε την λέξη <code class="docutils literal notranslate"><span class="pre">ποτέ</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span> <span class="o">=</span> <span class="s1">&#39;Η Ελλάδα ποτέ δεν πεθαίνει&#39;</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">stixos</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ποτέ&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Κανονικά αν πάμε στον χαρακτήρα με ευρετηρίο (index) 9 πρέπει να εντοπίσουμε τον πρώτο χαρακτήρα της συμβολοσειράς που είναι το <code class="docutils literal notranslate"><span class="pre">π</span></code>.
+Πράγματι:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;π&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αν δεν εντοπιστεί η λέξη που αναζητούμε στην συμβολοσειρά η Python θα επιστρέψει: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;πάντα&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η αναζήτηση είναι case sensitive δηλαδή γίνεται διάκριση ανάμεσα σε πεζά και κεφαλαία.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Ελλάδα&#39;</span><span class="p">)</span> <span class="c1"># επιστρέφει τον δείκτη 2 γιατί εντοπίστηκε η λέξη κλειδί</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ΕΛΛΆΔΑ&#39;</span><span class="p">)</span> <span class="c1"># επιστρέφει -1 γιατί δεν εντοπίστηκε η λέξη κλειδί</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μια άλλη σημαντική μέθοδος των συμβολοσειρών είναι η μέθοδος <code class="docutils literal notranslate"><span class="pre">replace</span></code> κατά την οποία μπορούμε να αντικαταστήσουμε τα περιεχόμενα μιας συμβολοσειράς. Στην πρώτη παράμετρο ορίζουμε την συμβολοσειρά που θέλουμε να αντικαταστήσουμε με την δεύτερη παράμετρο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stixos</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ποτέ&#39;</span><span class="p">,</span> <span class="s1">&#39;πάντα&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Η Ελλάδα πάντα δεν πεθαίνει&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -266,7 +891,21 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Lesson_1.html" title="προηγούμενο σελίδα">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">προηγούμενο</p>
+            <p class="prev-next-title">1. Εισαγωγή στον προγραμματισμό</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bibliography.html" title="επόμενο σελίδα">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">Βιβλιογραφία</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
