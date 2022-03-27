@@ -52,7 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
-    <link rel="next" title="Βιβλιογραφία" href="bibliography.html" />
     <link rel="prev" title="1. Εισαγωγή στον προγραμματισμό" href="Lesson_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
@@ -106,11 +105,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bibliography.html">
-   Βιβλιογραφία
   </a>
  </li>
 </ul>
@@ -236,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Κανόνες ονοματοδοσίας μεταβλητών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#strings">
    Συμβολοσειρές (Strings)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id4">
    Χαρακτήρες διαφυγής,κενά, νέες γραμμές
   </a>
  </li>
@@ -251,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id5">
    Αφαίρεση κενών
   </a>
  </li>
@@ -261,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    Συνένωση συμβολοσειρών και μεταβλητών
   </a>
  </li>
@@ -276,17 +275,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#help">
+   Η εντολή help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#convert-case">
    Αλλαγή Πεζών Κεφαλαίων (Convert case)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    Μήκος συμβολοσειράς
   </a>
  </li>
@@ -331,12 +335,17 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Κανόνες ονοματοδοσίας μεταβλητών
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#strings">
    Συμβολοσειρές (Strings)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id4">
    Χαρακτήρες διαφυγής,κενά, νέες γραμμές
   </a>
  </li>
@@ -346,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id5">
    Αφαίρεση κενών
   </a>
  </li>
@@ -356,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    Συνένωση συμβολοσειρών και μεταβλητών
   </a>
  </li>
@@ -371,17 +380,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#help">
+   Η εντολή help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#convert-case">
    Αλλαγή Πεζών Κεφαλαίων (Convert case)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    Μήκος συμβολοσειράς
   </a>
  </li>
@@ -447,6 +461,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Η Python είναι <em>Dynamic typing</em> δηλαδή δεν ο τύπος των μεταβλητών δεν προκαθορίζεται κατά την συγγραφή αλλά κατά την εκτέλεση.</p>
 </div>
+<div class="section" id="id3">
+<h2>Κανόνες ονοματοδοσίας μεταβλητών<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Τα ονόματα των μεταβλητών στην Python υπακούουν στους παρακάτω κανόνες:</p>
+<ul class="simple">
+<li><p>Το όνομα μίας μεταβλητής μπορεί να ξεκινά από ένα γράμμα ή από κάτω πάυλα.</p></li>
+<li><p>Το όνομα μίας μεταβλητής δεν μπορεί με αριθμό.</p></li>
+<li><p>Το όνομα μίας μεταβλητής μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες.</p></li>
+<li><p>Στα ονόματα των μεταβλήτών γίνεται διάκριση ανάμεσα σε πεζά και κεφαλαία (case sensitive).</p></li>
+<li><p>Οι δεσμευμένες λέξεις της Python (keywords) δεν μπορούν να χρησιμοποιηθούν σε ονόματα μεταβλητών.</p></li>
+</ul>
+</div>
 <div class="section" id="strings">
 <h2>Συμβολοσειρές (Strings)<a class="headerlink" href="#strings" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Μια συμβολοσειρά είναι μια ακολουθία από χαρακτήρες όπως το <code class="docutils literal notranslate"><span class="pre">&quot;Το</span> <span class="pre">πεπρωμένον</span> <span class="pre">φυγείν</span> <span class="pre">αδύνατον.&quot;</span></code>.
@@ -454,8 +479,8 @@ const thebe_selector_output = ".output, .cell_output"
 Με τριπλά εισαγωγικά μπορούν να ενσωματωθούν με ευκολία συμβολοσειρές σε πολλές γραμμές και πολλαπλά εισαγωγικά εντός αυτόν.
 Ακολουθούν παραδείγματα συμβολοσειρά.</p>
 </div>
-<div class="section" id="id3">
-<h2>Χαρακτήρες διαφυγής,κενά, νέες γραμμές<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="section" id="id4">
+<h2>Χαρακτήρες διαφυγής,κενά, νέες γραμμές<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Μπορούμε να σπάσουμε μια συμβολοσειρά κατά την συγγραφή σε νέα γραμμή με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\</span></code> και κατά την εκτέλεση με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\n</span></code> π.χ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,8 +568,8 @@ without fire
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Αφαίρεση κενών<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="section" id="id5">
+<h2>Αφαίρεση κενών<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Σε αρκετές περιπτώσεις οι συμβολοσειρές περιέχουν κενά είτε στην αρχή είτε στο τέλος.
 Για παράδειγμα οι παρακάτω συμβολοσειρές δεν είναι το ίδιες για την Python. Και επιβεβαιώνεται σε μέσω ελέγχου ισότητας.</p>
 <div class="cell docutils container">
@@ -596,8 +621,8 @@ without fire
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>Συνένωση συμβολοσειρών και μεταβλητών<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="section" id="id6">
+<h2>Συνένωση συμβολοσειρών και μεταβλητών<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Η συνένωση μεταβλητών και συμβολοσειρών γίνεται με τον τελεστη <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -662,6 +687,9 @@ break               for                 not
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="help">
+<h2>Η εντολή help<a class="headerlink" href="#help" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Γενικά με την εντολή <code class="docutils literal notranslate"><span class="pre">help</span></code> καλούμε για βοήθεια και πληροφορίες την Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,8 +780,8 @@ max(...)
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="section" id="id7">
+<h2>Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Οι συμβολοσειρές αποτελούνται από ακολουθίες χαρακτήρων με σταθερό μέγεθος
 και μη μεταβαλλόμενα περιεχόμενα. Αυτό σημαίνει ότι δεν είναι δυνατόν να προστίθενται ή να αφαιρούνται
 χαρακτήρες, ούτε να τροποποιούνται τα περιεχόμενα του αλφαριθμητικού.
@@ -768,8 +796,8 @@ max(...)
 <p><code class="docutils literal notranslate"><span class="pre">country[5]</span></code> → α</p>
 <p>Η παραπάνω συμβολοσειρά έχει μήκος 6 χαρακτήρες.</p>
 </div>
-<div class="section" id="id7">
-<h2>Μήκος συμβολοσειράς<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="section" id="id8">
+<h2>Μήκος συμβολοσειράς<a class="headerlink" href="#id8" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Μέσω της συνάρτησης <code class="docutils literal notranslate"><span class="pre">len</span></code> η Python μας επιστρέφει το μήκος συμβολοσειράς δηλαδή το πλήθος των χαρακτήρων (μαζί με τα κενά) από τους οποιούς αποτελείται.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,13 +926,6 @@ max(...)
             <p class="prev-next-subtitle">προηγούμενο</p>
             <p class="prev-next-title">1. Εισαγωγή στον προγραμματισμό</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="επόμενο σελίδα">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">επόμενο</p>
-        <p class="prev-next-title">Βιβλιογραφία</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
