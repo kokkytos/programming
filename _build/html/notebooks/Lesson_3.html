@@ -329,7 +329,8 @@ Oι λίστες αποτελούνται από μία σειρά από στο
 και ένα στοιχείο σε μία λίστα μπορεί να υπάρχει περισσότερες από μία φορές.
 Μία λίστα μέσα σε μία άλλη λίστα ονομάζεται <strong>εμφωλευμένη λίστα</strong> (nested list).
 Επιπρόσθετα, τόσο οι λίστες όσο και οι συμβολοσειρές, που συμπεριφέρονται ως
-διατεταγμένες συλλογές τιμών, ονομάζονται <strong>ακολουθίες</strong> (sequences). Τα στοιχεία μιας λίστας διαχωρίζονται με κόμμα και περικλείονται σε τετράγωνες αγκύλες ([ και ]). Μία λίστα που δεν περιέχει στοιχεία ονομάζεται
+διατεταγμένες συλλογές τιμών, ονομάζονται <strong>ακολουθίες</strong> (sequences). Τα στοιχεία μιας λίστας διαχωρίζονται με κόμμα
+και περικλείονται σε τετράγωνες αγκύλες ([ και ]). Μία λίστα που δεν περιέχει στοιχεία ονομάζεται
 άδεια λίστα και συμβολίζεται με [] <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span>.</p>
 </div>
 </div><p>Παρακάτω δίνονται μερικά παραδείγματα από λίστες</p>
@@ -349,8 +350,8 @@ Oι λίστες αποτελούνται από μία σειρά από στο
 Η πρόσβαση στα στοιχεία της λίστας γίνεται μέσω του δείκτη ή της θέσης του κάθε στοιχείου.
 Το σημαντικό που πρέπει να συγκρατηθεί είναι ότι η αρίθμηση των στοιχείων σε μια λίστα ξεκινάει από το μηδεν.
 Το πρώτο στοιχείο έχει δείκτη 0, το δεύτερο 1 κ.ο.κ.
-Το τελευταίο στοιχείο στην λίστα έχει τον δείκτη -1, το δεύτερο στοιχείο από το τέλος τον δείκτη -1 κ.ο.κ.
-Δείτε στο παρακάτω παράδειγμα τι εκτυπώνεται με βάση την θέση του δηλώνουμε στην λιστα.</p>
+Το τελευταίο στοιχείο στην λίστα έχει τον δείκτη -1, το δεύτερο στοιχείο από το τέλος τον δείκτη -2 κ.ο.κ.
+Δείτε στο παρακάτω παράδειγμα τι εκτυπώνεται με βάση την θέση που δηλώνουμε στην λιστα.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;trek&#39;</span><span class="p">,</span> <span class="s1">&#39;cannondale&#39;</span><span class="p">,</span> <span class="s1">&#39;redline&#39;</span><span class="p">,</span> <span class="s1">&#39;specialized&#39;</span><span class="p">]</span>
@@ -456,7 +457,7 @@ specialized
 </div>
 </div>
 </div>
-<p>Μπορούμε να προσθέσουμε <strong>ένα</strong> στοιχεία σε μια λίστα με την μέθοδο <em>append</em> π.χ.</p>
+<p>Μπορούμε να προσθέσουμε <strong>ένα</strong> στοιχείο σε μια λίστα με την μέθοδο <em>append</em> π.χ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Δίας&#39;</span><span class="p">,</span> <span class="s1">&#39;Ερμής&#39;</span><span class="p">,</span> <span class="s1">&#39;Ποσειδώνας&#39;</span><span class="p">,</span> <span class="s1">&#39;Ήφαιστος&#39;</span><span class="p">]</span>
@@ -490,8 +491,8 @@ specialized
 </div>
 </div>
 <p>Μπορούμε να αφαιρέσουμε στοιχεία από μία λίστα με διάφορους τρόπους.</p>
-<p>με την πρόταση <em>del</em>
-Όταν γνωρίζουμε την θέση του στοιχείου που θέλουμε να αφαιρεθεί από μια λίστα χρησιμοποιούμαι την πρόταση <em>del</em>.
+<p>Με την πρόταση <em>del</em>:</p>
+<p>Όταν γνωρίζουμε την θέση του στοιχείου που θέλουμε να αφαιρεθεί από μια λίστα χρησιμοποιούμαι την πρόταση <em>del</em>.
 Για παράδειγμα</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,7 +500,7 @@ specialized
 <span class="k">del</span> <span class="n">gods</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gods</span><span class="p">)</span>
 
-<span class="c1"># Το μήκος άλλαξε και μερικές από τις αντιστοιχείες στην λίστα. Πλέον ο θεός στην θέση 2 είναι ο:</span>
+<span class="c1"># Το μήκος άλλαξε και μερικές από τις αντιστοιχίες στην λίστα. Πλέον ο θεός στην θέση 2 είναι ο:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gods</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -511,8 +512,8 @@ specialized
 </div>
 </div>
 </div>
-<p>με την μέθοδο <em>pop</em>
-Μία άλλη χρήσιμη μέθοδο για την αφαίρεση στοιχείων από μια λίστα είναι η μέθοδος <em>pop</em>.
+<p>Με την μέθοδο <em>pop</em>:</p>
+<p>Μία άλλη χρήσιμη μέθοδο για την αφαίρεση στοιχείων από μια λίστα είναι η μέθοδος <em>pop</em>.
 Μέσω της μεθόδου αυτής όχι απλά αφαιρείται το στοιχείο από την λίστα αλλά επιστρέφεται και ως τιμή διαθέσιμη να την εκμεταλλευτεί ο προγραμματιστής π.χ. σε μία νέα μεταβλητή.
 Δείτε το εξής παράδειγμα:</p>
 <div class="cell docutils container">
@@ -536,8 +537,8 @@ Alfa Romeo
 </div>
 </div>
 <p>Όπως φαίνεται από το παράδειγμα αν χρησιμοποιηθεί η μέθοδος pop() χωρίς δείκτη τότε αφαιρείται το τελευταίο στοιχείο της λίστας.</p>
-<p>με την μέθοδο <em>remove</em>
-Επιπλέον μπορούμε να αφαιρέσουμε στοιχεία από μία λίστα με την χρήση μιας τιμής και όχι με βάση τον δείκτη.
+<p>Με την μέθοδο <em>remove</em>:</p>
+<p>Επιπλέον μπορούμε να αφαιρέσουμε στοιχεία από μία λίστα με την χρήση μιας τιμής και όχι με βάση τον δείκτη.
 Ωστόσο η παραπάνω τεχνική θα αφαιρέσει το πρώτο στοιχείο που θα εντοπιστεί με την τιμή αυτή.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +622,7 @@ Alfa Romeo
 </div>
 </div>
 <p>Εδώ πρέπει να δοθεί προσοχή. Γιατί ενώ η αρίθμηση των δεικτών ξεκινά από το 0 το μήκος της λίστας ξεκινά από το 1 για λίστα με ένα στοιχείο.
-Οπότε στο παρακάτω παράδειγμα θα λάβουμε σφάλμα εκτέλεσης αν πάμε να πάρουμε το 5ο και τελευταίο στοιχείο της λίστας. Γιατί αυτό ορίζεται με τον δείκτη 4.</p>
+Οπότε στο παρακάτω παράδειγμα θα λάβουμε σφάλμα εκτέλεσης αν πάμε να πάρουμε το 5ο και τελευταίο στοιχείο της λίστας. Γιατί αυτό ορίζεται με τον δείκτη 4 και όχι 5.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span><span class="o">=</span><span class="p">[</span> <span class="s2">&quot;Porsche&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfa Romeo&quot;</span><span class="p">,</span> <span class="s2">&quot;Renault&quot;</span><span class="p">,</span> <span class="s2">&quot;BMW&quot;</span><span class="p">,</span> <span class="s2">&quot;Audi&quot;</span> <span class="p">]</span>
