@@ -412,6 +412,20 @@ specialized
 </div>
 </div>
 </div>
+<p>Η μέθοδο index() μιας λίστας επιστρέφει το ευρετήριο (index) μιας τιμής:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;trek&#39;</span><span class="p">,</span> <span class="s1">&#39;cannondale&#39;</span><span class="p">,</span> <span class="s1">&#39;redline&#39;</span><span class="p">,</span> <span class="s1">&#39;specialized&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bicycles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;redline&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
 <p>Σε αντίθεση με τις συμβολοσειρές (strings) οι λίστες είναι μεταβαλλόμενες δομές δεδομένων.
 Αυτό σημαίνει ότι μπορoύμε να τροποποιήσουμε τα στοιχεία της λίστα, να προσθέσουμε νέα ή να αφαιρέσουμε.</p>
 <p>Για παράδειγμα μπορούμε να τροποποιήσουμε τα στοιχεία μιας λίστας ως εξής:</p>
@@ -637,7 +651,7 @@ Alfa Romeo
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [17],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cars</span><span class="o">=</span><span class="p">[</span> <span class="s2">&quot;Porsche&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfa Romeo&quot;</span><span class="p">,</span> <span class="s2">&quot;Renault&quot;</span><span class="p">,</span> <span class="s2">&quot;BMW&quot;</span><span class="p">,</span> <span class="s2">&quot;Audi&quot;</span> <span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Το μήκος της λίστας (πλήθος στοιχείων) είναι: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cars</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
