@@ -8,7 +8,7 @@ chapters:
 - file: notebooks/Lesson_2
 - file: notebooks/Lesson_3
 - file: notebooks/Lesson_4
-#- file: notebooks/Lesson_5
+- file: notebooks/Lesson_5
 #- file: notebooks/Lesson_6
 #- file: notebooks/Lesson_7
 #- file: notebooks/Lesson_8
