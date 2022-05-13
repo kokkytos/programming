@@ -1,0 +1,1541 @@
+
+<!DOCTYPE html>
+
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών &#8212; Προγραμματισμός Η/Υ</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Ευρετήριο" href="../genindex.html" />
+    <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="prev" title="5. Έλεγχος ροής εκτέλεσης" href="Lesson_5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="el">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Προγραμματισμός Η/Υ
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_1.html">
+   1. Εισαγωγή στον προγραμματισμό
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_2.html">
+   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_3.html">
+   3. Λίστες. Εκφράσεις, τελεστές
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_4.html">
+   4. Πλειάδες και λεξικά
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_5.html">
+   5. Έλεγχος ροής εκτέλεσης
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
+                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_7.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
+                    class="fab fa-github"></i>αποθήκη</button></a>
+        <a class="issues-button"
+            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_7.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_7.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Περιεχόμενα
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Ανάγνωση &amp; εγγραφή αρχείων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pickle">
+   Σειριοποίηση (pickle)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Ανάκτηση περιεχομένων φακέλου
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Δημιουργία καταλόγων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Διαγραφή αρχείων και φακέλων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Αντιγραφή αρχείων και φακέλων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Μετακίνηση
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Μετονομασία
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Βιβλιογραφία
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>7. Ανάγνωση & εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Περιεχόμενα </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Ανάγνωση &amp; εγγραφή αρχείων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pickle">
+   Σειριοποίηση (pickle)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Ανάκτηση περιεχομένων φακέλου
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Δημιουργία καταλόγων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Διαγραφή αρχείων και φακέλων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Αντιγραφή αρχείων και φακέλων
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Μετακίνηση
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Μετονομασία
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Βιβλιογραφία
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<p>Πριν ξεκινήσουμε την επίδειξη των εντολών για το σημερινό μάθημα, θα πρέπει να εισάγουμε μερικές απαραίτητες βιβλιοθήκες και να ορίσουμε τον τρέχων κατάλογο στη Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">TemporaryFile</span><span class="p">,</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="c1"># εκτύπωση τρέχοντος καταλόγου στην Python</span>
+
+
+
+<span class="n">path</span><span class="o">=</span><span class="s2">&quot;./some_directory/&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># ορισμός τρέχοντος καταλόγου</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="c1"># επιβεβαίωση του τρέχοντος καταλόγου στην Python </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks
+/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Ανάγνωση &amp; εγγραφή αρχείων<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μπορούμε να ανοίξουμε ένα αρχείο με την μέθοδο open, να δούμε μερικές ιδιότητες του και να το κλείσουμε</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myfile</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Name of the file: &quot;</span><span class="p">,</span> <span class="n">myfile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Closed or not : &quot;</span><span class="p">,</span> <span class="n">myfile</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Opening mode : &quot;</span><span class="p">,</span> <span class="n">myfile</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myfile</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name of the file:  foo.txt
+Closed or not :  False
+Opening mode :  r
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την μέθοδο write() και με παράμετρους το όνομα του αρχείου και την επιλογή προσπέλασης «w» (w= εγγραφή, r= ανάγνωση, a=προσθήκ)
+σε ένα ανοικτό αρχείο μπορούμε να γράψουμε σε αυτό περιεχόμενο. Πάντα πρέπει να κλείνουμε το ανοικτό αρχείο με την μέθοδο close().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a file</span>
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="c1"># Σημαντική παράμετρος το &quot;w&quot;</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s2">&quot;Ένα ταξίδι χιλίων χιλιομέτρων αρχίζει με ένα βήμα.</span><span class="se">\n</span><span class="s2">Λάο Τσε, 6ος αιώνας π.Χ., Κινέζος φιλόσοφος&quot;</span><span class="p">)</span>
+<span class="c1"># Close opend file</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Επιβεβαιώνουμε ότι όντως έγινε η εγγραφή διαβάζοντας το αρχείο με την μέθοδο read() η οποία διαβάζει όλο το περιεχόμενο με την μία από το αρχείο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a file</span>
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1"># Σημαντική παράμετρος το &quot;w&quot;</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Close opened file</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ένα ταξίδι χιλίων χιλιομέτρων αρχίζει με ένα βήμα.
+Λάο Τσε, 6ος αιώνας π.Χ., Κινέζος φιλόσοφος
+</pre></div>
+</div>
+</div>
+</div>
+<p>Επειδή υπάρχει ο κίνδυνος να καλέσουμε την μέθοδο close() σε ένα ανοικτό αρχείο, μπορούμε εναλλακτικά να ανοίξουμε ένα αρχείο με το <em>with</em>. Σε αυτήν την περίπτωση το αρχείο κλείνει αυτόματα όταν ολοκληρωθεί το μπλοκ εντολών εντός του with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="c1"># Note: readlines doesn&#39;t trim the line endings</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ένα ταξίδι χιλίων χιλιομέτρων αρχίζει με ένα βήμα.
+Λάο Τσε, 6ος αιώνας π.Χ., Κινέζος φιλόσοφος
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η μέθοδος read() δέχεται όρισμα την θέση από την οποία ξεκινά η ανάγνωση του περιεχομένου κειμένου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ένα ταξίδι
+ χιλίων χι
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την χρήση της μεθόδου readlines() προσαρτούμε κάθε νέα γραμμή στο αρχείο σε μια λίστα. Όμως ο χαρακτήρας που ορίζει την νέα σειρά (\n) δεν αγνοείται από την ανάγνωση.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="c1"># Note: readlines doesn&#39;t trim the line endings</span>
+    <span class="n">dog_breeds</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">dog_breeds</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">dog_breeds</span><span class="p">]</span> <span class="c1"># μπορούμε να αφαιρέσουμ τα new line characters με αυτόν τον τρόπο</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dog_breeds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την χρήση του with μπορούμε να εγγράψουμε δεδομένα κιόλας. Σημαντική παράμετρος το “w” κατά το open() και η μέθοδος write().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds_reversed.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="c1"># Alternatively you could use</span>
+    <span class="c1"># writer.writelines(reversed(dog_breeds))</span>
+
+    <span class="c1"># Write the dog breeds to the file in reversed order</span>
+    <span class="k">for</span> <span class="n">breed</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">dog_breeds</span><span class="p">):</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">breed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με το όρισμα “a” κατά το άνοιγμα ενός αρχείου μπορούμε να εγγράψουμε σε ένα αρχείο χωρίς να διαγραφεί το προηγούμενο περιεχόμενο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">a_writer</span><span class="p">:</span>
+    <span class="n">a_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Beagle</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pug
+Jack Russell Terrier
+English Springer Spaniel
+German Shepherd
+Staffordshire Bull Terrier
+Cavalier King Charles Spaniel
+Golden Retriever
+West Highland White Terrier
+Boxer
+Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να χρησιμοποιήσουμε παράλληλα δύο αρχείο με τις αντίστοιχες παραμέτρους ανάγνωσης, ή εγγραφής ή προσθήκης μέσω του with ως εξής:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_path</span> <span class="o">=</span> <span class="s1">&#39;dog_breeds.txt&#39;</span>
+<span class="n">d_r_path</span> <span class="o">=</span> <span class="s1">&#39;dog_breeds_reversed.txt&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">d_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">d_r_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="n">dog_breeds</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">dog_breeds</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="c1"># Read and print the entire file line by line</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">line</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>  <span class="c1"># The EOF char is an empty string</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pug
+Jack Russell Terrier
+English Springer Spaniel
+German Shepherd
+Staffordshire Bull Terrier
+Cavalier King Charles Spaniel
+Golden Retriever
+West Highland White Terrier
+Boxer
+Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να διαβάσουμε γραμμή - γραμμή το περιεχόμενο ενός αρχείου μέσω ενός loop στην λίστα γραμμών που μας προσφέρει η μέθοδος readlines()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pug
+Jack Russell Terrier
+English Springer Spaniel
+German Shepherd
+Staffordshire Bull Terrier
+Cavalier King Charles Spaniel
+Golden Retriever
+West Highland White Terrier
+Boxer
+Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+</pre></div>
+</div>
+</div>
+</div>
+<p>Και για περισσότερο ευανάγνωστο κώδικα η Python μας δίνει την δυνατότητα να κάνουμε loop μέσω του reader object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dog_breeds.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="c1"># Read and print the entire file line by line</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># use end=&#39;&#39; το avoid new line after each print statement</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pug
+Jack Russell Terrier
+English Springer Spaniel
+German Shepherd
+Staffordshire Bull Terrier
+Cavalier King Charles Spaniel
+Golden Retriever
+West Highland White Terrier
+Boxer
+Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pickle">
+<h2>Σειριοποίηση (pickle)<a class="headerlink" href="#pickle" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μέσω της σειριοποίησης μπορούμε να αποθηκεύσουμε σε ένα binary αρχείο τα αντικείμενα της python με τις ιδιότητές τους. Όχι μόνον σαν απλές συμβολοσειρές. Στο παρακάτω κομμάτι κώδικα θα αποθηκεύσουμε μία λίστα και μια μεταβλήτή σε ένα αρχείο με την βοήθεια της βιβλιοθήκης pickle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="s1">&#39;tree&#39;</span><span class="p">]</span>
+<span class="n">pi</span><span class="o">=</span><span class="mf">3.14</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pickle.txt&#39;</span><span class="p">,</span>  <span class="s1">&#39;ab&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_writer</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="n">pickle_writer</span><span class="p">)</span>  
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">pickle_writer</span><span class="p">)</span>      
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αφού έχουμε αποθηκεύσει τα σχετικά object σε ένα αρχείο, μπορούμε σε μεταγενέστερα στάδια του κώδικα να τα ανακαλέσουμε αυτούσια μέσω της ανάγνωσης αυτού του αρχείου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pickle.txt&#39;</span><span class="p">,</span>  <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_read</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_read</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+[&#39;one&#39;, 2, &#39;tree&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Ανάκτηση περιεχομένων φακέλου<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Μέσω της μεθόδου os.scandir() μπορούμε να λάβουμε μια λίστα με τα αρχεία και τους φακέλους σε ένα κατάλογο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entries</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
+sub_dir
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
+file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># εναλλακτικά</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sub_dir2&#39;,
+ &#39;sub_dir&#39;,
+ &#39;dog_breeds_reversed.txt&#39;,
+ &#39;sub_dir3&#39;,
+ &#39;data_02.txt&#39;,
+ &#39;foo.txt&#39;,
+ &#39;data_02_backup.txt&#39;,
+ &#39;data_03_backup.txt&#39;,
+ &#39;data_01_backup.txt&#39;,
+ &#39;dog_breeds.txt&#39;,
+ &#39;2018&#39;,
+ &#39;example_directory&#39;,
+ &#39;pickle.txt&#39;,
+ &#39;file1.py&#39;,
+ &#39;data_03.txt&#39;,
+ &#39;data_01.txt&#39;,
+ &#39;tests.py&#39;,
+ &#39;admin.py&#39;,
+ &#39;admin2.py&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Εναλλακτικά</span>
+<span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">entries</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
+sub_dir
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
+file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εναλλακτικά το ίδιο μπορούμε να κάνουμε με την μέθοδο iterdir() σε ένα Path object από την βιβλιοθήκη pathlib</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entries</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
+sub_dir
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
+file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η μέθοδος is_file() μας επιτρέπει να τεστάρουμε αν ένα αντικείμενο τύπου Path είναι αρχείο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">basepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
+<span class="n">files_in_basepath</span> <span class="o">=</span> <span class="n">basepath</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">files_in_basepath</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog_breeds_reversed.txt
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
+file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η μέθοδος is_dir() μας επιτρέπει να τεστάρουμε αν ένα αντικείμενο τύπου Path είναι φάκελος (directory).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all subdirectory using pathlib</span>
+<span class="n">basepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">basepath</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
+sub_dir
+sub_dir3
+2018
+example_directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την μέθοδο stat() μπορούμε να δούμε χρήσιμες λεπτομέρεις για ένα αρχείο και να ανακτήσουμε δεδομένα όπως το μέγεθος του, το όνομά του και η τελευταία ημερομηνία/ώρα τροποποίησης (δίνεται σε seconds απο την 1/1/1970)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span> <span class="c1">#ορίστε έναν φάκελο. Στην συγκεκριμένη περίπτωση ορίζεται ο τρέχον κατάλογος.</span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">current_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span>
+    
+    <span class="n">size</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">st_size</span>
+    <span class="n">modification_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span> <span class="c1"># st_time=  the number of seconds passed since 1st January 1970 (epoch)</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">path</span><span class="o">.</span><span class="n">name</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Όνομα αρχείου:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Μέγεθος: &quot;</span><span class="p">,</span><span class="n">size</span><span class="p">)</span> <span class="c1"># το μέγεθος του αρχείου σε bytes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Ημερομηνία τελευταίας τροποποίησης&quot;</span><span class="p">,</span> <span class="n">modification_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: sub_dir2
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
+
+Όνομα αρχείου: sub_dir
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
+
+Όνομα αρχείου: dog_breeds_reversed.txt
+	Μέγεθος:  231
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.900279+00:00
+
+Όνομα αρχείου: sub_dir3
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
+
+Όνομα αρχείου: data_02.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: foo.txt
+	Μέγεθος:  168
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.816279+00:00
+
+Όνομα αρχείου: data_02_backup.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: data_03_backup.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: data_01_backup.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: dog_breeds.txt
+	Μέγεθος:  231
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.880279+00:00
+
+Όνομα αρχείου: 2018
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.820793+00:00
+
+Όνομα αρχείου: example_directory
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
+
+Όνομα αρχείου: pickle.txt
+	Μέγεθος:  416
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.952278+00:00
+
+Όνομα αρχείου: file1.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: data_03.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: data_01.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: tests.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: admin.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
+
+Όνομα αρχείου: admin2.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:29:58.392404+00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μέσω του Path μπορούμε να φτιάξουμε και διαδρομές προς ένα κατάλογο του δίσκου μας</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build paths </span>
+
+<span class="n">in_file_1</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;in&quot;</span> <span class="o">/</span> <span class="s2">&quot;input.xlsx&quot;</span>
+<span class="n">out_file_1</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;out&quot;</span> <span class="o">/</span> <span class="s2">&quot;output.xlsx&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">in_file_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out_file_1</span><span class="p">)</span>
+
+<span class="c1"># or</span>
+
+<span class="n">in_file_2</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;in&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;input.xlsx&quot;</span><span class="p">)</span>
+<span class="n">out_file_2</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;output.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/in/input.xlsx
+/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/out/output.xlsx
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Δημιουργία καταλόγων<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Επιβεβαιώνουμε για μια ακόμη φορά τον τρέχοντα κατάλογο</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="c1"># pathlib object, εναλλακτικό του os.getcwd()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="c1"># print σαν συμβολοσειρά</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να δημιουργήσουμε καταλόγους με την μέθοδο mkdir()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create directory</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;example_directory/&#39;</span><span class="p">)</span> <span class="c1"># ορισμός absolute ή relative Path</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="c1"># δημιουργία καταλόγου</span>
+<span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ο κατάλογος </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2"> υπάρχει ήδη&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο κατάλογος example_directory υπάρχει ήδη
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># δημιουργία καταλόγου, αγνοεί την δημιουργία φακέλου αν αυτός υπάρχει ήδη</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;2018/10/05&#39;</span><span class="p">)</span> <span class="c1"># δημιουργία καταλόγου 05 και όλων των γονικών (parent) καταλόγων</span>
+<span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Είτε να αναζητήσουμε αρχεία και καταλόγους που περιλαμβάνου συγκεκριμένους χαρακτήρες στο ονομά τους</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">content</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Εύρεση αρχείων με καταληξη txt</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;*.txt&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sub_dir2&#39;, &#39;sub_dir&#39;, &#39;dog_breeds_reversed.txt&#39;, &#39;sub_dir3&#39;, &#39;data_02.txt&#39;, &#39;foo.txt&#39;, &#39;data_02_backup.txt&#39;, &#39;data_03_backup.txt&#39;, &#39;data_01_backup.txt&#39;, &#39;dog_breeds.txt&#39;, &#39;2018&#39;, &#39;example_directory&#39;, &#39;pickle.txt&#39;, &#39;file1.py&#39;, &#39;data_03.txt&#39;, &#39;data_01.txt&#39;, &#39;tests.py&#39;, &#39;admin.py&#39;, &#39;admin2.py&#39;]
+Εύρεση αρχείων με καταληξη txt
+
+dog_breeds_reversed.txt
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
+data_03.txt
+data_01.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εύρεση αρχείων που περιλαμβάνουν το όνομά τους έχει την παρακάτω μορφή:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data_*_backup.txt
+</pre></div>
+</div>
+<p>το αστεράκι (*) αντιπροσωπεύει οποιοδήποτε αριθμό χαρακτήρων μέσα στο όνομα.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;data_*_backup.txt&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εναλλακτικά με την χρήση της μεθόδου glob()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data_*_backup.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*[0-9]*backup.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>Οι παραπάνω αναζητήσεις αφορούσαν το περιεχόμενο μόνο στον τρέχοντα κατάλογο και όχι ταυτόχρονα και στους υποκείμενους καταλόγους (child) που υπάρχουν μέσα σε αυτόν. Για να αναζητήσουμε διαδοχικά και σε αυτούς τους καταλόγους χρησιμοποιούμε το παρακάτω πρόθεμα πριν από το κριτήριο αναζήτησης **/</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append &quot;**/&quot; before the search term in pattern to recursively search this directory </span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;**/*.py&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
+tests.py
+admin.py
+admin2.py
+sub_dir2/file2.py
+sub_dir2/file1.py
+sub_dir/file2.py
+sub_dir/file1.py
+sub_dir3/file2.py
+sub_dir3/file1.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># αναζήτηση για ότι περιέχει f και 1 στο filename</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;**/f*1*&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
+sub_dir2/file1.py
+sub_dir/file1.py
+sub_dir3/file1.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για να ανατρέξουμε διαδοχικά σε όλους του φακέλους ενός καταλόγου χρησιμοποιούμε την μέθοδo os.walk</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># walk</span>
+<span class="c1"># Walking a directory tree and printing the names of the directories and files</span>
+<span class="k">for</span> <span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found directory: </span><span class="si">{</span><span class="n">dirpath</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found directory: ./sub_dir2
+file2.py
+file1.py
+Found directory: ./sub_dir
+file2.py
+file1.py
+Found directory: ./sub_dir3
+file2.py
+file1.py
+Found directory: ./2018/10/05
+Found directory: ./2018/10
+Found directory: ./2018
+Found directory: ./example_directory
+Found directory: .
+dog_breeds_reversed.txt
+data_02.txt
+foo.txt
+data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
+file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την python μπορούμε να δημιουργήσουμε προσωρινά αρχεία και καταλόγους οι οποιού παύουν να υπάρχουν μετά την εκτέλεση του κώδικα. Αυτό γίνεται με την βοήθεια του αρθρώματος (module) tempfile και της συνάρτησης  TemporaryFile() και TemporaryDirectory()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">TemporaryFile</span>
+
+<span class="c1"># temporary files</span>
+<span class="k">with</span> <span class="n">TemporaryFile</span><span class="p">(</span><span class="s1">&#39;w+t&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello universe!&#39;</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="c1"># File is now closed and removed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello universe!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fp.seek(0)</span>
+<span class="c1">#print(fp.read())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdir</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Created temporary directory &#39;</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span>
+
+
+<span class="c1"># Directory contents have been removed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpq28ebwhq
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmpdir</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmpq28ebwhq&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Διαγραφή αρχείων και φακέλων<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Με την μέθοδο unlink() μπορούμε να διαγράψουμε έναν <strong>άδειο</strong> κατάλογο ή ένα αρχείο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data_04.txt&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">data_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Το αρχείο υπάρχει και θα διαγραφεί&quot;</span><span class="p">)</span>
+    <span class="n">data_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Το αρχείο δεν υπάρχει&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το αρχείο δεν υπάρχει
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># διαγραφή άδειου φακέλου</span>
+<span class="n">my_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./tmp&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">my_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Το directory υπάρχει και θα διαγραφεί&quot;</span><span class="p">)</span>
+    <span class="n">my_dir</span><span class="o">.</span><span class="n">rmdir</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Το directory δεν υπάρχει&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το directory δεν υπάρχει
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αν θέλουμε να διαγράψουμε έναν κατάλογο με περιεχόμενα τότε χρησιμοποιούμε η συνάρτηση rmtree() από την βιβλιοθήκη shutil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># διαγραφή φακέλου με περιεχόμενα</span>
+
+<span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./tmp2&#39;</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Αντιγραφή αρχείων και φακέλων<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Ταυτόχρονα μπορούμε να αντιγράψουμε αρχεία με την συνάρτηση copy() πάλι από το άρθρωμα shutil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Αντιγραφή αρχείου</span>
+
+<span class="n">src</span> <span class="o">=</span> <span class="s1">&#39;admin.py&#39;</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="s1">&#39;admin2.py&#39;</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;admin2.py&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>ή ολόκληρους καταλόγους μέσω της συνάρτησης copytree() πάλι από το ίδιο άρθρωμα.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s1">&#39;sub_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_dir3&#39;</span><span class="p">,</span> <span class="n">dirs_exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sub_dir3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Μετακίνηση<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>ή ακόμα και να μετακινήσουμε αρχεία και καταλόγους με την συναρτηση move()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;data_04.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_dir/data_04.txt&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File does not exist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File does not exist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># μετακίνηση αρχείου και μάλιστα με μετονομασία κατά την μετακίνηση data_04.txt -&gt; data_05.txt</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;sub_dir/data_04.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data_05.txt&#39;</span> <span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File does not exist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File does not exist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># μετακίνηση φακέλου</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;tmp2&#39;</span><span class="p">,</span> <span class="s1">&#39;tmp/tmp2&#39;</span><span class="p">)</span> 
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory does not exist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Directory does not exist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># επιστροφή στην θέση του </span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;tmp/tmp2&#39;</span><span class="p">,</span><span class="s1">&#39;tmp2&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory does not exist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Directory does not exist
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Μετονομασία<a class="headerlink" href="#id8" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Με την χρήση της μεθόδου rename() σε έναν Path αντικείμενο μπορούμε να το μετονομάσουμε.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># αρχείου</span>
+<span class="n">data_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;data_01.txt&#39;</span><span class="p">)</span>
+<span class="n">data_file</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;data.txt&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ξανά όπως ήταν</span>
+<span class="n">data_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
+<span class="n">data_file</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data_01.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;data_01.txt&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>Βιβλιογραφία<a class="headerlink" href="#id9" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<ul class="simple">
+<li><p>Aγγελιδάκης, Ν., 2015. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο.</p></li>
+<li><p>Working With Files in Python, <a class="reference external" href="https://realpython.com/read-write-files-python/">https://realpython.com/read-write-files-python/</a>, Πρόσβαση: 13/05/2022</p></li>
+<li><p>Reading and Writing Files in Python, <a class="reference external" href="https://realpython.com/read-write-files-python">https://realpython.com/read-write-files-python</a>, Πρόσβαση: 13/05/2022</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kokkytos/programming",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Lesson_5.html" title="προηγούμενο σελίδα">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">προηγούμενο</p>
+            <p class="prev-next-title">5. Έλεγχος ροής εκτέλεσης</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Με Λεωνίδας Λιάκος<br/>
+    
+        &copy; Πνευματική ιδιοκτησία 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
