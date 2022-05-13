@@ -10,7 +10,7 @@ chapters:
 - file: notebooks/Lesson_4
 - file: notebooks/Lesson_5
 #- file: notebooks/Lesson_6
-#- file: notebooks/Lesson_7
+- file: notebooks/Lesson_7
 #- file: notebooks/Lesson_8
 #- file: notebooks/Lesson_9
 #- file: notebooks/Lesson_10
