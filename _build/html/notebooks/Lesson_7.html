@@ -494,7 +494,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -546,6 +546,12 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -590,6 +596,12 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -614,6 +626,12 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -645,6 +663,12 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -840,12 +864,34 @@ data_03_backup.txt
 data_01_backup.txt
 dog_breeds.txt
 pickle.txt
-file1.py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
 data_03.txt
 data_01.txt
 tests.py
 admin.py
 admin2.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Επιπλέον για ένα path μπορούμε να λάβουμε την απόλυτη μορφή του (absolute path) μέσω της συνάρτησης os.path.abspath()<br />
+τον κατάλογο στον οποίο βρίσκεται (μέσω της συνάρτησης dirname()) και το όνομα του αρχείου (με os.path.basename())</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;./foo.txt&quot;</span> <span class="c1"># relative path</span>
+<span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># absolute path</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">abspath</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abspath</span><span class="p">))</span> <span class="c1"># όνομα καταλόγου που βρίσκεται το αρχείο</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">abspath</span><span class="p">))</span> <span class="c1"># όνομα αρχείου (filename)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/foo.txt
+/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
+foo.txt
 </pre></div>
 </div>
 </div>
@@ -898,8 +944,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  231
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.900279+00:00
+	Μέγεθος:  273
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 19:28:31.676827+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -911,7 +957,7 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.816279+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 19:28:31.596827+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
@@ -926,10 +972,11 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  231
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.880279+00:00
-
-Όνομα αρχείου: 2018
+	Μέγεθος:  273
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 19:28:31.656827+00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: 2018
 	Μέγεθος:  4096
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.820793+00:00
 
@@ -938,8 +985,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  416
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:30:31.952278+00:00
+	Μέγεθος:  728
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 19:28:31.736827+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -963,7 +1010,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:29:58.392404+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 19:27:59.392850+00:00
 </pre></div>
 </div>
 </div>
@@ -1259,7 +1306,7 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpq28ebwhq
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmp2xpeou_m
 </pre></div>
 </div>
 </div>
@@ -1271,7 +1318,7 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmpq28ebwhq&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmp2xpeou_m&#39;
 </pre></div>
 </div>
 </div>

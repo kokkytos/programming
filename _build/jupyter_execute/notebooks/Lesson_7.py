@@ -258,9 +258,22 @@ for item in files_in_basepath:
         print(item.name)
 
 
-# Η μέθοδος is_dir() μας επιτρέπει να τεστάρουμε αν ένα αντικείμενο τύπου Path είναι φάκελος (directory). 
+# Επιπλέον για ένα path μπορούμε να λάβουμε την απόλυτη μορφή του (absolute path) μέσω της συνάρτησης os.path.abspath()  
+# τον κατάλογο στον οποίο βρίσκεται (μέσω της συνάρτησης dirname()) και το όνομα του αρχείου (με os.path.basename())
 
 # In[23]:
+
+
+path="./foo.txt" # relative path
+abspath = os.path.abspath(path) # absolute path
+print(abspath)
+print(os.path.dirname(abspath)) # όνομα καταλόγου που βρίσκεται το αρχείο
+print(os.path.basename(abspath)) # όνομα αρχείου (filename)
+
+
+# Η μέθοδος is_dir() μας επιτρέπει να τεστάρουμε αν ένα αντικείμενο τύπου Path είναι φάκελος (directory). 
+
+# In[24]:
 
 
 # List all subdirectory using pathlib
@@ -272,7 +285,7 @@ for entry in basepath.iterdir():
 
 # Με την μέθοδο stat() μπορούμε να δούμε χρήσιμες λεπτομέρεις για ένα αρχείο και να ανακτήσουμε δεδομένα όπως το μέγεθος του, το όνομά του και η τελευταία ημερομηνία/ώρα τροποποίησης (δίνεται σε seconds απο την 1/1/1970)
 
-# In[24]:
+# In[25]:
 
 
 
@@ -293,7 +306,7 @@ for path in current_dir.iterdir():
 
 # Μέσω του Path μπορούμε να φτιάξουμε και διαδρομές προς ένα κατάλογο του δίσκου μας
 
-# In[25]:
+# In[26]:
 
 
 # build paths 
@@ -314,7 +327,7 @@ out_file_2 = Path.cwd().joinpath("out").joinpath("output.xlsx")
 
 # Επιβεβαιώνουμε για μια ακόμη φορά τον τρέχοντα κατάλογο
 
-# In[26]:
+# In[27]:
 
 
 path = Path.cwd() # pathlib object, εναλλακτικό του os.getcwd()
@@ -324,7 +337,7 @@ print(str(path)) # print σαν συμβολοσειρά
 
 # Μπορούμε να δημιουργήσουμε καταλόγους με την μέθοδο mkdir()
 
-# In[27]:
+# In[28]:
 
 
 # create directory
@@ -335,13 +348,13 @@ except FileExistsError:
     print(f"Ο κατάλογος {str(p)} υπάρχει ήδη")
 
 
-# In[28]:
+# In[29]:
 
 
 p.mkdir(exist_ok=True) # δημιουργία καταλόγου, αγνοεί την δημιουργία φακέλου αν αυτός υπάρχει ήδη
 
 
-# In[29]:
+# In[30]:
 
 
 p = Path('2018/10/05') # δημιουργία καταλόγου 05 και όλων των γονικών (parent) καταλόγων
@@ -350,7 +363,7 @@ p.mkdir(parents=True,exist_ok=True)
 
 # Είτε να αναζητήσουμε αρχεία και καταλόγους που περιλαμβάνου συγκεκριμένους χαρακτήρες στο ονομά τους
 
-# In[30]:
+# In[31]:
 
 
 content = os.listdir('./')
@@ -371,7 +384,7 @@ for file_name in content:
 #     
 # 
 
-# In[31]:
+# In[32]:
 
 
 for filename in os.listdir('./'):
@@ -381,7 +394,7 @@ for filename in os.listdir('./'):
 
 # Εναλλακτικά με την χρήση της μεθόδου glob()
 
-# In[32]:
+# In[33]:
 
 
 p = Path('.')
@@ -389,7 +402,7 @@ for name in p.glob('data_*_backup.txt'):
     print(name)
 
 
-# In[33]:
+# In[34]:
 
 
 p = Path('.')
@@ -399,7 +412,7 @@ for name in p.glob('*[0-9]*backup.txt'):
 
 # Οι παραπάνω αναζητήσεις αφορούσαν το περιεχόμενο μόνο στον τρέχοντα κατάλογο και όχι ταυτόχρονα και στους υποκείμενους καταλόγους (child) που υπάρχουν μέσα σε αυτόν. Για να αναζητήσουμε διαδοχικά και σε αυτούς τους καταλόγους χρησιμοποιούμε το παρακάτω πρόθεμα πριν από το κριτήριο αναζήτησης **/
 
-# In[34]:
+# In[35]:
 
 
 # Append "**/" before the search term in pattern to recursively search this directory 
@@ -408,7 +421,7 @@ for name in p.glob('**/*.py'):
     print(name)
 
 
-# In[35]:
+# In[36]:
 
 
 # αναζήτηση για ότι περιέχει f και 1 στο filename
@@ -420,7 +433,7 @@ for name in p.glob('**/f*1*'):
 
 # Για να ανατρέξουμε διαδοχικά σε όλους του φακέλους ενός καταλόγου χρησιμοποιούμε την μέθοδo os.walk
 
-# In[36]:
+# In[37]:
 
 
 # walk
@@ -433,7 +446,7 @@ for dirpath, dirnames, files in os.walk('.', topdown=False):
 
 # Με την python μπορούμε να δημιουργήσουμε προσωρινά αρχεία και καταλόγους οι οποιού παύουν να υπάρχουν μετά την εκτέλεση του κώδικα. Αυτό γίνεται με την βοήθεια του αρθρώματος (module) tempfile και της συνάρτησης  TemporaryFile() και TemporaryDirectory()
 
-# In[37]:
+# In[38]:
 
 
 from tempfile import TemporaryFile
@@ -446,14 +459,14 @@ with TemporaryFile('w+t') as fp:
 # File is now closed and removed
 
 
-# In[38]:
+# In[39]:
 
 
 #fp.seek(0)
 #print(fp.read())
 
 
-# In[39]:
+# In[40]:
 
 
 with TemporaryDirectory() as tmpdir:
@@ -464,13 +477,13 @@ with TemporaryDirectory() as tmpdir:
 # Directory contents have been removed
 
 
-# In[40]:
+# In[41]:
 
 
 tmpdir
 
 
-# In[41]:
+# In[42]:
 
 
 
@@ -481,7 +494,7 @@ os.path.exists(tmpdir)
 
 # Με την μέθοδο unlink() μπορούμε να διαγράψουμε έναν **άδειο** κατάλογο ή ένα αρχείο.
 
-# In[42]:
+# In[43]:
 
 
 data_file = Path('./data_04.txt')
@@ -493,7 +506,7 @@ else:
     print ("Το αρχείο δεν υπάρχει")
 
 
-# In[43]:
+# In[44]:
 
 
 # διαγραφή άδειου φακέλου
@@ -508,7 +521,7 @@ else:
 
 # Αν θέλουμε να διαγράψουμε έναν κατάλογο με περιεχόμενα τότε χρησιμοποιούμε η συνάρτηση rmtree() από την βιβλιοθήκη shutil.
 
-# In[44]:
+# In[45]:
 
 
 # διαγραφή φακέλου με περιεχόμενα
@@ -521,7 +534,7 @@ shutil.rmtree(dest, ignore_errors=True)
 
 # Ταυτόχρονα μπορούμε να αντιγράψουμε αρχεία με την συνάρτηση copy() πάλι από το άρθρωμα shutil.
 
-# In[45]:
+# In[46]:
 
 
 # Αντιγραφή αρχείου
@@ -533,7 +546,7 @@ shutil.copy(src, dst)
 
 # ή ολόκληρους καταλόγους μέσω της συνάρτησης copytree() πάλι από το ίδιο άρθρωμα.
 
-# In[46]:
+# In[47]:
 
 
 shutil.copytree('sub_dir', 'sub_dir3', dirs_exist_ok=True)
@@ -543,7 +556,7 @@ shutil.copytree('sub_dir', 'sub_dir3', dirs_exist_ok=True)
 
 # ή ακόμα και να μετακινήσουμε αρχεία και καταλόγους με την συναρτηση move()
 
-# In[47]:
+# In[48]:
 
 
 try:
@@ -552,7 +565,7 @@ except FileNotFoundError:
     print("File does not exist")
 
 
-# In[48]:
+# In[49]:
 
 
 # μετακίνηση αρχείου και μάλιστα με μετονομασία κατά την μετακίνηση data_04.txt -> data_05.txt
@@ -563,7 +576,7 @@ except FileNotFoundError:
     print("File does not exist")
 
 
-# In[49]:
+# In[50]:
 
 
 # μετακίνηση φακέλου
@@ -574,7 +587,7 @@ except FileNotFoundError:
     print("Directory does not exist")
 
 
-# In[50]:
+# In[51]:
 
 
 # επιστροφή στην θέση του 
@@ -587,7 +600,7 @@ except FileNotFoundError:
 # ## Μετονομασία
 # Με την χρήση της μεθόδου rename() σε έναν Path αντικείμενο μπορούμε να το μετονομάσουμε.
 
-# In[51]:
+# In[52]:
 
 
 # αρχείου
@@ -595,7 +608,7 @@ data_file = Path('data_01.txt')
 data_file.rename('data.txt')
 
 
-# In[52]:
+# In[53]:
 
 
 # ξανά όπως ήταν
