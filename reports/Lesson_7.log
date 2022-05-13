@@ -17,27 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# create directory
-p = Path('example_directory/') # ορισμός absolute ή relative Path
-p.mkdir() # δημιουργία καταλόγου
+Επιπλέον για ένα path μπορούμε να λάβουμε την απόλυτη μορφή του (absolute path) μέσω της συνάρτησης os.path.abspath()  
+τον κατάλογο στον οποίο βρίσκεται (μέσω της συνάρτησης dirname()) και το όνομα του αρχείου (με os.path.basename())
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mFileExistsError[0m                           Traceback (most recent call last)
-Input [0;32mIn [27][0m, in [0;36m<cell line: 3>[0;34m()[0m
-[1;32m      1[0m [38;5;66;03m# create directory[39;00m
-[1;32m      2[0m p [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124mexample_directory/[39m[38;5;124m'[39m) [38;5;66;03m# ορισμός absolute ή relative Path[39;00m
-[0;32m----> 3[0m [43mp[49m[38;5;241;43m.[39;49m[43mmkdir[49m[43m([49m[43m)[49m
+[0;36m  Input [0;32mIn [23][0;36m[0m
+[0;31m    Επιπλέον για ένα path μπορούμε να λάβουμε την απόλυτη μορφή του (absolute path) μέσω της συνάρτησης os.path.abspath()[0m
+[0m                                                                     ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax. Perhaps you forgot a comma?
 
-File [0;32m~/anaconda3/envs/book/lib/python3.10/pathlib.py:1173[0m, in [0;36mPath.mkdir[0;34m(self, mode, parents, exist_ok)[0m
-[1;32m   1169[0m [38;5;124;03m"""[39;00m
-[1;32m   1170[0m [38;5;124;03mCreate a new directory at this given path.[39;00m
-[1;32m   1171[0m [38;5;124;03m"""[39;00m
-[1;32m   1172[0m [38;5;28;01mtry[39;00m:
-[0;32m-> 1173[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_accessor[49m[38;5;241;43m.[39;49m[43mmkdir[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
-[1;32m   1174[0m [38;5;28;01mexcept[39;00m [38;5;167;01mFileNotFoundError[39;00m:
-[1;32m   1175[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m parents [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39mparent [38;5;241m==[39m [38;5;28mself[39m:
-
-[0;31mFileExistsError[0m: [Errno 17] File exists: 'example_directory'
-FileExistsError: [Errno 17] File exists: 'example_directory'
+SyntaxError: invalid syntax. Perhaps you forgot a comma? (4012792802.py, line 1)
 
