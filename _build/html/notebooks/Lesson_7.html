@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas" href="Lesson_8.html" />
     <link rel="prev" title="5. Έλεγχος ροής εκτέλεσης" href="Lesson_5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
@@ -125,6 +126,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_8.html">
+   8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas
   </a>
  </li>
 </ul>
@@ -503,7 +509,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -549,6 +555,13 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -622,6 +635,13 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -646,6 +666,13 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -688,6 +715,13 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -831,7 +865,9 @@ dog_breeds.txt
 2018
 example_directory
 pickle.txt
-file1.py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
 data_03.txt
 data_01.txt
 tests.py
@@ -972,8 +1008,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  308
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-17 13:45:59.074115+00:00
+	Μέγεθος:  357
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-18 10:39:27.815784+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -985,7 +1021,7 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-17 13:45:58.994115+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-18 10:39:27.739784+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
@@ -1000,8 +1036,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  308
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-17 13:45:59.054115+00:00
+	Μέγεθος:  357
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-18 10:39:27.795784+00:00
 
 Όνομα αρχείου: 2018
 	Μέγεθος:  4096
@@ -1012,8 +1048,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  1022
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-17 13:45:59.126115+00:00
+	Μέγεθος:  1359
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-18 10:39:27.867784+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -1026,8 +1062,9 @@ example_directory
 Όνομα αρχείου: data_01.txt
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
-
-Όνομα αρχείου: tests.py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: tests.py
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
@@ -1037,7 +1074,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-17 13:45:21.942233+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-18 10:38:45.247939+00:00
 </pre></div>
 </div>
 </div>
@@ -1217,12 +1254,12 @@ data_01_backup.txt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
-tests.py
-admin.py
-admin2.py
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2/file2.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tests.py
+admin.py
+admin2.py
+sub_dir2/file2.py
 sub_dir2/file1.py
 sub_dir/file2.py
 sub_dir/file1.py
@@ -1245,9 +1282,7 @@ sub_dir3/file1.py
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
 sub_dir2/file1.py
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir/file1.py
+sub_dir/file1.py
 sub_dir3/file1.py
 </pre></div>
 </div>
@@ -1336,8 +1371,8 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpw1a_2_s8
-/tmp/tmpw1a_2_s8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmp2txmo0nu
+/tmp/tmp2txmo0nu
 True
 </pre></div>
 </div>
@@ -1431,12 +1466,15 @@ True
 <p>ή ολόκληρους καταλόγους μέσω της συνάρτησης copytree() πάλι από το ίδιο άρθρωμα.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s1">&#39;sub_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_dir3&#39;</span><span class="p">,</span> <span class="n">dirs_exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s1">&#39;sub_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_dir3&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Σφάλμα κατά την αντιγραφη&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sub_dir3&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Σφάλμα κατά την αντιγραφη
 </pre></div>
 </div>
 </div>
@@ -1584,6 +1622,13 @@ True
             <p class="prev-next-subtitle">προηγούμενο</p>
             <p class="prev-next-title">5. Έλεγχος ροής εκτέλεσης</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lesson_8.html" title="επόμενο σελίδα">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

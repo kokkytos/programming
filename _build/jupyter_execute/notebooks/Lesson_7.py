@@ -544,7 +544,10 @@ shutil.copy(src, dst)
 # In[45]:
 
 
-shutil.copytree('sub_dir', 'sub_dir3', dirs_exist_ok=True)
+try:
+    shutil.copytree('sub_dir', 'sub_dir3')
+except:
+    print("Σφάλμα κατά την αντιγραφη")
 
 
 # ## Μετακίνηση
