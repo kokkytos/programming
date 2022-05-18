@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/leonidas/anaconda3/lib/python3.7/asyncio/base_events.py", line 583, in run_until_complete
+    return future.result()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# get all rows with price < 1000 and year equal to 2020
+airbnb_2019_under_1000 = airbnb[(airbnb['price'] < 1000) & (airbnb['year'] == 2020)]
+airbnb_2019_under_1000.head()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-30-5d7eee06078a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# get all rows with price < 1000 and year equal to 2020[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mairbnb_2019_under_1000[0m [0;34m=[0m [0mairbnb[0m[0;34m[[0m[0;34m([0m[0mairbnb[0m[0;34m[[0m[0;34m'price'[0m[0;34m][0m [0;34m<[0m [0;36m1000[0m[0;34m)[0m [0;34m&[0m [0;34m([0m[0mairbnb[0m[0;34m[[0m[0;34m'year'[0m[0;34m][0m [0;34m==[0m [0;36m2020[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mairbnb_2019_under_1000[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   2788[0m [0;34m[0m[0m
+[1;32m   2789[0m         [0;31m# Do we have a (boolean) 1d indexer?[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2790[0;31m         [0;32mif[0m [0mcom[0m[0;34m.[0m[0mis_bool_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2791[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_bool_array[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2792[0m [0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.7/site-packages/pandas/core/common.py[0m in [0;36mis_bool_indexer[0;34m(key)[0m
+[1;32m    142[0m             [0;32mif[0m [0mis_extension_array_dtype[0m[0;34m([0m[0mkey[0m[0;34m.[0m[0mdtype[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    143[0m                 [0;32mif[0m [0mnp[0m[0;34m.[0m[0many[0m[0;34m([0m[0mkey[0m[0;34m.[0m[0misna[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 144[0;31m                     [0;32mraise[0m [0mValueError[0m[0;34m([0m[0mna_msg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    145[0m             [0;32mreturn[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    146[0m     [0;32melif[0m [0misinstance[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mlist[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: cannot mask with array containing NA / NaN values
+ValueError: cannot mask with array containing NA / NaN values
+
