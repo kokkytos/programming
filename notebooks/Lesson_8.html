@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas &#8212; Προγραμματισμός Η/Υ</title>
+    <title>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas &#8212; Προγραμματισμός Η/Υ</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -129,7 +129,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas
+   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
   </a>
  </li>
 </ul>
@@ -241,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas
+   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas</h1>
+                <h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas
+   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -322,8 +322,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="csv-excel-pandas">
-<h1>8. Ανάγνωση αρχείων csv ή excel, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-excel-pandas" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="csv-pandas">
+<h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-pandas" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<p>Στόχος του μαθήματος είναι να εξοικειωθεί ο φοιτητής με την ανάγνωση και εγγραφή αρχείων CSV.
+Επίσης γίνεται μια σύντομη αναφορά στις δυνατότητες της βιβλιοθήκης pandas όσον αφορά την διαχείριση δεδομένων σε μορφή πινάκων.</p>
 <div class="section" id="csv">
 <h2>Ανάγνωση αρχείων csv<a class="headerlink" href="#csv" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
 <p>Εισάγουμε τα απαραίτητα άρθρωματα (modules).</p>
@@ -372,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f6507bb76a0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f497a12be20&gt;)
 </pre></div>
 </div>
 </div>
@@ -1562,9 +1564,7 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Thailand,Thailand,THA,70106601,Asia,3711595,25418,52942,363,0.684826874&#39;]
 [&#39;Timor-Leste,Timor-Leste,TLS,1362386,Asia,22832,130,16759,95,0.569376314&#39;]
 [&#39;Togo,Togo,TGO,8618172,Africa,36944,272,4287,32,0.736249459&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Tonga,Tonga,TON,107792,Oceania,7127,9,66118,83,0.126280342&#39;]
+[&#39;Tonga,Tonga,TON,107792,Oceania,7127,9,66118,83,0.126280342&#39;]
 [&#39;Trinidad and Tobago,Trinidad and Tobago,TTO,1407422,Latin America and the Caribbean,138425,3756,98354,2669,2.713382698&#39;]
 [&#39;Tunisia,Tunisia,TUN,12035092,Africa,1035884,28323,86072,2353,2.734186453&#39;]
 [&#39;Turkey,Turkey,TUR,85927644,Asia,14894731,98157,173340,1142,0.659004852&#39;]
@@ -1632,7 +1632,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7f6507c1f760&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7f49bd2aafe0&gt;)
 </pre></div>
 </div>
 </div>
@@ -3075,7 +3075,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_8_60_0.png" src="../_images/Lesson_8_60_0.png" />
+<img alt="../_images/Lesson_8_61_0.png" src="../_images/Lesson_8_61_0.png" />
 </div>
 </div>
 </div>
