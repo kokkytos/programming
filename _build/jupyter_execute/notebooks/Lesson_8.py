@@ -132,7 +132,141 @@ with open('employee_file2.csv', mode='w') as csv_file:
 
 # ## Η βιβλιοθήκη pandas
 
-# Λήψη αρχείου csv από το διαδίκτυο
+# ![alt text](pandas-data-structure.svg)
+
+# Δημιουργία pandas Series object 
+
+# In[11]:
+
+
+s = pd.Series([2, 4, 6, 8, 10])
+s
+
+
+# Δημιουργία pandas Dataframe object. Η τελευτάι στήλη είναι από το προηγούμενο Series object.
+
+# In[12]:
+
+
+df = pd.DataFrame({'X':[78,85,96,80,86], 'Y':[84,94,89,83,86],'Z':[86,97,96,72,83], 'V':s});
+df
+
+
+# Δημιουργία Index object
+
+# In[13]:
+
+
+index = pd.Index(list('abcde'))
+
+
+# Αλλαγή Index σε ένα dataframe
+
+# In[14]:
+
+
+df = df.set_index(index)
+
+
+# Φιλτράρισμα δεδομένων
+
+# In[15]:
+
+
+df_2 =  df.loc[df['V'] >= 8] 
+df_2
+
+
+# ή αλλιώς:
+
+# In[16]:
+
+
+df_2 =  df[df['V'] >= 8] 
+df_2
+
+
+# με βάση συνθήκη όπου περιέχονται στην στήλη V τα στοιχεία της λίστας options
+
+# In[17]:
+
+
+
+options=[4,10]
+rslt_df = df[df['V'].isin(options)] 
+rslt_df
+
+
+# Τροποποίηση κελιού
+
+# In[18]:
+
+
+df.at['a', 'V'] = 1000
+df
+
+
+# Προσθήκη γραμμής
+
+# In[19]:
+
+
+# Νεα γραμμή σαν dataframe
+
+row_df = pd.DataFrame([ pd.Series([1,2,8,99])], index = ["f"])
+row_df.columns =['X', 'Y', 'Z', 'V']
+row_df
+
+
+# Εναλλακτικά φτιάχνουμε αν θελουμε την ιδια γραμμή με άλλη μέθοδο (μέσω ενός dictionary):
+
+# In[20]:
+
+
+my_dictionary = {'X': [1], 'Y': [2],'Z': [8], 'V': [99]}
+row_df = pd.DataFrame.from_dict(my_dictionary)
+row_df = row_df.set_index(pd.Index(['f']))
+row_df
+
+
+# In[21]:
+
+
+# Συννένωση
+df1 = pd.concat([df,row_df],ignore_index=False)
+df1
+
+
+# In[22]:
+
+
+Αντιμετάθεση στηλών και γραμμών (transpose)
+
+
+# In[130]:
+
+
+df2 = df1.T # transpose
+df2
+
+
+# In[131]:
+
+
+list(df2.columns)
+
+
+# In[132]:
+
+
+df2.index
+
+
+# Μπορούμε να διαβάσουμε ένα αρχείο CSV σαν pandas dataframe.
+# 
+# Ακολουθεί το παρακάτω παράδειγμα με δεδομένα Airbnb.
+# 
+# Λήψη αρχείου csv από το διαδίκτυο:
 
 # In[11]:
 
