@@ -374,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f497a12be20&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7fe2dd0576a0&gt;)
 </pre></div>
 </div>
 </div>
@@ -1539,7 +1539,9 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Saudi Arabia,Saudi Arabia,SAU,35762746,Asia,751076,9048,21002,253,1.204671698&#39;]
 [&#39;Senegal,Senegal,SEN,17515750,Africa,85919,1965,4905,112,2.287037791&#39;]
 [&#39;Serbia,Serbia,SRB,8675762,Europe,1980722,15825,228305,1824,0.79895109&#39;]
-[&#39;Seychelles,Seychelles,SYC,99413,Africa,40421,164,406597,1650,0.405729695&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Seychelles,Seychelles,SYC,99413,Africa,40421,164,406597,1650,0.405729695&#39;]
 [&#39;Sierra Leone,Sierra Leone,SLE,8260822,Africa,7674,125,929,15,1.628876727&#39;]
 [&#39;Singapore,Singapore,SGP,5930887,Asia,1109744,1276,187113,215,0.114981473&#39;]
 [&#39;Sint Maarten,Sint Maarten,SXM,43728,Latin America and the Caribbean,9766,86,223335,1967,0.880606185&#39;]
@@ -1620,7 +1622,637 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="pandas">
 <h2>Η βιβλιοθήκη pandas<a class="headerlink" href="#pandas" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
-<p>Λήψη αρχείου csv από το διαδίκτυο</p>
+<p><img alt="alt text" src="../_images/pandas-data-structure.svg" /></p>
+<p>Δημιουργία pandas Series object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2
+1     4
+2     6
+3     8
+4    10
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Δημιουργία pandas Dataframe object. Η τελευτάι στήλη είναι από το προηγούμενο Series object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:[</span><span class="mi">78</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">86</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:[</span><span class="mi">84</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">83</span><span class="p">,</span><span class="mi">86</span><span class="p">],</span><span class="s1">&#39;Z&#39;</span><span class="p">:[</span><span class="mi">86</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">83</span><span class="p">],</span> <span class="s1">&#39;V&#39;</span><span class="p">:</span><span class="n">s</span><span class="p">});</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>78</td>
+      <td>84</td>
+      <td>86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>85</td>
+      <td>94</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>96</td>
+      <td>89</td>
+      <td>96</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Δημιουργία Index object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αλλαγή Index σε ένα dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Φιλτράρισμα δεδομένων</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">]</span> 
+<span class="n">df_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>ή αλλιώς:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">]</span> 
+<span class="n">df_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>με βάση συνθήκη όπου περιέχονται στην στήλη V τα στοιχεία της λίστας options</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">rslt_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">options</span><span class="p">)]</span> 
+<span class="n">rslt_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>94</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Τροποποίηση κελιού</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>78</td>
+      <td>84</td>
+      <td>86</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>94</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>89</td>
+      <td>96</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Προσθήκη γραμμής</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Νεα γραμμή σαν dataframe</span>
+
+<span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">99</span><span class="p">])],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">])</span>
+<span class="n">row_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span>
+<span class="n">row_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>1</td>
+      <td>2</td>
+      <td>8</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Εναλλακτικά φτιάχνουμε αν θελουμε την ιδια γραμμή με άλλη μέθοδο (μέσω ενός dictionary):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;V&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">99</span><span class="p">]}</span>
+<span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">my_dictionary</span><span class="p">)</span>
+<span class="n">row_df</span> <span class="o">=</span> <span class="n">row_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;f&#39;</span><span class="p">]))</span>
+<span class="n">row_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>1</td>
+      <td>2</td>
+      <td>8</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Συννένωση</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">row_df</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>78</td>
+      <td>84</td>
+      <td>86</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>94</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>89</td>
+      <td>96</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>1</td>
+      <td>2</td>
+      <td>8</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Αντιμετάθεση</span> <span class="n">στηλών</span> <span class="n">και</span> <span class="n">γραμμών</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]</span>
+    <span class="n">Αντιμετάθεση</span> <span class="n">στηλών</span> <span class="n">και</span> <span class="n">γραμμών</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span>
+                 <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">T</span> <span class="c1"># transpose</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+      <th>f</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>X</th>
+      <td>78</td>
+      <td>85</td>
+      <td>96</td>
+      <td>80</td>
+      <td>86</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>84</td>
+      <td>94</td>
+      <td>89</td>
+      <td>83</td>
+      <td>86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>86</td>
+      <td>97</td>
+      <td>96</td>
+      <td>72</td>
+      <td>83</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>1000</td>
+      <td>4</td>
+      <td>6</td>
+      <td>8</td>
+      <td>10</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;V&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να διαβάσουμε ένα αρχείο CSV σαν pandas dataframe.</p>
+<p>Ακολουθεί το παρακάτω παράδειγμα με δεδομένα Airbnb.</p>
+<p>Λήψη αρχείου csv από το διαδίκτυο:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remote_url</span> <span class="o">=</span> <span class="s1">&#39;http://data.insideairbnb.com/greece/attica/athens/2021-12-23/visualisations/listings.csv&#39;</span>
@@ -1632,7 +2264,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7f49bd2aafe0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7fbb31ff9ba0&gt;)
 </pre></div>
 </div>
 </div>
@@ -3075,7 +3707,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_8_61_0.png" src="../_images/Lesson_8_61_0.png" />
+<img alt="../_images/Lesson_8_87_0.png" src="../_images/Lesson_8_87_0.png" />
 </div>
 </div>
 </div>
