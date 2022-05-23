@@ -374,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7fe2dd0576a0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7fb3aba3f6a0&gt;)
 </pre></div>
 </div>
 </div>
@@ -1539,9 +1539,7 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Saudi Arabia,Saudi Arabia,SAU,35762746,Asia,751076,9048,21002,253,1.204671698&#39;]
 [&#39;Senegal,Senegal,SEN,17515750,Africa,85919,1965,4905,112,2.287037791&#39;]
 [&#39;Serbia,Serbia,SRB,8675762,Europe,1980722,15825,228305,1824,0.79895109&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Seychelles,Seychelles,SYC,99413,Africa,40421,164,406597,1650,0.405729695&#39;]
+[&#39;Seychelles,Seychelles,SYC,99413,Africa,40421,164,406597,1650,0.405729695&#39;]
 [&#39;Sierra Leone,Sierra Leone,SLE,8260822,Africa,7674,125,929,15,1.628876727&#39;]
 [&#39;Singapore,Singapore,SGP,5930887,Asia,1109744,1276,187113,215,0.114981473&#39;]
 [&#39;Sint Maarten,Sint Maarten,SXM,43728,Latin America and the Caribbean,9766,86,223335,1967,0.880606185&#39;]
@@ -1550,7 +1548,9 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Solomon Islands,Solomon Islands,SLB,716351,Oceania,11470,133,16012,186,1.159546643&#39;]
 [&#39;Somalia,Somalia,SOM,16668781,Africa,26400,1348,1584,81,5.106060606&#39;]
 [&#39;South Africa,South Africa,ZAF,60617532,Africa,3722954,100050,61417,1651,2.687382116&#39;]
-[&#39;South Sudan,South Sudan,SSD,11423439,Africa,17278,138,1513,12,0.798703554&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;South Sudan,South Sudan,SSD,11423439,Africa,17278,138,1513,12,0.798703554&#39;]
 [&#39;Spain,Spain,ESP,46786482,Europe,11551574,102541,246900,2192,0.887679895&#39;]
 [&#39;Sri Lanka,Sri Lanka,LKA,21570428,Asia,661991,16481,30690,764,2.489610886&#39;]
 [&#39;St. Barth ,Saint Barthélemy,BLM,9930,Latin America and the Caribbean,4150,6,417925,604,0.144578313&#39;]
@@ -2136,21 +2136,7 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Αντιμετάθεση</span> <span class="n">στηλών</span> <span class="n">και</span> <span class="n">γραμμών</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]</span>
-    <span class="n">Αντιμετάθεση</span> <span class="n">στηλών</span> <span class="n">και</span> <span class="n">γραμμών</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span>
-                 <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<p>Αντιμετάθεση στηλών και γραμμών (transpose)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">T</span> <span class="c1"># transpose</span>
@@ -2264,7 +2250,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7fbb31ff9ba0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7fb3aba3f550&gt;)
 </pre></div>
 </div>
 </div>
@@ -2690,6 +2676,171 @@ dtype: int64
       <td>365</td>
       <td>0</td>
       <td>00001396920</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Μπορούμε να πάρουμε για όλες τις αριθμητικές στήλες περιγραφικά στατιστικά (mean, std, min, τεταρτημόρια κτλ) με την μέθοδο describe()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>host_id</th>
+      <th>neighbourhood_group</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>minimum_nights</th>
+      <th>number_of_reviews</th>
+      <th>reviews_per_month</th>
+      <th>calculated_host_listings_count</th>
+      <th>availability_365</th>
+      <th>number_of_reviews_ltm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9.673000e+03</td>
+      <td>9.673000e+03</td>
+      <td>0.0</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+      <td>7916.000000</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+      <td>9673.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.255635e+07</td>
+      <td>1.475417e+08</td>
+      <td>NaN</td>
+      <td>37.979912</td>
+      <td>23.731762</td>
+      <td>86.912850</td>
+      <td>3.234570</td>
+      <td>42.868913</td>
+      <td>1.520586</td>
+      <td>10.923292</td>
+      <td>240.921638</td>
+      <td>9.771632</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.366145e+07</td>
+      <td>1.188964e+08</td>
+      <td>NaN</td>
+      <td>0.013241</td>
+      <td>0.012369</td>
+      <td>326.785191</td>
+      <td>19.523021</td>
+      <td>71.038260</td>
+      <td>1.590922</td>
+      <td>22.798110</td>
+      <td>127.491219</td>
+      <td>15.926126</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.059500e+04</td>
+      <td>3.717700e+04</td>
+      <td>NaN</td>
+      <td>37.950550</td>
+      <td>23.697700</td>
+      <td>7.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.010000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.293145e+07</td>
+      <td>3.904215e+07</td>
+      <td>NaN</td>
+      <td>37.969230</td>
+      <td>23.723970</td>
+      <td>36.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.350000</td>
+      <td>1.000000</td>
+      <td>151.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.335690e+07</td>
+      <td>1.304658e+08</td>
+      <td>NaN</td>
+      <td>37.978340</td>
+      <td>23.729810</td>
+      <td>50.000000</td>
+      <td>2.000000</td>
+      <td>13.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>296.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.377216e+07</td>
+      <td>2.284115e+08</td>
+      <td>NaN</td>
+      <td>37.987960</td>
+      <td>23.737820</td>
+      <td>80.000000</td>
+      <td>2.000000</td>
+      <td>52.000000</td>
+      <td>2.172500</td>
+      <td>9.000000</td>
+      <td>353.000000</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.393891e+07</td>
+      <td>4.367636e+08</td>
+      <td>NaN</td>
+      <td>38.034497</td>
+      <td>23.780220</td>
+      <td>8000.000000</td>
+      <td>1000.000000</td>
+      <td>753.000000</td>
+      <td>20.390000</td>
+      <td>153.000000</td>
+      <td>365.000000</td>
+      <td>359.000000</td>
     </tr>
   </tbody>
 </table>
@@ -3707,7 +3858,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_8_87_0.png" src="../_images/Lesson_8_87_0.png" />
+<img alt="../_images/Lesson_8_89_0.png" src="../_images/Lesson_8_89_0.png" />
 </div>
 </div>
 </div>
@@ -3717,7 +3868,8 @@ Name: name_lower, dtype: object
 <p>pandas Tutorial for Beginners, <a class="reference external" href="https://www.datacamp.com/tutorial/pandas">https://www.datacamp.com/tutorial/pandas</a>, Πρόσβαση: 18/05/2022</p>
 <p>Reading and Writing CSV Files in Python, <a class="reference external" href="https://realpython.com/python-csv/#reading-csv-files-with-csv">https://realpython.com/python-csv/#reading-csv-files-with-csv</a>, Πρόσβαση: 18/05/2022</p>
 <p>Reading CSV files in Python, <a class="reference external" href="https://www.programiz.com/python-programming/reading-csv-files">https://www.programiz.com/python-programming/reading-csv-files</a>, Πρόσβαση: 18/05/2022</p>
-<p>COVID-19 Coronavirus Pandemic, <a class="reference external" href="https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic">https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic</a>, Πρόσβαση: 18/05/2022</p>
+<p>COVID-19 Coronavirus Pandemic, <a class="reference external" href="https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic">https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic</a>, Πρόσβαση: 18/05/2022
+Pandas User Guide, <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html#user-guide">https://pandas.pydata.org/docs/user_guide/index.html#user-guide</a>, Πρόσβαση: 23/05/2022</p>
 <p>McKinney, W., 2013. Python for data analysis. O’Reilly, Beijing.</p>
 </div>
 

@@ -237,26 +237,22 @@ df1 = pd.concat([df,row_df],ignore_index=False)
 df1
 
 
+# Αντιμετάθεση στηλών και γραμμών (transpose)
+
 # In[22]:
-
-
-Αντιμετάθεση στηλών και γραμμών (transpose)
-
-
-# In[130]:
 
 
 df2 = df1.T # transpose
 df2
 
 
-# In[131]:
+# In[23]:
 
 
 list(df2.columns)
 
 
-# In[132]:
+# In[24]:
 
 
 df2.index
@@ -268,7 +264,7 @@ df2.index
 # 
 # Λήψη αρχείου csv από το διαδίκτυο:
 
-# In[11]:
+# In[25]:
 
 
 remote_url = 'http://data.insideairbnb.com/greece/attica/athens/2021-12-23/visualisations/listings.csv'
@@ -280,7 +276,7 @@ request.urlretrieve(remote_url, local_file3)
 
 # Ανάγνωση του αρχείου σαν panda DataFrame
 
-# In[12]:
+# In[26]:
 
 
 # read the airbnb NYC listings csv file
@@ -289,7 +285,7 @@ airbnb = pd.read_csv(local_file3)
 
 # Εκτύπωση των πρώτων 10 γραμμών
 
-# In[13]:
+# In[27]:
 
 
 airbnb.head(10)
@@ -297,15 +293,23 @@ airbnb.head(10)
 
 # ΕΚτύπωση των 5 τελευταίων γραμμών
 
-# In[14]:
+# In[28]:
 
 
 airbnb.tail()
 
 
+# Μπορούμε να πάρουμε για όλες τις αριθμητικές στήλες περιγραφικά στατιστικά (mean, std, min, τεταρτημόρια κτλ) με την μέθοδο describe()
+
+# In[29]:
+
+
+airbnb.describe()
+
+
 # Ανάγνωση των δεδομένων μιας στήλης σαν pandas Series
 
-# In[15]:
+# In[30]:
 
 
 # Results for a single column
@@ -314,7 +318,7 @@ airbnb['name']
 
 # Επιλογή συγκεκριμένων στηλών από το dataframe
 
-# In[16]:
+# In[31]:
 
 
 # results for multiple columns
@@ -323,7 +327,7 @@ airbnb[['host_id', 'host_name']]
 
 # Επιστροφή του τύπου δεδομένων για όλες τις στήλες
 
-# In[17]:
+# In[32]:
 
 
 airbnb.dtypes
@@ -331,7 +335,7 @@ airbnb.dtypes
 
 # Μετατροπή της στήλης last_review σε datetime64 object
 
-# In[18]:
+# In[33]:
 
 
 airbnb['last_review'] = pd.to_datetime(airbnb['last_review'])
@@ -340,7 +344,7 @@ airbnb.dtypes
 
 # Μπορούμε να εξάγουμε το έτος από ένα datetime object σε μια νέα στήλη. Μετατροπή της στήλης year σε ακέραιο
 
-# In[19]:
+# In[34]:
 
 
 # extract the year from a datetime series
@@ -354,7 +358,7 @@ airbnb['year'].head()
 
 # Το ίδιο μπορούμε να κάνουμε και με τον μήνα.
 
-# In[20]:
+# In[35]:
 
 
 airbnb['month'] = airbnb['last_review'].dt.month
@@ -364,7 +368,7 @@ airbnb['month'].head()
 
 # Αν κάποια στήλη περιέχει κενά στην αρχή ή το τέλος της μπορούμε να τα αφαιρέσουμε ως εξής:
 
-# In[21]:
+# In[36]:
 
 
 airbnb['name'] = airbnb['name'].str.strip()
@@ -373,7 +377,7 @@ airbnb['name'].head()
 
 # Μετατροπή όλων των χαρακτήρων μιας στήλης σε πεζά:
 
-# In[22]:
+# In[37]:
 
 
 airbnb['name_lower'] = airbnb['name'].str.lower()
@@ -382,7 +386,7 @@ airbnb['name_lower'].head()
 
 # Δημιουργία μιας στήλης που στηρίζεται σε υπολογισμό μεταξύ άλλων στηλών (calculated column)
 
-# In[23]:
+# In[38]:
 
 
 airbnb['min_revenue'] = airbnb['minimum_nights'] * airbnb['price']
@@ -391,7 +395,7 @@ airbnb[['minimum_nights', 'price', 'min_revenue']].head()
 
 # Υπολογισμός του μέσου όρου μιας στήλης
 
-# In[24]:
+# In[39]:
 
 
 airbnb['price'].mean()
@@ -399,7 +403,7 @@ airbnb['price'].mean()
 
 # Υπολογισμός του διαμέσου μιας στήλης
 
-# In[25]:
+# In[40]:
 
 
 airbnb['price'].median()
@@ -407,7 +411,7 @@ airbnb['price'].median()
 
 # Υπολογισμό μέσου όρου τιμής ανά τύπο δωματίου
 
-# In[26]:
+# In[41]:
 
 
 airbnb[['room_type', 'price']].groupby('room_type', as_index=False).mean()
@@ -415,7 +419,7 @@ airbnb[['room_type', 'price']].groupby('room_type', as_index=False).mean()
 
 # Υπολογισμό διαμέσου τιμής ανά τύπο δωματίου. Χρησιμοποιούμε την στήλη room_type σαν index
 
-# In[27]:
+# In[42]:
 
 
 airbnb[['room_type', 'price']].groupby('room_type', as_index=True).median()
@@ -423,7 +427,7 @@ airbnb[['room_type', 'price']].groupby('room_type', as_index=True).median()
 
 # Υπολογισμό διαμέσου τιμής ανά τύπο δωματίου και έτος
 
-# In[28]:
+# In[43]:
 
 
 airbnb[['room_type', 'year', 'price']].groupby(['room_type', 'year'], as_index=False).median()
@@ -431,7 +435,7 @@ airbnb[['room_type', 'year', 'price']].groupby(['room_type', 'year'], as_index=F
 
 # Φιλτράρισμα γραμμών με βάση ένα κριτήριο (τιμή <1000) και προσάρτηση σε ένα νέο dataframe
 
-# In[29]:
+# In[44]:
 
 
 # get all rows with price < 1000
@@ -441,7 +445,7 @@ airbnb_under_1000.head()
 
 # Φιλτράρισμα με πολλαπλά κριτήρια (τιμή <1000 και έτος 2020)
 
-# In[30]:
+# In[45]:
 
 
 # get all rows with price < 1000 and year equal to 2020
@@ -451,7 +455,7 @@ airbnb_2019_under_1000.head()
 
 # Ιστόγραμμα για την στήλη price στον πίνακα airbnb_under_1000
 
-# In[31]:
+# In[46]:
 
 
 ax = airbnb_under_1000['price'].plot.hist(bins=40)
@@ -466,6 +470,8 @@ ax = airbnb_under_1000['price'].plot.hist(bins=40)
 # Reading CSV files in Python, https://www.programiz.com/python-programming/reading-csv-files, Πρόσβαση: 18/05/2022
 # 
 # COVID-19 Coronavirus Pandemic, https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic, Πρόσβαση: 18/05/2022
+# Pandas User Guide, https://pandas.pydata.org/docs/user_guide/index.html#user-guide, Πρόσβαση: 23/05/2022
 # 
 # McKinney, W., 2013. Python for data analysis. O’Reilly, Beijing.
+# 
 # 
