@@ -8,6 +8,8 @@ matplotlib
 nbclient
 numpy
 pandas
+geopandas
+shapely
 plotly
 sphinx-click
 sphinx_inline_tabs
