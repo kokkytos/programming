@@ -133,6 +133,11 @@ const thebe_selector_output = ".output, .cell_output"
    8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_9.html">
+   Γεωεπεξεργασία διανυσματικών δεδομένων
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -509,7 +514,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -555,6 +560,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -654,6 +660,7 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -678,6 +685,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -733,6 +741,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -914,9 +923,7 @@ sub_dir
 dog_breeds_reversed.txt
 sub_dir3
 data_02.txt
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foo.txt
+foo.txt
 data_02_backup.txt
 data_03_backup.txt
 data_01_backup.txt
@@ -1032,8 +1039,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  399
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:44:22.179567+00:00
+	Μέγεθος:  406
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:49:47.666802+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -1045,14 +1052,13 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:44:22.095569+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:49:47.586802+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: data_03_backup.txt
+
+Όνομα αρχείου: data_03_backup.txt
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
@@ -1061,8 +1067,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  399
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:44:22.159567+00:00
+	Μέγεθος:  406
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:49:47.646802+00:00
 
 Όνομα αρχείου: 2018
 	Μέγεθος:  4096
@@ -1073,8 +1079,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  1671
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:44:22.251566+00:00
+	Μέγεθος:  1723
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:49:47.730803+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -1087,8 +1093,9 @@ example_directory
 Όνομα αρχείου: data_01.txt
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
-
-Όνομα αρχείου: tests.py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: tests.py
 	Μέγεθος:  0
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
@@ -1098,7 +1105,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-23 09:35:32.901424+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-29 18:44:22.627558+00:00
 </pre></div>
 </div>
 </div>
@@ -1143,6 +1150,9 @@ example_directory
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1303,9 +1313,7 @@ sub_dir3/file1.py
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2/file1.py
+sub_dir2/file1.py
 sub_dir/file1.py
 sub_dir3/file1.py
 </pre></div>
@@ -1393,8 +1401,8 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpuox1drox
-/tmp/tmpuox1drox
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpc28ehlc2
+/tmp/tmpc28ehlc2
 True
 </pre></div>
 </div>
