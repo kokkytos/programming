@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="9. Γεωεπεξεργασία διανυσματικών δεδομένων" href="Lesson_9.html" />
     <link rel="prev" title="7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών" href="Lesson_7.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
@@ -130,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_9.html">
+   9. Γεωεπεξεργασία διανυσματικών δεδομένων
   </a>
  </li>
 </ul>
@@ -336,6 +342,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span> <span class="c1"># απαραίτητο για την λήψη αρχείων από το διαδίκτυο</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># η βιβλιοθήκη pandas για την διαχείρηση πινάκων</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span> <span class="c1"># βιβλιοθήκη για την διαχείριση των διαδρομών (paths) στον δίσκο</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -374,7 +381,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7fb3aba3f6a0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f43e28bb7c0&gt;)
 </pre></div>
 </div>
 </div>
@@ -1548,9 +1555,7 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Solomon Islands,Solomon Islands,SLB,716351,Oceania,11470,133,16012,186,1.159546643&#39;]
 [&#39;Somalia,Somalia,SOM,16668781,Africa,26400,1348,1584,81,5.106060606&#39;]
 [&#39;South Africa,South Africa,ZAF,60617532,Africa,3722954,100050,61417,1651,2.687382116&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;South Sudan,South Sudan,SSD,11423439,Africa,17278,138,1513,12,0.798703554&#39;]
+[&#39;South Sudan,South Sudan,SSD,11423439,Africa,17278,138,1513,12,0.798703554&#39;]
 [&#39;Spain,Spain,ESP,46786482,Europe,11551574,102541,246900,2192,0.887679895&#39;]
 [&#39;Sri Lanka,Sri Lanka,LKA,21570428,Asia,661991,16481,30690,764,2.489610886&#39;]
 [&#39;St. Barth ,Saint Barthélemy,BLM,9930,Latin America and the Caribbean,4150,6,417925,604,0.144578313&#39;]
@@ -1583,7 +1588,9 @@ const thebe_selector_output = ".output, .cell_output"
 [&#39;Venezuela,Venezuela (Bolivarian Republic of),VEN,28294895,Latin America and the Caribbean,520843,5686,18408,201,1.091691738&#39;]
 [&#39;Vietnam,Viet Nam,VNM,98871712,Asia,9818328,42600,99304,431,0.433882429&#39;]
 [&#39;Wallis and Futuna,Wallis and Futuna Islands,WLF,10894,Oceania,454,7,41674,643,1.54185022&#39;]
-[&#39;Western Sahara,Western Sahara,ESHÂ\xa0,623031,Africa,10,1,16,2,10&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Western Sahara,Western Sahara,ESHÂ\xa0,623031,Africa,10,1,16,2,10&#39;]
 [&#39;Yemen,Yemen,YEM,30975258,Asia,11806,2143,381,69,18.15178723&#39;]
 [&#39;Zambia,Zambia,ZMB,19284482,Africa,317076,3967,16442,206,1.251119605&#39;]
 [&#39;Zimbabwe,Zimbabwe,ZWE,15241601,Africa,246525,5446,16174,357,2.209106581&#39;]
@@ -1597,9 +1604,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;employee_file.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">employee_file</span><span class="p">:</span>
-    <span class="n">employee_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">employee_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+    <span class="n">employee_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">employee_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_ALL</span><span class="p">)</span>
 
-    <span class="n">employee_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Accounting&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">])</span>
+    <span class="n">employee_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Accounting&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">])</span>
     <span class="n">employee_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Erica Meyers&#39;</span><span class="p">,</span> <span class="s1">&#39;IT&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1609,8 +1616,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;employee_file2.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
-    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;emp_name&#39;</span><span class="p">,</span> <span class="s1">&#39;dept&#39;</span><span class="p">,</span> <span class="s1">&#39;birth_month&#39;</span><span class="p">]</span>
-    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;emp_name&#39;</span><span class="p">,</span> <span class="s1">&#39;dept&#39;</span><span class="p">,</span> <span class="s1">&#39;birth_month&#39;</span><span class="p">],</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s1">&#39;emp_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;dept&#39;</span><span class="p">:</span> <span class="s1">&#39;Accounting&#39;</span><span class="p">,</span> <span class="s1">&#39;birth_month&#39;</span><span class="p">:</span> <span class="s1">&#39;November&#39;</span><span class="p">})</span>
@@ -1627,17 +1633,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">s</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2
-1     4
-2     6
-3     8
-4    10
-dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1719,6 +1714,12 @@ dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -1727,11 +1728,269 @@ dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>78</td>
+      <td>84</td>
+      <td>86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>94</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>89</td>
+      <td>96</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Επιλογή στηλών από το dataframe df σε ένα νέο dataframe με το όνομα df_subset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">]]</span>
+<span class="n">df_subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>78</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ορισμός τιμών μια στήλης σε κενό (nan), με βάση κριτήρια</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">96</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>78</td>
+      <td>84</td>
+      <td>86.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>85</td>
+      <td>94</td>
+      <td>NaN</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>89</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83.0</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Φιλτράρισμα δεδομένων</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">]</span> 
+<span class="n">df_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>96</td>
+      <td>89</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>80</td>
+      <td>83</td>
+      <td>72.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>86</td>
+      <td>86</td>
+      <td>83.0</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>ή αλλιώς:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">]</span> 
@@ -1769,66 +2028,14 @@ dtype: int64
       <th>d</th>
       <td>80</td>
       <td>83</td>
-      <td>72</td>
+      <td>72.0</td>
       <td>8</td>
     </tr>
     <tr>
       <th>e</th>
       <td>86</td>
       <td>86</td>
-      <td>83</td>
-      <td>10</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>ή αλλιώς:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">]</span> 
-<span class="n">df_2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-      <th>V</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>d</th>
-      <td>80</td>
-      <td>83</td>
-      <td>72</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>e</th>
-      <td>86</td>
-      <td>86</td>
-      <td>83</td>
+      <td>83.0</td>
       <td>10</td>
     </tr>
   </tbody>
@@ -1874,14 +2081,14 @@ dtype: int64
       <th>b</th>
       <td>85</td>
       <td>94</td>
-      <td>97</td>
+      <td>NaN</td>
       <td>4</td>
     </tr>
     <tr>
       <th>e</th>
       <td>86</td>
       <td>86</td>
-      <td>83</td>
+      <td>83.0</td>
       <td>10</td>
     </tr>
   </tbody>
@@ -1926,40 +2133,47 @@ dtype: int64
       <th>a</th>
       <td>78</td>
       <td>84</td>
-      <td>86</td>
+      <td>86.0</td>
       <td>1000</td>
     </tr>
     <tr>
       <th>b</th>
       <td>85</td>
       <td>94</td>
-      <td>97</td>
+      <td>NaN</td>
       <td>4</td>
     </tr>
     <tr>
       <th>c</th>
       <td>96</td>
       <td>89</td>
-      <td>96</td>
+      <td>NaN</td>
       <td>6</td>
     </tr>
     <tr>
       <th>d</th>
       <td>80</td>
       <td>83</td>
-      <td>72</td>
+      <td>72.0</td>
       <td>8</td>
     </tr>
     <tr>
       <th>e</th>
       <td>86</td>
       <td>86</td>
-      <td>83</td>
+      <td>83.0</td>
       <td>10</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;leonidas.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Προσθήκη γραμμής</p>
 <div class="cell docutils container">
@@ -2094,42 +2308,42 @@ dtype: int64
       <th>a</th>
       <td>78</td>
       <td>84</td>
-      <td>86</td>
+      <td>86.0</td>
       <td>1000</td>
     </tr>
     <tr>
       <th>b</th>
       <td>85</td>
       <td>94</td>
-      <td>97</td>
+      <td>NaN</td>
       <td>4</td>
     </tr>
     <tr>
       <th>c</th>
       <td>96</td>
       <td>89</td>
-      <td>96</td>
+      <td>NaN</td>
       <td>6</td>
     </tr>
     <tr>
       <th>d</th>
       <td>80</td>
       <td>83</td>
-      <td>72</td>
+      <td>72.0</td>
       <td>8</td>
     </tr>
     <tr>
       <th>e</th>
       <td>86</td>
       <td>86</td>
-      <td>83</td>
+      <td>83.0</td>
       <td>10</td>
     </tr>
     <tr>
       <th>f</th>
       <td>1</td>
       <td>2</td>
-      <td>8</td>
+      <td>8.0</td>
       <td>99</td>
     </tr>
   </tbody>
@@ -2174,39 +2388,39 @@ dtype: int64
   <tbody>
     <tr>
       <th>X</th>
-      <td>78</td>
-      <td>85</td>
-      <td>96</td>
-      <td>80</td>
-      <td>86</td>
-      <td>1</td>
+      <td>78.0</td>
+      <td>85.0</td>
+      <td>96.0</td>
+      <td>80.0</td>
+      <td>86.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>Y</th>
-      <td>84</td>
-      <td>94</td>
-      <td>89</td>
-      <td>83</td>
-      <td>86</td>
-      <td>2</td>
+      <td>84.0</td>
+      <td>94.0</td>
+      <td>89.0</td>
+      <td>83.0</td>
+      <td>86.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>Z</th>
-      <td>86</td>
-      <td>97</td>
-      <td>96</td>
-      <td>72</td>
-      <td>83</td>
-      <td>8</td>
+      <td>86.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>72.0</td>
+      <td>83.0</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>V</th>
-      <td>1000</td>
-      <td>4</td>
-      <td>6</td>
-      <td>8</td>
-      <td>10</td>
-      <td>99</td>
+      <td>1000.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>10.0</td>
+      <td>99.0</td>
     </tr>
   </tbody>
 </table>
@@ -2226,12 +2440,12 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;V&#39;], dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]
 </pre></div>
 </div>
 </div>
@@ -2250,7 +2464,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7fb3aba3f550&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7f439f78ddb0&gt;)
 </pre></div>
 </div>
 </div>
@@ -2267,7 +2481,7 @@ dtype: int64
 <p>Εκτύπωση των πρώτων 10 γραμμών</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2416,119 +2630,14 @@ dtype: int64
       <td>0</td>
       <td>00000957579</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>28186</td>
-      <td>❤️Deluxe central loft near Acropolis❤️</td>
-      <td>121318</td>
-      <td>Francis - Fotios</td>
-      <td>NaN</td>
-      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
-      <td>37.97545</td>
-      <td>23.72892</td>
-      <td>Entire home/apt</td>
-      <td>54</td>
-      <td>2</td>
-      <td>466</td>
-      <td>2021-11-07</td>
-      <td>3.99</td>
-      <td>2</td>
-      <td>358</td>
-      <td>11</td>
-      <td>00000264915</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>31155</td>
-      <td>sleep on sailing boat</td>
-      <td>133845</td>
-      <td>Irene</td>
-      <td>NaN</td>
-      <td>ΚΕΡΑΜΕΙΚΟΣ</td>
-      <td>37.97962</td>
-      <td>23.71589</td>
-      <td>Private room</td>
-      <td>39</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>33945</td>
-      <td>Spacious Cosy aprtm very close to Metro!</td>
-      <td>146553</td>
-      <td>Katerina</td>
-      <td>NaN</td>
-      <td>ΑΓΙΟΣ ΝΙΚΟΛΑΟΣ</td>
-      <td>38.00673</td>
-      <td>23.72775</td>
-      <td>Entire home/apt</td>
-      <td>30</td>
-      <td>5</td>
-      <td>71</td>
-      <td>2019-08-18</td>
-      <td>0.52</td>
-      <td>2</td>
-      <td>344</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>49489</td>
-      <td>3bdr apt in the heart of Athens</td>
-      <td>225612</td>
-      <td>Stathis</td>
-      <td>NaN</td>
-      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
-      <td>37.97670</td>
-      <td>23.73064</td>
-      <td>Entire home/apt</td>
-      <td>120</td>
-      <td>2</td>
-      <td>121</td>
-      <td>2019-10-07</td>
-      <td>0.96</td>
-      <td>1</td>
-      <td>262</td>
-      <td>0</td>
-      <td>00000876484</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>54637</td>
-      <td>Penthouse Parthenon view in Athens</td>
-      <td>256676</td>
-      <td>Angeliki</td>
-      <td>NaN</td>
-      <td>ΠΑΓΚΡΑΤΙ</td>
-      <td>37.96919</td>
-      <td>23.74354</td>
-      <td>Entire home/apt</td>
-      <td>70</td>
-      <td>10</td>
-      <td>3</td>
-      <td>2018-02-01</td>
-      <td>0.03</td>
-      <td>1</td>
-      <td>363</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>ΕΚτύπωση των 5 τελευταίων γραμμών</p>
+<p>Εκτύπωση των 5 τελευταίων γραμμών</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2572,6 +2681,111 @@ dtype: int64
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>9663</th>
+      <td>53913979</td>
+      <td>Beautiful Apt. closed to Monastiraki!</td>
+      <td>35760684</td>
+      <td>Eleni</td>
+      <td>NaN</td>
+      <td>ΚΕΡΑΜΕΙΚΟΣ</td>
+      <td>37.980058</td>
+      <td>23.719821</td>
+      <td>Entire home/apt</td>
+      <td>90</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>360</td>
+      <td>0</td>
+      <td>88749558874</td>
+    </tr>
+    <tr>
+      <th>9664</th>
+      <td>53914527</td>
+      <td>Cosy duplex apartment at Petralona</td>
+      <td>195674383</td>
+      <td>Selda</td>
+      <td>NaN</td>
+      <td>ΠΕΤΡΑΛΩΝΑ</td>
+      <td>37.974262</td>
+      <td>23.709322</td>
+      <td>Entire home/apt</td>
+      <td>48</td>
+      <td>3</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>354</td>
+      <td>0</td>
+      <td>Exempt</td>
+    </tr>
+    <tr>
+      <th>9665</th>
+      <td>53914614</td>
+      <td>Classical vibes in this deluxe apt. in heart o...</td>
+      <td>35760684</td>
+      <td>Eleni</td>
+      <td>NaN</td>
+      <td>ΚΕΡΑΜΕΙΚΟΣ</td>
+      <td>37.980330</td>
+      <td>23.721530</td>
+      <td>Entire home/apt</td>
+      <td>90</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>360</td>
+      <td>0</td>
+      <td>33332541105</td>
+    </tr>
+    <tr>
+      <th>9666</th>
+      <td>53915110</td>
+      <td>Family Room at the Trendy by Athens Prime Hotels</td>
+      <td>436756020</td>
+      <td>Paris</td>
+      <td>NaN</td>
+      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
+      <td>37.985432</td>
+      <td>23.732206</td>
+      <td>Private room</td>
+      <td>143</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>324</td>
+      <td>0</td>
+      <td>1190373</td>
+    </tr>
+    <tr>
+      <th>9667</th>
+      <td>53916052</td>
+      <td>Modern, stylish and big apartment in Athens ce...</td>
+      <td>436763650</td>
+      <td>Styliani</td>
+      <td>NaN</td>
+      <td>ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ</td>
+      <td>37.984031</td>
+      <td>23.721455</td>
+      <td>Entire home/apt</td>
+      <td>70</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>364</td>
+      <td>0</td>
+      <td>00001393010</td>
+    </tr>
     <tr>
       <th>9668</th>
       <td>53928165</td>
@@ -3055,20 +3269,170 @@ Name: year, dtype: UInt16
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;last_review&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
 <span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;UInt16&#39;</span><span class="p">)</span>
-<span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">airbnb</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     9
-1    11
-2    12
-3    11
-4     1
-Name: month, dtype: UInt16
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>host_id</th>
+      <th>host_name</th>
+      <th>neighbourhood_group</th>
+      <th>neighbourhood</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>room_type</th>
+      <th>price</th>
+      <th>minimum_nights</th>
+      <th>number_of_reviews</th>
+      <th>last_review</th>
+      <th>reviews_per_month</th>
+      <th>calculated_host_listings_count</th>
+      <th>availability_365</th>
+      <th>number_of_reviews_ltm</th>
+      <th>license</th>
+      <th>year</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10595</td>
+      <td>96m2, 3BR, 2BA, Metro, WI-FI etc...</td>
+      <td>37177</td>
+      <td>Emmanouil</td>
+      <td>NaN</td>
+      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
+      <td>37.98863</td>
+      <td>23.76527</td>
+      <td>Entire home/apt</td>
+      <td>70</td>
+      <td>1</td>
+      <td>32</td>
+      <td>2021-09-24</td>
+      <td>0.25</td>
+      <td>6</td>
+      <td>114</td>
+      <td>7</td>
+      <td>00000957568</td>
+      <td>2021</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10990</td>
+      <td>Athens Quality Apartments - Deluxe Apartment</td>
+      <td>37177</td>
+      <td>Emmanouil</td>
+      <td>NaN</td>
+      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
+      <td>37.98903</td>
+      <td>23.76448</td>
+      <td>Entire home/apt</td>
+      <td>50</td>
+      <td>1</td>
+      <td>54</td>
+      <td>2021-11-01</td>
+      <td>0.48</td>
+      <td>6</td>
+      <td>364</td>
+      <td>10</td>
+      <td>00001070920</td>
+      <td>2021</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10993</td>
+      <td>Athens Quality Apartments - Studio</td>
+      <td>37177</td>
+      <td>Emmanouil</td>
+      <td>NaN</td>
+      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
+      <td>37.98888</td>
+      <td>23.76473</td>
+      <td>Entire home/apt</td>
+      <td>38</td>
+      <td>1</td>
+      <td>76</td>
+      <td>2021-12-09</td>
+      <td>0.67</td>
+      <td>6</td>
+      <td>312</td>
+      <td>22</td>
+      <td>00000957080</td>
+      <td>2021</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10995</td>
+      <td>AQA-No2 1-bedroom, smart tv, fiber connection,</td>
+      <td>37177</td>
+      <td>Emmanouil</td>
+      <td>NaN</td>
+      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
+      <td>37.98903</td>
+      <td>23.76448</td>
+      <td>Entire home/apt</td>
+      <td>48</td>
+      <td>1</td>
+      <td>27</td>
+      <td>2021-11-08</td>
+      <td>0.19</td>
+      <td>6</td>
+      <td>236</td>
+      <td>4</td>
+      <td>00000957422</td>
+      <td>2021</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27262</td>
+      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
+      <td>37177</td>
+      <td>Emmanouil</td>
+      <td>NaN</td>
+      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
+      <td>37.98924</td>
+      <td>23.76500</td>
+      <td>Entire home/apt</td>
+      <td>52</td>
+      <td>1</td>
+      <td>17</td>
+      <td>2020-01-08</td>
+      <td>0.15</td>
+      <td>6</td>
+      <td>176</td>
+      <td>0</td>
+      <td>00000957579</td>
+      <td>2020</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Αν κάποια στήλη περιέχει κενά στην αρχή ή το τέλος της μπορούμε να τα αφαιρέσουμε ως εξής:</p>
 <div class="cell docutils container">
@@ -3112,7 +3476,7 @@ Name: name_lower, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;min_revenue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">airbnb</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
-<span class="n">airbnb</span><span class="p">[[</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;min_revenue&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">airbnb</span><span class="p">[[</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;min_revenue&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -3171,8 +3535,45 @@ Name: name_lower, dtype: object
       <td>52</td>
       <td>52</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9668</th>
+      <td>2</td>
+      <td>40</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>9669</th>
+      <td>1</td>
+      <td>110</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>9670</th>
+      <td>4</td>
+      <td>33</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>9671</th>
+      <td>1</td>
+      <td>32</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>9672</th>
+      <td>1</td>
+      <td>40</td>
+      <td>40</td>
+    </tr>
   </tbody>
 </table>
+<p>9673 rows × 3 columns</p>
 </div></div></div>
 </div>
 <p>Υπολογισμός του μέσου όρου μιας στήλης</p>
@@ -3313,7 +3714,7 @@ Name: name_lower, dtype: object
 <p>Υπολογισμό διαμέσου τιμής ανά τύπο δωματίου και έτος</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="p">[[</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airbnb</span><span class="p">[[</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3346,151 +3747,151 @@ Name: name_lower, dtype: object
       <th>0</th>
       <td>Entire home/apt</td>
       <td>2013</td>
-      <td>133.0</td>
+      <td>133.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Entire home/apt</td>
       <td>2014</td>
-      <td>69.0</td>
+      <td>89.666667</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Entire home/apt</td>
       <td>2015</td>
-      <td>50.0</td>
+      <td>63.500000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Entire home/apt</td>
       <td>2016</td>
-      <td>60.0</td>
+      <td>90.432432</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Entire home/apt</td>
       <td>2017</td>
-      <td>60.0</td>
+      <td>92.000000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Entire home/apt</td>
       <td>2018</td>
-      <td>55.0</td>
+      <td>90.602094</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Entire home/apt</td>
       <td>2019</td>
-      <td>50.0</td>
+      <td>111.112040</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Entire home/apt</td>
       <td>2020</td>
-      <td>48.0</td>
+      <td>74.048780</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Entire home/apt</td>
       <td>2021</td>
-      <td>50.0</td>
+      <td>69.686602</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Hotel room</td>
       <td>2017</td>
-      <td>124.0</td>
+      <td>116.333333</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Hotel room</td>
       <td>2018</td>
-      <td>106.0</td>
+      <td>96.800000</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Hotel room</td>
       <td>2019</td>
-      <td>85.0</td>
+      <td>610.882353</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Hotel room</td>
       <td>2020</td>
-      <td>99.0</td>
+      <td>115.600000</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Hotel room</td>
       <td>2021</td>
-      <td>87.0</td>
+      <td>108.051282</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Private room</td>
       <td>2015</td>
-      <td>160.0</td>
+      <td>160.000000</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Private room</td>
       <td>2016</td>
-      <td>31.0</td>
+      <td>51.285714</td>
     </tr>
     <tr>
       <th>16</th>
       <td>Private room</td>
       <td>2017</td>
-      <td>40.0</td>
+      <td>67.000000</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Private room</td>
       <td>2018</td>
-      <td>34.5</td>
+      <td>55.966667</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Private room</td>
       <td>2019</td>
-      <td>42.5</td>
+      <td>53.809524</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Private room</td>
       <td>2020</td>
-      <td>20.0</td>
+      <td>124.762712</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Private room</td>
       <td>2021</td>
-      <td>25.0</td>
+      <td>43.755376</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Shared room</td>
       <td>2017</td>
-      <td>42.0</td>
+      <td>42.000000</td>
     </tr>
     <tr>
       <th>22</th>
       <td>Shared room</td>
       <td>2019</td>
-      <td>261.0</td>
+      <td>257.500000</td>
     </tr>
     <tr>
       <th>23</th>
       <td>Shared room</td>
       <td>2020</td>
-      <td>500.0</td>
+      <td>391.666667</td>
     </tr>
     <tr>
       <th>24</th>
       <td>Shared room</td>
       <td>2021</td>
-      <td>12.0</td>
+      <td>12.952381</td>
     </tr>
   </tbody>
 </table>
@@ -3858,7 +4259,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_8_89_0.png" src="../_images/Lesson_8_89_0.png" />
+<img alt="../_images/Lesson_8_94_0.png" src="../_images/Lesson_8_94_0.png" />
 </div>
 </div>
 </div>
@@ -3904,6 +4305,13 @@ Pandas User Guide, <a class="reference external" href="https://pandas.pydata.org
             <p class="prev-next-subtitle">προηγούμενο</p>
             <p class="prev-next-title">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lesson_9.html" title="επόμενο σελίδα">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">9. Γεωεπεξεργασία διανυσματικών δεδομένων</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

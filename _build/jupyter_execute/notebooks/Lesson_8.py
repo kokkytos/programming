@@ -18,6 +18,7 @@ import csv # απαραίτητο για την ανάγνωση και εγγρ
 from urllib import request # απαραίτητο για την λήψη αρχείων από το διαδίκτυο
 import pandas as pd # η βιβλιοθήκη pandas για την διαχείρηση πινάκων
 from pathlib import Path # βιβλιοθήκη για την διαχείριση των διαδρομών (paths) στον δίσκο
+import numpy as np
 
 
 # Προαιρετικά ελέγχουμε ποιος είναι ο τρέχων κατάλογος:
@@ -110,9 +111,9 @@ with open(local_file1, 'r') as file:
 
 
 with open('employee_file.csv', mode='w') as employee_file:
-    employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    employee_writer = csv.writer(employee_file, delimiter=';', quotechar='"', quoting=csv.QUOTE_ALL)
 
-    employee_writer.writerow(['John Smith', 'Accounting', 'November'])
+    employee_writer.writerow(['John Smith', 'Accounting', 'June'])
     employee_writer.writerow(['Erica Meyers', 'IT', 'March'])
 
 
@@ -122,8 +123,7 @@ with open('employee_file.csv', mode='w') as employee_file:
 
 
 with open('employee_file2.csv', mode='w') as csv_file:
-    fieldnames = ['emp_name', 'dept', 'birth_month']
-    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+    writer = csv.DictWriter(csv_file, fieldnames= ['emp_name', 'dept', 'birth_month'],delimiter=';')
 
     writer.writeheader()
     writer.writerow({'emp_name': 'John Smith', 'dept': 'Accounting', 'birth_month': 'November'})
@@ -140,7 +140,6 @@ with open('employee_file2.csv', mode='w') as csv_file:
 
 
 s = pd.Series([2, 4, 6, 8, 10])
-s
 
 
 # Δημιουργία pandas Dataframe object. Η τελευτάι στήλη είναι από το προηγούμενο Series object.
@@ -158,6 +157,7 @@ df
 
 
 index = pd.Index(list('abcde'))
+print(index)
 
 
 # Αλλαγή Index σε ένα dataframe
@@ -166,29 +166,49 @@ index = pd.Index(list('abcde'))
 
 
 df = df.set_index(index)
+df
+
+
+# Επιλογή στηλών από το dataframe df σε ένα νέο dataframe με το όνομα df_subset
+
+# In[15]:
+
+
+df_subset = df[['X','V']]
+df_subset
+
+
+# Ορισμός τιμών μια στήλης σε κενό (nan), με βάση κριτήρια
+
+# In[16]:
+
+
+
+df.loc[df['Z'] >= 96,'Z'] = np.nan
+df
 
 
 # Φιλτράρισμα δεδομένων
 
-# In[15]:
+# In[17]:
+
+
+df_2 =  df[df['V'] >= 6] 
+df_2
+
+
+# ή αλλιώς:
+
+# In[18]:
 
 
 df_2 =  df.loc[df['V'] >= 8] 
 df_2
 
 
-# ή αλλιώς:
-
-# In[16]:
-
-
-df_2 =  df[df['V'] >= 8] 
-df_2
-
-
 # με βάση συνθήκη όπου περιέχονται στην στήλη V τα στοιχεία της λίστας options
 
-# In[17]:
+# In[19]:
 
 
 
@@ -199,16 +219,22 @@ rslt_df
 
 # Τροποποίηση κελιού
 
-# In[18]:
+# In[20]:
 
 
 df.at['a', 'V'] = 1000
 df
 
 
+# In[21]:
+
+
+df.to_csv("leonidas.csv", sep=';', index=False)
+
+
 # Προσθήκη γραμμής
 
-# In[19]:
+# In[22]:
 
 
 # Νεα γραμμή σαν dataframe
@@ -220,7 +246,7 @@ row_df
 
 # Εναλλακτικά φτιάχνουμε αν θελουμε την ιδια γραμμή με άλλη μέθοδο (μέσω ενός dictionary):
 
-# In[20]:
+# In[23]:
 
 
 my_dictionary = {'X': [1], 'Y': [2],'Z': [8], 'V': [99]}
@@ -229,7 +255,7 @@ row_df = row_df.set_index(pd.Index(['f']))
 row_df
 
 
-# In[21]:
+# In[24]:
 
 
 # Συννένωση
@@ -239,23 +265,23 @@ df1
 
 # Αντιμετάθεση στηλών και γραμμών (transpose)
 
-# In[22]:
+# In[25]:
 
 
 df2 = df1.T # transpose
 df2
 
 
-# In[23]:
+# In[26]:
 
 
 list(df2.columns)
 
 
-# In[24]:
+# In[27]:
 
 
-df2.index
+list(df1.index)
 
 
 # Μπορούμε να διαβάσουμε ένα αρχείο CSV σαν pandas dataframe.
@@ -264,7 +290,7 @@ df2.index
 # 
 # Λήψη αρχείου csv από το διαδίκτυο:
 
-# In[25]:
+# In[28]:
 
 
 remote_url = 'http://data.insideairbnb.com/greece/attica/athens/2021-12-23/visualisations/listings.csv'
@@ -276,7 +302,7 @@ request.urlretrieve(remote_url, local_file3)
 
 # Ανάγνωση του αρχείου σαν panda DataFrame
 
-# In[26]:
+# In[29]:
 
 
 # read the airbnb NYC listings csv file
@@ -285,23 +311,23 @@ airbnb = pd.read_csv(local_file3)
 
 # Εκτύπωση των πρώτων 10 γραμμών
 
-# In[27]:
+# In[30]:
 
 
-airbnb.head(10)
+airbnb.head()
 
 
-# ΕΚτύπωση των 5 τελευταίων γραμμών
+# Εκτύπωση των 5 τελευταίων γραμμών
 
-# In[28]:
+# In[31]:
 
 
-airbnb.tail()
+airbnb.tail(10)
 
 
 # Μπορούμε να πάρουμε για όλες τις αριθμητικές στήλες περιγραφικά στατιστικά (mean, std, min, τεταρτημόρια κτλ) με την μέθοδο describe()
 
-# In[29]:
+# In[32]:
 
 
 airbnb.describe()
@@ -309,7 +335,7 @@ airbnb.describe()
 
 # Ανάγνωση των δεδομένων μιας στήλης σαν pandas Series
 
-# In[30]:
+# In[33]:
 
 
 # Results for a single column
@@ -318,7 +344,7 @@ airbnb['name']
 
 # Επιλογή συγκεκριμένων στηλών από το dataframe
 
-# In[31]:
+# In[34]:
 
 
 # results for multiple columns
@@ -327,7 +353,7 @@ airbnb[['host_id', 'host_name']]
 
 # Επιστροφή του τύπου δεδομένων για όλες τις στήλες
 
-# In[32]:
+# In[35]:
 
 
 airbnb.dtypes
@@ -335,7 +361,7 @@ airbnb.dtypes
 
 # Μετατροπή της στήλης last_review σε datetime64 object
 
-# In[33]:
+# In[36]:
 
 
 airbnb['last_review'] = pd.to_datetime(airbnb['last_review'])
@@ -344,7 +370,7 @@ airbnb.dtypes
 
 # Μπορούμε να εξάγουμε το έτος από ένα datetime object σε μια νέα στήλη. Μετατροπή της στήλης year σε ακέραιο
 
-# In[34]:
+# In[37]:
 
 
 # extract the year from a datetime series
@@ -358,17 +384,17 @@ airbnb['year'].head()
 
 # Το ίδιο μπορούμε να κάνουμε και με τον μήνα.
 
-# In[35]:
+# In[38]:
 
 
 airbnb['month'] = airbnb['last_review'].dt.month
 airbnb['month']=airbnb['month'].astype('UInt16')
-airbnb['month'].head()
+airbnb.head()
 
 
 # Αν κάποια στήλη περιέχει κενά στην αρχή ή το τέλος της μπορούμε να τα αφαιρέσουμε ως εξής:
 
-# In[36]:
+# In[39]:
 
 
 airbnb['name'] = airbnb['name'].str.strip()
@@ -377,7 +403,7 @@ airbnb['name'].head()
 
 # Μετατροπή όλων των χαρακτήρων μιας στήλης σε πεζά:
 
-# In[37]:
+# In[40]:
 
 
 airbnb['name_lower'] = airbnb['name'].str.lower()
@@ -386,16 +412,16 @@ airbnb['name_lower'].head()
 
 # Δημιουργία μιας στήλης που στηρίζεται σε υπολογισμό μεταξύ άλλων στηλών (calculated column)
 
-# In[38]:
+# In[41]:
 
 
 airbnb['min_revenue'] = airbnb['minimum_nights'] * airbnb['price']
-airbnb[['minimum_nights', 'price', 'min_revenue']].head()
+airbnb[['minimum_nights', 'price', 'min_revenue']]
 
 
 # Υπολογισμός του μέσου όρου μιας στήλης
 
-# In[39]:
+# In[42]:
 
 
 airbnb['price'].mean()
@@ -403,7 +429,7 @@ airbnb['price'].mean()
 
 # Υπολογισμός του διαμέσου μιας στήλης
 
-# In[40]:
+# In[43]:
 
 
 airbnb['price'].median()
@@ -411,7 +437,7 @@ airbnb['price'].median()
 
 # Υπολογισμό μέσου όρου τιμής ανά τύπο δωματίου
 
-# In[41]:
+# In[44]:
 
 
 airbnb[['room_type', 'price']].groupby('room_type', as_index=False).mean()
@@ -419,7 +445,7 @@ airbnb[['room_type', 'price']].groupby('room_type', as_index=False).mean()
 
 # Υπολογισμό διαμέσου τιμής ανά τύπο δωματίου. Χρησιμοποιούμε την στήλη room_type σαν index
 
-# In[42]:
+# In[45]:
 
 
 airbnb[['room_type', 'price']].groupby('room_type', as_index=True).median()
@@ -427,15 +453,15 @@ airbnb[['room_type', 'price']].groupby('room_type', as_index=True).median()
 
 # Υπολογισμό διαμέσου τιμής ανά τύπο δωματίου και έτος
 
-# In[43]:
+# In[46]:
 
 
-airbnb[['room_type', 'year', 'price']].groupby(['room_type', 'year'], as_index=False).median()
+airbnb[['room_type', 'year', 'price']].groupby(['room_type', 'year'], as_index=False).mean()
 
 
 # Φιλτράρισμα γραμμών με βάση ένα κριτήριο (τιμή <1000) και προσάρτηση σε ένα νέο dataframe
 
-# In[44]:
+# In[47]:
 
 
 # get all rows with price < 1000
@@ -445,7 +471,7 @@ airbnb_under_1000.head()
 
 # Φιλτράρισμα με πολλαπλά κριτήρια (τιμή <1000 και έτος 2020)
 
-# In[45]:
+# In[48]:
 
 
 # get all rows with price < 1000 and year equal to 2020
@@ -455,7 +481,7 @@ airbnb_2019_under_1000.head()
 
 # Ιστόγραμμα για την στήλη price στον πίνακα airbnb_under_1000
 
-# In[46]:
+# In[49]:
 
 
 ax = airbnb_under_1000['price'].plot.hist(bins=40)
