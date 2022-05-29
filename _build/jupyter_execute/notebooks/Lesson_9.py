@@ -9,15 +9,11 @@
 # - Οι γραμμές
 # - Τα πολύγωνα
 
-# <div>
-# <img src="Lesson_8/vector.png" width="600"/>
-# </div>
+# ![alt text](../images/vector.png)
 
 # Επιπλέον αυτά τα γεωμετρικά δεδομένα συνοδεύονται και απο περιγραφικά δεδομένα που αφορούν τις ιδιότητες ή τα χαρακτηριστικά αυτών των δεδομένων.
 
-# <div>
-# <img src="Lesson_8/spatial-attribute-tables.png" width="600"/>
-# </div>
+# ![alt text](../images/spatial-attribute-tables.png)
 
 # Στα Σ.Γ.Π. ο πιο συνηθισμένος τύπος αρχείων αποθήκευσης αυτών των δεδομένων είναι το shapefile. 
 # Πλέον έχουν αναπτυχθεί και άλλοι τύποι όπως geojson, geopackage και χωρικές βάσεις (geodatabases) όπως η Postgresql/Postgis.
@@ -26,15 +22,11 @@
 # Κάθε σημείο στον χώρο προσδιορίζεται γεωγραφικά από το γεωγραφικό μήκος (λ) και το γεωγραφικό πλάτος (φ).
 # 
 
-# <div>
-# <img src="Lesson_8/coords.jpg" width="500"/>
-# </div>
+# ![alt text](../images/coords.jpg)
 
 # Για να αποδοθεί η τρισδιάστατη υδρόγειος σφαίρα σε ένα δυσδιάστατο σύστημα αναφορά χρησιμοποιείται ένα προβολικό σύστημα.
 
-# <div>
-# <img src="Lesson_8/437-mapping-projection-types.png" width="600"/>
-# </div>
+# ![alt text](../images/437-mapping-projection-types.png)
 
 # Κάθε προβολικό σύστημα της σφαίρας στο επίπεδο εισάγει μια σειρά παραμορφώσεων που αφορά το σχήμα των γεωμετρικών δομών, την κλίμακα, την έκταση και τις αποστάσεις. Ανάλογα το προβολικό σύστημα κάποιες από τις παραπάνω παραμορφώσεις εμφανίζονται σε μεγάλο βαθμό και άλλες όχι.
 # Οπότε ανάλογα το είδος της έρευνας ο ερευνητής οφείλει να γνωρίζειπαραμορφώσεις εισάγει η κάθε προβολή και ανάλογα να επιλέγει την προβολή με τα λιγότερα σφάλματα.
@@ -783,12 +775,6 @@ projected_point = transform(project, wgs84_pt)
 print(projected_point)
 
 
-# In[ ]:
-
-
-
-
-
 # In[91]:
 
 
@@ -816,13 +802,9 @@ my_map
 # 
 # Στην υφιστάμενη δομή της pandas, η geopandas υποστηρίζει την γεωμετρία με την προσθήκη μιας νέας στήλης και το γεωγραφικό σύστημα αναφοράς.
 
-# <div>
-# <img src="pandas-data-structure.svg" width="500"/>
-# </div>
+# ![alt text](pandas-data-structure.svg)
 
-# <div>
-# <img src="Lesson_8/dataframe.svg" width="500"/>
-# </div>
+# ![alt text](../images/dataframe.svg)
 
 # Εισάγουμε την βιβλιοθήκη με τον παρακάτω τρόπο
 
@@ -838,7 +820,7 @@ import geopandas as gpd
 
 
 # Import shapefile using geopandas
-dhmoi = gpd.read_file("Lesson_8/spatial_data/dhmoi.gpkg")
+dhmoi = gpd.read_file("../docs/dhmoi.gpkg")
 
 type(dhmoi)
 
@@ -933,7 +915,7 @@ dhmoi.shape
 # In[105]:
 
 
-dhmoi.to_file("Lesson_8/dhmoi.geojson", driver="GeoJSON")
+dhmoi.to_file("dhmoi.geojson", driver="GeoJSON")
 
 
 # In[106]:
