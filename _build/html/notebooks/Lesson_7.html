@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas" href="Lesson_8.html" />
-    <link rel="prev" title="5. Έλεγχος ροής εκτέλεσης" href="Lesson_5.html" />
+    <link rel="prev" title="6. Συναρτήσεις (functions)" href="Lesson_6.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="el">
     
@@ -121,6 +121,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Lesson_5.html">
    5. Έλεγχος ροής εκτέλεσης
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_6.html">
+   6. Συναρτήσεις (functions)
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -514,7 +519,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -560,6 +565,14 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -677,6 +690,14 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -701,6 +722,14 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -765,6 +794,14 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -1037,9 +1074,7 @@ foo.txt
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
 sub_dir
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir3
+sub_dir3
 2018
 example_directory
 </pre></div>
@@ -1067,15 +1102,14 @@ example_directory
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: sub_dir2
 	Μέγεθος:  4096
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: sub_dir
+
+Όνομα αρχείου: sub_dir
 	Μέγεθος:  4096
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 15:51:20+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  462
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-31 15:13:38.666209+00:00
+	Μέγεθος:  518
+	Ημερομηνία τελευταίας τροποποίησης 2022-10-04 18:23:13.295753+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -1087,7 +1121,10 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-31 15:13:38.586216+00:00
+	Ημερομηνία τελευταίας τροποποίησης 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-04 18:23:13.211754+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
@@ -1102,8 +1139,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 07:01:42+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  462
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-31 15:13:38.646211+00:00
+	Μέγεθος:  518
+	Ημερομηνία τελευταίας τροποποίησης 2022-10-04 18:23:13.275753+00:00
 
 Όνομα αρχείου: 2018
 	Μέγεθος:  4096
@@ -1114,8 +1151,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  2139
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-31 15:13:38.734204+00:00
+	Μέγεθος:  2555
+	Ημερομηνία τελευταίας τροποποίησης 2022-10-04 18:23:13.371753+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -1139,7 +1176,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2022-05-30 08:44:05.861591+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2022-10-04 18:17:28.149565+00:00
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1201,9 @@ example_directory
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/in/input.xlsx
-/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/out/output.xlsx
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/Documents/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/out/output.xlsx
 </pre></div>
 </div>
 </div>
@@ -1376,9 +1415,7 @@ file1.py
 Found directory: ./2018/10/05
 Found directory: ./2018/10
 Found directory: ./2018
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found directory: ./example_directory
+Found directory: ./example_directory
 Found directory: .
 dog_breeds_reversed.txt
 data_02.txt
@@ -1434,8 +1471,8 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpby7vsrqe
-/tmp/tmpby7vsrqe
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpj7tt3maf
+/tmp/tmpj7tt3maf
 True
 </pre></div>
 </div>
@@ -1679,11 +1716,11 @@ True
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_5.html" title="προηγούμενο σελίδα">
+    <a class='left-prev' id="prev-link" href="Lesson_6.html" title="προηγούμενο σελίδα">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">5. Έλεγχος ροής εκτέλεσης</p>
+            <p class="prev-next-title">6. Συναρτήσεις (functions)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Lesson_8.html" title="επόμενο σελίδα">
