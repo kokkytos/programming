@@ -3,6 +3,11 @@
 
 format: jb-book
 root: notebooks/intro
+
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+
+
 chapters:
 - file: notebooks/Lesson_1
 - file: notebooks/Lesson_2
@@ -13,7 +18,7 @@ chapters:
 - file: notebooks/Lesson_7
 - file: notebooks/Lesson_8
 - file: notebooks/Lesson_9
-#- file: notebooks/Lesson_10
+- file: notebooks/Lesson_10
 #- file: notebooks/Lesson_11
 #- file: notebooks/Lesson_12
 #- file: notebooks/Lesson_13

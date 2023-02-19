@@ -487,7 +487,7 @@ airbnb_2019_under_1000.head()
 ax = airbnb_under_1000['price'].plot.hist(bins=40)
 
 
-# # Βιβλιογραφία
+# ## Βιβλιογραφία
 # 
 # pandas Tutorial for Beginners, https://www.datacamp.com/tutorial/pandas, Πρόσβαση: 18/05/2022
 # 
