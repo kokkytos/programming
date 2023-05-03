@@ -15,3 +15,7 @@ sphinxext-rediraffe~=0.2.3
 sympy
 sphinx-proof
 graphviz
+rasterio
+geopandas
+sklearn
+skimage
