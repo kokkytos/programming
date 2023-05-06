@@ -3,6 +3,31 @@
 
 # # 9. Γεωεπεξεργασία διανυσματικών δεδομένων
 
+# ## Ειδική ενότητα για εκτέλεση στο Google Colab
+
+# In[1]:
+
+
+# έλεγχος αν το notebook τρέχει στο google colab
+try:
+  import google.colab
+  IN_COLAB = True
+except:
+  IN_COLAB = False
+
+
+# In[2]:
+
+
+# αν το notebook τρέχει στο colab, mount το Google Drive και αλλαγή στο directory που έχει γίνει clone το github repository.
+# εγκατάσταση απαραίτητων βιβλιοθηκών
+if IN_COLAB:
+    from google.colab import drive
+    drive.mount('/content/drive')
+    get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Colab\\ Notebooks/programming/notebooks')
+    get_ipython().system('pip install rasterio geopandas')
+
+
 # Ο χώρος και οι γεωμετρικές δομές του μπορούν να αναπαρασταθούν μέσω διανυσματικών δεδομένων (Vector).
 # Οι τρείς βασικές δομές δεδομένων είναι:
 # - Τα σημεία
@@ -42,7 +67,7 @@
 # 
 # Μπορούμε να δημιουργήσουμε αντικείμενα shapely που αναπαριστούν σημεία ή γραμμές ή πολύγωνα μέσω WKT. Η γλώσσα [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) είναι μια ειδική διάλεκτος για την περιγραφή διανυσματικών αντικειμένων. Εισάγουμε τις απαραίτητες υπο-βιβλιοθήκες (`geometry` και `wkt`) από την βιβλιοθήκη shapely. 
 
-# In[1]:
+# In[3]:
 
 
 import shapely.geometry
@@ -53,13 +78,13 @@ import shapely.wkt
 
 # Καλούμε την μέθοδο `shapely.wkt.loads()` για να δημιουργήσουμε shapely objects από wkt
 
-# In[2]:
+# In[4]:
 
 
 pol1 = shapely.wkt.loads("POLYGON ((0 0, 0 -1, 7.5 -1, 7.5 0,0 0))")
 
 
-# In[3]:
+# In[5]:
 
 
 pol1
@@ -67,7 +92,7 @@ pol1
 
 # Η εκτύπωση του shapely αντικειμένου επιστρέφει μία περιγραφή σε μορφή WKT. 
 
-# In[4]:
+# In[6]:
 
 
 print(pol1)
@@ -75,20 +100,20 @@ print(pol1)
 
 # Εκτύπωση του τύπου του αντικειμένου pol1
 
-# In[5]:
+# In[7]:
 
 
 type(pol1)
 
 
-# In[6]:
+# In[8]:
 
 
 pol2 = shapely.wkt.loads("POLYGON ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1))")
 print(pol2)
 
 
-# In[7]:
+# In[9]:
 
 
 pol2
@@ -96,7 +121,7 @@ pol2
 
 # Δημιουργία MultiPolygon shapely object από αντίστοιχη συλλογή πολυγώνων MULTIPOLYGON
 
-# In[8]:
+# In[10]:
 
 
 pol3 = shapely.wkt.loads("""
@@ -106,19 +131,19 @@ MULTIPOLYGON
 """)
 
 
-# In[9]:
+# In[11]:
 
 
 type(pol3)
 
 
-# In[10]:
+# In[12]:
 
 
 pol3
 
 
-# In[11]:
+# In[13]:
 
 
 type(pol3)
@@ -126,7 +151,7 @@ type(pol3)
 
 # #### Σημεία
 
-# In[12]:
+# In[14]:
 
 
 pnt1 = shapely.wkt.loads("""
@@ -134,7 +159,7 @@ POINT (30 10)
 """)
 
 
-# In[13]:
+# In[15]:
 
 
 pnt1
@@ -142,7 +167,7 @@ pnt1
 
 # Συλλογή σημείων
 
-# In[14]:
+# In[16]:
 
 
 pnt2 = shapely.wkt.loads("""
@@ -150,7 +175,7 @@ MULTIPOINT(0 0,1 1)
 """)
 
 
-# In[15]:
+# In[17]:
 
 
 pnt2
@@ -158,7 +183,7 @@ pnt2
 
 # #### Γραμμές
 
-# In[16]:
+# In[18]:
 
 
 line1 =shapely.wkt.loads("""
@@ -170,7 +195,7 @@ line1
 
 # Συλλογή γραμμών
 
-# In[17]:
+# In[19]:
 
 
 line2 =shapely.wkt.loads("""
@@ -182,7 +207,7 @@ line2
 
 # ### Shapely μέσω συναρτήσεων  
 
-# In[18]:
+# In[20]:
 
 
 from shapely.geometry import Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon
@@ -192,7 +217,7 @@ from shapely.geometry import Point, LineString, Polygon, MultiPoint, MultiLineSt
 # 
 # Στην συνέχεια ακολουθεί η δημιουργία ενός αντικειμένου shapely γεωμετρίας σημείου.
 
-# In[19]:
+# In[21]:
 
 
 pnt1 = shapely.geometry.Point((2, 0.5))
@@ -201,7 +226,7 @@ pnt1
 
 # Για την δημιουργία συλλογής σημείων `multipoint` δίνουμε σαν όρισμα στην συνάρτηση *[shapely.geometry.MultiPoint](https://shapely.readthedocs.io/en/stable/manual.html#collections-of-points)* μία λίστα από πλειάδες (tuples). Η κάθε πλειάδα `(x,y)`αντιστοιχεί στις συντεταγμένες ενός σημείου.
 
-# In[20]:
+# In[22]:
 
 
 coords = [(2, 0.5), (1, 1), (-1, 0), (1, 0)]
@@ -211,7 +236,7 @@ pnt2
 
 # Για την δημιουργία γραμμών χρησιμοποιείται πάλι μία λίστα από tuples που περιγράφουν τις κορυφές της γραμμής. Στο παρακάτω παράδειγμα χρησιμοποιούμαι την προηγούμενη πλειάδα αλλά πλέον χρησιμοποιούμε την μέθοδο *shapely.geometry.LineString* για την δημιουργία γραμμής και όχι την μέθοδο `shapely.geometry.MultiPoint` που δημιουργεί συλλογές σημείων.
 
-# In[21]:
+# In[23]:
 
 
 line1 = shapely.geometry.LineString(coords)
@@ -220,7 +245,7 @@ line1
 
 # Κατασκεύη γραμμής από Point Objects:
 
-# In[22]:
+# In[24]:
 
 
 p1 = shapely.wkt.loads("POINT (0 0)")
@@ -236,7 +261,7 @@ shapely.geometry.LineString([p1, p2, p3, p4, p5])
 # 
 # Δημιουργούμε ξεχωριστά αντικείμενα γραμμών shapely και στην συνέχεια καλούμε την συνάρτηση `shapely.geometry.MultiLineString` όπου ορίζουμε σαν όρισμα μια λίστα με τις μεμονωμένες γραμμές.
 
-# In[23]:
+# In[25]:
 
 
 l1 = shapely.geometry.LineString([(2, 0.5), (1, 1), (-1, 0), (1, -1)])
@@ -247,7 +272,7 @@ line2
 
 # Αντίστοιχα δημιουργούμε πολυγωνικά αντικείμενα  μέσω μια λίστας με πλειάδες σημείων που χρησιμοποιείται σαν όρισμα στην συνάρτηση *shapely.geometry.Polygon*
 
-# In[24]:
+# In[26]:
 
 
 coords = [(0, 0), (0, -1), (7.5, -1), [7.5, 0], (0, 0)]
@@ -256,7 +281,7 @@ shapely.geometry.Polygon(coords)
 
 # Αν θέλουμε μπορούμε να περάσουμε μία δεύτερη λίστα η οποία περιλαμβανει επιμέρους λίστες με πλειάδες σημείων τα οποία περιγράφουν τρύπες μέσα στο πολύγωνο.
 
-# In[25]:
+# In[27]:
 
 
 coords_exterior = [(0, 0), (0, -1), (7.5, -1), (7.5, 0), (0, 0)]
@@ -266,20 +291,20 @@ shapely.geometry.Polygon(coords_exterior, coords_interiors)
 
 # Με την συνάρτηση *shapely.geometry.MultiPolygon* δημιουργούμε αντίστοιχα συλλογές πολυγώνων από μεμονωμένα αντικείμενα shapely.geometry.polygon.Polygon
 
-# In[26]:
+# In[28]:
 
 
 pol2
 
 
-# In[27]:
+# In[29]:
 
 
 multipolygon1 = shapely.geometry.MultiPolygon([pol1, pol2])
 multipolygon1
 
 
-# In[28]:
+# In[30]:
 
 
 print(multipolygon1)
@@ -287,7 +312,7 @@ print(multipolygon1)
 
 # Σύμφωνα με τις προδιαγραφές [simple features](https://en.wikipedia.org/wiki/Simple_Features) το παραπάνω object δεν είναι έγκυρο γιατί ένα πολύγωνο τέμνει ένα άλλο σε άπειρο αριθμό σημείων. Μπορούμε να ελέγξουμε την εγκυρότητα ενός αντικειμένου με την κλήση τις ιδιότητας *is_valid*. Επίσης κατά την οπτικοποίηση στο προηγούμενο βήμα του αντικειμένου multipolygon1 αυτό εμφανίζεται με κόκκινο (αντί για πράσινο). Ένδειξη ότι δεν ειναι valid.
 
-# In[29]:
+# In[31]:
 
 
 multipolygon1.is_valid
@@ -295,13 +320,13 @@ multipolygon1.is_valid
 
 # Ταυτόχρονα μπορούμε να φτιάξουμε σύνθετες συλλογές από επιμέρους αντικείμενα shapely.
 
-# In[30]:
+# In[32]:
 
 
 geo_collection = shapely.geometry.GeometryCollection([multipolygon1,line2,pnt1])
 
 
-# In[31]:
+# In[33]:
 
 
 geo_collection
@@ -315,7 +340,7 @@ geo_collection
 # * Την ιδιότητα `"type"` που περιγράφει τον τύπο γεωμετρίας
 # * Την ιδιότητα  `"coordinates"` που περιγράφει τις γεωμετρίες και τις συντεταγμένες τους σαν λίστες ή πλειάδες.
 
-# In[32]:
+# In[34]:
 
 
 d = {"type": "Point", "coordinates": (0, 1)}
@@ -324,7 +349,7 @@ shapely.geometry.shape(d)
 
 # Δημιουργία αντικειμένου MultiPolygon μέσω GEOJSON λεξικού:
 
-# In[33]:
+# In[35]:
 
 
 d = {
@@ -348,19 +373,19 @@ pol3
 
 # H ιδιότητα `.geom_type` ενός αντικειμένου shapely περιγράφει τον γεωμετρικό τύπο της:
 
-# In[34]:
+# In[36]:
 
 
 pol1.geom_type
 
 
-# In[35]:
+# In[37]:
 
 
 line1.geom_type
 
 
-# In[36]:
+# In[38]:
 
 
 geo_collection.geom_type
@@ -372,7 +397,7 @@ geo_collection.geom_type
 
 # Για ένα Point object καλούμε άμεσα την ιδιότητα coords η οποία επιστρέφει ένα *shapely.coords.CoordinateSequence* object.
 
-# In[37]:
+# In[39]:
 
 
 pnt1.coords
@@ -380,7 +405,7 @@ pnt1.coords
 
 # Μπορούμε να λάβουμε ως λίστα τις πλειάδες συντεταγμένων που το απαρτίζουν
 
-# In[38]:
+# In[40]:
 
 
 list(pnt1.coords)
@@ -388,7 +413,7 @@ list(pnt1.coords)
 
 # Αντίστοιχα για γραμμή
 
-# In[39]:
+# In[41]:
 
 
 list(line1.coords)
@@ -396,13 +421,13 @@ list(line1.coords)
 
 # Για να ελέγξουμε σε ένα αντικείμενο συλλογών γεωμετρίας (MultiPoint, MultiPolygon κτλ) πόσες επιμέρους γεωμετρίες περιλαμβάνει:
 
-# In[40]:
+# In[42]:
 
 
 len(line2.geoms)
 
 
-# In[41]:
+# In[43]:
 
 
 line2
@@ -410,19 +435,19 @@ line2
 
 # Για να λάβουμε το πρώτο αντικείμενο γεωμετρίας:
 
-# In[42]:
+# In[44]:
 
 
 line2.geoms[0]
 
 
-# In[43]:
+# In[45]:
 
 
 type(line2.geoms[0])
 
 
-# In[44]:
+# In[46]:
 
 
 line2.geoms[0].geom_type
@@ -430,7 +455,7 @@ line2.geoms[0].geom_type
 
 # Και λαμβάνουμε τις συντεταγμένες της πρώτης γεωμετρίας:
 
-# In[45]:
+# In[47]:
 
 
 list(line2.geoms[0].coords)
@@ -438,7 +463,7 @@ list(line2.geoms[0].coords)
 
 # ή της δεύτερης
 
-# In[46]:
+# In[48]:
 
 
 list(line2.geoms[1].coords)
@@ -448,7 +473,7 @@ list(line2.geoms[1].coords)
 
 # Το εξωτερικό περίγραμμα του pol1 αντικειμένου:
 
-# In[47]:
+# In[49]:
 
 
 pol1.exterior
@@ -456,13 +481,13 @@ pol1.exterior
 
 # Και οι συντεταγμένες του:
 
-# In[48]:
+# In[50]:
 
 
 list(pol1.exterior.coords)
 
 
-# In[49]:
+# In[51]:
 
 
 pol1
@@ -470,7 +495,7 @@ pol1
 
 # Το pol1 όμως δεν έχει εσωτερικές τρύπες γι αυτό και το παρακάτω επιστρέφει μηδέν.
 
-# In[50]:
+# In[52]:
 
 
 
@@ -479,7 +504,7 @@ len(pol1.interiors)
 
 # Έστω το παρακάτω MultiPolygon object που δημιουργήσαμε σε προηγούμενο στάδιο.
 
-# In[51]:
+# In[53]:
 
 
 pol3
@@ -487,7 +512,7 @@ pol3
 
 # Περιλαμβάνει δύο ξεχωριστά γεωμετρικά αντικείμενα:
 
-# In[52]:
+# In[54]:
 
 
 len(pol3.geoms)
@@ -495,7 +520,7 @@ len(pol3.geoms)
 
 # Ας πάρουμε το πρώτο:
 
-# In[53]:
+# In[55]:
 
 
 pol3.geoms[0]
@@ -503,7 +528,7 @@ pol3.geoms[0]
 
 # Δεν περιλαμβάνει καμία τρύπα στο εσωτερικό του. Ας πάρουμε τις συντεταγμένες από το περίγραμμά του (exterior)
 
-# In[54]:
+# In[56]:
 
 
 pol3.geoms[0].exterior.coords
@@ -511,7 +536,7 @@ pol3.geoms[0].exterior.coords
 
 # Και ας τις επιστρέψουμε σαν λίστα πλειάδων από ζεύγη της μορφής `(x,y)`
 
-# In[55]:
+# In[57]:
 
 
 list(pol3.geoms[0].exterior.coords)
@@ -519,7 +544,7 @@ list(pol3.geoms[0].exterior.coords)
 
 # Ας δοκιμάσουμε το δεύτερο αντικείμενο γεωμετρίας. Ας το δούμε:
 
-# In[56]:
+# In[58]:
 
 
 pol3.geoms[1]
@@ -527,7 +552,7 @@ pol3.geoms[1]
 
 # Λαμβάνουμε τις συντεταγμένες του εξωτερικού περιγράμματος:
 
-# In[57]:
+# In[59]:
 
 
 list(pol3.geoms[1].exterior.coords)
@@ -535,7 +560,7 @@ list(pol3.geoms[1].exterior.coords)
 
 # Ας δούμε πόσες τρύπες έχει στο εσωτερικό του:
 
-# In[58]:
+# In[60]:
 
 
 len(pol3.geoms[1].interiors)
@@ -543,7 +568,7 @@ len(pol3.geoms[1].interiors)
 
 # Παίρνουμε το περίγραμμα της τρύπας
 
-# In[59]:
+# In[61]:
 
 
 pol3.geoms[1].interiors[0]
@@ -551,7 +576,7 @@ pol3.geoms[1].interiors[0]
 
 # Και τις συντεταγμένες της
 
-# In[60]:
+# In[62]:
 
 
 list(pol3.geoms[1].interiors[0].coords)
@@ -561,49 +586,49 @@ list(pol3.geoms[1].interiors[0].coords)
 
 # #### Υπολογισμός ορίων (bounds)
 
-# In[61]:
+# In[63]:
 
 
 geo_collection
 
 
-# In[62]:
+# In[64]:
 
 
 geo_collection.bounds
 
 
-# In[63]:
+# In[65]:
 
 
 shapely.geometry.box(*geo_collection.bounds)
 
 
-# In[64]:
+# In[66]:
 
 
 line1
 
 
-# In[65]:
+# In[67]:
 
 
 line1.bounds
 
 
-# In[66]:
+# In[68]:
 
 
 pnt1
 
 
-# In[67]:
+# In[69]:
 
 
 pnt1.bounds
 
 
-# In[68]:
+# In[70]:
 
 
 list(pnt1.coords)
@@ -611,25 +636,25 @@ list(pnt1.coords)
 
 # #### Υπολογισμός μήκους γραμμής
 
-# In[69]:
+# In[71]:
 
 
 line1
 
 
-# In[70]:
+# In[72]:
 
 
 line1.length
 
 
-# In[71]:
+# In[73]:
 
 
 line2.geoms[0]
 
 
-# In[72]:
+# In[74]:
 
 
 line2.geoms[0].length
@@ -637,13 +662,13 @@ line2.geoms[0].length
 
 # #### Υπολογισμός εμβαδού
 
-# In[73]:
+# In[75]:
 
 
 pol1.area
 
 
-# In[74]:
+# In[76]:
 
 
 pol2.area
@@ -653,19 +678,19 @@ pol2.area
 
 # #### Κεντροειδές πολυγώνου (centroid)
 
-# In[75]:
+# In[77]:
 
 
 pol2
 
 
-# In[76]:
+# In[78]:
 
 
 pol2.centroid
 
 
-# In[77]:
+# In[79]:
 
 
 shapely.geometry.GeometryCollection([pol2, pol2.centroid])
@@ -673,25 +698,25 @@ shapely.geometry.GeometryCollection([pol2, pol2.centroid])
 
 # #### Περιμετρική ζώνη (buffer)
 
-# In[78]:
+# In[80]:
 
 
 pnt1.buffer(5)
 
 
-# In[79]:
+# In[81]:
 
 
 shapely.geometry.GeometryCollection([pnt1,pnt1.buffer(5)])
 
 
-# In[80]:
+# In[82]:
 
 
 pol1.buffer(5)
 
 
-# In[81]:
+# In[83]:
 
 
 shapely.geometry.GeometryCollection([pol1,pol1.buffer(5)])
@@ -699,13 +724,13 @@ shapely.geometry.GeometryCollection([pol1,pol1.buffer(5)])
 
 # #### Convex hull
 
-# In[82]:
+# In[84]:
 
 
 pol3
 
 
-# In[83]:
+# In[85]:
 
 
 pol3.convex_hull
@@ -713,31 +738,31 @@ pol3.convex_hull
 
 # ## Σχέσεις μεταξύ αντικειμένων
 
-# In[84]:
+# In[86]:
 
 
 shapely.geometry.GeometryCollection([pol1,pol3])
 
 
-# In[85]:
+# In[87]:
 
 
 pol3
 
 
-# In[86]:
+# In[88]:
 
 
 pol1.intersects(pol3)
 
 
-# In[87]:
+# In[89]:
 
 
 shapely.geometry.GeometryCollection([pol1,pol2])
 
 
-# In[88]:
+# In[90]:
 
 
 pol1.intersects(pol2)
@@ -745,7 +770,7 @@ pol1.intersects(pol2)
 
 # ## Γεωμετρικές πράξεις
 
-# In[89]:
+# In[91]:
 
 
 x = shapely.geometry.Point((0, 0)).buffer(1)
@@ -753,25 +778,25 @@ y = shapely.geometry.Point((1, 0)).buffer(1)
 shapely.geometry.GeometryCollection([x, y])
 
 
-# In[90]:
+# In[92]:
 
 
 x.intersection(y)
 
 
-# In[91]:
+# In[93]:
 
 
 x.difference(y)
 
 
-# In[92]:
+# In[94]:
 
 
 x.union(y)
 
 
-# In[93]:
+# In[95]:
 
 
 x.union(y)
@@ -779,19 +804,19 @@ x.union(y)
 
 # Υπολογισμός απόστασης ανάμεσα σε δύο αντικείμενα
 
-# In[94]:
+# In[96]:
 
 
 shapely.geometry.GeometryCollection([pol1, pol3])
 
 
-# In[95]:
+# In[97]:
 
 
 pol1.distance(pol3)
 
 
-# In[96]:
+# In[98]:
 
 
 pol3.distance(pol1) 
@@ -799,7 +824,7 @@ pol3.distance(pol1)
 
 # Μετασχηματισμός προβολικού συστήματος:
 
-# In[97]:
+# In[99]:
 
 
 import pyproj
@@ -816,13 +841,13 @@ project = pyproj.Transformer.from_crs(wgs84, greek_grid, always_xy=True).transfo
 projected_point = transform(project, wgs84_pt)
 
 
-# In[98]:
+# In[100]:
 
 
 print(projected_point)
 
 
-# In[99]:
+# In[101]:
 
 
 list(wgs84_pt.coords)[0]
@@ -830,7 +855,7 @@ list(wgs84_pt.coords)[0]
 
 # Προβολή δεδομένων σε διαδραστικό χάρτη leaflet μέσω της βιβλιοθήκης folium
 
-# In[100]:
+# In[102]:
 
 
 import folium
@@ -863,7 +888,7 @@ my_map
 
 # Εισάγουμε την βιβλιοθήκη με τον παρακάτω τρόπο
 
-# In[101]:
+# In[103]:
 
 
 import geopandas as gpd
@@ -871,7 +896,7 @@ import geopandas as gpd
 
 # Για να διαβάσουμε ένα αρχείο shapefile χρησιμοποιούμε την συνάρτηση `gpd.read_file`. Το αντικείμενο που προκύπτει είναι τύπου *geopandas.geodataframe.GeoDataFrame*
 
-# In[102]:
+# In[104]:
 
 
 # Import shapefile using geopandas
@@ -882,7 +907,7 @@ type(dhmoi)
 
 # Η στήλη της γεωμετρίας ονομάζεται προκαθορισμένα geometry και είναι αντικείμενο *geopandas.geoseries.GeoSeries* που περιλαμβάνει αντικείμενα shapely.
 
-# In[103]:
+# In[105]:
 
 
 type(dhmoi["geometry"])
@@ -890,7 +915,7 @@ type(dhmoi["geometry"])
 
 # Με την μέθοδο *geom_type* μπορούμε να δούμε τον γεωμετρικό τύπο κάθε εγγραφής.
 
-# In[104]:
+# In[106]:
 
 
 dhmoi.geom_type
@@ -898,13 +923,13 @@ dhmoi.geom_type
 
 # Ας δούμε τις αρχικές εγγραφές του αρχείου
 
-# In[105]:
+# In[107]:
 
 
 dhmoi.head()
 
 
-# In[106]:
+# In[108]:
 
 
 dhmoi.plot()
@@ -912,7 +937,7 @@ dhmoi.plot()
 
 # Χαρτογραφική απόδοση σε διαδραστικό χάρτη
 
-# In[107]:
+# In[109]:
 
 
 dhmoi.explore(legend=False)
@@ -920,7 +945,7 @@ dhmoi.explore(legend=False)
 
 # Εκτύπωση λεπτομερειών για το γεωγραφικό σύστημα αναφοράς το οποίο όπως φαίνεται παρακάτω είναι το ΕΓΣΑ '87 (EPSG:2100)
 
-# In[108]:
+# In[110]:
 
 
 dhmoi.crs
@@ -928,14 +953,14 @@ dhmoi.crs
 
 # Μπορούμε να μετασχηματίσουμε τα δεδομένα σε ένα διαφορετικό προβολικό σύστημα με κλήση της μεθόδου *to_crs*
 
-# In[109]:
+# In[111]:
 
 
 dhmoi_wgs84 = dhmoi.to_crs(4326)
 dhmoi_wgs84.crs
 
 
-# In[110]:
+# In[112]:
 
 
 dhmoi.geom_type
@@ -943,7 +968,7 @@ dhmoi.geom_type
 
 # Εκτύπωση των γεωγραφικών ορίων του αρχείου oikismoi που είναι στο σύστημα αναφορά ΕΓΣΑ '87.
 
-# In[111]:
+# In[113]:
 
 
 dhmoi.total_bounds
@@ -951,7 +976,7 @@ dhmoi.total_bounds
 
 # Εκτύπωση των γεωγραφικών ορίων του αρχείου oikismoi που είναι στο σύστημα αναφορά WGS'84.
 
-# In[112]:
+# In[114]:
 
 
 dhmoi_wgs84.total_bounds
@@ -959,7 +984,7 @@ dhmoi_wgs84.total_bounds
 
 # Η μέθοδος *shape* μας επιστρέφει τον πλήθος των γραμμών (325) και των στηλών (15).
 
-# In[113]:
+# In[115]:
 
 
 dhmoi.shape
@@ -967,13 +992,13 @@ dhmoi.shape
 
 # Μπορούμε να εγγράψουμε ένα Geopandas Dataframe 
 
-# In[114]:
+# In[116]:
 
 
 dhmoi.to_file("dhmoi.geojson", driver="GeoJSON")
 
 
-# In[115]:
+# In[117]:
 
 
 dhmoi.sort_values(by='PopTot01', ascending=False)
@@ -981,24 +1006,10 @@ dhmoi.sort_values(by='PopTot01', ascending=False)
 
 # Ορισμός του index στην στήλη *"CodeELSTAT"*
 
-# In[116]:
-
-
-dhmoi = dhmoi.set_index("CodeELSTAT")
-
-
-# In[117]:
-
-
-dhmoi
-
-
-# Υπολογισμός έκτασης (σε $km^2$) σε μία νέα στήλη με το όνομα area
-
 # In[118]:
 
 
-dhmoi["area"] = dhmoi.area*10e-6
+dhmoi = dhmoi.set_index("CodeELSTAT")
 
 
 # In[119]:
@@ -1007,12 +1018,12 @@ dhmoi["area"] = dhmoi.area*10e-6
 dhmoi
 
 
-# Υπολογισμός του centroid κάθε δήμου σε μια νέα στήλη (centroid)
+# Υπολογισμός έκτασης (σε $km^2$) σε μία νέα στήλη με το όνομα area
 
 # In[120]:
 
 
-dhmoi['centroid'] = dhmoi.centroid
+dhmoi["area"] = dhmoi.area*10e-6
 
 
 # In[121]:
@@ -1021,15 +1032,29 @@ dhmoi['centroid'] = dhmoi.centroid
 dhmoi
 
 
-# Χαρτογραφική απόδοση του δείκτη ανεργίας (στήλη UnemrT01)  ανά δήμο
+# Υπολογισμός του centroid κάθε δήμου σε μια νέα στήλη (centroid)
 
 # In[122]:
+
+
+dhmoi['centroid'] = dhmoi.centroid
+
+
+# In[123]:
+
+
+dhmoi
+
+
+# Χαρτογραφική απόδοση του δείκτη ανεργίας (στήλη UnemrT01)  ανά δήμο
+
+# In[124]:
 
 
 dhmoi.plot("UnemrT01", legend=True)
 
 
-# In[123]:
+# In[125]:
 
 
 dhmoi.plot("Income01", scheme='quantiles', cmap='YlOrRd',  legend=True, figsize=(12, 10))
@@ -1037,7 +1062,7 @@ dhmoi.plot("Income01", scheme='quantiles', cmap='YlOrRd',  legend=True, figsize=
 
 # Μπορούμε να οπτικοποιήσουμε διαφορετική στήλη τύπου *geopandas.geoseries.GeoSeries* αφού πρώτα την ορίσουμε με την μέθοδο *set_geometry*.
 
-# In[124]:
+# In[126]:
 
 
 dhmoi = dhmoi.set_geometry("centroid")
@@ -1046,7 +1071,7 @@ dhmoi.plot("UnemrT01", legend=True)
 
 # Ορισμός περιμετρικής ζώνης διαμέτρου 20χλμ γύρω από κάθε centroid.
 
-# In[125]:
+# In[127]:
 
 
 dhmoi = dhmoi.set_geometry("centroid") # ορισμός default γεωμετρίας η στήλη centroid
@@ -1058,7 +1083,7 @@ dhmoi.plot(legend=True) # οπτικοποίηση
 
 # Ξανα ορίζουμε σαν προκαθορισμένη στήλη γεωμετρία την στήλη *geometry*.
 
-# In[126]:
+# In[128]:
 
 
 dhmoi = dhmoi.set_geometry("geometry")
@@ -1066,19 +1091,19 @@ dhmoi = dhmoi.set_geometry("geometry")
 
 # Μπορούμε να φιλτράρουμε γραμμές και στήλες όπως και στην pandas χρησιμοποιώντας το index και το όνομα στήλης:
 
-# In[127]:
+# In[129]:
 
 
 lesvos = dhmoi.loc["5301", "geometry"]
 
 
-# In[128]:
+# In[130]:
 
 
 lesvos
 
 
-# In[129]:
+# In[131]:
 
 
 type(lesvos)
@@ -1089,25 +1114,25 @@ type(lesvos)
 
 # Με την μέθοδο *dissolve* μπορούμε να συγχωνεύσουμε γεωμετρικά αντικείμενα βάση κάποιας στήλης. Αντικείμενα με ίδια τιμή θα συγχωνευθούν σε ενιαίο γεωμετρικό αντικείμενο.
 
-# In[130]:
+# In[132]:
 
 
 dhmoi.head()
 
 
-# In[131]:
+# In[133]:
 
 
 nomoi = dhmoi.dissolve(by='Perif')
 
 
-# In[132]:
+# In[134]:
 
 
 dhmoi.plot()
 
 
-# In[133]:
+# In[135]:
 
 
 nomoi.plot()
@@ -1115,13 +1140,13 @@ nomoi.plot()
 
 # Επιπλεόν κατά την συγχώνευση μπορούμε να εφαρμόσουμε μια συνάρτηση στις αριθμητικές στήλες π.χ. *mean* ή *sum*.
 
-# In[134]:
+# In[136]:
 
 
 nomoi = dhmoi.dissolve(by='Perif', aggfunc='mean')
 
 
-# In[135]:
+# In[137]:
 
 
 nomoi.plot(column = 'Income01', scheme='quantiles', cmap='YlOrRd');
