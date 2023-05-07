@@ -25,7 +25,7 @@ if IN_COLAB:
     from google.colab import drive
     drive.mount('/content/drive')
     get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Colab\\ Notebooks/programming/notebooks')
-    get_ipython().system('pip install rasterio geopandas')
+    get_ipython().system('pip install rasterio geopandas folium matplotlib mapclassify')
 
 
 # Ο χώρος και οι γεωμετρικές δομές του μπορούν να αναπαρασταθούν μέσω διανυσματικών δεδομένων (Vector).
@@ -34,11 +34,11 @@ if IN_COLAB:
 # - Οι γραμμές
 # - Τα πολύγωνα
 
-# ![alt text](../images/vector.png)
+# ![alt text](https://raw.githubusercontent.com/kokkytos/programming/main/images/vector.png)
 
 # Επιπλέον αυτά τα γεωμετρικά δεδομένα συνοδεύονται και απο περιγραφικά δεδομένα που αφορούν τις ιδιότητες ή τα χαρακτηριστικά αυτών των δεδομένων.
 
-# ![alt text](../images/spatial-attribute-tables.png)
+# ![alt text](https://raw.githubusercontent.com/kokkytos/programming/main/images/spatial-attribute-tables.png)
 
 # Στα Σ.Γ.Π. ο πιο συνηθισμένος τύπος αρχείων αποθήκευσης αυτών των δεδομένων είναι το shapefile. 
 # Πλέον έχουν αναπτυχθεί και άλλοι τύποι όπως geojson, geopackage και χωρικές βάσεις δεδομένων (geodatabases) όπως η Postgresql/Postgis.
@@ -47,11 +47,12 @@ if IN_COLAB:
 # Κάθε σημείο στον χώρο προσδιορίζεται γεωγραφικά από το γεωγραφικό μήκος (λ) και το γεωγραφικό πλάτος (φ).
 # 
 
-# ![alt text](../images/coords.jpg)
+# ![alt text](https://raw.githubusercontent.com/kokkytos/programming/main/images/coords.jpg)
 
 # Για να αποδοθεί η τρισδιάστατη υδρόγειος σφαίρα σε ένα δυσδιάστατο σύστημα αναφορά χρησιμοποιείται ένα προβολικό σύστημα.
 
-# ![alt text](../images/437-mapping-projection-types.png)
+# ![alt text](https://raw.githubusercontent.com/kokkytos/programming/main/images/437-mapping-projection-types.png)
+# 
 
 # Κάθε προβολικό σύστημα της σφαίρας στο επίπεδο εισάγει μια σειρά παραμορφώσεων που αφορά το σχήμα των γεωμετρικών δομών, την κλίμακα, την έκταση και τις αποστάσεις. Ανάλογα το προβολικό σύστημα κάποιες από τις παραπάνω παραμορφώσεις εμφανίζονται σε μεγάλο βαθμό και άλλες όχι.
 # Οπότε ανάλογα το είδος της έρευνας ο ερευνητής οφείλει να γνωρίζει τι είδους παραμορφώσεις εισάγει η κάθε προβολή και ανάλογα να επιλέγει την προβολή με τα λιγότερα σφάλματα.
@@ -1149,7 +1150,7 @@ nomoi = dhmoi.dissolve(by='Perif', aggfunc='mean')
 # In[137]:
 
 
-nomoi.plot(column = 'Income01', scheme='quantiles', cmap='YlOrRd');
+nomoi.plot(column = 'Income01', scheme='quantiles', edgecolor='black',  linewidth=0.5, cmap='YlOrRd',legend=True, figsize=(8, 8))
 
 
 # ##  Βιβλιογραφία:
