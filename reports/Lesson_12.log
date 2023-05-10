@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/leonidas/anaconda3/lib/python3.7/asyncio/base_events.py", line 583, in run_until_complete
+    return future.result()
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/leonidas/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import rasterio # βιβλιοθήκη για την ανάγνωση, επεξεργασία και εγγραφή διανυσματικών δεδομένων
+from rasterio import features # υπορουτίνα της rasterio για την διαχείριση γεωγραφικών αντικειμένων (features)
+import rasterio.mask # υπορουτίνα της rasterio για την δημιουργία Mask σε ψηφιδωτά δεδομένα
+from rasterio.crs import CRS # υπορουτίνα της rasterio για την διαχείριση προβολικών συστημάτων
+from rasterio.plot import show,show_hist # υπορουτίνες την rasterio για την οπτικοποίηση ψηφιδωτών (raster) δεδομένων και ιστογραμμάτων
+from rasterio.io import MemoryFile # υπορουτίνα της rasterio για την δημιουργία προσωρινών αρχείων στην μνήμη
+from rasterio.warp import reproject, Resampling, calculate_default_transform # υπορουτίνες της rasterio για αλλαγή προβολικού και μετασχηματικό ψηφφιδωτών δεδομένων
+
+import pandas as pd # η βιβλιοθήκη pandas για την διαχείριση και ανάλυση δεδομένων
+import geopandas as gpd # επέκταση της βιβλιοθήκης pandas για την διαχείριση και ανάλυση γεωγραφικών δεδομένων
+import numpy as np # βιβλιοθήκη για την μαθηματική επεξεργασία πινάκων (arrays)
+
+#from shapely.geometry import shape 
+#import fiona # βιβλιοθήκη για την διαχείριση γεωγραφικών αντικειμένων (features)
+
+
+from matplotlib import pyplot as plt # βιβλιοθήκη για την οπτικοποίηση δεδομένων  σε διαγράμματα
+import matplotlib.patches as mpatches
+from matplotlib.colors import ListedColormap
+
+import folium # οπτικοποίηση γεωγραφικών δεδομένων στην Python μέσω της βιβλιοθήκης leaflet
+from sklearn import cluster # υπορουτίνα της scikit-learn για μη επιβλεπόμενη ομαδοποίηση (unsupervised clustering algorithms)
+
+from pathlib import Path # βιβλιοθήκη για την διαχείριση διαδρομών (paths)
+
+from skimage import data, img_as_float # skimage, βιβλιοθήκη για την επεξεργασία εικόνας
+from skimage import exposure
+
+
+# Input directory
+INPUTDIR = Path('data')
+
+# Output directory
+OUTDIR = Path('output')
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-3-49be660122f5>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mimport[0m [0mrasterio[0m [0;31m# βιβλιοθήκη για την ανάγνωση, επεξεργασία και εγγραφή διανυσματικών δεδομένων[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mrasterio[0m [0;32mimport[0m [0mfeatures[0m [0;31m# υπορουτίνα της rasterio για την διαχείριση γεωγραφικών αντικειμένων (features)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mrasterio[0m[0;34m.[0m[0mmask[0m [0;31m# υπορουτίνα της rasterio για την δημιουργία Mask σε ψηφιδωτά δεδομένα[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mrasterio[0m[0;34m.[0m[0mcrs[0m [0;32mimport[0m [0mCRS[0m [0;31m# υπορουτίνα της rasterio για την διαχείριση προβολικών συστημάτων[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mrasterio[0m[0;34m.[0m[0mplot[0m [0;32mimport[0m [0mshow[0m[0;34m,[0m[0mshow_hist[0m [0;31m# υπορουτίνες την rasterio για την οπτικοποίηση ψηφιδωτών (raster) δεδομένων και ιστογραμμάτων[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'rasterio'
+ModuleNotFoundError: No module named 'rasterio'
+

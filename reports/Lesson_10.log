@@ -28,7 +28,7 @@ plt.show()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-6-9e95b554c30c>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-8-9e95b554c30c>[0m in [0;36m<module>[0;34m[0m
 [1;32m      2[0m [0;34m[0m[0m
 [1;32m      3[0m [0;31m# create plot[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 4[0;31m [0mmyplot[0m [0;34m=[0m [0msns[0m[0;34m.[0m[0mlineplot[0m[0;34m([0m[0mx[0m [0;34m=[0m [0;34m"year"[0m[0;34m,[0m [0my[0m [0;34m=[0m [0;34m"Population"[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0mmydata_long[0m[0;34m,[0m [0mhue[0m[0;34m=[0m[0;34m"Name"[0m[0;34m,[0m[0mmarker[0m[0;34m=[0m[0;34m"o"[0m[0;34m,[0m [0mpalette[0m[0;34m=[0m[0;34m[[0m[0;34m"green"[0m[0;34m][0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
