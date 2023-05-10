@@ -20,7 +20,7 @@ chapters:
 - file: notebooks/Lesson_9
 - file: notebooks/Lesson_10
 - file: notebooks/Lesson_11
-#- file: notebooks/Lesson_12
+- file: notebooks/Lesson_12
 #- file: notebooks/Lesson_13
 #- file: notebooks/bibliography
 #- file: notebooks/markdown-notebooks.md
