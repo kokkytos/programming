@@ -1,715 +1,613 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 11. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
-
-# ## Ειδική ενότητα για εκτέλεση στο Google Colab
+# # 11. Η βιβλιοθήκη numpy
+# 
+# Η ενότητα αποτελεί μια σύντομη εισαγωγή στην βιβλιοθήκη [numpy](https://numpy.org/) η οποία χρησιμοποιείται για αριθμητική ανάλυση, αριθμητική λύση γραμμικών συστημάτων και επεξεργασία πολυδιάστατων πινάκων. Περισσότερες λεπτομέρειες για την βιβλιοθήκε παρέχονται [εδώ](https://numpy.org/doc/stable/user/whatisnumpy.html). Η θεμέλια δομή της βιβλιοθήκης είναι το ndarray δηλαδή ο πολυδιάστατος πίνακας. Είναι πολύ χρήσιμη στην επεξεργασία δεδομένων γιατί η πλειοψηφία των βιβλιοθηκών που διαχειρίζονται δορυφορικές εικόνες επιστρέφουν αντικείμενα _numpy ndarrays_.
 
 # In[1]:
 
 
-# έλεγχος αν το notebook τρέχει στο google colab
-try:
-  import google.colab
-  IN_COLAB = True
-except:
-  IN_COLAB = False
+import numpy as np
 
+
+# Ας φτιάξουμε έναν πρώτο πίνακα. Ακόμα και τα διανύσματα θα τα θεωρήσουμε σαν έναν πίνακα με μια στήλη. 
+# Τα στοιχεία ενός πίνακα πρέπει να είναι του ίδιου τύπου (είτε _integer_ είτε _float_ είτε _boolean_).
 
 # In[2]:
 
 
-# αν το notebook τρέχει στο colab, mount το Google Drive και αλλαγή στο directory που έχει γίνει clone το github repository.
-# εγκατάσταση απαραίτητων βιβλιοθηκών
-if IN_COLAB:
-    from google.colab import drive
-    drive.mount('/content/drive')
-    get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Colab\\ Notebooks/programming/notebooks')
-    get_ipython().system('pip install geopandas pandas rasterio numpy matplotlib folium sklearn skimage')
+x=np.array([1,2,3,4])
+print(x)
 
 
-# ## Υπολογισμός καμένων εκτάσεων με δορυφορικά δεδομένα Sentinel-2, τον δείκτη Relativized Burn Ratio (RBR) και τον αλγόριθμο ομαδοποίησης k-means.
+# Για τον πίνακα αυτό μπορούμε να ανακτήσουμε μια σειρά ιδιοτήτων
 
-# Στόχος του τρέχοντος jupyter notebook είναι να επιδειχθούν συνοπτικά οι δυνατότητες της Python στην γεωεπεξεργασία και χωρικής ανάλυση.
-# 
-# Σαν μελέτη περίπτωσης επιλέχθηκε η πυρκαγιά στο _Μάτι Αττικής_ στις _23 Ιουλίου 2018_. Σκοπός είναι να αποτυπώσουμε χωρικά την έκταση της πυρκαγιάς, να υπολογίσουμε την έκταση της δομημένης περιοχής που έχει κάει αλλά και να διαπιστώσουμε ποιοί ΟΤΑ έχουν πληγεί περισσότερο. Κατά την εκτέλεση των διαδικασιών προγραμματισμού θα γίνει χρήση μεθόδων τηλεπισκόπησης, δορυφορικών δεδομένων Sentinel2 και διανυσματικών γεωχωρικών δεδομένων.
-
-# ## Ανάγνωση δεδομένων
-
-# Αρχικά γίνεται εισαγωγή των απαραίτητων βοηθητικών βιβλιοθηκών καθώς και ο ορισμός των καταλόγων που περιέχουν τα δεδομένα εισόδου (input data) και τα αποτελέσματα της ανάλυσης (output data).
+# Καταρχήν ας δούμε τι τύπος δεδομένων είναι ο πίνακας αυτός:
 
 # In[3]:
 
 
-import rasterio # βιβλιοθήκη για την ανάγνωση, επεξεργασία και εγγραφή διανυσματικών δεδομένων
-from rasterio import features # υπορουτίνα της rasterio για την διαχείριση γεωγραφικών αντικειμένων (features)
-import rasterio.mask # υπορουτίνα της rasterio για την δημιουργία Mask σε ψηφιδωτά δεδομένα
-from rasterio.crs import CRS # υπορουτίνα της rasterio για την διαχείριση προβολικών συστημάτων
-from rasterio.plot import show,show_hist # υπορουτίνες την rasterio για την οπτικοποίηση ψηφιδωτών (raster) δεδομένων και ιστογραμμάτων
-from rasterio.io import MemoryFile # υπορουτίνα της rasterio για την δημιουργία προσωρινών αρχείων στην μνήμη
-from rasterio.warp import reproject, Resampling, calculate_default_transform # υπορουτίνες της rasterio για αλλαγή προβολικού και μετασχηματικό ψηφφιδωτών δεδομένων
-
-import pandas as pd # η βιβλιοθήκη pandas για την διαχείριση και ανάλυση δεδομένων
-import geopandas as gpd # επέκταση της βιβλιοθήκης pandas για την διαχείριση και ανάλυση γεωγραφικών δεδομένων
-import numpy as np # βιβλιοθήκη για την μαθηματική επεξεργασία πινάκων (arrays)
-
-#from shapely.geometry import shape 
-#import fiona # βιβλιοθήκη για την διαχείριση γεωγραφικών αντικειμένων (features)
+type(x)
 
 
-from matplotlib import pyplot as plt # βιβλιοθήκη για την οπτικοποίηση δεδομένων  σε διαγράμματα
-import matplotlib.patches as mpatches
-from matplotlib.colors import ListedColormap
-
-import folium # οπτικοποίηση γεωγραφικών δεδομένων στην Python μέσω της βιβλιοθήκης leaflet
-from sklearn import cluster # υπορουτίνα της scikit-learn για μη επιβλεπόμενη ομαδοποίηση (unsupervised clustering algorithms)
-
-from pathlib import Path # βιβλιοθήκη για την διαχείριση διαδρομών (paths)
-
-from skimage import data, img_as_float # skimage, βιβλιοθήκη για την επεξεργασία εικόνας
-from skimage import exposure
-
-
-# Input directory
-INPUTDIR = Path('data')
-
-# Output directory
-OUTDIR = Path('output')
-
-
-# Στην συνέχεια ανοίγουμε τα raster από τον Sentinel-2 για ημερομηνία πρίν την φωτιά.
-# Επίσης εκτυπώνουμε μερικές χρήσιμες ιδιότητες των δεδομένων όπως διαστάσεις 
+# Ποιές είναι οι διαστάσεις του πίνακα;
 
 # In[4]:
 
 
-with rasterio.open(INPUTDIR / 'pre_fire.tif') as src:
-    image = src.read() # θα επιστρέψει ένα numpy array της μορφής [band, row, col].
-    #show((src,1),  cmap='pink') # https://matplotlib.org/stable/tutorials/colors/colormaps.html
-    print(src.crs) # πληροφορίες για το προβολικό σύστημα 
-    print("Shape: ", src.shape) # πληροφορίες για τις διαστάσεις του numpy array
-    print("Bounds: ", src.bounds) # πληροφορίες για την γεωγραφική έκταση των δεδομένων
-    print("Layers: ", src.count) # πληροφορίες για τον αριθμό των layers
-    print("Profile: ", src.profile) # τα ανωτέρω περιγράφονται αναλυτικά μέσω του profile property
-    print("Mean: ", image[0,:,:].mean()) # ενδεικτικά μπορούμε να πάρουμε μέσο όρο τιμών για το πρώτο layer το οποίο λαμβάνουμε με image[0,:,:]
-    
- 
-    # Βάζουμε τα δεδομένα κάθε καναλιού (band) σε ξεχωριστή μεταβλητή. Θα χρειαστεί στην συνέχεια για τον υπολογισμό δεικτών
-    B2_pre,B3_pre,B4_pre,B8_pre,B12_pre   = (image[i,:,:] for i in range(0,src.count))
-    
-    # λαμβάνουμε το profile σαν ξεχωριστό object. Αυτό το object μπορούμε να το τροποιήσουμε και να το χρησιμοποιήσουμε στην συνέχεια 
-    # για τις ανάγκες δημιουργίας νέων αρχείων. 
-    dNBR_meta = src.profile
-    dNBR_meta.update({'driver':'GTiff',
-                     'width':src.shape[1],
-                     'height':src.shape[0],
-                     'count':1,
-                     'dtype':'float64',
-                     'crs':src.crs, 
-                     'transform':src.transform,
-                     'nodata':-9999})
-
-    
+print(x.shape)
 
 
-# Οπτικοποίηση του B2 (B2_pre) καναλιού (πρόκειται για το πρώτο κανάλι= `image[0,:,:]`).
-# Στην πρώτη προβολή της εικόνας αυτή έχει χαμηλό contrast. 
-# Για καλύτερη οπτικοποίηση θα επέμβουμε με μια διαδικασία που λέγεται histogram stretching κατά την οποία η εικόνα γίνεται rescaled στο εύρος τιμών που περιλαμβάνονται ανάμεσα στο 2ο και 98ο τεταρτημόριο.
+# Και πόσες είναι οι διαστάσεις:
 
 # In[5]:
 
 
-# Contrast stretching
-
-def contrast_stretching(image):
-    p2, p98 = np.percentile(image, (2, 98))
-    image_rescale = exposure.rescale_intensity(image, in_range=(p2, p98))
-    return(image_rescale)
-
-B2_pre_rescaled, B3_pre_rescaled, B4_pre_rescaled =[contrast_stretching(image) for image in [B2_pre, B3_pre, B4_pre]]
-
-fig, (ax1, ax2) = plt.subplots(2,1, figsize=(12,10))
-#show(img_rescale, ax=axr, cmap=plt.cm.gray, transform=dNBR_meta['transform'],)
-map1 = show(B2_pre,  ax=ax1, cmap=plt.cm.gray,  title='B2 band pre fire (Unscaled image)', transform=dNBR_meta['transform'])
-map2 = show(B2_pre_rescaled, ax=ax2, cmap=plt.cm.gray, title='B2 band pre fire (Rescaled image)', transform=dNBR_meta['transform'])
+print(x.ndim)
 
 
-# Μπορούμε να οπτικοποιήσουμε μια εικόνα _True Color_ που είναι συνδυασμός των καναλιών _B4,B3,B2_ (RGB Composite).
+# Με την παρακάτω εντολή μπορούμε να ανακτήσουμε το μέγεθός του:
 
 # In[6]:
 
 
-# RGB image
-
-# Stack bands
-
-def normalize(band):
-    band_min, band_max = (band.min(), band.max())
-    return ((band-band_min)/((band_max - band_min)))
-
-rgb = np.dstack((normalize(B4_pre), normalize(B3_pre), normalize(B2_pre) ))
-
-rgb = np.rollaxis(rgb, axis=2) # αναταξινόμηση των διαστάσεων ως [band, row, col], απαιτούμενο για show function της rasterio
-map1 =show(rgb ,title='B2 band pre fire (Rescaled image)', transform=dNBR_meta['transform']) 
+print(x.size)
 
 
-# Μέσω της συνάρτησης `show_hist` μπορούμε να δούμε το ιστόγραμμα συχνοτήτων για ένα κανάλι (ή και για όλα τα κανάλια ταυτόχρονα).
-# Στην παρακάτω γραμμή κώδικα θα εκτυπώσουμε το σχετικό ιστόγραμμα συχνοτήτων για το κανάλι B2 (κανάλι με index 0).
+# Από τι τύπο δεδομένων αποτελούνται τα στοιχεία του:
 
 # In[7]:
 
 
-fig, axhist = plt.subplots(1, 1, figsize=(10, 6))
-show_hist(B2_pre, ax=axhist, bins=50, lw=0.0, histtype='stepfilled', title="Histogram for B2 band")
-axhist.get_legend().remove()
-plt.show()
+print(x.dtype)
 
 
-# Προσπέλαση των δεδομένων Sentinel-2 για μία ημερομηνία μετά την πυρκαγιά.
-# Βάζουμε επίσης τα επιμέρους κανάλια σε ξεχωριστές μεταβλητές. 
+# Και πόση μνήμη καταλαμβάνει σε bytes:
 
 # In[8]:
 
 
-with rasterio.open(INPUTDIR / 'post_fire.tif') as src:
-    image = src.read()     
-    B2_post,B3_post,B4_post,B8_post,B12_post   = (image[i,:,:] for i in range(0,src.count))
+print(x.nbytes)
 
 
-# ## Υπολογισμός δεικτών
-
-# Φτιάχνουμε μια συνάρτηση που υπολογίζει τον δείκτη `Normalized Burn Ratio (NBR)`. 
-# Περισσότερα για τον δείκτη εδώ. [https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio](https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio)
+# Ο επόμενος πίνακας έχει 4 γραμμές και 1 στήλη. 
 
 # In[9]:
 
 
-def NBR(B8, B12):
-    NBR = (B8.astype(float)-B12.astype(float)) / (B8.astype(float)+B12.astype(float))
-    return(NBR)    
+y=np.array([[1],[2],[3],[4]])
+print(y.shape)
 
 
-# Υπολογίζουμε τον δείκτη `Normalized Burn Ratio`  πριν και μετά την πυρκαγιά (`NBR_pre`, `NBR_post`) και την διαφορά αυτών (`dNBR`).
-# 
-# Χρησιμοποιούνται τα απαραίτητα κανάλια μέσω των σχετικών μεταβλητών που δημιουργήθηκαν πριν.
-# 
-# Στην συνέχεια χρησιμοποιείται ο δείκτης αυτός για να υπολογιστεί ένας πιο αξιόπιστος δείκτης, ο δείκτης `Relativized Burn Ratio (RBR)`. 
-# 
+# Αν ελέγξουμε το πλήθος των διαστάσεων του, θα διαπιστώσουμε ότι έχει 2:
 
 # In[10]:
 
 
-# Normalized Burn Ratio
-NBR_pre = NBR(B8_pre, B12_pre)
-NBR_post = NBR(B8_post, B12_post)
-
-# difference of NBR
-dNBR = NBR_pre - NBR_post
-
-#RBR
-RBR = dNBR / (NBR_pre + 1.001)
+print(y.ndim)
 
 
-# Αποθήκευση του δείκτη RBR ως geotif
+# Άρα ο πίνακας $x$ είναι μονοδιάστατος και ο πίνακας $y$ διάστατος. Ας επαναλάβουμε τον τρόπο σύνταξης. Δώστε προσοχή στην σύνταξη σε σχέση με τον αρχικό ορισμό που δώσαμε για τον πίνακα $x$ σε σχέση με τον τρέχοντα πίνακα $y$.
 
 # In[11]:
 
 
-with rasterio.open(OUTDIR / 'RBR.tif', 'w', **dNBR_meta) as dst:
-        dst.write(RBR.astype(rasterio.float64), 1)
+x=np.array([1,2,3,4])
+y=np.array([[1],[2],[3],[4]])
+
+print(f'Διαστάσεις για τον πίνακα x: {x.ndim}\nΔιαστάσεις για τον πίνακα y: {y.ndim}')
 
 
-# Οι παραπάνω υπολογισμοί αφορούσαν μαθηματικές πράξεις πινάκων (`numpy arrays`). Επίσης τα αποτελέσματα τους είναι απλοί πίνακες.
-# Όπως προαναφέρθηκε ο κώδικας `image[i,:,:]` που φτιάξαμε τις επιμέρους μεταβλητές (B8, B12 κτλ.) επιστρέφει `numpy arrays`. 
-# Ο δείκτης `RBR` είναι πίνακας `numpy array` ο οποίος πρέπει να επανασυνδεθεί με την συνοδευτική του χωρική του πληροφορία.
-# Στην πράξη γράφουμε ένα αρχείο στην μνήμη με χωρικές παραμέτρους που ορίζονται στο αρχικό profile που έχουμε αποθηκεύσει στην μεταβλητή `dNBR_meta`. Στην συνέχεια διαβάζουμε αυτό το αρχείο από την μνήμη και το βάζουμε σε ένα νέo `dataset object` με το όνομα `RBR_rast`. Πλέον ο δείκτης `RBR` έχει χωρική πληροφορία.
-# 
+# Μπορούμε να δημιουργήσουμε ένα numpy array μέσω μιας λίστα python:
 
 # In[12]:
 
 
-
-memfile = MemoryFile()
-
-# https://rasterio.readthedocs.io/en/stable/topics/writing.html  
-# Register GDAL format drivers and configuration options with a
-# context manager.
-with rasterio.Env():
-    with MemoryFile() as memfile:
-        with memfile.open(**dNBR_meta) as dst:
-            dst.write(RBR.astype(rasterio.float64), 1)
-
-        with memfile.open() as dataset:  # Reopen as DatasetReader
-            RBR_rast = dataset.read()  
-# At the end of the ``with rasterio.Env()`` block, context
-# manager exits and all drivers are de-registered.
+l = [2, 25, 8, 1]
+arr = np.asarray(l)
+print(type(arr))
 
 
-plot = show(contrast_stretching(RBR_rast[0,:,:]) , cmap='viridis', transform=dNBR_meta['transform'])
-
-
-# ### Αλλαγή προβολικού συστήματος με την βιβλιοθήκη rasterio
+# Όπως είδαμε μέσω της εντολής `x.dtype` τα στοιχεία του πίνακα είναι ακέραιοι αριθμού (int64). 
+# Αν κατά την δημιουργία έστω και ένας αριθμός ήταν δεκαδικός (float), τότε όλα τα στοιχεία του πίνακα μετατρέπονται σε float.
 # 
-# Επειδή θα χρειαστεί στην συνέχεια να συνδυάσουμε τα δεδομένα raster (δείκτης `RBR`) με διανυσματικά δεδομένα που είναι στο προβολικό σύστημα _ΕΓΣΑ'87_ πρέπει να μετασχήματίσουμε το αρχείο RBR σε _ΕΓΣΑ'87_.
-# Τον δείκτη `RBR` τον έχουμε αποθηκεύσει παραπάνω ήδη ως geotif με τον πρωτογενές προβολικό σύστημα των δεδομένων Sentinel-2 (_WGS 84 / UTM zone 34N - EPSG:32634_). Μπορούμε να τον ανοίξουμε πάλι, να άλλάξουμε προβολικό σύστημα σε _ΕΓΣΑ'87_ και να τον αποθηκεύσουμε σαν geotif επίσης.
 
 # In[13]:
 
 
-
-dst_crs = "EPSG:2100"  # web mercator(ie google maps)
-
-with rasterio.open(OUTDIR / "RBR.tif") as src:
-
-    # transform for input raster
-    src_transform = src.transform
-
-    # calculate the transform matrix for the output
-    dst_transform, width, height = calculate_default_transform(
-        src.crs,    # source CRS
-        dst_crs,    # destination CRS
-        src.width,    # column count
-        src.height,  # row count
-        *src.bounds,  # unpacks outer boundaries (left, bottom, right, top)
-    )
-
-    #print("Source Transform:\n",src_transform,'\n')
-    #print("Destination Transform:\n", dst_transform)
+x=np.array([1,2,3,4.5])
+print(x.dtype)
 
 
-     # set properties for output
-    dst_kwargs = src.meta.copy()
-    dst_kwargs.update(
-        {
-            "crs": dst_crs,
-            "transform": dst_transform,
-            "width": width,
-            "height": height,
-            "nodata": 0,  # replace 0 with np.nan
-        }
-    )
-
-    with rasterio.open(OUTDIR / "RBR_2100.tif", "w", **dst_kwargs) as dst:
-        # iterate through bands
-        for i in range(1, src.count + 1):
-            reproject(
-                source=rasterio.band(src, i),
-                destination=rasterio.band(dst, i),
-                src_transform=src.transform,
-                src_crs=src.crs,
-                dst_transform=dst_transform,
-                dst_crs=dst_crs,
-                resampling=Resampling.nearest,
-            )
-
-
-# ## Masking με vector δεδομένα
-# 
-# Το αρχείο του δείκτη RBR που έχουμε αποθηκεύσει σε ΕΓΣΑ87 πρέπει να το κάνουμε masking με τον διανυσματικό αρχείο των ΟΤΑ. Με αυτόν τον τρόπο διατηρούνται μόνο τα δεδομένα στην ξηρά και αποκλείεται η θάλασσα.
-# 
+# Μπορούμε ρητά να μετατρέψουμε τον τύπο δεδομένων των στοιχείων ένος πίνακα π.χ. από ακέραιο σε δεκαδικό
 
 # In[14]:
 
 
-# https://rasterio.readthedocs.io/en/stable/topics/masking-by-shapefile.html
-
-# Ανάγνωση δεδομένων vector (OTA)
-OTA = gpd.read_file("./data/OTA/0adb0521-2223-43cd-96d3-d816ad7a193c.shp").to_crs(2100)
-OTA.plot(column='NAME_LATIN')
+x=np.array([1,2,3,4])
+print(x.dtype)
 
 
 # In[15]:
 
 
-# Ανάγνωση δείκτη RBR
-with rasterio.open(OUTDIR / "RBR_2100.tif") as src:
-    out_image, out_transform = rasterio.mask.mask(src,  OTA.geometry, crop=False) # εφαρμόζουμε το mask με βάση τα πολύγωνα των OTA
-    out_meta = src.meta # profile για εγγραφή δεδομένων
-
-#
-out_meta.update({#"driver": "GTiff",
-#                  "height": out_image.shape[1],
-#                  "width": out_image.shape[2],
-                 "nodata": 0,  # ορίζουμε σαν nodata value = 0
-#                  "transform": out_transform
-                })
-
-# εγγραφή του masked αρχείου σαν geotif
-with rasterio.open(OUTDIR / "RBR_2100.masked.tif", "w", **out_meta) as dest:
-    dest.write(out_image)
-    
+x=x.astype(float)
+print(x.dtype)
 
 
-# Επιβεβαίωση του masking μέσω οπτικοποίησης. 
+# **Προσοχή** στην απώλεια δεδομένων κατά την μετατροπή από ακέραιο σε δεκαδικό. Η παρακάτω μετατροπή οδηγεί σε στρογγυλοποιήσεις
 # 
-# Κατά το masking που κάναμε με τους OTA όσο pixel δεν τέμνονται με αυτούς πήραν την τιμή 0 (όπως πχ τα pixels της θάλασσας). Για λόγους οπτικοποίησης θέτουμε τις τιμές αυτές σε κενές τιμές (`np.nan`) σε ένα αντιγράφο του αρχείου.
 
 # In[16]:
 
 
-mask_image = np.copy(out_image)
-mask_image[mask_image==0] = np.nan
-plot = show(mask_image[0,:,:],cmap='pink', transform=out_meta['transform'])
+x=np.array([1,2,3,4.5])
+x=x.astype(int)
+print(x)
 
 
-# ## Eπίπεδο σοβαρότητας (burn severity) καμένης περιοχής
-# 
-# Στην συνέχεια θα δημιουργηθεί ένας χάρτης σοβαρότητας (burn severity) καμένης περιοχής. 
-# Οι τιμές του δείκτη Relativized Burn Ratio θα κατηγοριοποιηθούν με βάση τον παρακάτω πίνακα:
-# 
-# ![severity](https://github.com/kokkytos/programming/raw/main/notebooks/data/severity.png)
-# 
-# _Burn severity classes and thresholds proposed by USGS. Color coding established by UN-SPIDER.
-# Πήγη: [https://un-spider.org/advisory-support/recommended-practices/recommended-practice-burn-severity/burn-severity-earth-engine](https://un-spider.org/advisory-support/recommended-practices/recommended-practice-burn-severity/burn-severity-earth-engine)._
+# Επίσης κατά την δημιουργία μπορούμε να ορίσουμε τον τύπο δεδομένων των στοιχείων:
 
 # In[17]:
 
 
-bins = np.array([-np.Inf, -250, -100, 100, 270, 440, 660, np.Inf])/10**3 # κατηγορίες
-burn_severity = np.digitize(out_image, bins, right=False) # με αυτόν τον κώδικα γίνεται η κατηγοριοποίηση
+x = np.array([[1,2,3],[4,5,6]], dtype = float)
+print(x.dtype)
 
-# masking για λόγους οπτικοποίησης
-burn_severity_masked = np.ma.masked_where(out_image == 0, burn_severity)
-np.unique(burn_severity_masked)
 
+# Ανάλογα τον τύπο των στοιχείων αλλάζει και το μέγεθος. Αυτό μπορεί να δημιουργήσει προβλήματα μνήμης σε πολύ μεγάλα ndarrays π.χ σε μια πολυφασματική δορυφορική υψηλής ανάλυσης και μεγάλης έκτασης.
+#     
 
 # In[18]:
 
 
-colors = [
-        '#778835',
-        '#a7c050',
-        '#0be344',
-        '#f8fc11',
-        '#f8b140',
-        '#f8671a',
-        '#a600d4'
-]
+x = np.array([[1,2,3],[4,5,6]], dtype = np.uint32)
+print(x.nbytes)
 
-values = np.unique(np.ma.getdata(burn_severity_masked)) # επιστρέφει τις μοναδικές τιμές κατηγοριοποίησης
-
-# χρώματα για κάθε κατηγορία
-label=['Enhanced Regrowth, high (postfire)',
-       'Enhanced Regrowth, low (postfire)', 
-       'Unburned', 
-       'Low Severity',
-       'Moderate–low Severity',
-       'Moderate–high Severity', 
-       'High Severity']
-
-# matplotlib patches, https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html
-# τα πλαίσια χρωμάτων στο υπόμνημα
-patches = [ mpatches.Patch(color=colors[i], label="{l} {f}".format(l=values[i],f= label[i]) ) for i in range(len(values)) ]
-
-plt.figure(figsize=(10,10))
-fig, ax= plt.subplots(ncols=1, figsize=(12, 12))
-# put those patched as legend-handles into the legend
-plt.legend(handles=patches, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0. )
-ax.grid(True, linestyle='--')
-show(burn_severity_masked[0,:,:], ax=ax,transform=out_meta['transform'], cmap= ListedColormap(colors))
-
-
-# Αντίστοιχα μπορούμε να φτιάξουμε έναν πίνακα με την κατανομή ανά κατηγορία σοβαρότητας.
 
 # In[19]:
 
 
-unique, counts = np.unique(burn_severity_masked, return_counts=True) # πίνακας κατανομής συχνοτήτων
-
-# μετατροπή σε pandas dataframe
-# φιλτράρουμε εκτός τα masked data με ~unique.mask
-df = pd.DataFrame(data={'Severity category':unique.data[~unique.mask] , 'Label':label, 'Number of Pixels': counts[~unique.mask]}) 
-
-#υπολογισμός ποσοστιαίας κατανομής
-df['% per category'] = round((df['Number of Pixels'] / df['Number of Pixels'].sum()) * 100,2) 
-
-# ορισμός στήλης 'Severity category' ως index, χρήσιμο στο επόμενο στάδιο της οπτικοποίησης
-df.set_index('Severity category', inplace=True) 
-df
+print(x.astype(float).nbytes)
 
 
-# Δημιουργούμε ιστόγραμμα συχνοτήτων ή εναλλακτικά διάγραμμα πίτα για την ποσοστιαία κατανομή ανά κατηγορία σοβαρότητας.
+# Μπορούμε να δημιουργήσουμε ένα ndarray το οποίο θα περιλαμβάνει μόνο την τιμή 1 στα στοιχεία του μέσω της συνάρτησης `np.ones`. Η παραπάνω εκτέλεση επιστρέφει float data type.
 
 # In[20]:
 
 
-ax = df.plot.bar( y='Number of Pixels',rot=0)
-plot = df.plot.pie(y='Number of Pixels', figsize=(7, 7), title='Severity category').legend(loc='center left',bbox_to_anchor=(1.0, 0.5))
+np.ones(5) 
 
 
-# ## Ομαδοποίηση της έκταση σε καμένη έκταση και σε μη καμένη με τον αλγόριθμο K-means
-
-# Αρχικά πρέπει να μετασχηματίσουμε τα δεδομένα μας στην μορφή με μία μόνο στήλη δηλ να έχουν shape (rows, 1):
+# Μπορούμε ρητά να ορίσουμε τον τύπο δεδομένων στην συνάρτηση `np.ones`.
 
 # In[21]:
 
 
-X = out_image.reshape((-1,1))
-X.shape
+np.ones(5, dtype=int)
 
 
-# Στην συνέχεια παραμετροποιούμε και τρέχουμε τον αλγόριθμο `KMeans` από την υπορουτίνα `cluster` της βιβλιοθήκης `scikit-learn`.
-# Οι παράμετροι έχουν ως εξής:
-# 
-# - `n_clusters`, είναι ο αριθμός των ομάδων που θα ομαδοποιήσει τα δεδομένα ο αλγόριθμος. Δύο στην περίπτωσή μας καμένη/μη καμένη γη.
-# - `random_state`, ένας ακέραιος που ελέγχει την τυχαιότητα του αρλγόριθμού κατά την αρχικοποίηση του κέντρου καθώς και την αναπαραγωγησιμότητα του αλγορίθμου.
-# - `max_iter`, μέγιστος αριθμός επαναλήψεων του αλγορίθμου.
+# ή να είναι πολυδιάστατος πίνακας με στοιχεία με τιμές 1:
 
 # In[22]:
 
 
-# βλ. παράδειγμα: # https://www.acgeospatial.co.uk/k-means-sentinel-2-python/
+np.ones((5,2))
 
-k_means = cluster.KMeans(n_clusters=2, random_state=31415, max_iter=30)
 
-k_means.fit(X) # υπολογισμός k-means clustering στα δεδομένα RBR.
-
-X_cluster = k_means.labels_ # τα labels_ είναι η κατηγοροιοποίηση σε κατηγορίες, 1 και 0, καμένη και μη καμένη γη αντίστοιχα.
-#X_cluster = X_cluster.reshape(img.shape)
-
-# για να εγγράψουμε το αποτέλεσμα σε geotif κάνουμε reshape του πίνακα στις αναγκαίες διαστάσεις.
-X_cluster = X_cluster.reshape(out_image[0,:,:].shape) 
-
-# εγγραφή σε geotif
-out_meta.update({'dtype': rasterio.uint8})
-with rasterio.open(OUTDIR / 'RBR_kmeans_sciki.tif', 'w', **out_meta) as dst:
-        dst.write(X_cluster.astype(rasterio.uint8), 1)
-
+# Αντίστοιχα μπορούμε να δημιουργήσουμε ένα array που να περιλαμβάνει στοιχεία μόνο με *0*.
 
 # In[23]:
 
 
-values = np.unique(X_cluster.ravel())
-plt.figure(figsize=(10,10))
-im = plt.imshow(X_cluster, interpolation='none')
-
-# get the colors of the values, according to the 
-# colormap used by imshow
+np.zeros((3,3),dtype=int)
 
 
-colors = [ im.cmap(im.norm(value)) for value in values]
-# create a patch (proxy artist) for every color 
-label=["Μη καμένη γη", "Καμένη γη"]
-patches = [ mpatches.Patch(color=colors[i], label="{l} {f}".format(l=values[i],f= label[i]) ) for i in range(len(values)) ]
-# put those patched as legend-handles into the legend
-plt.legend(handles=patches, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0. )
-plt.grid()
-#plt.show() # αν καλέσουμε την μέθοδο show του matplotlib δεν θα εχει ορθή γεωγραφική αναφορά ο χάρτης
-# καλούμε την συνάρτηση show από την βιβλιοθήκη του rasterio.plot 
-show(X_cluster, transform=out_meta['transform'])
+# ## Πράξεις μεταξύ array
 
-
-# ## Μετατροπή δεδομένων raster σε vector
+# Πρόσθεση
 
 # In[24]:
 
 
-mask = None
-with rasterio.Env():
-    with rasterio.open(OUTDIR / 'RBR_kmeans_sciki.tif') as src:
-        image = src.read(1) # first band
-        crs = src.profile['crs']
-        t = src.profile['transform']
-        results = (
-            {'properties': {'raster_val': v}, 'geometry': s}  # https://fiona.readthedocs.io/en/stable/manual.html#features
-            for i, (s, v) in enumerate(features.shapes(image,  mask=mask, transform=src.transform)))
-geoms = list(results)
+x=np.array([[1,2],[3,4], [5,6]])
+y=np.array([[1,1],[1,1], [2,2]])
+v=x+y
+print(v)
 
 
-# Δημιουργία geopandas dataframe (`kmeans_vector`) με την ομαδοποίηση σε καμένη και μη καμένη γη. Η στήλη `raster_val` λαμβάνει τιμές `1=καμένη` και `0=μη καμένη γη`. Ακολουθεί μετατροπή της στήλης `raster_val` σε ακέραιο τύπο δεδομένων οπτικοποίηση των 10 πρώτων γραμμών του πίνακα.
+# Αντιστοιχα μπορούμε να προσθέσουμε το array με έναν μόνο ακέραιο:
+# 
 
 # In[25]:
 
 
-kmeans_vector  = gpd.GeoDataFrame.from_features(geoms, crs=CRS.to_epsg(crs))
+x=x+1
+print(x)
 
+
+# Αφαίρεση
 
 # In[26]:
 
 
-kmeans_vector['raster_val'] = kmeans_vector['raster_val'].astype('int')
-kmeans_vector.head(10)
+x=np.array([[1,2],[3,4], [5,6]])
+y=np.array([[1,1],[1,1], [2,2]])
+v=x-y
+print(v)
 
 
-# Φιλτράρουμε τον πίνακα `kmeans_vector` και κρατάμε μόνο την καμένη γη (`'raster_val == 1'`)
+# Πολλαπλασιασμός. Σε αυτήν την περίπτωση χρησιμοποιείται η συνάρτηση `dot` και όχι το σύμβολο `*`:
+# Μπορούμε να πολλαπλασιάσουμε ένα πίνακα με έναν αριθμό:
+# 
 
 # In[27]:
 
 
-burnt_area = kmeans_vector.query('raster_val == 1')
+x=np.array([[1,2],[3,4],[5,6]])
+v=np.dot(x,2.5,out=None)
+print(v)
 
 
-# οπτικοποιήση σε χάρτη
+# ή με έναν άλλο πίνακα. Σε αυτήν την περίπτωση το γινόμενο $x⋅y$ δύο πινάκων $x,y$ 
+# ορίζεται μόνο όταν αριθμός των γραμμών του ενός πίνακα ισούται με τον αριθμό των στηλών του άλλου. Όπως παρατηρείτε στις επόμενες γραμμές κώδικα καλούμε την ιδιότητα `T` του πίνακα $y$ για να κάνουμε αντιμετάθεση τις γραμμές με τις στήλες του (*ανάστροφος* πίνακας) και να πληρείται αυτή η συνθήκη.
 
 # In[28]:
 
 
-_, ax = plt.subplots()
-burnt_area.plot(ax=ax, color='red', alpha=.25) ## alpha είναι ο βαθμο διαφάνειας 
-plot=show(contrast_stretching(out_image), transform=t, ax=ax, cmap='gray')
+y=np.array([[1,1],[1,1],[2,2]])
+v=np.dot(x,y.T,out=None)
+print(v)
 
 
-# Αποθήκευση του αρχείου σε shapefile.
+# Διαίρεση πινάκών:
 
 # In[29]:
 
 
-kmeans_vector.to_file(OUTDIR / 'kmeans.shp')  
+v = x/y
+print(v)
 
 
-# Στην συνέχεια θα ακολουθήσει ο υπολογισμός της καμένης δομημένης επιφάνειας.
-# Αρχικά διαβάζουμε το αρχικό shapefile και ελέγχουμε το προβολικό του σύστημα πρέπει να είναι στο `ΕΓΣΑ'87` για να είναι συγκρίσιμο το αρχείο με τα δεδομένα της ομαδοποίησης που έχουμε κάνει.
-# 
+# Μπορούμε να φτιάξουμε μια ακολουθία τιμών σε έναν πίνακα numpy:np.arange(start=1, stop=10, step=3)
 
 # In[30]:
 
 
-builtup = gpd.read_file(INPUTDIR / "built_up.shp")
-builtup.crs
+x = np.arange(start=1, stop=10, step=2) # η πιο απλά  np.arange(1, 10, 2) 
+print(x)
 
 
-# Επειδή το αρχείο της δομημένης επιφάνειας είναι στο `WGS'84` κάνουμε μετασχηματισμό σε`ΕΓΣΑ'87` Και συνοπτική διερεύνηση των περιγραφικών δεδομένων του αρχείο.
+# Με την συνάρτηση `reshape` μπορούμε να αλλάξουμε τις διαστάσεις ενός πίνακα
 
 # In[31]:
 
 
-builtup = builtup.to_crs(2100) # μετασχηματισμός σε ΕΓΣΑ87.
-builtup.head() 
 
+x = np.arange(6)
+print(x.shape)
 
-# Και ακολουθεί οπτικοποίηση της γεωγραφικής πληροφορίας της δομημένης επιφάνειας.
 
 # In[32]:
 
 
-builtup.plot(figsize= (10,10))
+x = x.reshape(2,3)
+print(x.shape)
 
 
-# Για να εντοπίσουμε την καμένη δομημένη επιφάνεια πρέπει να πάρουμε την τομή (intersection) των δύο αρχείων (του αρχείου με τα πολύγωνα της δομημένης επιφάνειας και του αρχείου με τα πολύγωνα καμένης/μη καμένης γης που προέκυψαν από τον αλγόριθμο k-means.
+# Επιπλεόν μπορούμε με εύκολο τρόπο να υπολογίσουμε στατιστικά μέτρα θέσης και μεταβλητότητας ενός πίνακα ndarray.
 # 
-# (Δείτε περισσότερα στο [Set-Operations with Overlay](https://geopandas.org/en/stable/docs/user_guide/set_operations.html) της βιβλιοθήκης geopandas.)
+# Ας δημιουργήσουμε ένα πίνακα με ακέραιους διαστάσεων:
 
 # In[33]:
 
 
-burn_buildup_area = gpd.overlay(builtup, burnt_area, how='intersection') # υπολογισμός τομής των δυο αρχείων
+np.random.rand(2023)
+myarray= np.random.randint(1,11, size=(4,3))
+print(myarray)
 
 
-# Οπτικοποίηση του αποτελεσματος και αποθήκευση σε geopackage.
+# Αν καλέσουμε τη παραπάνω εντολή θα πάρουμε το άθροισμα για τα στοιχεία που περιέχονται στο array.
 
 # In[34]:
 
 
-burn_buildup_area.plot(figsize= (10,10), color="green")
-burn_buildup_area.to_file(OUTDIR / 'burn_buildup_area.gpkg', driver='GPKG', layer='name')  
+np.sum(myarray)
 
 
-# Η οπτικοποίηση του αποτελέσματος σε διαδραστικό χάρτη είναι εφικτή μέσω της βιβλιοθήκης folium. 
+# Αν ορίσουμε την παράμετρο `axis=0` θα πάρουμε το άθροισμα για τις στήλες αν `axis=1` το άθροισμα για τις γραμμές.
 
 # In[35]:
 
 
-folium_map = folium.Map(location=[38.0425, 23.9785], zoom_start=13, tiles='OpenStreetMap') # CartoDB positron
+np.sum(myarray, axis=0) # άθροισμα για τις στήλες, άξονας x
 
-for _, r in burn_buildup_area.to_crs(4326).iterrows():
-    # Without simplifying the representation of each borough,
-    # the map might not be displayed
-    sim_geo = gpd.GeoSeries(r['geometry'])
-    geo_j = sim_geo.to_json()
-    geo_j = folium.GeoJson(data=geo_j,
-                           style_function=lambda x: {'fillColor': 'orange'})
-    folium.Popup(r['obj_type']).add_to(geo_j)
-    geo_j.add_to(folium_map)
-folium_map
-
-
-# ### Υπολογισμός καμένης δομημένης επιφάνειας
-
-# Στην συνέχεια υπολογίζεται η συνολική καμένη επιφάνεια σε στρέμματα. Για κάθε ένα πολύγωνο υπολογίζουμε την έκταση του. Το αποτέλεσμα του υπολογισμού είναι σε $m^{2}$ το οποίο το μετατρέπουμε σε στρέμματα (1 στρ.= 1000 $m^{2}$) . Στην συνέχεια παίρνουμε το άθροισμά τους και εκτυπώνουμε το αποτέλεσμα
 
 # In[36]:
 
 
-# A method
-burn_buildup_area["area"] = burn_buildup_area['geometry'].area / 10**3 # τμ σε στρέμματα
-b_area = burn_buildup_area["area"].sum()
-print(f"Η έκταση της καμένης δομημένης επιφάνειας είναι {round(b_area,2)} στρ.")
+np.sum(myarray, axis=1) # άθροισμα για τις γραμμές, άξονας y
 
 
-# Εναλλακτικά μπορούμε να ενώσουμε όλα τα πολύγωνα και να πάρουμε την έκταση ενός ενιαίου πολυγώνου. Η ένωση των πολυγώνων γίνεταi μέσω της μεθόδου `dissolve`.
+# Αντίστοιχα μπορούμε να χρησιμοποιήσουμε και άλλες συναρτήσεις:
 
 # In[37]:
 
 
-# B method
-burn_buildup_area_dis = burn_buildup_area.dissolve("raster_val") # https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.dissolve.html#geopandas.GeoDataFrame.dissolve
-b_area = float(burn_buildup_area_dis.geometry.area)/10**3
-print(f"Η έκταση της καμένης δομημένης επιφάνειας είναι {round(b_area,2)} στρ.")
+np.amin(myarray)
 
-
-# ### Υπολογισμός καμένης έκτασης ανά ΟΤΑ
-# 
-# Επιπλέον είναι εφικτό να διαπιστώσουμε πόση έκταση έχει καεί ανά ΟΤΑ.
-# Όπως είδαμε σε προηγούμενο βήμα κατά την οπτικοποίηση του αρχείου των ΟΤΑ, αυτο περιλαμβάνει το σύνολο της Ελλάδας.
-# Βρίσκουμε την τομή των αρχείων ΟΤΑ και του ομαδοποιημένου με k-means αρχείου.
-# Στην συνέχεια λαμβάνουμε την έκταση της κάθε γεωμετρίας σε μια νέα στήλη (`area`).
 
 # In[38]:
 
 
-burn_OTA = gpd.overlay(OTA, burnt_area, how='intersection')
-burn_OTA['area'] = burn_OTA.geometry.area
+np.amax(myarray, axis=0) # max κατά στήλη
 
 
-# Όπως βλέπουμε το αποτέλεσμα πλέον περιορίζεται στην καμένη περιοχή.
-# Έχει γίνει κατηγοριοποίηση των καμένων περιοχών με βάση των ΟΤΑ στον οποίο ανήκουν.
+# Αντί για συναρτήσεις μπορούμε να χρησιμοποιήσουμε μεθόδους από τα numpy objects που εκτελούν την αντίστοιχη λειτουργία, π.χ. για το max
 
 # In[39]:
 
 
-burn_OTA.plot(figsize= (10,10),cmap='Dark2', column='NAME_LATIN', legend=True, edgecolor="black",antialiased=True, linewidth=0.4)
-plt.savefig(OUTDIR / 'burn_OTA_area_map.png') #save as png
+myarray.max(axis=0)
 
 
-# Για να υπολογίσουμε την καμένη έκταση ανά ΟΤΑ κάνουμε ομάδοποίηση με βάση την τιμή του πεδίου `NAME_LATIN` και υπολογίζουμε το άθροισμα της στήλης `area`. Κάνουμε αναγωγή του αποτελέσματος σε στρέματα.
+# Και αντίστοιχα να πάρουμε και άλλα μέτρα όπως:
 
 # In[40]:
 
 
-# Group by cell_id and croptype and calculate total intersection area
-burn_OTA_area = burn_OTA.groupby(['NAME_LATIN'])['area'].sum().reset_index()
-burn_OTA_area['area'] = burn_OTA_area['area']  / 10**3 # τμ σε στρέμματα
+# μέσο όρο
+np.mean(myarray)
 
 
 # In[41]:
 
 
-burn_OTA_area = burn_OTA_area.set_index('NAME_LATIN')
-burn_OTA_area
+# διάμεσο
+np.median(myarray)
 
-
-# Τέλος οπτικοποιούμε την αναλογία της καμένης γης σε ένα διάγραμμα/πίτα (pie chart). Επειδή η καμένη έκταση στην κοινότητα Πικερμίου είναι πολύ μικρή, φιλτράρουμε τα δεδομένα και κρατάμε μόνο έκτάσεις > 500 στρ.
 
 # In[42]:
 
 
-burn_OTA_area = burn_OTA_area[burn_OTA_area['area']>500]
-
-burn_OTA_area.plot(kind='pie', y='area', x='NAME_LATIN',figsize=(8,8),title='Burnt area per municipality')
-plt.savefig(OUTDIR / 'burn_OTA_area.png')
+# τυπική απόκλιση
+np.std(myarray)
 
 
-# ## Ευχαριστίες
+# In[43]:
+
+
+np.percentile(myarray,25) # 25th percentile
+
+
+# In[44]:
+
+
+np.percentile(myarray,75) # 75th percentile
+
+
+# In[45]:
+
+
+np.percentile(myarray,50) # 50th percentile or median
+
+
+# Σε αρκετές περιπτώσεις στα στοιχεία ενός πίνακας μπορεί να εχουν την τιμή *NaN* που σημαίνει "*Not a number*". Η τιμή του *Nan* χρησιμοποιείται όταν δεν υπάρχουν δεδομένα (missing values). Χαρακτηριστικό παράδειγμα είναι όταν διαβάζουμε μια δορυφορική εικόνα και κάνουμε flag ως NaN τα pixels που εχουν νεφοκάλυψη για να τα αποκλείσουμε από την ανάλυση. Και γενικότερα όταν θέλουμε να εξαιρέσουμε τιμές ή στοιχεία από μαθηματικές πράξεις μπορούμε να τα θέσουμε ως *NaN*. Προσοχή, το *NaN* δεν ισούται με 0.
+# Να σημειωθεί ότι σε ένα array που περιέχει *NaN* στοιχεία πολλές από τις συναρτήσεις που προαναφέρθηκαν για τον υπολογισμό στατιστικών μέτρων επιστρέφουν *NaN*. Στην περίπτωση αυτή χρησιμοποιούνται παραλλαγές των συναρτήσεων (π.χ. `nansum` αντί `sum`). Για παράδειγμα έστω το παραπάνω array που περιέχει *NaN* στοιχεία μεταξύ των άλλων,
+
+# In[46]:
+
+
+myarray=myarray.astype(float) #μετατροπη σε float (ακέραιο τύπο δεδομένων), αναγκαίο για να θέσουμε κάποια στοιχέια σε NaN
+myarray[myarray<=4] = np.NaN # ορισμό σε NaN για όσες τιμές είναι <=4
+myarray
+
+
+# In[47]:
+
+
+np.sum(myarray)
+
+
+# In[48]:
+
+
+np.nansum(myarray)
+
+
+# In[49]:
+
+
+np.mean(myarray)
+
+
+# In[50]:
+
+
+np.nanmean(myarray)
+
+
+# Ανάλογη λειτουργία έχει και το module `numpy.ma` που χρησιμοποιείται για να κάνουμε mask τα στοιχεία ενός array. Δηλαδή όταν ορίσουμε κάποια στοιχεία σαν masked αυτά εξαιρούνται από τον υπολογισμό και τις διάφορες πράξεις που εκτελούνται στο array. Διαβάστε περισσότερα για τα mask arrays [εδώ](https://numpy.org/doc/stable/reference/maskedarray.html).
+
+# In[51]:
+
+
+import numpy.ma as ma #εισαγωγή της απαραίτητης βιβλιοθήκης
+
+
+# Έστω ο παρακάρω πίνακας
+
+# In[52]:
+
+
+x=np.arange(6)
+
+
+# Μπορούμε να δημιουργήσουμε ένα masked array μέσω της συνάρτησης *masked_array*. Στην παράμετρο mask μπορούμε να επισημάνουμε ποιά στοιχεία θα είναι masked ορίζοντας την τιμή 1 1 (ή True)
+
+# In[53]:
+
+
+x_masked = ma.masked_array(x, mask=[1,0,0,0,0,0])
+
+
+# In[54]:
+
+
+print(x)
+
+
+# In[55]:
+
+
+print(x_masked)
+
+
+# In[56]:
+
+
+x_masked
+
+
+# Το masked_array έχει μια ιδιότητα που ονομάζεται fill_value και πρόκειται για μια τιμή που θα αντικαταστήσει τα masked στοιχεία όταν καλέσουμε την μέθοδο `filled()`.
+
+# In[57]:
+
+
+x_masked.filled()
+
+
+# Κατά την κλήση της μπορεί να οριστεί αυτή η τιμή πέρα από την προκαθορισμένη.
+
+# In[58]:
+
+
+x_masked.filled(15)
+
+
+# Αν και το πρώτο στοιχείο το έχουμε κάνει masked, τα πραγματικά δεδομένα εξακολουθούν να υφίστανται:
+
+# In[59]:
+
+
+x_masked.data
+
+
+# Όμως κατά τους διάφορους υπολογισμούς τα masked στοιχεία αγνοούνται π.χ. στον μέσο όρο:
+
+# In[60]:
+
+
+np.mean(x_masked)
+
+
+# In[61]:
+
+
+print(x_masked)
+
+
+# Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα ndarray objects.
 # 
-# Ευχαριστώ τον [Βασίλη Λέτσιο](https://www.linkedin.com/in/vasilis-letsios-1b91a9157) για την κοινοποίηση της μεθοδολογίας που ανέπτυξε στα πλαίσια του μαθήματος ["ΕΙΔΙΚΕΣ ΕΦΑΡΜΟΓΕΣ ΤΗΛΕΠΙΣΚΟΠΗΣΗΣ"](https://eclass.uth.gr/courses/PRD_U_122/) για τον υπολογισμό των δεικτών καμένης γης με δεδομενα Sentinel-2.  
+# Με τον παρακάτω τρόπο μπορούμε να εντοπίσουμε τις μοναδικές τιμές από τα στοιχεία ενός πίνακα. Έστω ο παρακάτω πίνακας
+
+# In[62]:
+
+
+np.random.rand(2)
+myarray= np.random.randint(1,11, size=(10,10))
+myarray
+
+
+# In[63]:
+
+
+unique, counts = np.unique(myarray, return_counts=True)
+unique, counts
+
+
+# Μπορούμε να μετατρέψουμε ένα πίνακα διαστάσεων $i⋅j$ σε διάνυσμα δηλ. σε πίνακα μιας μόνο στήλης με την χρήση της μεθόδου `flatten`.
+# Ο πίνακας myarray είναι διαστάσεων 10x10 και έχει 100 στοιχεία:
+
+# In[64]:
+
+
+myarray.shape
+
+
+# In[65]:
+
+
+myarray.size
+
+
+# Καλώ την μέθοδο `flatten` και επιβεβαιώ τις διαστάσεις. Πλέον ολα τα στοιχεία είναι σε μια στήλη.
+
+# In[66]:
+
+
+myarray_f = myarray.flatten()
+myarray_f
+
+
+# In[67]:
+
+
+myarray_f.shape
+
+
+# Σε ένα array μπορούμε να δοκιμάσουμε αν ισχύει μια συνθήκη στις τιμές της. Στην παρακάτω γραμμή κώδικα τεστάρουμε αν έστω και ένα στοιχείο περιέχει τιμές >8. Θα επιστρέψει True γιατί βλέπουμε ότι αρκετά στοιχεία έχουν την τιμή>8.
 # 
-# ## Βιβλιογραφία - Πηγές δεδομένων
-# 
-# Parks, S., Dillon, G., Miller, C., 2014. A New Metric for Quantifying Burn Severity: The Relativized Burn Ratio. Remote Sensing 6, 1827–1844. https://doi.org/10.3390/rs6031827
-# 
 
-# In[ ]:
+# In[68]:
 
 
+print(myarray)
 
+
+# In[69]:
+
+
+np.any(myarray > 8)
+
+
+# Αντίστοιχα μπορούμε να δοκιμάσουμε αν όλες οι τιμές ενός πίνακας πληρούν μια συνθήκη. Εδώ δοκιμάζουμε αν όλες οι τιμές του πίνακας είναι >2. Φυσικά η απάντηση είναι False γιατί υπάρχουν και τιμές <2.
+
+# In[70]:
+
+
+np.all(myarray > 2)
+
+
+# Μπορούμε να κάνουμε τον αντίστοιχο έλεγχο κατά συγκεκριμένο άξονα (xaxis) δηλαδή κατά στήλη ή γραμμή. Στην επόμενη γραμμή δοκιμάζουμε σε κάθε στήλη (axis=0) αν περιλαμβάνεται έστω και μια τιμή >8. Όπως φαίνεται στην 4η και 9η στήλη δεν υπάρχει ούτε μια τιμή >8. 
+
+# In[71]:
+
+
+np.any(myarray > 8, axis=0)
+
+
+# Έχουμε την δυνατότητα να ενώσουμε δύο πίνακες με την συνάρτηση `concatenate`:
+
+# In[72]:
+
+
+arr = np.array([4, 7, 12])
+arr1 = np.array([5, 9, 15])
+
+# Use concatenate() to join two arrays
+con = np.concatenate((arr, arr1))
+print(con)
+
+
+# Σε πολυ διάστατους πίνακες μπορούμε να κάνουμε την ένωση με βάση συγκεκριμένο άξονα (παράμετρος axis), δηλ. κατά γραμμή ή στήλη.
+
+# In[73]:
+
+
+arr = np.arange(20).reshape(4,5)
+arr1 = np.arange(30,50).reshape(4,5)
+con = np.concatenate((arr, arr1), axis=1) # κατά στήλη
+print(con)
 
