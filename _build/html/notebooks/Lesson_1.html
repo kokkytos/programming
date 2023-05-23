@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Εισαγωγή στον προγραμματισμό &#8212; Προγραμματισμός Η/Υ</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Ευρετήριο" href="../genindex.html" />
+    <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="2. Τιμές, τύποι και μεταβλητές. Συμβολοσειρές" href="Lesson_2.html" />
+    <link rel="prev" title="Προγραμματισμός Η/Υ" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="el">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Προγραμματισμός Η/Υ
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Εισαγωγή στον προγραμματισμό
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_2.html">
+   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_3.html">
+   3. Λίστες. Εκφράσεις, τελεστές
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_4.html">
+   4. Πλειάδες και λεξικά
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_5.html">
+   5. Έλεγχος ροής εκτέλεσης
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_6.html">
+   6. Συναρτήσεις (functions)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_7.html">
+   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_8.html">
+   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_9.html">
+   9. Γεωεπεξεργασία διανυσματικών δεδομένων
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_10.html">
+   10. Διαγράμματα
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_11.html">
+   11. Η βιβλιοθήκη numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_12.html">
+   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
+                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebooks/Lesson_1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου σημειωματάριου" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
+                    class="fab fa-github"></i>αποθήκη</button></a>
+        <a class="issues-button"
+            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Περιεχόμενα
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Ενότητες του μαθήματος
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1. Εισαγωγή  στον προγραμματισμό
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     2. Τιμές, τύποι και μεταβλητές
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     3. Εκφράσεις, τελεστές
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4. Έλεγχος ροής εκτέλεσης
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     5. Συναρτήσεις
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     6. Συμβολοσειρές/Δομές Δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     8. Πίνακες και διαγράμματα
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     9. Πίνακες και διαγράμματα
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     10. Γεωεπεξεργασία διανυσματικών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     11. Ανάλυση διανυσματικών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     12. Γεωεπεξεργασία ψηφιδωτών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     13. Ανάλυση ψηφιδωτών δεδομένων
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   Ορισμοί
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#h-python">
+   H γλώσσα προγραμματισμού Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-o-thonny">
+   To oλοκληρωμένο περιβάλλον ανάπτυξης thonny
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thonny">
+   Εκτέλεση εντολών στο περιβάλλον thonny
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>1. Εισαγωγή στον προγραμματισμό</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Περιεχόμενα </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Ενότητες του μαθήματος
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1. Εισαγωγή  στον προγραμματισμό
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     2. Τιμές, τύποι και μεταβλητές
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     3. Εκφράσεις, τελεστές
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4. Έλεγχος ροής εκτέλεσης
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     5. Συναρτήσεις
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     6. Συμβολοσειρές/Δομές Δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     8. Πίνακες και διαγράμματα
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     9. Πίνακες και διαγράμματα
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     10. Γεωεπεξεργασία διανυσματικών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     11. Ανάλυση διανυσματικών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     12. Γεωεπεξεργασία ψηφιδωτών δεδομένων
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     13. Ανάλυση ψηφιδωτών δεδομένων
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   Ορισμοί
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#h-python">
+   H γλώσσα προγραμματισμού Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-o-thonny">
+   To oλοκληρωμένο περιβάλλον ανάπτυξης thonny
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thonny">
+   Εκτέλεση εντολών στο περιβάλλον thonny
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>1. Εισαγωγή στον προγραμματισμό<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div class="section" id="id2">
+<h2>Ενότητες του μαθήματος<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Το μάθημα χωρίζεται στις ακόλουθες ενότητες:</p>
+<div class="section" id="id3">
+<h3>1. Εισαγωγή  στον προγραμματισμό<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Κατά την διάρκεια της διάλεξης διευκρινίζεται ο σκοπός του μαθήματος και περιγράφονται συνοπτικά οι ενότητες που θα διδαχθούν οι φοιτητές κατά την διάρκεια του εξαμήνου. Διατυπώνονται συγκεκριμένοι ορισμοί που αφορούν τον προγραμματισμό Η/Υ και αναπτύσσονται έννοιες για την επιστήμη των υπολογιστών. Στην συνέχεια εγκαθίσταται στους υπολογιστές των φοιτητών η γλώσσα προγραμματισμού Python μαζί με το απαραίτητο λογισμικό για την συγγραφή και αποσφαλμάτωση του κώδικα.
+Ακολουθεί εξοικείωση με το περιβάλλον εργασίας.</p>
+</div>
+<div class="section" id="id4">
+<h3>2. Τιμές, τύποι και μεταβλητές<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Περιγραφή της έννοιας των μεταβλητών, των σταθερών, τύποι δεδομένων, εκχώρηση τιμών στις μεταβλητές, κανόνες ονοματοδοσίας των μεταβλητών.</p>
+</div>
+<div class="section" id="id5">
+<h3>3. Εκφράσεις, τελεστές<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ορισμός εκφράσεων, τι είναι τελεστές, ποια είναι η προτεραιότητα των τελεστών, πως εισάγουμε σχόλια στον κώδικα και γιατί είναι σημαντική πρακτική.</p>
+</div>
+<div class="section" id="id6">
+<h3>4. Έλεγχος ροής εκτέλεσης<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Η λογική Boolean, Εκτέλεση υπό συνθήκη, αλυσιδωτές και εμφωλευμένες συνθήκες, βρόχος και οι εντολές επανάληψης for και while.</p>
+</div>
+<div class="section" id="id7">
+<h3>5. Συναρτήσεις<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ορισμός και κλήση συνάρτησης, παράμετροι συναρτήσεων, εμβέλεια μεταβλητών, αναδρομή.</p>
+</div>
+<div class="section" id="id8">
+<h3>6. Συμβολοσειρές/Δομές Δεδομένων<a class="headerlink" href="#id8" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Προσπέλαση συμβολοσειρών, χαρακτήρες διαφυγής, υποσύνολα συμβολοσειράς, συγκρίσεις και ιδιότητες, μέθοδοι συμβολοσειρών. Λίστες, Πλειάδες, Λεξικά.</p>
+</div>
+<div class="section" id="id9">
+<h3>7. Ανάγνωση &amp; εγγραφή αρχείων, φάκελοι<a class="headerlink" href="#id9" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ανάγνωση και εγγραφή σε αρχείο, σειριοποίηση (serialization) αντικειµένου, διαχείριση φακέλων και αρχείων.</p>
+</div>
+<div class="section" id="id10">
+<h3>8. Πίνακες και διαγράμματα<a class="headerlink" href="#id10" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ανάγνωση αρχείων csv ή excel, pandas dataframes</p>
+</div>
+<div class="section" id="id11">
+<h3>9. Πίνακες και διαγράμματα<a class="headerlink" href="#id11" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Πίνακες στην βιβλιοθήκη numpy, διαγράμματα με την βιβλιοθήκη seaborn.</p>
+</div>
+<div class="section" id="id12">
+<h3>10. Γεωεπεξεργασία διανυσματικών δεδομένων<a class="headerlink" href="#id12" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ανάγνωση και εγγραφή διανυσματικών δεδομένων, μετα-δεδομένα, φιλτράρισμα, αλλαγή προβολικού συστήματος.</p>
+</div>
+<div class="section" id="id13">
+<h3>11. Ανάλυση διανυσματικών δεδομένων<a class="headerlink" href="#id13" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Χωρικές σχέσεις, στατιστικά ομαδοποιήσεων, οπτικοποίηση διανυσματικών δεδομένων.</p>
+</div>
+<div class="section" id="id14">
+<h3>12. Γεωεπεξεργασία ψηφιδωτών δεδομένων<a class="headerlink" href="#id14" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Ανάγνωση και εγγραφή διανυσματικών δεδομένων, μετα-δεδομένα, ορισμός μάσκας/αποκοπή περιοχής, αλλαγή τιμών,  επαναταξινόμηση, αλλαγή προβολικού συστήματος.</p>
+</div>
+<div class="section" id="id15">
+<h3>13. Ανάλυση ψηφιδωτών δεδομένων<a class="headerlink" href="#id15" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<p>Άλγεβρα ψηφιδωτών αρχείων, στατιστικά ζωνών, ιστόγραμμα συχνοτήτων.</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>Ορισμοί<a class="headerlink" href="#id16" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<div class="proof definition admonition" id="algor">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>«<em>Αλγόριθμο</em>» ονομάζουμε κάθε πεπερασμένη και αυστηρά καθορισμένη
+σειρά βημάτων (οδηγιών) για την επίλυση ενός
+προβλήματος. <span id="id17">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span></p>
+<p>Ένας αλγόριθμος είναι μια αυστηρά καθορισμένη διαδικασία που λαμβάνει μια τιμή ή
+ένα σύνολο τιμών εισόδου και αποδίδει μια ή περισσότερες τιμές εξόδου. Είναι
+κατά συνέπεια μια ακολουθία υπολογιστικών βημάτων που μετατρέπει την είσοδο
+δεδομένων σε έξοδο αποτελεσμάτων <span id="id18">[<a class="reference internal" href="bibliography.html#id4" title="Thomas Cormen, editor. Introduction to algorithms. MIT Press, Cambridge, Mass, 3rd ed edition, 2009. ISBN 978-0-262-03384-8 978-0-262-53305-8. OCLC: ocn311310321.">Cormen, 2009</a>]</span>.</p>
+</div>
+</div><p>Για παράδειγμα η αύξουσα (ή φθίνουσα) ταξινόμηση μιας λίστας αριθμών είναι ένα χαρακτηριστικό παράδειγμα αλγορίθμου.
+Οπότε με τιμές εισόδου {31, 41, 59, 26, 41, 58}, ο αλγόριθμος ταξινόμησης επιστρέφει ως τιμές εξόδου {26, 31, 41, 41, 58, 59}.</p>
+<div class="proof definition admonition" id="program">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Ως «<em>Πρόγραμμα</em>» ορίζεται ένας αλγόριθμος γραμμένο σε γλώσσα κατανοητή για τον υπολογιστή και περιέχει εντολές (οδηγίες) που κατευθύνουν
+με κάθε λεπτομέρεια τον υπολογιστή, για να εκτελέσει μια συγκεκριμένη εργασία και να επιλύσει ένα πρόβλημα <span id="id19">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span>.
+Ένα Πρόγραμμα αναγνώσιμο από τον άνθρωπο ονομάζεται «<em>πηγαίος κώδικας</em>».</p>
+</div>
+</div><div class="proof definition admonition" id="programming">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>«<em>Προγραμματισμός</em>» ονομάζεται η διαδικασία
+συγγραφής προγραμμάτων και περιλαμβάνει τη
+διατύπωση των κατάλληλων εντολών προς τον υπολογιστή με τη χρήση
+τεχνητών γλωσσών, των γλωσσών προγραμματισμού  <span id="id20">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span>.</p>
+</div>
+</div><p>Ο προγραμματισμός είναι μια διαδικασία που απαιτεί μια σειρά εργαλείων και διαδικασιών τα οποία συνήθως ενσωματώνονται όλα μαζί σε ένα ενοποιημένο περιβάλλον
+που αποκαλείται «ολοκληρωμένο περιβάλλον ανάπτυξης εφαρμογών» (Integrated
+Development Environment, IDE).</p>
+<p>Η διαδικασία μετατροπής του πηγαίου κώδικα σε εκτελέσιμο αρχείο περιγράφεται στο παρακάτω διάγραμμα:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Lesson_1_1_0.svg" src="../_images/Lesson_1_1_0.svg" /></div>
+</div>
+<div class="figure align-default" id="figure-programming">
+<a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 0px;" /></a>
+<p class="caption"><span class="caption-number">Εικ. 1 </span><span class="caption-text">Η ροή εκτέλεσης του κώδικα σε εκτελέσιμο.</span><a class="headerlink" href="#figure-programming" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">¶</a></p>
+</div>
+<p>Τα εργαλεία προγραμματισμού τα οποία κάνουν την μεταγλωττιστή του πηγαίου προγράμματος σε
+εκτελέσιμο πρόγραμμα είναι τα εξής:</p>
+<ul class="simple">
+<li><p>ο <em>επεξεργαστής κειμένου</em> με την βοήθεια οποίου συντάσσεται ο πηγαίο κώδικάς του προγράμματος.</p></li>
+<li><p>ο <em>μεταγλωττιστής</em> ή <em>διερμηνευτής</em> οι οποίοι χρησιμοποιούνται για την μετατροπή του πηγαίου κώδικα σε γλώσσα μηχανής η οποία είναι απαραίτητη για την αναγνώριση και εκτέλεση των εντολών από τον Η/Υ. Τα παραγόμενο πρόγραμμα από την μεταγλώττιση ονομάζεται <em>αντικείμενο πρόγραμμα</em> (object).
+Ο διερμηνευτής διαβάζει διαδοχικά τις εντολές και για κάθε εντολή που διαβάζει, εκτελεί αμέσως μια ισοδύναμη ακολουθία εντολών μηχανής.
+Από την άλλη, ο μταγλωττιστής δέχεται στην είσοδο ένα πρόγραμμα γραμμένο σε γλώσσα υψηλού επιπέδου (πηγαίο κώδικα) και παράγει ισοδύναμο πρόγραμμα σε γλώσσα μηχανής (αντικείμενο).</p></li>
+<li><p>ο <em>συνδέτης - φορτωτής</em> (linker- loader) ο οποίος συνδέει το <em>αντικείμενο πρόγραμμα</em> με άλλα τμήματα του προγράμματος ή απαραίτητες βιβλιοθήκες που διατίθεται από την γλώσσα προγραμματισμού. Το τελικό πρόγραμμα που προκύπτει από την μεταγλώτισση και την σύνδεση των τμημάτων του προγράμματος είναι το <em>εκτελέσιμο πρόγραμμα</em> (executable) το οποίο μπορεί να διαβάσει και να εκτελέσει ο υπολογιστής.</p></li>
+<li><p>τα <em>εργαλεία αποσφαλμάτωσης</em> με την βοήθεια των οποίων δοκιμάζεται η εκτέλεση και η ορθότητα του πηγαίου κώδικα και εντοπίζονται λάθη σε αυτόν.</p></li>
+</ul>
+<p>Τα λάθη στον κώδικα συνοψίζονται σε τρείς βασικές κατηγορίες:</p>
+<ol class="simple">
+<li><p><em>σφάλμα μεταγλώττισης</em> τα οποία προκύπτουν κατά την λανθασμένη συγγραφή του πηγαίου κώδικα. Ο μεταγλωττιστής δεν επιτρέπει την μετάφραση του πηγαίου κώδικα σε γλώσσα μηχανής αν προηγουμένος δεν έχει διορθωθεί το συντακτικό λάθος. Συντακτικά λάθη συμβαίνουν συνήθως όταν δεν ακολοθούνται οι κανόνες σύνταξης μια γλώσσας (π.χ. μια παρένθεση που δεν έχει κλείσει, ένα ξεχασμένο εισαγωγικό ή κόμμα κτλ.).</p></li>
+</ol>
+<p>Το παρακάτω είναι ένα παράδειγμα συντακτικού σφάλματος και το μήνυμα που επιστρέφει ο μεταγλωττιστής της Python.
+Η αιτία του σφάλματος είναι η ξεχασμένη παρένθεση στην συνάρτηση (function) <em>print</em></p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;an example&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;an example&quot;</span>
+         <span class="o">^</span>
+<span class="ne">SyntaxError</span>: &#39;(&#39; was never closed
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><em>σφάλμα εκτέλεσης</em> (run-time errors) τα οποία συμβαίνουν κατά την εκτέλεση του προγράμματος παρότι δεν υπάρχουν σφάλματα σύνταξης. Χαρακτηριστικά παραδείγματα τέτοιων λαθών είναι η διαίρεση με το μηδέν, η πρόσβαση σε ένα στοιχείο μιας λίστας εκτός του εύρους της, η ανάγνωση ενός αρχείου το οποίο δεν υπάρχει, ή η πρόσβαση σε ένα ανύπαρκτο object. Τα σφάλματα εκτέλεσης έχουν επικρατήσει να αναφέρονται και ως «bugs» <a class="footnote-reference brackets" href="#bug" id="id21">1</a>.
+Παρακάτω δίνεται ένα σφάλμα που προκύπτει από την διαίρεση ενός ακέραιου με το μηδέν.</p></li>
+</ol>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><em>σφάλμα λογικής</em>, κατά το οποίο το πρόγραμμα εκτελείται κανονικά χωρίς σφάλματα αλλά δεν συμπεριφέρεται όπως έχει σχεδιαστεί να συμπεριφέρεται. Αυτά τα σφάλματα δεν σταματούν την εκτέλεση του προγράμματος αλλά το αποτέλεσμα της εκτέλεσης δεν ειναι το αναμενόμενο.</p></li>
+</ol>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ο μέσος όρος των δύο αριθμών είναι:&#39;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο μέσος όρος των δύο αριθμών είναι: 8.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Το παραπάνω είναι σφάλμα λογικής γιατί έπρεπε να γραφτεί ως εξής (δώστε προσοχή στις παρενθέσεις που δίνουν προτεραιότητα στις πράξεις):</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ο μέσος όρος των δύο αριθμών είναι:&#39;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο μέσος όρος των δύο αριθμών είναι: 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όλες οι παραπάνω μορφές σφαλμάτων εντοπίζονται μέσω της <em>αποσφαλμάτωσης</em>, της συστηματικής δηλαδή διαδικασίας εντοπισμού και επιδιόρθωσης σφαλμάτων. Η αποσφαλμάτωση συνοψίζεται στα εξής βήματα:</p>
+<ul class="simple">
+<li><p>Επανάληψη του προβλήματος</p></li>
+<li><p>Απομόνωση του σημείου που εμφανίζεται το σφάλμα</p></li>
+<li><p>Αναγνώριση της αιτίας που το προκαλεί</p></li>
+<li><p>Διόρθωση του σφάλματος</p></li>
+<li><p>Επιβεβαίωση της διόρθωσης</p></li>
+</ul>
+<p>Οι εντολές των προγραμμάτων γράφονται από τους προγραμματιστές σε
+τεχνητές γλώσσες που ονομάζονται «<em>γλώσσες προγραμματισμού</em>». Μια γλώσσα
+προγραμματισμού θα πρέπει να έχει αυστηρά ορισμένη σύνταξη και σημασιολογία.
+Η σύνταξη καθορίζει αν μια σειρά από σύμβολα αποτελούν «νόμιμες» εντολές
+ενός προγράμματος γραμμένου σε μια συγκεκριμένη γλώσσα προγραμματισμού και
+η σημασιολογία καθορίζει τη σημασία του προγράμματος, δηλαδή τις
+υπολογιστικές διαδικασίες που υλοποιεί. <span id="id22">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span>.</p>
+</div>
+<div class="section" id="h-python">
+<h2>H γλώσσα προγραμματισμού Python<a class="headerlink" href="#h-python" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η Python είναι μια ευρέως διαδομένη, αντικειμενοστραφής, υψηλού επιπέδου γλώσσα προγραμματισμού γενικής χρήσης.
+Η Python είναι μια γλώσσα που εκτελεί τις εντολές στον διερμηνέα, που όπως αναφέρθηκε,διαβάζει τον πηγαίο κώδικα γραμμή προς γραμμή και το μετατρέπει σε γλώσσα μηχανής.
+Αυτός ο τρόπος λειτουργίας της Python την καθιστά πιο αργή σε σύγκριση με άλλες γλώσσες μεταγλωττιστού όπως η C.
+H Python είναι διαδραστική υπό την έννοια ότι ο χρήστης εκτελεί εντολές μέσω της γραμμή εντολών της Python, εκτελείται άμεσα και λαμβάνει το αποτέλεσμα εξόδου.</p>
+<p>Δημιουργήθηκε από τον Guido van Rossum και πρωτοκυκλοφόρησε στις 20 Φεβρουαρίου του 1991.
+Το όνομά της, αν και παρεπέμπει, δεν έχει σχέση με το φίδι Πύθωνα αλλά προέρχεται από την γνωστή κωμικη σειρά του BBC, Monty Python’s Flying Circus.
+Αν και αρχικά αναπτύχθηκε σαν μεμονωμένη ατομική προσπάθεια στην συνέχεια υποστηρίχθηκε από μια παγκόσμια κοινότητα προγραμματιστών και χρηστών.
+Στις 6 Μαρτίου 2001 ιδρύθηκε το αμερικάνικο μη κερδοσκοπικό ίδρυμα <em>Python Software Foundation (PSF)</em>, το οποίο στόχο έχει την διάδοση και υποστήριξη της Python μέσω της διοργάνωσης συνεδρίων, την ανάπτυξη κοινοτήτων χρηστών, την υποστήριξη προσπαθειών μέσω υποτροφιών και την διασφάλιση οικονομικών πόρων για την ανάπτυξη της γλώσσας. Το ίδρυμα κατέχει τα πνευματικά δικαιώματα της γλώσσας και διασφαλίζει ότι αυτή θα διατίθεται με όρους ελεύθερου λογισμικού προς το ευρύτερο κοινό.</p>
+<p>Οι βασικοί στόχοι που έθεσε ο δημιουργός κατά την ανάπτυξή της είναι να είναι εύκολη και κατανοητή με ισχυρές δυνατότητες εφάμιλλες των ανταγωνιστικών γλωσσών. Ταυτόχρονα έθεσε το όρο να είναι ανοιχτού κώδικα (open source) για να μπορεί εύκολα να αναπτύσσεται απο τους ενδιαφερόμενους προγραμματιστες και να έχει πρακτική αξία σε καθημερινές εργασίες ρουτίνας. Την τρέχουσα περίοδο (02/2023) κατατάσσεται ως η κορυφαία γλώσσα προγραμματισμού σύμφωνα με την κοινότητα προγραμματιστών <a class="reference external" href="https://www.tiobe.com/tiobe-index/">TIOBE</a> αλλά και τον δείκτη <a class="reference external" href="https://pypl.github.io/PYPL.html">PopularitY of Programming Language Index (PYPL)</a>.</p>
+<div class="figure align-default" id="figure-tiobe">
+<a class="reference internal image-reference" href="../_images/TIOBE.png"><img alt="../_images/TIOBE.png" src="../_images/TIOBE.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Εικ. 2 </span><span class="caption-text">Η κατάταξη σύμφωνα με την κοινότητα TIOBE (02/2023)</span><a class="headerlink" href="#figure-tiobe" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">¶</a></p>
+</div>
+<p>Η Python πλέον είναι μια ώριμη γλώσσα προγραμματισμού με εφαρμογές στην
+ανάπτυξη διαδικτυακών εφαρμογών και υπηρεσιών,
+την εκπαίδευση,
+την ανάλυση δεδομένων,
+την τηλεπισκόπηση και τα ΣΓΠ,
+την δημιουργία γραφικών,
+την διαχείριση συστημάτων,
+τα παιχνίδια,
+το εμπόριο και την επιχειρηματικότητα,
+τους μικροελεγκτές και το Internet of Things (IOT).</p>
+<p>Η φιλοσοφία της Python ως προς την μεθοδολογία ανάπτυξης και προγραμματισμού συνοψίζεται σε 20 αρχές, οι οποίες εκτυπώνονται μέσω της γλώσσας με την παρακάτω εντολή:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="to-o-thonny">
+<h2>To oλοκληρωμένο περιβάλλον ανάπτυξης thonny<a class="headerlink" href="#to-o-thonny" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Η συγγραφή κώδικα θα γίνει στο ολοκληρωμένο περιβάλλον ανάπτυξης (Integrated Development Environment, IDE) <a class="reference external" href="https://thonny.org/">thonny</a>.
+Δεν απαιτείται η προεγκατάσταση της Python καθώς το thonny έρχεται με ενσωματωμένη την γλώσσα προγραμματισμού Python 3.7 και διατίθεται για Windows, Mac και Linux.
+Το thonny αποτελεί εκπαιδευτικό περιβάλλον για την συγγραφή και αποσφαλμάτωση κώδικα Python. Για τον λόγο αυτό διαθέτει πολύ συγκεκριμένες αλλά ζωτικές λειτουργίες και δεν είναι επιφορτισμένο με δυνατότητες που απαιτούνται από προχωρημένους προγραμματιστές. Το Γραφικό Περιβάλλον Χρήστη (GUI, Graphical User Interface) είναι λιτό ώστε να μην αποπροσανατολίζει τον αρχάριο χρήστη. Το thonny παρέχει βοηθητικές λειτουργίες για τον χρήστη όπως είναι η σήμανση συντακτικών λαθών, η αυτόματη συμπλήρωση κώδικα και η ευκολία στην επέκταση των λειτουργίων της Python με την εγκατάσταση συμπληρωματικών πακέτων.</p>
+<p>Ενναλλακτικά, στους χρήστες παρέχεται online περιβάλλον ανάπτυξης που βασίζεται στο <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a>. Η χρήση του δεν απαιτεί την εγκατάσταση λογισμικού παρά μόνον έναν απλό φυλλομετρητή (προτείνεται Chrome, Safari ή Firefox). Το online περιβάλλον Jupyter είναι προσβάσιμο από εδώ:
+<a class="reference external" href="https://kokkytos.github.io/programming">https://kokkytos.github.io/programming</a></p>
+<div class="figure align-default" id="figure-thonny">
+<a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Εικ. 3 </span><span class="caption-text">Το περιβάλλον εργασία thonny.</span><a class="headerlink" href="#figure-thonny" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">¶</a></p>
+</div>
+</div>
+<div class="section" id="thonny">
+<h2>Εκτέλεση εντολών στο περιβάλλον thonny<a class="headerlink" href="#thonny" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Στην παρακάτω ενότητα παρουσιάζονται μερικά εισαγωγικά παραδείγματα από εντολές της Python.
+Δεν θα επικεντρωθούμε σε λεπτομέρειες ούτε θα αναλύσουμε τις εντολές που διατυπώνονται στα αρχεία.
+Παρουσιάζονται σαν μια μορφή συνοπτικής επίδειξης των δυνατοτήτων που διαθέτει η γλώσσα και θα περιγράψουμε σε επόμενα μαθήματα.</p>
+<p>Δοκιμάστε να τρέξετε την παρακάτω εντολή στην γραμμή εντολών της Python στο thonny:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">25</span><span class="o">+</span><span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+<p>Τι παρατηρείτε; Η Python λειτούργησε σαν μια απλή αριθμομηχανή.</p>
+<p>Στην συνέχεια δοκιμάστε να τρέξετε την παρακάτω εντολή γραμμή προς γραμμή:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number1</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">number2</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">number3</span> <span class="o">=</span> <span class="n">number1</span><span class="o">+</span><span class="n">number2</span>
+<span class="n">number3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+<p>Το αποτέλεσμα είναι το ίδιο με το προηγούμενο.</p>
+<p>Δώστε την παρακάτω εντολή. Αντικαταστήστε την συμβολοσειρά <em>AnyName</em> με το ονομά σας.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;AnyName&quot;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Εκτύπωση&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>  <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Εκτύπωση 0 : AnyName
+Εκτύπωση 1 : AnyName
+Εκτύπωση 2 : AnyName
+Εκτύπωση 3 : AnyName
+Εκτύπωση 4 : AnyName
+Εκτύπωση 5 : AnyName
+Εκτύπωση 6 : AnyName
+Εκτύπωση 7 : AnyName
+Εκτύπωση 8 : AnyName
+Εκτύπωση 9 : AnyName
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όπως βλέπετε η Python επανέλαβε την εκτύπωση του ονόματός σας 10 φορές.
+Από που ξεκινά όμως η αρίθμηση της πρώτης εκτύπωσης;</p>
+<p>Στο επόμενο παράδειγμα η Python θα σας ενημερώσει αν τρέχετε γρήγορα ή αργά ή αν είστε ακίνητος:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span><span class="o">=</span><span class="mi">70</span>
+
+<span class="k">if</span> <span class="n">speed</span><span class="o">&gt;</span><span class="mi">50</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">speed</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Τρέχεις πολύ γρήγορα&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Τρέχεις γρήγορα&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">speed</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Είσαι ακίνητος&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">speed</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Τρέχεις αργά&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Τρέχεις γρήγορα
+</pre></div>
+</div>
+</div>
+</div>
+<p>Έστω ότι κινείσθε σε αυτοκινητόδρομο με 120 km/h. Αν ορίσετε την ταχύτητα (speed) στον κώδικα, τι θα σας απαντήσει η Python;
+Αν κινείστε με μηδενική ταχύτητα (speed=0) τι μήνυμα θα λάβετε;
+Υπάρχουν περιπτώσεις που η Python, και δικαιολογημένα, αγνοεί να απαντήσει με μήνυμα στην ταχύτητα που ορίζεται.
+Μπορείτε να εντοπίσετε σε ποιές περιπτώσεις;</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="bug"><span class="brackets"><a class="fn-backref" href="#id21">1</a></span></dt>
+<dd><p>Η πρώτη περίπτωση <em>bug</em> σε υπολογιστή καταγράφεται το 1947 από τον Grace Murray Hopper και πρόκειται για την κυριολεκτική έννοια του όρου. Στο ημερολόγιό του καταγράφει προβλήματα στην λειτουργία του υπολογιστή του Harvard, Mark II, από την ύπαρξη ενός εντόμου στο εσωτερικό του κύκλωμα.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kokkytos/programming",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="προηγούμενο σελίδα">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">προηγούμενο</p>
+            <p class="prev-next-title">Προγραμματισμός Η/Υ</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lesson_2.html" title="επόμενο σελίδα">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Με Λεωνίδας Λιάκος<br/>
+    
+        &copy; Πνευματική ιδιοκτησία 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

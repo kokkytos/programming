@@ -1,0 +1,5 @@
+# Βιβλιογραφία
+
+```{bibliography}
+:style: plain
+```

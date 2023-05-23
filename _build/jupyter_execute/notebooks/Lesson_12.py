@@ -25,7 +25,7 @@ if IN_COLAB:
     from google.colab import drive
     drive.mount('/content/drive')
     get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Colab\\ Notebooks/programming/notebooks')
-    get_ipython().system('pip install geopandas pandas rasterio numpy matplotlib folium sklearn skimage')
+    get_ipython().system('pip install geopandas pandas rasterio numpy matplotlib folium scikit-learn scikit-image')
 
 
 # ## Υπολογισμός καμένων εκτάσεων με δορυφορικά δεδομένα Sentinel-2, τον δείκτη Relativized Burn Ratio (RBR) και τον αλγόριθμο ομαδοποίησης k-means.

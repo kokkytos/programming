@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Πλειάδες και λεξικά &#8212; Προγραμματισμός Η/Υ</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Ευρετήριο" href="../genindex.html" />
+    <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="5. Έλεγχος ροής εκτέλεσης" href="Lesson_5.html" />
+    <link rel="prev" title="3. Λίστες. Εκφράσεις, τελεστές" href="Lesson_3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="el">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Προγραμματισμός Η/Υ
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_1.html">
+   1. Εισαγωγή στον προγραμματισμό
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_2.html">
+   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_3.html">
+   3. Λίστες. Εκφράσεις, τελεστές
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Πλειάδες και λεξικά
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_5.html">
+   5. Έλεγχος ροής εκτέλεσης
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_6.html">
+   6. Συναρτήσεις (functions)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_7.html">
+   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_8.html">
+   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_9.html">
+   9. Γεωεπεξεργασία διανυσματικών δεδομένων
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_10.html">
+   10. Διαγράμματα
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_11.html">
+   11. Η βιβλιοθήκη numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_12.html">
+   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
+                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebooks/Lesson_4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου σημειωματάριου" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_4.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
+                    class="fab fa-github"></i>αποθήκη</button></a>
+        <a class="issues-button"
+            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_4.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_4.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Περιεχόμενα
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   Πλειάδες (tuples)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries">
+   Λεξικά (Dictionaries)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>4. Πλειάδες και λεξικά</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Περιεχόμενα </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   Πλειάδες (tuples)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries">
+   Λεξικά (Dictionaries)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>4. Πλειάδες και λεξικά<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<p>Στην συνέχεια παρουσιάζονται δύο άλλες καθιερωμένες δομές στην Python, οι πλειάδες (tuples) και τα λεξικά (dictionaries).</p>
+<div class="section" id="tuples">
+<h2>Πλειάδες (tuples)<a class="headerlink" href="#tuples" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Οι πλειάδες είναι μια δομή δεδομένων παρόμοια με τις λίστες.
+Όπως και οι λίστες αποτελούν μια συλλογή αντικειμένων (objects).
+Όμως διαφέρουν σε ένα σημαντικό χαρακτηριστικό από τις λίστες, είναι αμετάβλητες (immutable), δηλαδή δεν
+μπορούμε να μεταβάλλουμε το περιεχόμενό τους εφόσον τις δημιουργήσουμε.
+Κατά συνέπεια ενώ για την προσπέλαση των στοιχείων της χρησιμοποιούνται ίδιες τεχνικές και μέθοδοι (indexing, slicing κτλ) δεν υποστηρίζουν ωστόσο τις αντίστοιχες μεθόδους
+αφαίρεσης, τροποποίησης και προσθήκης στοιχείων.
+Υπό την έννοια αυτή οι πλειάδες είναι μια ασφαλή δομή δεδομένων μέσω της οποίας εξασφαλίζεται ότι τα δεδομένα δεν θα τροποποιηθούν από λάθος ή ακόμα και από επιλογή.
+Συνήθως χρησιμοποιούνται κατά την επιστροφή πολλαπλών τιμών από μια συνάρτηση αλλά και όταν θέλουμε να «πακετάρουμε» δεδομένα  (tuple packing).
+Οι πλειάδες ορίζονται με παρόμοιο τρόπο σαν τις λίστες αλλά αντι για αγκύλες χρησιμοποιούνται παρανθέσεις (αν και δεν είναι απαραίτητες). Για παράδειγμα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">information</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;UTH&#39;</span><span class="p">,</span><span class="s1">&#39;https://www.uth.gr/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Το ίδιο μπορεί να γραφτεί και χωρίς παρενθέσεις</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">information</span> <span class="o">=</span> <span class="s1">&#39;UTH&#39;</span><span class="p">,</span><span class="s1">&#39;https://www.uth.gr/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όμως πρέπει να λαμβάνουμε υπόψιν ότι ο ορισμός μιας πλειάδες με ένα μόνο στοιχείο πρέπει να ορίζεται με το στοιχείο και να συνοδεύεται από ένα κόμμα.
+Σε διαφορετική περίπτωση θα επιστρέψει μια μεταβλητή με τύπο αυτόν που περάσαμε στο υποτιθέμενο πρώτο στοιχείο. Δηλαδή το παρακάτω θα δημιουργήσει μια μεταβλητή ακέραιου τύπου και όχι μια πλειάδα με ένα στοιχείο</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ο σωστός τρόπος συγγραφής αν θέλουμε να πάρουμε μια πλειάδα με ένα μόνο στοιχείο είναι:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2022</span><span class="p">,)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;tuple&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ενώ αν θέλουμε να δημιουργήσουμε μία άδεια πλειάδα τότε χρησιμοποιούμε απλώς δύο παρενθέσεις:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_tuple</span> <span class="o">=</span> <span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Επιπλέον μέσω της συνάρτησης <em>tuple</em> η οποία δέχεται ως όρισμα μία συμβολοσειρά ή λίστα μπορούμε να δημιουργήσουμε νέες πλειάδες.
+Προσέξτε το αποτέλεσμα όταν ορίζουμε σαν παράμετρο συμβολοσειρά στην συνάρτηση <em>tuple</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;Κρήτη&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Κ&#39;, &#39;ρ&#39;, &#39;ή&#39;, &#39;τ&#39;, &#39;η&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="s2">&quot;Κρήτη&quot;</span><span class="p">,</span> <span class="s2">&quot;Ήπειρος&quot;</span><span class="p">,</span> <span class="s2">&quot;Θράκη&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Κρήτη&#39;, &#39;Ήπειρος&#39;, &#39;Θράκη&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με κενό όρισμα επιστρέφεται μία άδεια λίστα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όπως προαναφέρθηκε οι πλειάδες είνα αμετάβλητες δομές δεδομένων και έτσι δεν μπορούμε να χρησιμοποιήσουμε μεθόδους όπως <em>append</em>, <em>del</em>, <em>sort</em> κ.α.
+Μπορούμε, όπως και στις λίστες, να αναφερθούμε στα στοιχεία της πλειάδας με τους τελεστές [] και με το ευρετήριο (index) ή να εξάγουμε τμήμα από τα στοιχεία (slice) με τον τελεστή :.
+Λαμβάνουμε το πλήθος των στοιχείων της πλειάδας (lengh) με την συνάρτηση <em>len</em>.</p>
+<p>Οι πλειάδες χρησιμοποιούνται για να πακετάρουμε μια συλλογή δεδομένων σε ένα αντικείμενο (tuple packing) π.χ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit1</span> <span class="o">=</span> <span class="s2">&quot;Μήλος&quot;</span>
+<span class="n">fruit2</span> <span class="o">=</span> <span class="s2">&quot;Πορτοκάλι&quot;</span>
+<span class="n">fruit1</span> <span class="o">=</span> <span class="s2">&quot;Μανταρίνι&quot;</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="n">fruit1</span><span class="p">,</span> <span class="n">fruit1</span><span class="p">,</span> <span class="n">fruit2</span> <span class="c1"># tuple packing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Μανταρίνι&#39;, &#39;Μανταρίνι&#39;, &#39;Πορτοκάλι&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Βέβαια υπάρχει και η αντίστροφη διαδικασία, το «ξε-πακετάρισμα» δεδομένων (tuple unpacking). Όταν δηλαδή αποδίδουμε τα στοιχεία της πλειάδας σε ξεχωριστές μεταβλητές.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="s2">&quot;Αθήνα&quot;</span><span class="p">,</span> <span class="s2">&quot;Βόλος&quot;</span><span class="p">,</span> <span class="s2">&quot;Πάτρα&quot;</span>
+<span class="n">capital</span><span class="p">,</span> <span class="n">city1</span><span class="p">,</span> <span class="n">city2</span> <span class="o">=</span> <span class="n">cities</span> <span class="c1"># tuple packing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">capital</span><span class="p">,</span>  <span class="n">city1</span><span class="p">,</span> <span class="n">city2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Αθήνα Βόλος Πάτρα
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ο αμετάβλητος χαρακτήρας των πλειάδων φαίνεται στα παρακάτω παραδείγμα στα οποία επιχειρείται η τροποποίηση των δεδομένων της.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Αθήνα&quot;</span><span class="p">,</span> <span class="s2">&quot;Βόλος&quot;</span><span class="p">,</span> <span class="s2">&quot;Πάτρα&quot;</span><span class="p">)</span>
+<span class="n">cities</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cities</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Αθήνα&quot;</span><span class="p">,</span> <span class="s2">&quot;Βόλος&quot;</span><span class="p">,</span> <span class="s2">&quot;Πάτρα&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">cities</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;tuple&#39; object has no attribute &#39;pop&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Ρόδος&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">Input In [12],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Ρόδος&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;tuple&#39; object has no attribute &#39;append&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όπως μας ενημερώνει και το σχετικό σφάλμα εκτέλεσης δεν υπάρχουν οι σχετικές μέθοδοι για αντικείμενα της κλάσης <em>tuple</em>.</p>
+<p>Αντίστοιχο σφάλμα λαμβάνουμε και με τον παρακάνω κώδικα όταν πάμε να τροποποιήσουμε ένα στοιχείο της πλειάδας:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mytuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">999</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mytuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">999</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Μια χρήσιμη λειτουργία των πλειάδων είναι η χρήση τους κατά την αντιμετάθεση δύο μεταβλητών.
+Δείτε το παρακάτω παράδειγμα.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">island</span><span class="o">=</span><span class="s1">&#39;Λέσβος&#39;</span>
+<span class="n">island2</span><span class="o">=</span><span class="s1">&#39;Χίος&#39;</span>
+<span class="n">island</span><span class="p">,</span> <span class="n">island2</span> <span class="o">=</span> <span class="n">island2</span><span class="p">,</span> <span class="n">island</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">island</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">island2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Χίος
+Λέσβος
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Προειδοποίηση</p>
+<p>Προσοχή!
+Αν και οι πλειάδες είναι αμετάβλητος τύπος δεδομένων ωστόσο στα στοιχεία τους μπορούν να περιλαμβάνουν μεταβλητούς τύπους δεδομένων.
+Αυτό σημαίνει ότι μπορούμε να τροποποιήσουμε τα στοιχεία αυτά. Παρακάτω δίνεται ένα παράδειγμα.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Αθήνα&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Βόλος&quot;</span><span class="p">,</span> <span class="s2">&quot;Πάτρα&quot;</span><span class="p">])</span>
+<span class="n">cities</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Καβάλα&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Αθήνα&#39;, [&#39;Καβάλα&#39;, &#39;Πάτρα&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μια εξήγηση σε αυτήν την αντιφατική συμπεριφορά δίνεται στο παρακάτω νήμα:
+<a class="reference external" href="https://stackoverflow.com/questions/9755990/why-can-tuples-contain-mutable-items">https://stackoverflow.com/questions/9755990/why-can-tuples-contain-mutable-items</a></p>
+</div>
+<div class="section" id="dictionaries">
+<h2>Λεξικά (Dictionaries)<a class="headerlink" href="#dictionaries" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<p>Τα λεξικά στην Python αποτελούν συλλογές αντικειμένων, όπως οι λίστες και οι πλειάδες.
+Ένα σημαντικό χαρακτηριστικό των λεξικών είναι ότι αυτά αποθηκεύουν δεδομένα κατά ζεύγη, με την μορφή κλειδί-τιμή (key-value pairs).
+Κάθε κλειδί σε ένα λεξικό συνοδεύεται από μία τιμή.
+Κάθε κλειδί αποτελεί ουσιαστικά ένα μοναδικό αναγνωριστικό για την συνοδευτική τιμή και γι’αυτό τον λόγο δεν μπορεί να υπάρξει δεύτερο ίδιο κλειδί.
+Ακόμα, τα κλειδιά πρέπει να ορίζονται από αμετάβλητους τύπους δεδομένων δηλαδή είτε από μιά συμβολοσειρά είτε από έναν ακέραιο ή δεκαδικό.
+Δεν μπορεί όμως μια λίστα να είναι κλειδί. Μια πλειάδα μπορεί να είναι κλειδί αλλά με την προϋπόθεση ότι και αυτή δεν θα αποτελείται από μεταβλητούς τύπους δεδομένων.
+Τα λεξικά περικλείονται σε {}, τα ζεύγη ορίζονται υπό την μορφή <em>κλειδί:τιμή</em> και χωρίζονται μεταξύ τους με κόμμα (,) δηλαδή:</p>
+<p>d = {key1 : value1, key2 : value2 }</p>
+<p>Για παράδειγμα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phones</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">:</span> <span class="s2">&quot;69936565&quot;</span><span class="p">,</span> <span class="s2">&quot;Κώστας&quot;</span><span class="p">:</span><span class="s2">&quot;246541353&quot;</span><span class="p">,</span> <span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">:</span><span class="s2">&quot;546546536&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Χρήστος&#39;: &#39;69936565&#39;, &#39;Κώστας&#39;: &#39;246541353&#39;, &#39;Βαγγέλης&#39;: &#39;546546536&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Τα κλειδιά (keys) σε αυτήν την περίπτωση είναι τα ονόματα και οι αριθμοί τηλεφώνων (ως συμβολοσειρές ορισμένες) οι τιμές (values).</p>
+<p>Εναλλακτικά μπορούμε να δημιουργήσουμε ένα άδειο λεξικό και να προσθέσουμε στην συνέχεια ζεύγη.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phones</span> <span class="o">=</span><span class="p">{}</span>
+<span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&quot;69936565&quot;</span>
+<span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Κώστας&quot;</span><span class="p">]</span>  <span class="o">=</span><span class="s2">&quot;246541353&quot;</span>
+<span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;546546536&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ένας άλλος τρόπος δημιουργίας λεξικών είναι με την συνάρτηση <em>dict</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phones</span> <span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">Χρήστος</span><span class="o">=</span><span class="s2">&quot;69936565&quot;</span><span class="p">,</span><span class="n">Κώστας</span><span class="o">=</span><span class="s2">&quot;246541353&quot;</span><span class="p">,</span> <span class="n">Βαγγέλης</span><span class="o">=</span><span class="s2">&quot;546546536&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με αυτόν τον τρόπο ορίζουμε τα κλειδιά μέσω μεταβλητών και γι” αυτό τον λόγο εφαρμόζονται οι περιορισμοί που αφορούν την ονοματολογία των μεταβλητών.</p>
+<p>Στα λεξικά τα ζεύγη αυτά δεν ταξινομούνται με κάποια συγκεκριμένη σειρά αλλά με έναν μηχανισμό της Python που λέγεται <em>hashing</em> και αποσκοπεί στην γρήγορη ανάκτηση τους.
+Η ταξινόμηση αυτή αλλάζει κάθε φορά κατά τυχαίο τρόπο όταν τροποποιούμε ένα λεξικό.
+Για τον λόγο αυτό δεν υπάρχει η έννοια της θέσης ή του δείκτη (index) όπως στις λίστες και στις πλειάδες.
+Η ανάκτηση μιας τιμής από ένα ζεύγος γίνεται με βάση τo κλειδί π.χ.* d[“a_key”]*.
+Γίνεται δηλαδή με παρόμοιο τρόπο όπως στις λίστες και τις πλειάδες αλλά αντι για το ευρετήριο θέσης ορίζουμε το κλειδί.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69936565
+546546536
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όπως προαναφέρθηκε δεν μπορούμε να έχουμε διπλό κλειδί σε ένα λεξικό.
+Έτσι αν επιχειρήσουμε να προσθέσουμε ένα ζεύγος με υφιστάμενο κλειδί στην πράξη αυτό που θα γίνει είναι να αντικαταστήσουμε την παλιά τιμή με μια νέα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">])</span>
+<span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;666666666&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>546546536
+666666666
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για την διαγραφή ενός ζεύγους από λεξικό χρησιμοποιείται η συνάρτηση <em>del</em> δηλ. del(d[“key”]). Δείτε το επόμενο παράδειγμα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="s2">&quot;Βαγγέλης&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Χρήστος&#39;: &#39;69936565&#39;, &#39;Κώστας&#39;: &#39;246541353&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την συνάρτηση <em>len</em> επιστρέφεται το μέγεθος του λεξικού δηλαδή το πλήθος των ζευγαριών κλειδιών/τιμών που περιέχει:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">phones</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μέσω του τελεστή *in * διαπιστώνεται αν υπάρχει ένα κλειδί σε ένα λεξικό:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Χρήστος&quot;</span> <span class="ow">in</span>  <span class="n">phones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την μέθοδο <em>keys</em> ενός λεξικού επιστρέφονται τα κλειδιά του.
+Αντίστοιχα με την μέθοδο <em>values</em> επιστρέφονται οι τιμές του ενώ με την μέθοδο items επιστρέφονται τα ζεύγη κλειδιών/τιμών.
+Τα επιστρεφόμενα objects είναι αντιστοιχα <em>dict_keys</em>, <em>dict_values</em>,  <em>dict_items</em>.
+Ο παρακάτω κώδικας περιγράφει τις παραπάνω λειτουργίες:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+dict_values([10, 20, 30])
+dict_items([(&#39;a&#39;, 10), (&#39;b&#39;, 20), (&#39;c&#39;, 30)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αν θέλουμε να ταξινομήσουμε το λεξικό με βάση τα κλειδιά τότε το κάνουμε με την συνάρτηση <em>sorted</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thisdict</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">,</span>
+  <span class="s2">&quot;brand&quot;</span><span class="p">:</span> <span class="s2">&quot;Ford&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Mustang&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">thisdict</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;brand&#39;, &#39;model&#39;, &#39;year&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Πολύ συνηθισμένη περίπτωση είναι τα λεξικά να περιλαμβάνουν σαν τιμές άλλα λεξικά.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contacts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Σπίτι&quot;</span><span class="p">:</span> <span class="s2">&quot;457456456&quot;</span><span class="p">,</span> <span class="s2">&quot;Εργασία&quot;</span><span class="p">:</span> <span class="s2">&quot;48856&quot;</span><span class="p">},</span> 
+            <span class="s2">&quot;Γιάννης&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Σπίτι&quot;</span><span class="p">:</span> <span class="s2">&quot;8753778&quot;</span><span class="p">,</span> <span class="s2">&quot;Εργασία&quot;</span><span class="p">:</span> <span class="s2">&quot;45654656&quot;</span><span class="p">},</span> 
+            <span class="s2">&quot;Κώστας&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Κινητό&quot;</span><span class="p">:</span> <span class="s2">&quot;45475354&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Σε αυτή την περίπτωση ορίζοντας διαδοχικά τα κλειδιά παίρνουμε τις τιμές που επιθυμούμε:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="s2">&quot;Χρήστος&quot;</span><span class="p">][</span><span class="s2">&quot;Εργασία&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Σπίτι&#39;: &#39;457456456&#39;, &#39;Εργασία&#39;: &#39;48856&#39;}
+48856
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να διατρέξουμε τα ζεύγη ενός λεξικού αλλά η σειρά που θα γίνεται η ανάκτηση μπορεί να μην είναι με την σειρά που ορίζονται και όχι πάντα η ίδια.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">phone</span> <span class="ow">in</span> <span class="n">phones</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">phones</span><span class="p">[</span><span class="n">phone</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69936565
+246541353
+</pre></div>
+</div>
+</div>
+</div>
+<p>Όπως και με τις λίστες έτσι και με τα λεξικά πρέπει να είμαστε προσεκτικοί όταν αντιγράφουμε ένα λεξικό.
+Η αντιγραφή μπορεί να αναφέρεται στο ίδιο αντικείμενο και τροποποίηση των δεδομένων ενός λεξικού θα επιφέρει και την αντίστοιχη τροποποίηση στο άλλο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Κώστας&quot;</span><span class="p">}</span>
+<span class="n">names2</span><span class="o">=</span><span class="n">names1</span> 
+<span class="n">names2</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Γιάννης&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Γιάννης&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Σε αυτή την περίπτωση χρησιμοποιείται η μέθοδος <em>copy</em> για την αντιγραφή των δεδομένων ενός λεξικού σε ένα άλλο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Κώστας&quot;</span><span class="p">}</span>
+<span class="n">names2</span><span class="o">=</span><span class="n">names1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">names2</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Γιάννης&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Κώστας&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kokkytos/programming",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Lesson_3.html" title="προηγούμενο σελίδα">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">προηγούμενο</p>
+            <p class="prev-next-title">3. Λίστες. Εκφράσεις, τελεστές</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lesson_5.html" title="επόμενο σελίδα">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">5. Έλεγχος ροής εκτέλεσης</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Με Λεωνίδας Λιάκος<br/>
+    
+        &copy; Πνευματική ιδιοκτησία 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
