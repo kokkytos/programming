@@ -331,7 +331,7 @@ print(x.shape)
 # In[35]:
 
 
-np.random.rand(2023)
+np.random.seed(seed=123)
 myarray= np.random.randint(1,11, size=(4,3))
 print(myarray)
 
@@ -543,7 +543,7 @@ print(x_masked)
 # In[64]:
 
 
-np.random.rand(2)
+np.random.seed(seed=123)
 myarray= np.random.randint(1,11, size=(10,10))
 myarray
 
@@ -665,7 +665,7 @@ np.hstack((arr1, arr2))
 # In[78]:
 
 
-np.random.rand(2)
+np.random.seed(seed=123)
 arr1= np.random.randint(1,11, size=(10,))
 fifth = arr1[5] # στοιχείο με ευρετήριο 4
 last = arr1[arr1.size-1] # τελευταίο στοιχείο
@@ -677,7 +677,7 @@ print(fifth, last)
 # In[79]:
 
 
-np.random.rand(2)
+np.random.seed(seed=123)
 x = np.random.randint(1,11, size=(4,4))
 x
 
