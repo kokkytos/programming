@@ -1,401 +1,445 @@
 
+
 <!DOCTYPE html>
 
-<html lang="el">
+
+<html lang="el" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών &#8212; Προγραμματισμός Η/Υ</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_7';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas" href="Lesson_8.html" />
     <link rel="prev" title="6. Συναρτήσεις (functions)" href="Lesson_6.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="el">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="el"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Προγραμματισμός Η/Υ
-  </a>
- </li>
+    
+    
+    <img src="../_static/UTH-logo-greek.jpg" class="logo__image only-light" alt="Προγραμματισμός Η/Υ - Home"/>
+    <script>document.write(`<img src="../_static/UTH-logo-greek.jpg" class="logo__image only-dark" alt="Προγραμματισμός Η/Υ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Αναζήτηση</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Προγραμματισμός Η/Υ
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_1.html">
-   1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Λίστες. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Πλειάδες και λεξικά
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_5.html">
-   5. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συναρτήσεις (functions)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_8.html">
-   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_10.html">
-   10. Διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Η βιβλιοθήκη numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
-                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_7.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
-                    class="fab fa-github"></i>αποθήκη</button></a>
-        <a class="issues-button"
-            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_7.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
-        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_7.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Αποθήκη πηγής"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_7.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ανοίξτε ένα ζήτημα"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Λήψη αυτής της σελίδας">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_7.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Λήψη αρχείου προέλευσης"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Εκτύπωση σε PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>7. Ανάγνωση & εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Περιεχόμενα
+            <div>
+                <h2> Περιεχόμενα </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Ανάγνωση &amp; εγγραφή αρχείων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pickle">
-   Σειριοποίηση (pickle)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Ανάκτηση περιεχομένων φακέλου
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Δημιουργία καταλόγων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Προσωρινά αρχεία και κατάλογοι
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   Διαγραφή αρχείων και φακέλων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   Αντιγραφή αρχείων και φακέλων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   Μετακίνηση
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   Μετονομασία
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   Βιβλιογραφία
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ανάγνωση &amp; εγγραφή αρχείων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pickle">Σειριοποίηση (pickle)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ανάκτηση περιεχομένων φακέλου</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Δημιουργία καταλόγων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Προσωρινά αρχεία και κατάλογοι</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Διαγραφή αρχείων και φακέλων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Αντιγραφή αρχείων και φακέλων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Μετακίνηση</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Μετονομασία</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Βιβλιογραφία</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>7. Ανάγνωση & εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Περιεχόμενα </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Ανάγνωση &amp; εγγραφή αρχείων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pickle">
-   Σειριοποίηση (pickle)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Ανάκτηση περιεχομένων φακέλου
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Δημιουργία καταλόγων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Προσωρινά αρχεία και κατάλογοι
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   Διαγραφή αρχείων και φακέλων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   Αντιγραφή αρχείων και φακέλων
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   Μετακίνηση
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   Μετονομασία
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   Βιβλιογραφία
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Πριν ξεκινήσουμε την επίδειξη των εντολών για το σημερινό μάθημα, θα πρέπει να εισάγουμε μερικές απαραίτητες βιβλιοθήκες και να ορίσουμε τον τρέχων κατάλογο στη Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -431,8 +475,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Ανάγνωση &amp; εγγραφή αρχείων<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<section id="id2">
+<h2>Ανάγνωση &amp; εγγραφή αρχείων<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Μπορούμε να ανοίξουμε ένα αρχείο με την μέθοδο open, να δούμε μερικές ιδιότητες του και να το κλείσουμε</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,7 +578,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -580,6 +624,9 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -777,6 +824,9 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -801,6 +851,9 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -984,13 +1037,16 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pickle">
-<h2>Σειριοποίηση (pickle)<a class="headerlink" href="#pickle" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="pickle">
+<h2>Σειριοποίηση (pickle)<a class="headerlink" href="#pickle" title="Permalink to this heading">#</a></h2>
 <p>Στα προηγούμενα παραδείγματα διαβάσαμε ή γράψαμε συμβολοσειρές σε ένα αρχειο. Όμως, μέσω της σειριοποίησης μπορούμε να αποθηκεύσουμε σε ένα binary αρχείο τα αντικείμενα της python με τις ιδιότητές τους. Όχι μόνον σαν απλές συμβολοσειρές. Στο παρακάτω κομμάτι κώδικα θα αποθηκεύσουμε μία λίστα και μια μεταβλήτή σε ένα αρχείο με την βοήθεια της βιβλιοθήκης <em>pickle</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1020,9 +1076,9 @@ Beagle
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>Ανάκτηση περιεχομένων φακέλου<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id3">
+<h2>Ανάκτηση περιεχομένων φακέλου<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Μέσω της μεθόδου <em>os.scandir()</em> μπορούμε να λάβουμε μια λίστα με τα αρχεία και τους φακέλους σε ένα κατάλογο.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1175,9 +1231,7 @@ dog_breeds.txt
 pickle.txt
 file1.py
 data_03.txt
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_01.txt
+data_01.txt
 tests.py
 admin.py
 admin2.py
@@ -1253,8 +1307,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2023-02-19 17:12:58.796885+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  742
-	Ημερομηνία τελευταίας τροποποίησης 2023-05-24 16:45:23.042820+00:00
+	Μέγεθος:  763
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-09 10:24:51.862966+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -1266,7 +1320,7 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2023-05-24 16:45:22.966819+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-09 10:24:51.778967+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
@@ -1281,11 +1335,10 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2023-02-19 17:12:58.796885+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  742
-	Ημερομηνία τελευταίας τροποποίησης 2023-05-24 16:45:23.026820+00:00
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: 2018
+	Μέγεθος:  763
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-09 10:24:51.846966+00:00
+
+Όνομα αρχείου: 2018
 	Μέγεθος:  4096
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.820793+00:00
 
@@ -1294,8 +1347,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  4192
-	Ημερομηνία τελευταίας τροποποίησης 2023-05-24 16:45:23.122821+00:00
+	Μέγεθος:  4348
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-09 10:24:51.898966+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -1319,7 +1372,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2023-05-24 16:42:40.433483+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-09 10:08:21.465736+00:00
 </pre></div>
 </div>
 </div>
@@ -1349,9 +1402,9 @@ example_directory
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>Δημιουργία καταλόγων<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id4">
+<h2>Δημιουργία καταλόγων<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>Στόχος είναι η δημιουργία νέων καταλόγων (directories) στο σύστημα αρχείων του υπολογιστή μας.</p>
 <p>Πριν ξεκινήσουμε, επιβεβαιώνουμε για μια ακόμη φορά τον τρέχοντα κατάλογο</p>
 <div class="cell docutils container">
@@ -1502,7 +1555,9 @@ data_01_backup.txt
 tests.py
 admin.py
 admin2.py
-sub_dir2/file2.py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2/file2.py
 sub_dir2/file1.py
 sub_dir/file2.py
 sub_dir/file1.py
@@ -1576,9 +1631,9 @@ admin2.py
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2>Προσωρινά αρχεία και κατάλογοι<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id5">
+<h2>Προσωρινά αρχεία και κατάλογοι<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Με την python μπορούμε να δημιουργήσουμε προσωρινά αρχεία και καταλόγους οι οποιού παύουν να υπάρχουν μετά την εκτέλεση του κώδικα. Αυτό γίνεται με την βοήθεια του αρθρώματος (module) tempfile και της συνάρτησης  TemporaryFile() και TemporaryDirectory()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1612,8 +1667,8 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmp0o70h6vc
-/tmp/tmp0o70h6vc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmppmdy7a9f
+/tmp/tmppmdy7a9f
 True
 </pre></div>
 </div>
@@ -1632,9 +1687,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2>Διαγραφή αρχείων και φακέλων<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id6">
+<h2>Διαγραφή αρχείων και φακέλων<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Με την μέθοδο unlink() μπορούμε να διαγράψουμε έναν <strong>άδειο</strong> κατάλογο ή ένα αρχείο.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1684,9 +1739,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id7">
-<h2>Αντιγραφή αρχείων και φακέλων<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id7">
+<h2>Αντιγραφή αρχείων και φακέλων<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>Ταυτόχρονα μπορούμε να αντιγράψουμε αρχεία με την συνάρτηση copy() πάλι από το άρθρωμα shutil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1720,9 +1775,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id8">
-<h2>Μετακίνηση<a class="headerlink" href="#id8" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id8">
+<h2>Μετακίνηση<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>ή ακόμα και να μετακινήσουμε αρχεία και καταλόγους με την συναρτηση move()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1789,9 +1844,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id9">
-<h2>Μετονομασία<a class="headerlink" href="#id9" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id9">
+<h2>Μετονομασία<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>Με την χρήση της μεθόδου rename() σε έναν Path αντικείμενο μπορούμε να το μετονομάσουμε.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1821,16 +1876,16 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id10">
-<h2>Βιβλιογραφία<a class="headerlink" href="#id10" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id10">
+<h2>Βιβλιογραφία<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Aγγελιδάκης, Ν., 2015. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο.</p></li>
 <li><p>Working With Files in Python, <a class="reference external" href="https://realpython.com/read-write-files-python/">https://realpython.com/read-write-files-python/</a>, Πρόσβαση: 13/05/2022</p></li>
 <li><p>Reading and Writing Files in Python, <a class="reference external" href="https://realpython.com/read-write-files-python">https://realpython.com/read-write-files-python</a>, Πρόσβαση: 13/05/2022</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1844,7 +1899,7 @@ True
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1852,44 +1907,112 @@ True
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_6.html" title="προηγούμενο σελίδα">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">6. Συναρτήσεις (functions)</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson_6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">προηγούμενο</p>
+        <p class="prev-next-title">6. Συναρτήσεις (functions)</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Lesson_8.html" title="επόμενο σελίδα">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Lesson_8.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">επόμενο</p>
         <p class="prev-next-title">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Με Λεωνίδας Λιάκος<br/>
-    
-        &copy; Πνευματική ιδιοκτησία 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Περιεχόμενα
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ανάγνωση &amp; εγγραφή αρχείων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pickle">Σειριοποίηση (pickle)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ανάκτηση περιεχομένων φακέλου</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Δημιουργία καταλόγων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Προσωρινά αρχεία και κατάλογοι</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Διαγραφή αρχείων και φακέλων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Αντιγραφή αρχείων και φακέλων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Μετακίνηση</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Μετονομασία</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Βιβλιογραφία</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Με Λεωνίδας Λιάκος
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

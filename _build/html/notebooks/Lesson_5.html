@@ -1,376 +1,468 @@
 
+
 <!DOCTYPE html>
 
-<html lang="el">
+
+<html lang="el" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>5. Έλεγχος ροής εκτέλεσης &#8212; Προγραμματισμός Η/Υ</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_5';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="6. Συναρτήσεις (functions)" href="Lesson_6.html" />
     <link rel="prev" title="4. Πλειάδες και λεξικά" href="Lesson_4.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="el">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="el"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Προγραμματισμός Η/Υ
-  </a>
- </li>
+    
+    
+    <img src="../_static/UTH-logo-greek.jpg" class="logo__image only-light" alt="Προγραμματισμός Η/Υ - Home"/>
+    <script>document.write(`<img src="../_static/UTH-logo-greek.jpg" class="logo__image only-dark" alt="Προγραμματισμός Η/Υ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Αναζήτηση</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Προγραμματισμός Η/Υ
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_1.html">
-   1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Λίστες. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Πλειάδες και λεξικά
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συναρτήσεις (functions)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_7.html">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_8.html">
-   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_10.html">
-   10. Διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Η βιβλιοθήκη numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
-                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebooks/Lesson_5.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου σημειωματάριου" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_5.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
-                    class="fab fa-github"></i>αποθήκη</button></a>
-        <a class="issues-button"
-            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_5.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
-        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_5.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Περιεχόμενα
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boolean">
-   Η λογική boolean
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   α. Η δομή της ακολουθίας εντολών
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   β. Η δομή της απόφασης
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   γ. η δομή της επανάληψης
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#else">
-     Η πρόταση else μέσα σε βρόγχους
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#break-continue">
-     Οι προτάσεις break και continue
-    </a>
-   </li>
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Αποθήκη πηγής"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ανοίξτε ένα ζήτημα"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Λήψη αυτής της σελίδας">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Λήψη αρχείου σημειωματάριου"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_5.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Λήψη αρχείου προέλευσης"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Εκτύπωση σε PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Έλεγχος ροής εκτέλεσης</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Περιεχόμενα </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean">Η λογική boolean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">α. Η δομή της ακολουθίας εντολών</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">β. Η δομή της απόφασης</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">γ. η δομή της επανάληψης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#else">Η πρόταση else μέσα σε βρόγχους</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">Οι προτάσεις break και continue</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>5. Έλεγχος ροής εκτέλεσης</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Περιεχόμενα </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boolean">
-   Η λογική boolean
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   α. Η δομή της ακολουθίας εντολών
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   β. Η δομή της απόφασης
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   γ. η δομή της επανάληψης
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#else">
-     Η πρόταση else μέσα σε βρόγχους
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#break-continue">
-     Οι προτάσεις break και continue
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>5. Έλεγχος ροής εκτέλεσης<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>5. Έλεγχος ροής εκτέλεσης<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Όλες οι γλώσσες προγραμματισμού απαρτίζονται από μια σειρά από προγραμματιστικές δομές.
 Οι τρεις βασικές δομές ελέγχου ροής προγράμματος είναι
 η δομή της ακολουθίας εντολών,
 η δομή της απόφασης και
 η δομή της επανάληψης.
 Κάποιες από αυτές αντιστοιχούν σε περισσότερες από μία εντολές <span id="id2">[<a class="reference internal" href="bibliography.html#id8" title="Georgios Manis. Εισαγωγή στον Προγραμματισμό με αρωγό τη γλώσσα Python [Undergraduate textbook]. Kallipos, Open Academic Editions, Athens, 2015. URL: http://hdl.handle.net/11419/2745.">Manis, 2015</a>]</span>.</p>
-<div class="section" id="boolean">
-<h2>Η λογική boolean<a class="headerlink" href="#boolean" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<section id="boolean">
+<h2>Η λογική boolean<a class="headerlink" href="#boolean" title="Permalink to this heading">#</a></h2>
 <p>Για την υλοποίηση των δομών απόφασης χρησιμοποιείται η λογική <strong>boolean</strong> κατά την οποία ελέγχονται μία ή περισσότερες συνθήκες
 και ανάλογα το αποτέλεσμα επιλέγεται ποια ακολουθία εντολών θα εκτελεστεί.
 Το όνομα <strong>boolean</strong> προέρχεται από τον
@@ -432,10 +524,12 @@ Boolean τιμές ή δύο εκφράσεις (ονομάζονται λογι
 αποτιμώνται σε Boolean τιμές. Ο επόμενος πίνακας, ο οποίος ονομάζεται
 πίνακας αληθείας, περιέχει τις τιμές που επιστρέφουν οι τρεις λογικές πράξεις
 για όλους τους συνδυασμούς τιμών των <em>A</em> και <em>B</em>.</p>
-<div class="figure align-default" id="figure-truthtable">
+<figure class="align-default" id="figure-truthtable">
 <img alt="../_images/nl0W8.jpg" src="../_images/nl0W8.jpg" />
-<p class="caption"><span class="caption-number">Εικ. 4 </span><span class="caption-text">Πίνακας αληθείας για τους βασικούς λογικούς τελεστές.</span><a class="headerlink" href="#figure-truthtable" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Εικ. 4 </span><span class="caption-text">Πίνακας αληθείας για τους βασικούς λογικούς τελεστές.</span><a class="headerlink" href="#figure-truthtable" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">#</a></p>
+</figcaption>
+</figure>
 <p>Η λογική έκφραση not <em>Α</em>  είναι αληθής, όταν η<em>Α</em>  ψευδής, και ψευδής,
 όταν η <em>Α</em>  είναι αληθής. Η λογική έκφραση <em>Α</em>  and <em>B</em>  είναι αληθής μόνο όταν
 και η <em>Α</em> και η <em>Β</em> είναι αληθείς, σε κάθε άλλη περίπτωση είναι ψευδής. Η
@@ -444,7 +538,7 @@ Boolean τιμές ή δύο εκφράσεις (ονομάζονται λογι
 <p>Όταν χρησιμοποιούμε τον όρο <strong>and</strong> σημαίνει ότι και οι δύο προτάσεις πρέπει να είναι αληθείς για να αποδόσουν αληθές αποτέλεσμα.
 true.</p>
 <p>Γενικά μπορούμε να συνοψίσουμε την χρήση του τελεστή <strong>and</strong> και την σύγκριση ανάμεσα σε τιμές boolean με βάση των παρακάτω πίνακα <span id="id5">[<a class="reference internal" href="bibliography.html#id5" title="Fletcher Heisler. An introduction to Python through practical examples. RealPython.com, 2021.">Heisler, 2021</a>]</span>:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Συνδυασμός με τον τελεστή and</p></th>
 <th class="head"><p>Αποτέλεσμα</p></th>
@@ -467,7 +561,7 @@ true.</p>
 </table>
 <p>Με την χρήση του όρου <strong>or</strong> αρκεί μία από τις δύο προτάσεις να είναι True για να αποδόσει αποτέλεσμα αληθές.
 Αυτό φαίνεται πιο καλά στο παραπάνω πίνακα:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Συνδυασμός με τον τελεστή or</p></th>
 <th class="head"><p>Αποτέλεσμα</p></th>
@@ -489,7 +583,7 @@ true.</p>
 </tbody>
 </table>
 <p>Τέλος με την χρήση του όρου <strong>not</strong> αντιστρέφεται η τιμή True ή False μιας πρότασης.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Επίδραση του τελεστή not</p></th>
 <th class="head"><p>Αποτέλεσμα</p></th>
@@ -718,9 +812,9 @@ False
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2>α. Η δομή της ακολουθίας εντολών<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id6">
+<h2>α. Η δομή της ακολουθίας εντολών<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Οι εντολές σε ένα πρόγραμμα εκτελούνται σειριακά η μία μετά την άλλη
 ξεκινώντας από την πρώτη. Τελειώνει η εκτέλεση μίας εντολής και ακολου-
 θεί η εκτέλεση της επόμενης. Κάθε εντολή θα εκτελεστεί ακριβώς μία φορά,
@@ -743,9 +837,9 @@ False
 </div>
 </div>
 <p>Σε αυτό το παράδειγμα οι εντολές εκτελούνται στο σύνολό τους, διαδοχικά η μία μετά την άλλη.</p>
-</div>
-<div class="section" id="id7">
-<h2>β. Η δομή της απόφασης<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id7">
+<h2>β. Η δομή της απόφασης<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>Στη δομή της απόφασης έχουμε μία περισσότερο πολύπλοκη δομή, στην
 οποία ο έλεγχος του προγράμματος καλείται να επιλέξει ανάμεσα σε δύο ή και
 περισσότερες διαφορετικές διαδρομές ανάλογα με το αν ισχύει ή όχι κάποια ή
@@ -855,9 +949,9 @@ False
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id10">
-<h2>γ. η δομή της επανάληψης<a class="headerlink" href="#id10" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id10">
+<h2>γ. η δομή της επανάληψης<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <p>Η δομή της επανάληψης είναι μια μορφή κώδικα κατά την οποία περιλαμβάνει εντολές οι οποίες εκτελούνται επαναληπτικά για όσο τηρείται μια συνθήκη.
 Με αυτόν τον τρόπο αποφεύγεται η επανάληψη της συγγραφής του ίδιου κώδικα πολλές φορές.
 Στο παρακάτω τμήμα κώδικα είναι χαρακτηριστικό πως επαναλαμβάνεται ο ίδιος κώδικα πολλές φορές.</p>
@@ -1039,8 +1133,8 @@ Hello World
 </div>
 </div>
 </div>
-<div class="section" id="else">
-<h3>Η πρόταση else μέσα σε βρόγχους<a class="headerlink" href="#else" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<section id="else">
+<h3>Η πρόταση else μέσα σε βρόγχους<a class="headerlink" href="#else" title="Permalink to this heading">#</a></h3>
 <p>Όταν η συνθήκη βάσει της οποία ελέγχεται η εκτέλεση ενός βρόγχου while αποτυγχάνει (δεν είναι αληθής) τότε μπορούμε να εκτελέσουμε μια άλλη σειρά προτάσεων που ορίζεται από την ενότητα else.
 Για παράδειγμα:</p>
 <div class="cell docutils container">
@@ -1088,9 +1182,9 @@ Finally finished!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="break-continue">
-<h3>Οι προτάσεις break και continue<a class="headerlink" href="#break-continue" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="break-continue">
+<h3>Οι προτάσεις break και continue<a class="headerlink" href="#break-continue" title="Permalink to this heading">#</a></h3>
 <p>Οι προτάσεις break και continue χρησιμοποιούνται για το έλεγχο της ροής των επαναλήψεων και λειτουργούν με τον ίδιο τρόπο τόσο στους βρόγχους while όσο και στους βρόγχους for.</p>
 <p>Η πρόταση break τερματίζει άμεσα την εκτέλεση του βρόγχου με βάση τον έλεγχο μιας συνθήκης και στην συνέχεια ακολουθεί η εκτέλεση της πρότασης που ακολουθεί τον βρόγχο.</p>
 <p>Παράδειγμα με βρόγχο for:</p>
@@ -1140,9 +1234,9 @@ Loop ended.
 <p>Αντίστοιχη είναι η λειτουργία της πρότασης continue.
 Ωστόσο σε αυτήν την περίπτωση ο βρόγχος δεν τερματίζεται εντελώς
 αλλά σταματάει την τρέχουσα σειρά εντολών στο τρέχον σημείο του βρόγχου και συνεχίζει στο επόμενο στοιχείο της ακολουθίας και στον έλεγχο της αντίστοιχης συνθήκης.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1156,7 +1250,7 @@ Loop ended.
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1164,44 +1258,110 @@ Loop ended.
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_4.html" title="προηγούμενο σελίδα">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">4. Πλειάδες και λεξικά</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">προηγούμενο</p>
+        <p class="prev-next-title">4. Πλειάδες και λεξικά</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Lesson_6.html" title="επόμενο σελίδα">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Lesson_6.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">επόμενο</p>
         <p class="prev-next-title">6. Συναρτήσεις (functions)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Με Λεωνίδας Λιάκος<br/>
-    
-        &copy; Πνευματική ιδιοκτησία 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Περιεχόμενα
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean">Η λογική boolean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">α. Η δομή της ακολουθίας εντολών</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">β. Η δομή της απόφασης</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">γ. η δομή της επανάληψης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#else">Η πρόταση else μέσα σε βρόγχους</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">Οι προτάσεις break και continue</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Με Λεωνίδας Λιάκος
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

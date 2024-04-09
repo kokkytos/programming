@@ -17,5 +17,5 @@ sphinx-proof
 graphviz
 rasterio
 geopandas
-sklearn
-skimage
+scikit-learn
+scikit-image

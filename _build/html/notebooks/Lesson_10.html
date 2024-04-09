@@ -1,494 +1,465 @@
 
+
 <!DOCTYPE html>
 
-<html lang="el">
+
+<html lang="el" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>10. Διαγράμματα &#8212; Προγραμματισμός Η/Υ</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_10';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="11. Η βιβλιοθήκη numpy" href="Lesson_11.html" />
     <link rel="prev" title="9. Γεωεπεξεργασία διανυσματικών δεδομένων" href="Lesson_9.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="el">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="el"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Προγραμματισμός Η/Υ
-  </a>
- </li>
+    
+    
+    <img src="../_static/UTH-logo-greek.jpg" class="logo__image only-light" alt="Προγραμματισμός Η/Υ - Home"/>
+    <script>document.write(`<img src="../_static/UTH-logo-greek.jpg" class="logo__image only-dark" alt="Προγραμματισμός Η/Υ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Αναζήτηση</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Προγραμματισμός Η/Υ
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_1.html">
-   1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Λίστες. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Πλειάδες και λεξικά
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_5.html">
-   5. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συναρτήσεις (functions)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_7.html">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_8.html">
-   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   10. Διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Η βιβλιοθήκη numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
-                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_10.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
-                    class="fab fa-github"></i>αποθήκη</button></a>
-        <a class="issues-button"
-            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_10.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
-        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_10.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Αποθήκη πηγής"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ανοίξτε ένα ζήτημα"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Λήψη αυτής της σελίδας">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Λήψη αρχείου προέλευσης"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Εκτύπωση σε PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>10. Διαγράμματα</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Περιεχόμενα
+            <div>
+                <h2> Περιεχόμενα </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#google-colab">
-   Ειδική ενότητα για εκτέλεση στο Google Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#line-plots-bar-plots-pie-charts">
-   Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Πληθυσμός ανά χώρα για την περίοδο 2010-2020
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Διάγραμμα γραμμής
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       Ραβδόγραμμα
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       Γράφημα πίτας
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   Ιστόγραμμα συχνοτήτων, θηκόγραμμα
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Ιστόγραμμα συχνοτήτων
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#box-plot">
-     Θηκόγραμμα (box-plot)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatterplot-bubble-chart-correlation-matrix">
-   Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Διάγραμμα διασποράς
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bubble-chart">
-     Bubble Chart
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Σύνδεση πινάκων
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pearson">
-     Ο συντελεστής συσχέτισης Pearson
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Γραμμή παλινδρόμησης
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Γράφημα μήτρας συσχετίσεων (Correlation matrix)
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Ειδική ενότητα για εκτέλεση στο Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots-bar-plots-pie-charts">Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Πληθυσμός ανά χώρα για την περίοδο 2010-2020</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Διάγραμμα γραμμής</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ραβδόγραμμα</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Γράφημα πίτας</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ιστόγραμμα συχνοτήτων, θηκόγραμμα</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ιστόγραμμα συχνοτήτων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Θηκόγραμμα (box-plot)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-bubble-chart-correlation-matrix">Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Διάγραμμα διασποράς</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-chart">Bubble Chart</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Σύνδεση πινάκων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson">Ο συντελεστής συσχέτισης Pearson</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Γραμμή παλινδρόμησης</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Γράφημα μήτρας συσχετίσεων (Correlation matrix)</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>10. Διαγράμματα</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Περιεχόμενα </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#google-colab">
-   Ειδική ενότητα για εκτέλεση στο Google Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#line-plots-bar-plots-pie-charts">
-   Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Πληθυσμός ανά χώρα για την περίοδο 2010-2020
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Διάγραμμα γραμμής
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       Ραβδόγραμμα
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       Γράφημα πίτας
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   Ιστόγραμμα συχνοτήτων, θηκόγραμμα
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Ιστόγραμμα συχνοτήτων
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#box-plot">
-     Θηκόγραμμα (box-plot)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatterplot-bubble-chart-correlation-matrix">
-   Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Διάγραμμα διασποράς
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bubble-chart">
-     Bubble Chart
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Σύνδεση πινάκων
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pearson">
-     Ο συντελεστής συσχέτισης Pearson
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Γραμμή παλινδρόμησης
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Γράφημα μήτρας συσχετίσεων (Correlation matrix)
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>10. Διαγράμματα<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>10. Διαγράμματα<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Στόχος της τρέχουσας ενότητας είναι να παρουσιαστούν οι δυνατότητες που προσφέρει η Python για την οπτικοποίηση δεδομένων σε διαγράμματα. Για την δημιουργία των διαγραμμάτων θα χρησιμοποιηθεί η βιβλιοθήκη [seaborn] (<a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a>).</p>
-<div class="section" id="google-colab">
-<h2>Ειδική ενότητα για εκτέλεση στο Google Colab<a class="headerlink" href="#google-colab" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<section id="google-colab">
+<h2>Ειδική ενότητα για εκτέλεση στο Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># έλεγχος αν το notebook τρέχει στο google colab</span>
@@ -524,14 +495,27 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># η βιβλιοθήκη pandas για την διαχείριση πινάκων</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># η βιβλιοθήκη seaborn  για δημιουργία διαγραμμάτων </span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># η βιβλιοθήκη seaborn  για δημιουργία διαγραμμάτων, πιο σύνθετη</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
 </div>
 </div>
-<div class="section" id="line-plots-bar-plots-pie-charts">
-<h2>Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)<a class="headerlink" href="#line-plots-bar-plots-pie-charts" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</div>
+</section>
+<section id="line-plots-bar-plots-pie-charts">
+<h2>Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)<a class="headerlink" href="#line-plots-bar-plots-pie-charts" title="Permalink to this heading">#</a></h2>
 <p>Στο παρακάτω παράδειγμα θα παρουσιαστεί σε μορφή διαγράμματος με γραμμές (line chart) η διαχρονική εξέλιξη του πληθυσμού για την περίοδο 2010-2020 για μια σειρά από χώρες.</p>
 <p>Για την επίδειξη της δημιουργίας ενός διαγράμματος σε γραμμές θα χρησιμοποιηθούν διαδέσιμα δεδομένα από την πλατφόρμα <a class="reference external" href="https://www.kaggle.com/">kaggle</a>.</p>
-<div class="section" id="id2">
-<h3>Πληθυσμός ανά χώρα για την περίοδο 2010-2020<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<section id="id2">
+<h3>Πληθυσμός ανά χώρα για την περίοδο 2010-2020<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p><strong>Πηγή</strong>: Kaggle, Countries population. 2010 - 2020 data. ISO codes, <a class="reference external" href="https://www.kaggle.com/datasets/cityapiio/countries-population-2010-2020-data">https://www.kaggle.com/datasets/cityapiio/countries-population-2010-2020-data</a> (Πρόσβαση, 28/12/2022)</p>
 <p>Το εν λόγω dataset περιλαμβάνει ανα έτος τον πληθυσμό ανά χώρα για την περίοδο 2010-2020.</p>
 <p>Αρχικά διαβάζουμε το αρχείο csv και προσαρτούμε τα περιεχόμενά του σε μια νέα μεταβλητή με το όνομα <code class="docutils literal notranslate"><span class="pre">mydata</span></code>.</p>
@@ -722,11 +706,11 @@ const thebe_selector_output = ".output, .cell_output"
     <tr style="text-align: right;">
       <th></th>
       <th></th>
+      <th>Isni</th>
+      <th>Iso3166P1NumericCode</th>
+      <th>NativeName</th>
       <th>Iso3166P1Alpha2Code</th>
       <th>CallingCode</th>
-      <th>NativeName</th>
-      <th>Iso3166P1NumericCode</th>
-      <th>Isni</th>
       <th>Iso3166P1Alpha3Code</th>
       <th>Population</th>
     </tr>
@@ -746,55 +730,55 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>Canada</th>
       <th>2010</th>
+      <td>0000 0001 2238 5050</td>
+      <td>124</td>
+      <td>Canada</td>
       <td>CA</td>
       <td>1</td>
-      <td>Canada</td>
-      <td>124</td>
-      <td>0000 0001 2238 5050</td>
       <td>CAN</td>
       <td>34004889</td>
     </tr>
     <tr>
       <th>Japan</th>
       <th>2010</th>
+      <td>0000 0001 2364 9740</td>
+      <td>392</td>
+      <td>日本</td>
       <td>JP</td>
       <td>81</td>
-      <td>日本</td>
-      <td>392</td>
-      <td>0000 0001 2364 9740</td>
       <td>JPN</td>
       <td>128070000</td>
     </tr>
     <tr>
       <th>Norway</th>
       <th>2010</th>
+      <td>0000 0001 2298 9524</td>
+      <td>578</td>
+      <td>Kongeriket Norge</td>
       <td>NO</td>
       <td>47</td>
-      <td>Kongeriket Norge</td>
-      <td>578</td>
-      <td>0000 0001 2298 9524</td>
       <td>NOR</td>
       <td>4889252</td>
     </tr>
     <tr>
       <th>Ireland</th>
       <th>2010</th>
+      <td>0000 0001 2359 1198</td>
+      <td>372</td>
+      <td>Eire</td>
       <td>IE</td>
       <td>353</td>
-      <td>Eire</td>
-      <td>372</td>
-      <td>0000 0001 2359 1198</td>
       <td>IRL</td>
       <td>4560155</td>
     </tr>
     <tr>
       <th>Hungary</th>
       <th>2010</th>
+      <td>0000 0001 2254 0380</td>
+      <td>348</td>
+      <td>Magyarorszag</td>
       <td>HU</td>
       <td>36</td>
-      <td>Magyarorszag</td>
-      <td>348</td>
-      <td>0000 0001 2254 0380</td>
       <td>HUN</td>
       <td>10000023</td>
     </tr>
@@ -812,55 +796,55 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>Somalia</th>
       <th>2019</th>
+      <td>0000 0001 2173 591X</td>
+      <td>706</td>
+      <td>Jamhuuriyadda Federaalka Soomaaliya</td>
       <td>SO</td>
       <td>252</td>
-      <td>Jamhuuriyadda Federaalka Soomaaliya</td>
-      <td>706</td>
-      <td>0000 0001 2173 591X</td>
       <td>SOM</td>
       <td>15442905</td>
     </tr>
     <tr>
       <th>Sudan</th>
       <th>2019</th>
+      <td>0000 0001 2165 5557</td>
+      <td>729</td>
+      <td>جمهورية السودان</td>
       <td>SD</td>
       <td>249</td>
-      <td>جمهورية السودان</td>
-      <td>729</td>
-      <td>0000 0001 2165 5557</td>
       <td>SDN</td>
       <td>42813238</td>
     </tr>
     <tr>
       <th>Eswatini</th>
       <th>2019</th>
+      <td>0000 0001 2110 7657</td>
+      <td>748</td>
+      <td>Umbuso weSwatini</td>
       <td>SZ</td>
       <td>268</td>
-      <td>Umbuso weSwatini</td>
-      <td>748</td>
-      <td>0000 0001 2110 7657</td>
       <td>SWZ</td>
       <td>1148130</td>
     </tr>
     <tr>
       <th>Kingdom of the Netherlands</th>
       <th>2019</th>
+      <td>NaN</td>
+      <td>528</td>
+      <td>Koninkrijk der Nederlanden</td>
       <td>NL</td>
       <td>31</td>
-      <td>Koninkrijk der Nederlanden</td>
-      <td>528</td>
-      <td>NaN</td>
       <td>NLD</td>
       <td>17344874</td>
     </tr>
     <tr>
       <th>Danish Realm</th>
       <th>2019</th>
+      <td>NaN</td>
+      <td>208</td>
+      <td>Kongeriget Danmark</td>
       <td>DK</td>
       <td>45</td>
-      <td>Kongeriget Danmark</td>
-      <td>208</td>
-      <td>NaN</td>
       <td>DNK</td>
       <td>5814422</td>
     </tr>
@@ -898,11 +882,11 @@ const thebe_selector_output = ".output, .cell_output"
     <tr style="text-align: right;">
       <th></th>
       <th></th>
+      <th>Isni</th>
+      <th>Iso3166P1NumericCode</th>
+      <th>NativeName</th>
       <th>Iso3166P1Alpha2Code</th>
       <th>CallingCode</th>
-      <th>NativeName</th>
-      <th>Iso3166P1NumericCode</th>
-      <th>Isni</th>
       <th>Iso3166P1Alpha3Code</th>
       <th>Population</th>
     </tr>
@@ -922,51 +906,51 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th rowspan="5" valign="top">Greece</th>
       <th>2010</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>11121341</td>
     </tr>
     <tr>
       <th>2011</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>11104899</td>
     </tr>
     <tr>
       <th>2012</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>11045011</td>
     </tr>
     <tr>
       <th>2013</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>10965211</td>
     </tr>
     <tr>
       <th>2014</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>10892413</td>
     </tr>
@@ -974,8 +958,8 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-<div class="section" id="id3">
-<h4>Διάγραμμα γραμμής<a class="headerlink" href="#id3" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h4>
+<section id="id3">
+<h4>Διάγραμμα γραμμής<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p>Στην συνέχεια φτιάχνουμε ένα διάγραμμα με γραμμές με βάση τα δεδομένα της Ελλάδας.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -990,12 +974,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_14_0.png" src="../_images/Lesson_10_14_0.png" />
+<img alt="../_images/ed9961d37178ce0c88ce750514a15008c9363a48454a120838e3c5c7ce6ec0c9.png" src="../_images/ed9961d37178ce0c88ce750514a15008c9363a48454a120838e3c5c7ce6ec0c9.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h4>Ραβδόγραμμα<a class="headerlink" href="#id4" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h4>
+</section>
+<section id="id4">
+<h4>Ραβδόγραμμα<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>Μπορούμε να αποδώσουμε το παραπάνω διάγραμμα και σαν ραβδόγραμμα όπου το μέγεθος του πληθυσμού κάθε έτους είναι μια στήλη το ύψος της οποίας εξαρτάται από το μέγεθος του πληθυσμού.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1008,7 +992,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_16_0.png" src="../_images/Lesson_10_16_0.png" />
+<img alt="../_images/07c883be18949c7d4f746a12d170386d9b68e7376b98faadec417c6c4db2680b.png" src="../_images/07c883be18949c7d4f746a12d170386d9b68e7376b98faadec417c6c4db2680b.png" />
 </div>
 </div>
 <p>Είναι δυνατή η δημιουργία διαγράμματος γραμμών με πολλαπλές γραμμές όπου κάθε γραμμή αντιστοιχεί στην διαχρονική μεταβολή του πληθυσμού διαφορετικής χώρας.
@@ -1037,7 +1021,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_19_0.png" src="../_images/Lesson_10_19_0.png" />
+<img alt="../_images/adb74ea00d07ff308bd484d6713175007413fd15188cbe99aff0f554f48d1038.png" src="../_images/adb74ea00d07ff308bd484d6713175007413fd15188cbe99aff0f554f48d1038.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1066,11 +1050,11 @@ const thebe_selector_output = ".output, .cell_output"
     <tr style="text-align: right;">
       <th></th>
       <th></th>
+      <th>Isni</th>
+      <th>Iso3166P1NumericCode</th>
+      <th>NativeName</th>
       <th>Iso3166P1Alpha2Code</th>
       <th>CallingCode</th>
-      <th>NativeName</th>
-      <th>Iso3166P1NumericCode</th>
-      <th>Isni</th>
       <th>Iso3166P1Alpha3Code</th>
       <th>Population</th>
     </tr>
@@ -1090,66 +1074,66 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>Greece</th>
       <th>2019</th>
+      <td>0000 0004 0555 2357</td>
+      <td>300</td>
+      <td>Ελλάδα</td>
       <td>GR</td>
       <td>30</td>
-      <td>Ελλάδα</td>
-      <td>300</td>
-      <td>0000 0004 0555 2357</td>
       <td>GRC</td>
       <td>10717169</td>
     </tr>
     <tr>
       <th>Czech Republic</th>
       <th>2019</th>
+      <td>0000 0001 2290 990X</td>
+      <td>203</td>
+      <td>Ceska republika</td>
       <td>CZ</td>
       <td>420</td>
-      <td>Ceska republika</td>
-      <td>203</td>
-      <td>0000 0001 2290 990X</td>
       <td>CZE</td>
       <td>10671870</td>
     </tr>
     <tr>
       <th>Cuba</th>
       <th>2019</th>
+      <td>NaN</td>
+      <td>192</td>
+      <td>Republica de Cuba</td>
       <td>CU</td>
       <td>53</td>
-      <td>Republica de Cuba</td>
-      <td>192</td>
-      <td>NaN</td>
       <td>CUB</td>
       <td>11333483</td>
     </tr>
     <tr>
       <th>Dominican Republic</th>
       <th>2019</th>
+      <td>0000 0001 2370 0622</td>
+      <td>214</td>
+      <td>República Dominicana</td>
       <td>DO</td>
       <td>1809</td>
-      <td>República Dominicana</td>
-      <td>214</td>
-      <td>0000 0001 2370 0622</td>
       <td>DOM</td>
       <td>10738958</td>
     </tr>
     <tr>
       <th>Haiti</th>
       <th>2019</th>
+      <td>0000 0004 0466 965X</td>
+      <td>332</td>
+      <td>Ayiti</td>
       <td>HT</td>
       <td>509</td>
-      <td>Ayiti</td>
-      <td>332</td>
-      <td>0000 0004 0466 965X</td>
       <td>HTI</td>
       <td>11263077</td>
     </tr>
     <tr>
       <th>South Sudan</th>
       <th>2019</th>
+      <td>0000 0004 4647 7322</td>
+      <td>728</td>
+      <td>Republic of South Sudan</td>
       <td>SS</td>
       <td>211</td>
-      <td>Republic of South Sudan</td>
-      <td>728</td>
-      <td>0000 0004 4647 7322</td>
       <td>SSD</td>
       <td>11062113</td>
     </tr>
@@ -1157,9 +1141,9 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h4>Γράφημα πίτας<a class="headerlink" href="#id5" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h4>
+</section>
+<section id="id5">
+<h4>Γράφημα πίτας<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <p>Αν θέλουμε να εκφράσουμε γραφικά την αναλογία του πληθυσμού του 2019 κάθε χώρας σε σχέση με το σύνολο τους τότε μπορούμε να χρησιμοποιήσουμε ένα διάγραμμα «πίτας» (pie chart).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1173,14 +1157,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_22_0.png" src="../_images/Lesson_10_22_0.png" />
+<img alt="../_images/96ca12c9323caa4eb3630255fdeaa4fed781839d552ec0773fc88d2c9c61afa9.png" src="../_images/96ca12c9323caa4eb3630255fdeaa4fed781839d552ec0773fc88d2c9c61afa9.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>Ιστόγραμμα συχνοτήτων, θηκόγραμμα<a class="headerlink" href="#id6" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2>Ιστόγραμμα συχνοτήτων, θηκόγραμμα<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Στην ενότητα αυτή θα χρησιμοποιηθούν δεδομένα πληθυσμού ανά έτος και περιφέρεια NUTS2 για την περίοδο 2010 - 2021.</p>
 <p>(<strong>Πηγή</strong>: Εurostat, Population and demography, Demography, population stock and balance, Population on 1 January by NUTS 2 region, <a class="reference external" href="https://ec.europa.eu/eurostat/web/population-demography/demography-population-stock-balance/database">https://ec.europa.eu/eurostat/web/population-demography/demography-population-stock-balance/database</a> (Πρόσβαση 28/12/2022) _</p>
 <p>Ανάγνωση του σχετικού αρχείο δεδομένων:</p>
@@ -1199,8 +1183,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h3>Ιστόγραμμα συχνοτήτων<a class="headerlink" href="#id7" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<section id="id7">
+<h3>Ιστόγραμμα συχνοτήτων<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>Το ιστόγραμμα συχνοτήτων περιγράφει την κατανομή μίας μεταβλητής. Μετράει τον αριθμό των παρατηρήσεων που περιέχονται ανά κλάση τιμών.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1215,12 +1199,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_28_0.png" src="../_images/Lesson_10_28_0.png" />
+<img alt="../_images/117638824b9800f19180269eb938a1a0cc260332b214220454ae14c8d31adb00.png" src="../_images/117638824b9800f19180269eb938a1a0cc260332b214220454ae14c8d31adb00.png" />
 </div>
 </div>
-</div>
-<div class="section" id="box-plot">
-<h3>Θηκόγραμμα (box-plot)<a class="headerlink" href="#box-plot" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="box-plot">
+<h3>Θηκόγραμμα (box-plot)<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h3>
 <p>Το θηκόγραμμα περιγράφει την κατανομή μιας μεταβλητής μέσω της οπτικοποίησης του διαμέσου, του ενδοτεταρτημοριακού εύρους, του upper και lower whisker.</p>
 <p><img alt="alt text" src="https://github.com/kokkytos/programming/raw/main/images/Box-Plot-and-Whisker-Plot-1.png" /></p>
 <p>Δημιουργία θηκογράμματος</p>
@@ -1232,7 +1216,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_32_0.png" src="../_images/Lesson_10_32_0.png" />
+<img alt="../_images/0af790aaadd63398a2d91750b8693f34cefb2808b932500bcd04c8e3ead8e385.png" src="../_images/0af790aaadd63398a2d91750b8693f34cefb2808b932500bcd04c8e3ead8e385.png" />
 </div>
 </div>
 <p>Για λόγους σύγκρισης μπορούμε να δημιουργήσουμε πολλαπλά θηκογράμματα με κριτήριο κατηγοριοποίησης των δεδομένων μια κατηγορική μεταβλητή.
@@ -1247,7 +1231,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_34_0.png" src="../_images/Lesson_10_34_0.png" />
+<img alt="../_images/ede67dfcbd8a6833187bf20534e397c19c8fbd99dfe6b7b36a772c4c54ec77fe.png" src="../_images/ede67dfcbd8a6833187bf20534e397c19c8fbd99dfe6b7b36a772c4c54ec77fe.png" />
 </div>
 </div>
 <p>Επιπλέον είναι εφικτό να δημιουργήσουμε ξεχωριστά θηκογράμματα ανά έτος μέσω της συνάρτησης <em>FacetGrid</em>:</p>
@@ -1264,7 +1248,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_36_0.png" src="../_images/Lesson_10_36_0.png" />
+<img alt="../_images/69f201a3497e2ac20ad5307727401e184a7230c447a8f037f54acf3f5f25fb5a.png" src="../_images/69f201a3497e2ac20ad5307727401e184a7230c447a8f037f54acf3f5f25fb5a.png" />
 </div>
 </div>
 <p>Αντίστοιχα μπορούμε να κάνουμε το ίδιο με πολλαπλά ιστογράμματα. Το σημαντικό είναι να αλλάξουμε την τιμή της παραμέτρου που δέχεται η συνάρτηση <em>g.map</em> από <em>sns.boxplot</em> σε <em>sns.histplot</em>.</p>
@@ -1281,13 +1265,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_38_0.png" src="../_images/Lesson_10_38_0.png" />
+<img alt="../_images/8dfef35b99c7032b01f0c231b6cfa9b5ee4848e50dadc0062318202e2bb18d14.png" src="../_images/8dfef35b99c7032b01f0c231b6cfa9b5ee4848e50dadc0062318202e2bb18d14.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="scatterplot-bubble-chart-correlation-matrix">
-<h2>Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης<a class="headerlink" href="#scatterplot-bubble-chart-correlation-matrix" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+</section>
+<section id="scatterplot-bubble-chart-correlation-matrix">
+<h2>Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης<a class="headerlink" href="#scatterplot-bubble-chart-correlation-matrix" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deaths by age, sex and NUTS 2 region</span>
@@ -1344,8 +1328,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>Διάγραμμα διασποράς<a class="headerlink" href="#id8" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<section id="id8">
+<h3>Διάγραμμα διασποράς<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;A_pct&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;C_pct&quot;</span><span class="p">)</span>
@@ -1354,12 +1338,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_52_0.png" src="../_images/Lesson_10_52_0.png" />
+<img alt="../_images/98495acd10e29db4398f58b3021d71a0b8d0a5c67739f4f7d7423ae445dd44c3.png" src="../_images/98495acd10e29db4398f58b3021d71a0b8d0a5c67739f4f7d7423ae445dd44c3.png" />
 </div>
 </div>
-</div>
-<div class="section" id="bubble-chart">
-<h3>Bubble Chart<a class="headerlink" href="#bubble-chart" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="bubble-chart">
+<h3>Bubble Chart<a class="headerlink" href="#bubble-chart" title="Permalink to this heading">#</a></h3>
 <p>Μέσω της συνάρτησης scatterplot() της βιβλιοθήκης seaborn είναι δυνατή η δημιουργία <em>bubble charts</em>.
 Στην συνάρτηση αυτή υπάρχει η παράμετρος <em>size</em> η οποία καθορίζει το μέγεθος του κύκλου με βάση μια στήλη με αριθμητικά δεδομένα.</p>
 <div class="cell docutils container">
@@ -1370,13 +1354,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_54_0.png" src="../_images/Lesson_10_54_0.png" />
+<img alt="../_images/5aa46de7afd0eeb8ee16acc3ee9270ed7776d1ea18257aa3d85a8b53c1d6b650.png" src="../_images/5aa46de7afd0eeb8ee16acc3ee9270ed7776d1ea18257aa3d85a8b53c1d6b650.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων<a class="headerlink" href="#id9" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+</section>
+<section id="id9">
+<h2>Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>Για την επίδειξη του κώδικα της τρέχουσας ενότητας θα αξιοποιηθούν δεδομένα απασχόλησης κατά επίπεδο εκπαίδευσης από την ΕΛ.ΣΤΑΤ.  Στόχος είναι να υπολογίσουμε τον συντελεστής συσχέτισης ανάμεσα στο ποσοστό πτυχιούχων πρωτοβάθμιας εκπαίδευσης και το ποσοστό απασχολουμένων στον τριτογενή τομέα.</p>
 <p><strong>Πηγή</strong>: ΕΛΣΤΑΤ, Οικονομικά χαρακτηριστικά 2011, Β.10 Απασχολούμενοι κατά επίπεδο εκπαίδευσης. Δήμοι, <a class="reference external" href="https://www.statistics.gr/el/statistics/-/publication/SAM04/2011">https://www.statistics.gr/el/statistics/-/publication/SAM04/2011</a> (Πρόσβαση, 28/12/2022)</p>
 <p>Ως συνήθως ξεκινάμε με την ανάγνωση του σχετικού αρχείου.</p>
@@ -1405,8 +1389,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>Σύνδεση πινάκων<a class="headerlink" href="#id10" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+<section id="id10">
+<h3>Σύνδεση πινάκων<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_cd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">edu_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;DHMOSID&#39;</span><span class="p">)</span>
@@ -1437,9 +1421,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pearson">
-<h3>Ο συντελεστής συσχέτισης Pearson<a class="headerlink" href="#pearson" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="pearson">
+<h3>Ο συντελεστής συσχέτισης Pearson<a class="headerlink" href="#pearson" title="Permalink to this heading">#</a></h3>
 <p>Ο συντελεστής συσχέτισης  περιγράφει την στατιστική εξάρτηση μεταξύ δύο μεταβλητών.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1454,9 +1438,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id11">
-<h3>Γραμμή παλινδρόμησης<a class="headerlink" href="#id11" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="id11">
+<h3>Γραμμή παλινδρόμησης<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cd</span><span class="p">,</span> 
@@ -1472,7 +1456,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_65_0.png" src="../_images/Lesson_10_65_0.png" />
+<img alt="../_images/d36806ef2202ade7e7cdca6df004a3263cdc265aef63870388d3ecab19ea0f6d.png" src="../_images/d36806ef2202ade7e7cdca6df004a3263cdc265aef63870388d3ecab19ea0f6d.png" />
 </div>
 </div>
 <p>Είναι δυνατή η αποθήκευση ενός διαγράμματος σε μορφή εικόνας:</p>
@@ -1484,9 +1468,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="correlation-matrix">
-<h3>Γράφημα μήτρας συσχετίσεων (Correlation matrix)<a class="headerlink" href="#correlation-matrix" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h3>
+</section>
+<section id="correlation-matrix">
+<h3>Γράφημα μήτρας συσχετίσεων (Correlation matrix)<a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h3>
 <p>Για το συγκεκριμένο παράδειγμα θα χρησιμοποιηθεί ένα διαδεδομένο αρχείο δεδομένων, το αρχείο Iris.
 Το αρχείο Iris χρησιμοποιείται σαν δοκιμαστικό αρχείο για μεθόδους στατιστικής ανάλυσης, μηχανικής εκμάθηση και οπτικοποίησης και περιλαμβάνει 50 εγγραφές για κάθε ένα από τα είδη λουλουδιών Iris setosa, Iris virginica, και Iris versicolor για το μήκος και το πλάτος για τα σέπαλα και τα πέταλα τους. Περισσότερες λεπτομέρειες για το συγκεκριμένο αρχείο δεδομένων μπορείτε να βρείτε στην <a class="reference external" href="https://en.wikipedia.org/wiki/Iris_flower_data_set">Wikipedia</a>.</p>
 <p>Ως συνήθως αρχικά γίνεται η ανάγνωνση του σχετικού αρχείου:</p>
@@ -1590,12 +1574,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_10_73_0.png" src="../_images/Lesson_10_73_0.png" />
+<img alt="../_images/5dda0ed1ecfb5049d3fff2472ecfd9566ca1ed7ee94a1dbd40a26473e7d3c1ac.png" src="../_images/5dda0ed1ecfb5049d3fff2472ecfd9566ca1ed7ee94a1dbd40a26473e7d3c1ac.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1609,7 +1593,7 @@ const thebe_selector_output = ".output, .cell_output"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1617,44 +1601,129 @@ const thebe_selector_output = ".output, .cell_output"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_9.html" title="προηγούμενο σελίδα">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">9. Γεωεπεξεργασία διανυσματικών δεδομένων</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson_9.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">προηγούμενο</p>
+        <p class="prev-next-title">9. Γεωεπεξεργασία διανυσματικών δεδομένων</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Lesson_11.html" title="επόμενο σελίδα">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Lesson_11.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">επόμενο</p>
         <p class="prev-next-title">11. Η βιβλιοθήκη numpy</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Με Λεωνίδας Λιάκος<br/>
-    
-        &copy; Πνευματική ιδιοκτησία 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Περιεχόμενα
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Ειδική ενότητα για εκτέλεση στο Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots-bar-plots-pie-charts">Διαγράμματα με γραμμές (line plots), ραβδογράμματα (bar plots), γραφήματα πίτας (pie charts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Πληθυσμός ανά χώρα για την περίοδο 2010-2020</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Διάγραμμα γραμμής</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ραβδόγραμμα</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Γράφημα πίτας</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ιστόγραμμα συχνοτήτων, θηκόγραμμα</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ιστόγραμμα συχνοτήτων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Θηκόγραμμα (box-plot)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-bubble-chart-correlation-matrix">Διάγραμμα διασποράς (scatterplot), φυσαλίδων (bubble chart), μήτρας συσχετίσεων (correlation matrix), συντελεστής συσχέτισης, γραμμή παλινδρόμησης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Διάγραμμα διασποράς</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-chart">Bubble Chart</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Ο συντελεστής συσχέτισης, γραμμή παλινδρόμησης, γράφημα μήτρας συσχετίσεων</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Σύνδεση πινάκων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson">Ο συντελεστής συσχέτισης Pearson</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Γραμμή παλινδρόμησης</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Γράφημα μήτρας συσχετίσεων (Correlation matrix)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Με Λεωνίδας Λιάκος
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -71,7 +71,7 @@ print(regions)
 regions= tuple(["Κρήτη", "Ήπειρος", "Θράκη"])
 print(regions)
 ```
-Με κενό όρισμα επιστρέφεται μία άδεια λίστα:
+Με κενό όρισμα επιστρέφεται μία άδεια πλειάδα:
 ```{code-cell}
 regions= tuple()
 
@@ -94,7 +94,7 @@ print(fruits)
 ```{code-cell}
 
 cities = "Αθήνα", "Βόλος", "Πάτρα"
-capital, city1, city2 = cities # tuple packing
+capital, city1, city2 = cities # tuple unpacking
 print(capital,  city1, city2)
 ```
 Ο αμετάβλητος χαρακτήρας των πλειάδων φαίνεται στα παρακάτω παραδείγμα στα οποία επιχειρείται η τροποποίηση των δεδομένων της.

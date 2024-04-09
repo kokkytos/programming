@@ -1,345 +1,443 @@
 
+
 <!DOCTYPE html>
 
-<html lang="el">
+
+<html lang="el" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas &#8212; Προγραμματισμός Η/Υ</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_8';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="9. Γεωεπεξεργασία διανυσματικών δεδομένων" href="Lesson_9.html" />
     <link rel="prev" title="7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών" href="Lesson_7.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="el">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="el"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/UTH-logo-greek.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Προγραμματισμός Η/Υ</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Αναζήτηση σε αυτό το βιβλίο ..." aria-label="Αναζήτηση σε αυτό το βιβλίο ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Προγραμματισμός Η/Υ
-  </a>
- </li>
+    
+    
+    <img src="../_static/UTH-logo-greek.jpg" class="logo__image only-light" alt="Προγραμματισμός Η/Υ - Home"/>
+    <script>document.write(`<img src="../_static/UTH-logo-greek.jpg" class="logo__image only-dark" alt="Προγραμματισμός Η/Υ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Αναζήτηση</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Προγραμματισμός Η/Υ
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_1.html">
-   1. Εισαγωγή στον προγραμματισμό
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_2.html">
-   2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_3.html">
-   3. Λίστες. Εκφράσεις, τελεστές
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_4.html">
-   4. Πλειάδες και λεξικά
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_5.html">
-   5. Έλεγχος ροής εκτέλεσης
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_6.html">
-   6. Συναρτήσεις (functions)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_7.html">
-   7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_9.html">
-   9. Γεωεπεξεργασία διανυσματικών δεδομένων
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_10.html">
-   10. Διαγράμματα
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_11.html">
-   11. Η βιβλιοθήκη numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Lesson_12.html">
-   12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Εναλλαγή πλοήγησης" aria-controls="site-navigation"
-                title="Εναλλαγή πλοήγησης" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Λήψη αυτής της σελίδας"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/Lesson_8.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Λήψη αρχείου προέλευσης" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Εκτύπωση σε PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kokkytos/programming"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Αποθήκη πηγής"><i
-                    class="fab fa-github"></i>αποθήκη</button></a>
-        <a class="issues-button"
-            href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_8.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Ανοίξτε ένα ζήτημα"><i class="fas fa-lightbulb"></i>ανοιχτό ζήτημα</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
-        title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kokkytos/programming/main?urlpath=tree/notebooks/Lesson_8.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Εκτόξευση Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Εκτόξευση Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Αποθήκη πηγής"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ανοίξτε ένα ζήτημα"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Λήψη αυτής της σελίδας">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Λήψη αρχείου προέλευσης"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Εκτύπωση σε PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Περιεχόμενα
+            <div>
+                <h2> Περιεχόμενα </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#csv">
-   Ανάγνωση αρχείων csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Εγγραφή σε csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas">
-   Η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Βιβλιογραφία
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv">Ανάγνωση αρχείων csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγγραφή σε csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Η βιβλιοθήκη pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Βιβλιογραφία</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Περιεχόμενα </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#csv">
-   Ανάγνωση αρχείων csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Εγγραφή σε csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas">
-   Η βιβλιοθήκη pandas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Βιβλιογραφία
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="csv-pandas">
-<h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-pandas" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="csv-pandas">
+<h1>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-pandas" title="Permalink to this heading">#</a></h1>
 <p>Στόχος του μαθήματος είναι να εξοικειωθεί ο φοιτητής με την ανάγνωση και εγγραφή αρχείων CSV.
 Επίσης γίνεται μια σύντομη αναφορά στις δυνατότητες της βιβλιοθήκης pandas όσον αφορά την διαχείριση δεδομένων σε μορφή πινάκων.</p>
-<div class="section" id="csv">
-<h2>Ανάγνωση αρχείων csv<a class="headerlink" href="#csv" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+<section id="csv">
+<h2>Ανάγνωση αρχείων csv<a class="headerlink" href="#csv" title="Permalink to this heading">#</a></h2>
 <p>Εισάγουμε τα απαραίτητα άρθρωματα (modules).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -387,7 +485,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f8f95f24fd0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f9d1cc0e970&gt;)
 </pre></div>
 </div>
 </div>
@@ -1602,9 +1700,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2>Εγγραφή σε csv<a class="headerlink" href="#id1" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id1">
+<h2>Εγγραφή σε csv<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;employee_file.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">employee_file</span><span class="p">:</span>
@@ -1629,9 +1727,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pandas">
-<h2>Η βιβλιοθήκη pandas<a class="headerlink" href="#pandas" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="pandas">
+<h2>Η βιβλιοθήκη pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h2>
 <p><img alt="alt text" src="../_images/pandas-data-structure.svg" /></p>
 <p>Δημιουργία pandas Series object</p>
 <div class="cell docutils container">
@@ -2468,7 +2566,62 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7f8f95f24f40&gt;)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [28],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">local_file3</span> <span class="o">=</span> <span class="s1">&#39;listings.csv&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Download remote and save locally</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">remote_url</span><span class="p">,</span> <span class="n">local_file3</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:239,</span> in <span class="ni">urlretrieve</span><span class="nt">(url, filename, reporthook, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="sd"> Retrieve a URL into a temporary location on disk.</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="sd"> data file as well as the resulting HTTPMessage object.</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span> <span class="n">url_type</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">_splittype</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">239</span> <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">headers</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="c1"># Just return the local path and the &quot;headers&quot; for file://</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span>     <span class="c1"># URLs. No sense in performing a copy unless requested.</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:214,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
+<span class="ne">--&gt; </span><span class="mi">214</span> <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:523,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="p">[]):</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span>     <span class="n">meth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">523</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:632,</span> in <span class="ni">HTTPErrorProcessor.http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">629</span> <span class="c1"># According to RFC 2616, &quot;2xx&quot; code indicates that the client&#39;s</span>
+<span class="g g-Whitespace">    </span><span class="mi">630</span> <span class="c1"># request was successfully received, understood, and accepted.</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">632</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:561,</span> in <span class="ni">OpenerDirector.error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span> <span class="k">if</span> <span class="n">http_err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;http_error_default&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">orig_args</span>
+<span class="ne">--&gt; </span><span class="mi">561</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:494,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">handlers</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">493</span>     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">494</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:641,</span> in <span class="ni">HTTPDefaultErrorHandler.http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span> <span class="k">def</span> <span class="nf">http_error_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">641</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="ne">HTTPError</span>: HTTP Error 403: Forbidden
 </pre></div>
 </div>
 </div>
@@ -3306,7 +3459,7 @@ Name: year, dtype: UInt16
       <th>longitude</th>
       <th>room_type</th>
       <th>price</th>
-      <th>minimum_nights</th>
+      <th>...</th>
       <th>number_of_reviews</th>
       <th>last_review</th>
       <th>reviews_per_month</th>
@@ -3316,6 +3469,7 @@ Name: year, dtype: UInt16
       <th>license</th>
       <th>year</th>
       <th>month</th>
+      <th>day</th>
     </tr>
   </thead>
   <tbody>
@@ -3331,7 +3485,7 @@ Name: year, dtype: UInt16
       <td>23.76527</td>
       <td>Entire home/apt</td>
       <td>70</td>
-      <td>1</td>
+      <td>...</td>
       <td>32</td>
       <td>2021-09-24</td>
       <td>0.25</td>
@@ -3341,6 +3495,7 @@ Name: year, dtype: UInt16
       <td>00000957568</td>
       <td>2021</td>
       <td>9</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>1</th>
@@ -3354,7 +3509,7 @@ Name: year, dtype: UInt16
       <td>23.76448</td>
       <td>Entire home/apt</td>
       <td>50</td>
-      <td>1</td>
+      <td>...</td>
       <td>54</td>
       <td>2021-11-01</td>
       <td>0.48</td>
@@ -3364,6 +3519,7 @@ Name: year, dtype: UInt16
       <td>00001070920</td>
       <td>2021</td>
       <td>11</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3377,7 +3533,7 @@ Name: year, dtype: UInt16
       <td>23.76473</td>
       <td>Entire home/apt</td>
       <td>38</td>
-      <td>1</td>
+      <td>...</td>
       <td>76</td>
       <td>2021-12-09</td>
       <td>0.67</td>
@@ -3387,6 +3543,7 @@ Name: year, dtype: UInt16
       <td>00000957080</td>
       <td>2021</td>
       <td>12</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3400,7 +3557,7 @@ Name: year, dtype: UInt16
       <td>23.76448</td>
       <td>Entire home/apt</td>
       <td>48</td>
-      <td>1</td>
+      <td>...</td>
       <td>27</td>
       <td>2021-11-08</td>
       <td>0.19</td>
@@ -3410,6 +3567,7 @@ Name: year, dtype: UInt16
       <td>00000957422</td>
       <td>2021</td>
       <td>11</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3423,7 +3581,7 @@ Name: year, dtype: UInt16
       <td>23.76500</td>
       <td>Entire home/apt</td>
       <td>52</td>
-      <td>1</td>
+      <td>...</td>
       <td>17</td>
       <td>2020-01-08</td>
       <td>0.15</td>
@@ -3433,9 +3591,11 @@ Name: year, dtype: UInt16
       <td>00000957579</td>
       <td>2020</td>
       <td>1</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 21 columns</p>
 </div></div></div>
 </div>
 <p>Αν κάποια στήλη περιέχει κενά στην αρχή ή το τέλος της μπορούμε να τα αφαιρέσουμε ως εξής:</p>
@@ -3940,7 +4100,6 @@ Name: name_lower, dtype: object
       <th>room_type</th>
       <th>price</th>
       <th>...</th>
-      <th>last_review</th>
       <th>reviews_per_month</th>
       <th>calculated_host_listings_count</th>
       <th>availability_365</th>
@@ -3948,6 +4107,7 @@ Name: name_lower, dtype: object
       <th>license</th>
       <th>year</th>
       <th>month</th>
+      <th>day</th>
       <th>name_lower</th>
       <th>min_revenue</th>
     </tr>
@@ -3966,7 +4126,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>70</td>
       <td>...</td>
-      <td>2021-09-24</td>
       <td>0.25</td>
       <td>6</td>
       <td>114</td>
@@ -3974,6 +4133,7 @@ Name: name_lower, dtype: object
       <td>00000957568</td>
       <td>2021</td>
       <td>9</td>
+      <td>24</td>
       <td>96m2, 3br, 2ba, metro, wi-fi etc...</td>
       <td>70</td>
     </tr>
@@ -3990,7 +4150,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>50</td>
       <td>...</td>
-      <td>2021-11-01</td>
       <td>0.48</td>
       <td>6</td>
       <td>364</td>
@@ -3998,6 +4157,7 @@ Name: name_lower, dtype: object
       <td>00001070920</td>
       <td>2021</td>
       <td>11</td>
+      <td>1</td>
       <td>athens quality apartments - deluxe apartment</td>
       <td>50</td>
     </tr>
@@ -4014,7 +4174,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>38</td>
       <td>...</td>
-      <td>2021-12-09</td>
       <td>0.67</td>
       <td>6</td>
       <td>312</td>
@@ -4022,6 +4181,7 @@ Name: name_lower, dtype: object
       <td>00000957080</td>
       <td>2021</td>
       <td>12</td>
+      <td>9</td>
       <td>athens quality apartments - studio</td>
       <td>38</td>
     </tr>
@@ -4038,7 +4198,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>48</td>
       <td>...</td>
-      <td>2021-11-08</td>
       <td>0.19</td>
       <td>6</td>
       <td>236</td>
@@ -4046,6 +4205,7 @@ Name: name_lower, dtype: object
       <td>00000957422</td>
       <td>2021</td>
       <td>11</td>
+      <td>8</td>
       <td>aqa-no2 1-bedroom, smart tv, fiber connection,</td>
       <td>48</td>
     </tr>
@@ -4062,7 +4222,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>52</td>
       <td>...</td>
-      <td>2020-01-08</td>
       <td>0.15</td>
       <td>6</td>
       <td>176</td>
@@ -4070,12 +4229,13 @@ Name: name_lower, dtype: object
       <td>00000957579</td>
       <td>2020</td>
       <td>1</td>
+      <td>8</td>
       <td>54m2, 1-br, cable tv, wi-fi, metro</td>
       <td>52</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 22 columns</p>
+<p>5 rows × 23 columns</p>
 </div></div></div>
 </div>
 <p>Φιλτράρισμα με πολλαπλά κριτήρια (τιμή &lt;1000 και έτος 2020)</p>
@@ -4117,7 +4277,6 @@ Name: name_lower, dtype: object
       <th>room_type</th>
       <th>price</th>
       <th>...</th>
-      <th>last_review</th>
       <th>reviews_per_month</th>
       <th>calculated_host_listings_count</th>
       <th>availability_365</th>
@@ -4125,6 +4284,7 @@ Name: name_lower, dtype: object
       <th>license</th>
       <th>year</th>
       <th>month</th>
+      <th>day</th>
       <th>name_lower</th>
       <th>min_revenue</th>
     </tr>
@@ -4143,7 +4303,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>52</td>
       <td>...</td>
-      <td>2020-01-08</td>
       <td>0.15</td>
       <td>6</td>
       <td>176</td>
@@ -4151,6 +4310,7 @@ Name: name_lower, dtype: object
       <td>00000957579</td>
       <td>2020</td>
       <td>1</td>
+      <td>8</td>
       <td>54m2, 1-br, cable tv, wi-fi, metro</td>
       <td>52</td>
     </tr>
@@ -4167,7 +4327,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>58</td>
       <td>...</td>
-      <td>2020-01-20</td>
       <td>0.47</td>
       <td>1</td>
       <td>52</td>
@@ -4175,6 +4334,7 @@ Name: name_lower, dtype: object
       <td>00000208960</td>
       <td>2020</td>
       <td>1</td>
+      <td>20</td>
       <td>apartment dora , service with style</td>
       <td>174</td>
     </tr>
@@ -4191,7 +4351,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>45</td>
       <td>...</td>
-      <td>2020-02-29</td>
       <td>0.48</td>
       <td>9</td>
       <td>144</td>
@@ -4199,6 +4358,7 @@ Name: name_lower, dtype: object
       <td>00000251837</td>
       <td>2020</td>
       <td>2</td>
+      <td>29</td>
       <td>center 1, metro 30m, satelite tv</td>
       <td>90</td>
     </tr>
@@ -4215,7 +4375,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>89</td>
       <td>...</td>
-      <td>2020-11-02</td>
       <td>0.51</td>
       <td>13</td>
       <td>301</td>
@@ -4223,6 +4382,7 @@ Name: name_lower, dtype: object
       <td>00000546911</td>
       <td>2020</td>
       <td>11</td>
+      <td>2</td>
       <td>our first love #01 | thiseio residencies</td>
       <td>178</td>
     </tr>
@@ -4239,7 +4399,6 @@ Name: name_lower, dtype: object
       <td>Entire home/apt</td>
       <td>64</td>
       <td>...</td>
-      <td>2020-10-12</td>
       <td>0.15</td>
       <td>13</td>
       <td>251</td>
@@ -4247,12 +4406,13 @@ Name: name_lower, dtype: object
       <td>00001176980</td>
       <td>2020</td>
       <td>10</td>
+      <td>12</td>
       <td>our playground #02 | thiseio residencies</td>
       <td>64000</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 22 columns</p>
+<p>5 rows × 23 columns</p>
 </div></div></div>
 </div>
 <p>Ιστόγραμμα για την στήλη price στον πίνακα airbnb_under_1000</p>
@@ -4263,20 +4423,20 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lesson_8_94_0.png" src="../_images/Lesson_8_94_0.png" />
+<img alt="../_images/865a2f22c234782154ac14570a7b91caf100384625c475d118443ba29b61444c.png" src="../_images/865a2f22c234782154ac14570a7b91caf100384625c475d118443ba29b61444c.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2>Βιβλιογραφία<a class="headerlink" href="#id2" title="Μόνιμος σύνδεσμος σε αυτήν την κεφαλίδα">¶</a></h2>
+</section>
+<section id="id2">
+<h2>Βιβλιογραφία<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>pandas Tutorial for Beginners, <a class="reference external" href="https://www.datacamp.com/tutorial/pandas">https://www.datacamp.com/tutorial/pandas</a>, Πρόσβαση: 18/05/2022</p>
 <p>Reading and Writing CSV Files in Python, <a class="reference external" href="https://realpython.com/python-csv/#reading-csv-files-with-csv">https://realpython.com/python-csv/#reading-csv-files-with-csv</a>, Πρόσβαση: 18/05/2022</p>
 <p>Reading CSV files in Python, <a class="reference external" href="https://www.programiz.com/python-programming/reading-csv-files">https://www.programiz.com/python-programming/reading-csv-files</a>, Πρόσβαση: 18/05/2022</p>
 <p>COVID-19 Coronavirus Pandemic, <a class="reference external" href="https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic">https://www.kaggle.com/datasets/rinichristy/covid19-coronavirus-pandemic</a>, Πρόσβαση: 18/05/2022
 Pandas User Guide, <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html#user-guide">https://pandas.pydata.org/docs/user_guide/index.html#user-guide</a>, Πρόσβαση: 23/05/2022</p>
 <p>McKinney, W., 2013. Python for data analysis. O’Reilly, Beijing.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4290,7 +4450,7 @@ Pandas User Guide, <a class="reference external" href="https://pandas.pydata.org
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -4298,44 +4458,106 @@ Pandas User Guide, <a class="reference external" href="https://pandas.pydata.org
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Lesson_7.html" title="προηγούμενο σελίδα">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">προηγούμενο</p>
-            <p class="prev-next-title">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson_7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">προηγούμενο</p>
+        <p class="prev-next-title">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Lesson_9.html" title="επόμενο σελίδα">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Lesson_9.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">επόμενο</p>
         <p class="prev-next-title">9. Γεωεπεξεργασία διανυσματικών δεδομένων</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Με Λεωνίδας Λιάκος<br/>
-    
-        &copy; Πνευματική ιδιοκτησία 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Περιεχόμενα
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv">Ανάγνωση αρχείων csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγγραφή σε csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Η βιβλιοθήκη pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Βιβλιογραφία</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Με Λεωνίδας Λιάκος
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
