@@ -470,7 +470,7 @@ document.write(`
     <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
     <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
     <span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Colab\ Notebooks/programming/notebooks
-    <span class="o">!</span>pip install geopandas pandas rasterio numpy matplotlib folium scikit-learn scikit-image
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>geopandas<span class="w"> </span>pandas<span class="w"> </span>rasterio<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>folium<span class="w"> </span>scikit-learn<span class="w"> </span>scikit-image
 </pre></div>
 </div>
 </div>
@@ -1401,7 +1401,7 @@ Datum: World Geodetic System 1984 ensemble
 <span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_overlay_symmetric_diff</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
 
 <span class="nn">File ~/.local/lib/python3.9/site-packages/geopandas/tools/overlay.py:30,</span> in <span class="ni">_overlay_intersection</span><span class="nt">(df1, df2)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">27</span><span class="sd"> Overlay Intersection operation used in overlay function</span>
 <span class="g g-Whitespace">     </span><span class="mi">28</span><span class="sd"> &quot;&quot;&quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="c1"># Spatial Index to create intersections</span>
@@ -1412,7 +1412,7 @@ Datum: World Geodetic System 1984 ensemble
 <span class="nn">File ~/.local/lib/python3.9/site-packages/geopandas/base.py:2637,</span> in <span class="ni">GeoPandasBase.sindex</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2586</span> <span class="nd">@property</span>
 <span class="g g-Whitespace">   </span><span class="mi">2587</span> <span class="k">def</span> <span class="nf">sindex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2588</span>     <span class="sd">&quot;&quot;&quot;Generate the spatial index</span>
+<span class="g g-Whitespace">   </span><span class="mi">2588</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Generate the spatial index</span>
 <span class="g g-Whitespace">   </span><span class="mi">2589</span><span class="sd"> </span>
 <span class="g g-Whitespace">   </span><span class="mi">2590</span><span class="sd">     Creates R-tree spatial index based on ``pygeos.STRtree`` or</span>
 <span class="sd">   (...)</span>

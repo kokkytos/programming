@@ -487,7 +487,7 @@ document.write(`
     <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
     <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
     <span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Colab\ Notebooks/programming/notebooks
-    <span class="o">!</span>pip install rasterio geopandas folium matplotlib mapclassify
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>rasterio<span class="w"> </span>geopandas<span class="w"> </span>folium<span class="w"> </span>matplotlib<span class="w"> </span>mapclassify
 </pre></div>
 </div>
 </div>
@@ -968,7 +968,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7f68c70b60d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7fb804176df0&gt;
 </pre></div>
 </div>
 </div>
@@ -1168,7 +1168,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7f68c45d3d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7fb8061f4ee0&gt;
 </pre></div>
 </div>
 </div>
@@ -1732,7 +1732,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_f3b22d602abf41783604e5056ac06142 {
+                #map_453392e925ff945f014ca96538a1582e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1746,14 +1746,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_f3b22d602abf41783604e5056ac06142&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_453392e925ff945f014ca96538a1582e&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_f3b22d602abf41783604e5056ac06142 = L.map(
-                &quot;map_f3b22d602abf41783604e5056ac06142&quot;,
+            var map_453392e925ff945f014ca96538a1582e = L.map(
+                &quot;map_453392e925ff945f014ca96538a1582e&quot;,
                 {
                     center: [39.35858398397631, 22.932070043920394],
                     crs: L.CRS.EPSG3857,
@@ -1767,31 +1767,31 @@ document.write(`
 
         
     
-            var tile_layer_f77bdb72d10df09c87dc04de719e8c41 = L.tileLayer(
+            var tile_layer_c28a56c771f4c9872e411669b5e4e3a4 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_f77bdb72d10df09c87dc04de719e8c41.addTo(map_f3b22d602abf41783604e5056ac06142);
+            tile_layer_c28a56c771f4c9872e411669b5e4e3a4.addTo(map_453392e925ff945f014ca96538a1582e);
         
     
-            var marker_1a90929a0ba2880b207b3aa83dc921b8 = L.marker(
+            var marker_bf416fe4cafd4ee87fd3e14a5ed046d7 = L.marker(
                 [39.35858398397631, 22.932070043920394],
                 {}
-            ).addTo(map_f3b22d602abf41783604e5056ac06142);
+            ).addTo(map_453392e925ff945f014ca96538a1582e);
         
     
-        var popup_a78acde51936d6ea3dc6c191b9e6318e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_db3f96017967a5fbf78db199b6f7384c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_b6af9ac8046ac5b6fb5ab8f48a8c792a = $(`&lt;div id=&quot;html_b6af9ac8046ac5b6fb5ab8f48a8c792a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Volos&lt;/div&gt;`)[0];
-                popup_a78acde51936d6ea3dc6c191b9e6318e.setContent(html_b6af9ac8046ac5b6fb5ab8f48a8c792a);
+                var html_4c6fcf80eb7bb4da22f257bbf57b00ba = $(`&lt;div id=&quot;html_4c6fcf80eb7bb4da22f257bbf57b00ba&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Volos&lt;/div&gt;`)[0];
+                popup_db3f96017967a5fbf78db199b6f7384c.setContent(html_4c6fcf80eb7bb4da22f257bbf57b00ba);
             
         
 
-        marker_1a90929a0ba2880b207b3aa83dc921b8.bindPopup(popup_a78acde51936d6ea3dc6c191b9e6318e)
+        marker_bf416fe4cafd4ee87fd3e14a5ed046d7.bindPopup(popup_db3f96017967a5fbf78db199b6f7384c)
         ;
 
         
@@ -2052,7 +2052,7 @@ Length: 325, dtype: object
 <span class="nn">File ~/.local/lib/python3.9/site-packages/geopandas/geodataframe.py:1858,</span> in <span class="ni">GeoDataFrame.explore</span><span class="nt">(self, *args, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1855</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">_explore</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1856</span> <span class="k">def</span> <span class="nf">explore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1857</span>     <span class="sd">&quot;&quot;&quot;Interactive map based on folium/leaflet.js&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Interactive map based on folium/leaflet.js&quot;&quot;&quot;</span>
 <span class="ne">-&gt; </span><span class="mi">1858</span>     <span class="k">return</span> <span class="n">_explore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="nn">File ~/.local/lib/python3.9/site-packages/geopandas/explore.py:258,</span> in <span class="ni">_explore</span><span class="nt">(df, column, cmap, color, m, tiles, attr, tooltip, popup, highlight, categorical, legend, scheme, k, vmin, vmax, width, height, categories, classification_kwds, control_scale, marker_type, marker_kwds, style_kwds, highlight_kwds, missing_kwds, tooltip_kwds, popup_kwds, legend_kwds, **kwargs)</span>
