@@ -1,0 +1,24 @@
+# Copied from 'sphinx' extra of pyproject.toml
+altair
+bokeh
+folium
+ipywidgets
+jupytext
+jupyter-book
+matplotlib
+nbclient
+numpy
+pandas
+geopandas
+shapely
+plotly
+sphinx-click
+sphinx_inline_tabs
+sphinxext-rediraffe~=0.2.3
+sympy
+sphinx-proof
+graphviz
+rasterio
+geopandas
+scikit-learn
+scikit-image

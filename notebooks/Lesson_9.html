@@ -1,0 +1,3806 @@
+
+<!DOCTYPE html>
+
+
+<html lang="el" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Γεωεπεξεργασία διανυσματικών δεδομένων &#8212; Προγραμματισμός Η/Υ</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=beaea9c7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=dd0234b1"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_9';</script>
+    <link rel="index" title="Ευρετήριο" href="../genindex.html" />
+    <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="10. Διαγράμματα" href="Lesson_10.html" />
+    <link rel="prev" title="8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas" href="Lesson_8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="el"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/UTH-logo-greek.jpg" class="logo__image only-light" alt="Προγραμματισμός Η/Υ - Home"/>
+    <script>document.write(`<img src="../_static/UTH-logo-greek.jpg" class="logo__image only-dark" alt="Προγραμματισμός Η/Υ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Αναζήτηση</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Προγραμματισμός Η/Υ
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Αποθήκη πηγής"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kokkytos/programming/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Lesson_9.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ανοίξτε ένα ζήτημα"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Λήψη αυτής της σελίδας">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Lesson_9.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Λήψη αρχείου προέλευσης"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Εκτύπωση σε PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="ΛΕΙΤΟΥΡΓΙΑ ΠΛΗΡΟΥΣ ΟΘΟΝΗΣ"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9. Γεωεπεξεργασία διανυσματικών δεδομένων</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Περιεχόμενα </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Ειδική ενότητα για εκτέλεση στο Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python βιβλιοθήκες για διανυσματικά δεδομένα</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely">Η βιβλιοθήκη Shapely</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-from-wkt">shapely from WKT</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Πολύγωνα</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Σημεία</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Γραμμές</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Shapely μέσω συναρτήσεων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-shape">Shapely μέσω shape</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Γεωμετρικός τύπος δεδομένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Συντεταγμένες</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ιδιότητες αντικειμένων</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bounds">Υπολογισμός ορίων (bounds)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Υπολογισμός μήκους γραμμής</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Υπολογισμός εμβαδού</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Νέες γεωμετρίες</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#centroid">Κεντροειδές πολυγώνου (centroid)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">Περιμετρική ζώνη (buffer)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-hull">Convex hull</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Σχέσεις μεταξύ αντικειμένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Γεωμετρικές πράξεις</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas">Η βιβλιοθήκη Geopandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Βιβλιογραφία:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>9. Γεωεπεξεργασία διανυσματικών δεδομένων<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="google-colab">
+<h2>Ειδική ενότητα για εκτέλεση στο Google Colab<a class="headerlink" href="#google-colab" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># έλεγχος αν το notebook τρέχει στο google colab</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">google.colab</span>
+  <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># αν το notebook τρέχει στο colab, mount το Google Drive και αλλαγή στο directory που έχει γίνει clone το github repository.</span>
+<span class="c1"># εγκατάσταση απαραίτητων βιβλιοθηκών</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Colab\ Notebooks/programming/notebooks
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>rasterio<span class="w"> </span>geopandas<span class="w"> </span>folium<span class="w"> </span>matplotlib<span class="w"> </span>mapclassify
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ο χώρος και οι γεωμετρικές δομές του μπορούν να αναπαρασταθούν μέσω διανυσματικών δεδομένων (Vector).
+Οι τρείς βασικές δομές δεδομένων είναι:</p>
+<ul class="simple">
+<li><p>Τα σημεία</p></li>
+<li><p>Οι γραμμές</p></li>
+<li><p>Τα πολύγωνα</p></li>
+</ul>
+<p><img alt="alt text" src="https://raw.githubusercontent.com/kokkytos/programming/main/images/vector.png" /></p>
+<p>Επιπλέον αυτά τα γεωμετρικά δεδομένα συνοδεύονται και απο περιγραφικά δεδομένα που αφορούν τις ιδιότητες ή τα χαρακτηριστικά αυτών των δεδομένων.</p>
+<p><img alt="alt text" src="https://raw.githubusercontent.com/kokkytos/programming/main/images/spatial-attribute-tables.png" /></p>
+<p>Στα Σ.Γ.Π. ο πιο συνηθισμένος τύπος αρχείων αποθήκευσης αυτών των δεδομένων είναι το shapefile.
+Πλέον έχουν αναπτυχθεί και άλλοι τύποι όπως geojson, geopackage και χωρικές βάσεις δεδομένων (geodatabases) όπως η Postgresql/Postgis.</p>
+<p>Ο προσδιορισμός της γεωγραφικής θέσης στην υδρόγειο γίνεται μέσω ενός ζεύγους γεωγραφικών συντεταγμένων.
+Κάθε σημείο στον χώρο προσδιορίζεται γεωγραφικά από το γεωγραφικό μήκος (λ) και το γεωγραφικό πλάτος (φ).</p>
+<p><img alt="alt text" src="https://raw.githubusercontent.com/kokkytos/programming/main/images/coords.jpg" /></p>
+<p>Για να αποδοθεί η τρισδιάστατη υδρόγειος σφαίρα σε ένα δυσδιάστατο σύστημα αναφορά χρησιμοποιείται ένα προβολικό σύστημα.</p>
+<p><img alt="alt text" src="https://raw.githubusercontent.com/kokkytos/programming/main/images/437-mapping-projection-types.png" /></p>
+<p>Κάθε προβολικό σύστημα της σφαίρας στο επίπεδο εισάγει μια σειρά παραμορφώσεων που αφορά το σχήμα των γεωμετρικών δομών, την κλίμακα, την έκταση και τις αποστάσεις. Ανάλογα το προβολικό σύστημα κάποιες από τις παραπάνω παραμορφώσεις εμφανίζονται σε μεγάλο βαθμό και άλλες όχι.
+Οπότε ανάλογα το είδος της έρευνας ο ερευνητής οφείλει να γνωρίζει τι είδους παραμορφώσεις εισάγει η κάθε προβολή και ανάλογα να επιλέγει την προβολή με τα λιγότερα σφάλματα.</p>
+</section>
+<section id="python">
+<h2>Python βιβλιοθήκες για διανυσματικά δεδομένα<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<p>Για την ανάγνωση, εγγραφή, επεξεργασία διανυσματικών δεδομένων στην Python έχουν καθιερωθεί μια σειρά βιβλιοθηκών.
+Η αρχαιότερη και βασική βιβλιοθήκη είναι η <a class="reference external" href="https://gdal.org/">GDAL/OGR</a>. Επειδή η βιβλιοθήκη δεν είναι ιδιαίτερα συμβατή σε σχέση με τον τρόπο συγγραφής της Python και είναι επιρρεπής σε σφάλματα έχουν αναπτυχθεί πιο σύγχρονες βιβλιοθήκες όπως η βιβλιοθήκη <a class="reference external" href="https://github.com/Toblerity/Fiona">Fiona</a> που είναι ιδιαίτερα χρήσιμη για την ανάγνωση/εγγραφή διανυσματικών δεδομένων και η βιβλιοθήκη <a class="reference external" href="https://github.com/shapely/shapely">Shapely</a> η οποία χρησιμοποιείται για επεξεργασία και ανάλυση δεδομένων.</p>
+</section>
+<section id="shapely">
+<h2>Η βιβλιοθήκη Shapely<a class="headerlink" href="#shapely" title="Link to this heading">#</a></h2>
+<section id="shapely-from-wkt">
+<h3>shapely from WKT<a class="headerlink" href="#shapely-from-wkt" title="Link to this heading">#</a></h3>
+<p>Μπορούμε να δημιουργήσουμε αντικείμενα shapely που αναπαριστούν σημεία ή γραμμές ή πολύγωνα μέσω WKT. Η γλώσσα <a class="reference external" href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT</a> είναι μια ειδική διάλεκτος για την περιγραφή διανυσματικών αντικειμένων. Εισάγουμε τις απαραίτητες υπο-βιβλιοθήκες (<code class="docutils literal notranslate"><span class="pre">geometry</span></code> και <code class="docutils literal notranslate"><span class="pre">wkt</span></code>) από την βιβλιοθήκη shapely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shapely.geometry</span>
+<span class="kn">import</span> <span class="nn">shapely.wkt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Πολύγωνα<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Καλούμε την μέθοδο <code class="docutils literal notranslate"><span class="pre">shapely.wkt.loads()</span></code> για να δημιουργήσουμε shapely objects από wkt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POLYGON ((0 0, 0 -1, 7.5 -1, 7.5 0,0 0))&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" src="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" /></div>
+</div>
+<p>Η εκτύπωση του shapely αντικειμένου επιστρέφει μία περιγραφή σε μορφή WKT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pol1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POLYGON ((0 0, 0 -1, 7.5 -1, 7.5 0, 0 0))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εκτύπωση του τύπου του αντικειμένου pol1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pol1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shapely.geometry.polygon.Polygon
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POLYGON ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1))&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pol2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POLYGON ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" src="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" /></div>
+</div>
+<p>Δημιουργία MultiPolygon shapely object από αντίστοιχη συλλογή πολυγώνων MULTIPOLYGON</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">MULTIPOLYGON</span>
+<span class="s2">(((40 40, 20 45, 45 30, 40 40)),</span>
+<span class="s2">((20 35, 10 30, 10 10, 30 5, 45 20, 20 35), (30 20, 20 15, 20 25, 30 20)))</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pol3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shapely.geometry.multipolygon.MultiPolygon
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" src="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pol3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shapely.geometry.multipolygon.MultiPolygon
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h4>Σημεία<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">POINT (30 10)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7fd75757498157ee37310edf67a060b8bfeaefb86e34e33508e800c684f2d0cf.svg" src="../_images/7fd75757498157ee37310edf67a060b8bfeaefb86e34e33508e800c684f2d0cf.svg" /></div>
+</div>
+<p>Συλλογή σημείων</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">MULTIPOINT(0 0,1 1)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c63bfe34b7f510937341df741615fb494cece8edac7e20d227db2e9a66334c06.svg" src="../_images/c63bfe34b7f510937341df741615fb494cece8edac7e20d227db2e9a66334c06.svg" /></div>
+</div>
+</section>
+<section id="id4">
+<h4>Γραμμές<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span> <span class="o">=</span><span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">LINESTRING(1.5 2.45,3.21 4)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">line1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2cd3d88288fb8b542b87523ea334c7e1ece0d32dd4ac2a549f40a9fe0191e388.svg" src="../_images/2cd3d88288fb8b542b87523ea334c7e1ece0d32dd4ac2a549f40a9fe0191e388.svg" /></div>
+</div>
+<p>Συλλογή γραμμών</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span> <span class="o">=</span><span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">MULTILINESTRING((0 0,-1 -2,-3 -4, -3 -8),(2 3,3 4,6 7))</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">line2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/88fa9b3a875b8bb6cbd9433e5d1222434312672c08f42db5a9ff3de51f77d554.svg" src="../_images/88fa9b3a875b8bb6cbd9433e5d1222434312672c08f42db5a9ff3de51f77d554.svg" /></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h3>Shapely μέσω συναρτήσεων<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">MultiPoint</span><span class="p">,</span> <span class="n">MultiLineString</span><span class="p">,</span> <span class="n">MultiPolygon</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Κάθε συνάρτηση λαμβάνει διαφορετικά ορίσματα ανάλογα με την συνάρτηση.</p>
+<p>Στην συνέχεια ακολουθεί η δημιουργία ενός αντικειμένου shapely γεωμετρίας σημείου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">pnt1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41a1de3763a0bcacb1870b07d2f4670d399378ca17aeaaa22c5969c601b3f873.svg" src="../_images/41a1de3763a0bcacb1870b07d2f4670d399378ca17aeaaa22c5969c601b3f873.svg" /></div>
+</div>
+<p>Για την δημιουργία συλλογής σημείων <code class="docutils literal notranslate"><span class="pre">multipoint</span></code> δίνουμε σαν όρισμα στην συνάρτηση <em><a class="reference external" href="https://shapely.readthedocs.io/en/stable/manual.html#collections-of-points">shapely.geometry.MultiPoint</a></em> μία λίστα από πλειάδες (tuples). Η κάθε πλειάδα <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code>αντιστοιχεί στις συντεταγμένες ενός σημείου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">pnt2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">MultiPoint</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="n">pnt2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9db5cc44d665b5c93189800650d6efbb5e07d02b5bce6cac126a13e96e9b17f4.svg" src="../_images/9db5cc44d665b5c93189800650d6efbb5e07d02b5bce6cac126a13e96e9b17f4.svg" /></div>
+</div>
+<p>Για την δημιουργία γραμμών χρησιμοποιείται πάλι μία λίστα από tuples που περιγράφουν τις κορυφές της γραμμής. Στο παρακάτω παράδειγμα χρησιμοποιούμαι την προηγούμενη πλειάδα αλλά πλέον χρησιμοποιούμε την μέθοδο <em>shapely.geometry.LineString</em> για την δημιουργία γραμμής και όχι την μέθοδο <code class="docutils literal notranslate"><span class="pre">shapely.geometry.MultiPoint</span></code> που δημιουργεί συλλογές σημείων.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="n">line1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" src="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" /></div>
+</div>
+<p>Κατασκεύη γραμμής από Point Objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POINT (0 0)&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POINT (1 1)&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POINT (2 -1)&quot;</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POINT (2.5 2)&quot;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;POINT (1 -1)&quot;</span><span class="p">)</span>
+
+<span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6658f3a96ed21576ee9f536a438b6237c83955475d0e9e43f7f60c7e773fe493.svg" src="../_images/6658f3a96ed21576ee9f536a438b6237c83955475d0e9e43f7f60c7e773fe493.svg" /></div>
+</div>
+<p>Αντίστοιχα μπορούμε να δημιουργήσουμε συλλογές γραμμών.</p>
+<p>Δημιουργούμε ξεχωριστά αντικείμενα γραμμών shapely και στην συνέχεια καλούμε την συνάρτηση <code class="docutils literal notranslate"><span class="pre">shapely.geometry.MultiLineString</span></code> όπου ορίζουμε σαν όρισμα μια λίστα με τις μεμονωμένες γραμμές.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">([(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">MultiLineString</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">])</span>
+<span class="n">line2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/731907aabebc321ccc8b13ee9fed5c86229c0d648e1792107d7a45e5277a59b6.svg" src="../_images/731907aabebc321ccc8b13ee9fed5c86229c0d648e1792107d7a45e5277a59b6.svg" /></div>
+</div>
+<p>Αντίστοιχα δημιουργούμε πολυγωνικά αντικείμενα  μέσω μια λίστας με πλειάδες σημείων που χρησιμοποιείται σαν όρισμα στην συνάρτηση <em>shapely.geometry.Polygon</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" src="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" /></div>
+</div>
+<p>Αν θέλουμε μπορούμε να περάσουμε μία δεύτερη λίστα η οποία περιλαμβανει επιμέρους λίστες με πλειάδες σημείων τα οποία περιγράφουν τρύπες μέσα στο πολύγωνο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords_exterior</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">coords_interiors</span> <span class="o">=</span> <span class="p">[[(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">)]]</span>
+<span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">coords_exterior</span><span class="p">,</span> <span class="n">coords_interiors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2fc65b957cdb6f4d642a26c4f780b4c294572c7f2df5a1790dace2760c96c2ad.svg" src="../_images/2fc65b957cdb6f4d642a26c4f780b4c294572c7f2df5a1790dace2760c96c2ad.svg" /></div>
+</div>
+<p>Με την συνάρτηση <em>shapely.geometry.MultiPolygon</em> δημιουργούμε αντίστοιχα συλλογές πολυγώνων από μεμονωμένα αντικείμενα shapely.geometry.polygon.Polygon</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" src="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multipolygon1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">MultiPolygon</span><span class="p">([</span><span class="n">pol1</span><span class="p">,</span> <span class="n">pol2</span><span class="p">])</span>
+<span class="n">multipolygon1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00d2ee97fbb5581d40b7a083c1868228c0f5922b2906926b9636763f3065a5e2.svg" src="../_images/00d2ee97fbb5581d40b7a083c1868228c0f5922b2906926b9636763f3065a5e2.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">multipolygon1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MULTIPOLYGON (((0 0, 0 -1, 7.5 -1, 7.5 0, 0 0)), ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1)))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Σύμφωνα με τις προδιαγραφές <a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Features">simple features</a> το παραπάνω object δεν είναι έγκυρο γιατί ένα πολύγωνο τέμνει ένα άλλο σε άπειρο αριθμό σημείων. Μπορούμε να ελέγξουμε την εγκυρότητα ενός αντικειμένου με την κλήση τις ιδιότητας <em>is_valid</em>. Επίσης κατά την οπτικοποίηση στο προηγούμενο βήμα του αντικειμένου multipolygon1 αυτό εμφανίζεται με κόκκινο (αντί για πράσινο). Ένδειξη ότι δεν ειναι valid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multipolygon1</span><span class="o">.</span><span class="n">is_valid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ταυτόχρονα μπορούμε να φτιάξουμε σύνθετες συλλογές από επιμέρους αντικείμενα shapely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_collection</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">multipolygon1</span><span class="p">,</span><span class="n">line2</span><span class="p">,</span><span class="n">pnt1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_collection</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9022406b3563a2990e7cb8cf73499621b7cd8b18f0e38469ad76b584f298a4f5.svg" src="../_images/9022406b3563a2990e7cb8cf73499621b7cd8b18f0e38469ad76b584f298a4f5.svg" /></div>
+</div>
+</section>
+<section id="shapely-shape">
+<h3>Shapely μέσω shape<a class="headerlink" href="#shapely-shape" title="Link to this heading">#</a></h3>
+<p>Μπορούμε να δημιουργήσουμε αντικείμενα shapely μέσω της συνάρτησης <em>shapely.geometry.shape</em> η οποία δέχεται σαν όρισμα ένα λεξικό μορφής <a class="reference external" href="https://en.wikipedia.org/wiki/GeoJSON">GEOJSON</a> το οποίο πρέπει να έχει τις εξής δύο ιδιότητες.</p>
+<ul class="simple">
+<li><p>Την ιδιότητα <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> που περιγράφει τον τύπο γεωμετρίας</p></li>
+<li><p>Την ιδιότητα  <code class="docutils literal notranslate"><span class="pre">&quot;coordinates&quot;</span></code> που περιγράφει τις γεωμετρίες και τις συντεταγμένες τους σαν λίστες ή πλειάδες.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)}</span>
+<span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0ff286b1540ca7ca55186a74330ff537ea9da7db37f35eb2e35df152472fc2e8.svg" src="../_images/0ff286b1540ca7ca55186a74330ff537ea9da7db37f35eb2e35df152472fc2e8.svg" /></div>
+</div>
+<p>Δημιουργία αντικειμένου MultiPolygon μέσω GEOJSON λεξικού:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">]]</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="p">[[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">]],</span> 
+      <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">]]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">pol3</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">pol3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" src="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" /></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>Γεωμετρικός τύπος δεδομένων<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>H ιδιότητα <code class="docutils literal notranslate"><span class="pre">.geom_type</span></code> ενός αντικειμένου shapely περιγράφει τον γεωμετρικό τύπο της:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Polygon&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;LineString&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_collection</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;GeometryCollection&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>Συντεταγμένες<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>Για να ανακτήσουμε τις συντεταγμένες ενός shapely αντικειμένου καλούμε με διαφορετικό τρόπο τις ανάλογες συναρτήσεις ανάλογα την πολυπλοκότητα του κάθε τύπου.</p>
+<p>Για ένα Point object καλούμε άμεσα την ιδιότητα coords η οποία επιστρέφει ένα <em>shapely.coords.CoordinateSequence</em> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span><span class="o">.</span><span class="n">coords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7fcd64098b50&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να λάβουμε ως λίστα τις πλειάδες συντεταγμένων που το απαρτίζουν</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pnt1</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2.0, 0.5)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Αντίστοιχα για γραμμή</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">line1</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2.0, 0.5), (1.0, 1.0), (-1.0, 0.0), (1.0, 0.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για να ελέγξουμε σε ένα αντικείμενο συλλογών γεωμετρίας (MultiPoint, MultiPolygon κτλ) πόσες επιμέρους γεωμετρίες περιλαμβάνει:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/731907aabebc321ccc8b13ee9fed5c86229c0d648e1792107d7a45e5277a59b6.svg" src="../_images/731907aabebc321ccc8b13ee9fed5c86229c0d648e1792107d7a45e5277a59b6.svg" /></div>
+</div>
+<p>Για να λάβουμε το πρώτο αντικείμενο γεωμετρίας:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/af27def5407f8e4dded219bcb95c3d12780c11248ca9e3e1bd914baa3776c1e4.svg" src="../_images/af27def5407f8e4dded219bcb95c3d12780c11248ca9e3e1bd914baa3776c1e4.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shapely.geometry.linestring.LineString
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;LineString&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Και λαμβάνουμε τις συντεταγμένες της πρώτης γεωμετρίας:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2.0, 0.5), (1.0, 1.0), (-1.0, 0.0), (1.0, -1.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>ή της δεύτερης</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2.0, 1.0), (2.0, -0.5), (3.0, 1.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για τα πολύγωνα ακολουθούμε διαφορετική προσέγγιση. Ένα πολύγωνο αποτελεί από το εξωτερικό περίγραμμα (exterior) ή και ένα ή περισσότερα περιγράμματα εσωτερικών οπών (interiors). Κατά συνέπεια έχουμε συντεταγμένες που περιγράφουν το κάθε περίγραμμα.</p>
+<p>Το εξωτερικό περίγραμμα του pol1 αντικειμένου:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">exterior</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9200cc6f46cb86cce26901dc6bda56b3893df2295292d1aef0ed6d62c05abb99.svg" src="../_images/9200cc6f46cb86cce26901dc6bda56b3893df2295292d1aef0ed6d62c05abb99.svg" /></div>
+</div>
+<p>Και οι συντεταγμένες του:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pol1</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.0, 0.0), (0.0, -1.0), (7.5, -1.0), (7.5, 0.0), (0.0, 0.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" src="../_images/3f5f3ed127ee5e83c8ecbb9989c7323fdb536e8c1f2e237a74a7510e8474a3e5.svg" /></div>
+</div>
+<p>Το pol1 όμως δεν έχει εσωτερικές τρύπες γι αυτό και το παρακάτω επιστρέφει μηδέν.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pol1</span><span class="o">.</span><span class="n">interiors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Έστω το παρακάτω MultiPolygon object που δημιουργήσαμε σε προηγούμενο στάδιο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" src="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" /></div>
+</div>
+<p>Περιλαμβάνει δύο ξεχωριστά γεωμετρικά αντικείμενα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ας πάρουμε το πρώτο:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3ca68a08af778939809097c6945f2cec777be177c6a84773fd56198fb23e9c4f.svg" src="../_images/3ca68a08af778939809097c6945f2cec777be177c6a84773fd56198fb23e9c4f.svg" /></div>
+</div>
+<p>Δεν περιλαμβάνει καμία τρύπα στο εσωτερικό του. Ας πάρουμε τις συντεταγμένες από το περίγραμμά του (exterior)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;shapely.coords.CoordinateSequence at 0x7fcd640981c0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Και ας τις επιστρέψουμε σαν λίστα πλειάδων από ζεύγη της μορφής <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(40.0, 40.0), (20.0, 45.0), (45.0, 30.0), (40.0, 40.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ας δοκιμάσουμε το δεύτερο αντικείμενο γεωμετρίας. Ας το δούμε:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3b34b8f4c2314537de73246f84bd0ed6927fb5c291072c9647a514c61f22a058.svg" src="../_images/3b34b8f4c2314537de73246f84bd0ed6927fb5c291072c9647a514c61f22a058.svg" /></div>
+</div>
+<p>Λαμβάνουμε τις συντεταγμένες του εξωτερικού περιγράμματος:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(20.0, 35.0),
+ (10.0, 30.0),
+ (10.0, 10.0),
+ (30.0, 5.0),
+ (45.0, 20.0),
+ (20.0, 35.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ας δούμε πόσες τρύπες έχει στο εσωτερικό του:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">interiors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Παίρνουμε το περίγραμμα της τρύπας</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">interiors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0027abad43686cbe010144880f4f2d9ee0b0447d584c81953a1618f2947e008c.svg" src="../_images/0027abad43686cbe010144880f4f2d9ee0b0447d584c81953a1618f2947e008c.svg" /></div>
+</div>
+<p>Και τις συντεταγμένες της</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pol3</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">interiors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(30.0, 20.0), (20.0, 15.0), (20.0, 25.0), (30.0, 20.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id8">
+<h3>Ιδιότητες αντικειμένων<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="bounds">
+<h4>Υπολογισμός ορίων (bounds)<a class="headerlink" href="#bounds" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_collection</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9022406b3563a2990e7cb8cf73499621b7cd8b18f0e38469ad76b584f298a4f5.svg" src="../_images/9022406b3563a2990e7cb8cf73499621b7cd8b18f0e38469ad76b584f298a4f5.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_collection</span><span class="o">.</span><span class="n">bounds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.0, -1.0, 7.5, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">geo_collection</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d98a973aa5d96ab60094ecbb0c15e048a5193a2cb7977cf4ef0bf3447f886296.svg" src="../_images/d98a973aa5d96ab60094ecbb0c15e048a5193a2cb7977cf4ef0bf3447f886296.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" src="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span><span class="o">.</span><span class="n">bounds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0, 0.0, 2.0, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41a1de3763a0bcacb1870b07d2f4670d399378ca17aeaaa22c5969c601b3f873.svg" src="../_images/41a1de3763a0bcacb1870b07d2f4670d399378ca17aeaaa22c5969c601b3f873.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span><span class="o">.</span><span class="n">bounds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.0, 0.5, 2.0, 0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pnt1</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2.0, 0.5)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h4>Υπολογισμός μήκους γραμμής<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" src="../_images/787ff0839ffb7e040a1e9229cdc90f4365fb29bef3a4b4e8fa155258c854236b.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line1</span><span class="o">.</span><span class="n">length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.354101966249685
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/af27def5407f8e4dded219bcb95c3d12780c11248ca9e3e1bd914baa3776c1e4.svg" src="../_images/af27def5407f8e4dded219bcb95c3d12780c11248ca9e3e1bd914baa3776c1e4.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line2</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5901699437494745
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h4>Υπολογισμός εμβαδού<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span><span class="o">.</span><span class="n">area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.25
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h3>Νέες γεωμετρίες<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="centroid">
+<h4>Κεντροειδές πολυγώνου (centroid)<a class="headerlink" href="#centroid" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" src="../_images/a16328429069b9c096fa139809d27c9c20c26c7e27b02a524b269a716fb3164f.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol2</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4e5ba7e37fa4eeaf2646e1ed1a14c543142b4ad6b923ceb983df8049c60ac3bd.svg" src="../_images/4e5ba7e37fa4eeaf2646e1ed1a14c543142b4ad6b923ceb983df8049c60ac3bd.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pol2</span><span class="p">,</span> <span class="n">pol2</span><span class="o">.</span><span class="n">centroid</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4c69f83401986c14f89d74c7b5f8fd1e37bd4b844c28deb8d24d6f04e601812d.svg" src="../_images/4c69f83401986c14f89d74c7b5f8fd1e37bd4b844c28deb8d24d6f04e601812d.svg" /></div>
+</div>
+</section>
+<section id="buffer">
+<h4>Περιμετρική ζώνη (buffer)<a class="headerlink" href="#buffer" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnt1</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7dc37a75b133399fa4c9d49ec39f937505198867ca40b28691212727003aec66.svg" src="../_images/7dc37a75b133399fa4c9d49ec39f937505198867ca40b28691212727003aec66.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pnt1</span><span class="p">,</span><span class="n">pnt1</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e4abedbc283deefa8e24525d261bc244c3f7464f3185b7060e7b66c3282413d9.svg" src="../_images/e4abedbc283deefa8e24525d261bc244c3f7464f3185b7060e7b66c3282413d9.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cb1690bfba9ced07bc840e72bc292177b7dc0144aa84df511a937be29ec00f65.svg" src="../_images/cb1690bfba9ced07bc840e72bc292177b7dc0144aa84df511a937be29ec00f65.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pol1</span><span class="p">,</span><span class="n">pol1</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cf070cc2d9d81431d9539d6d798610d24e48467362de7db8c3bfadef37229969.svg" src="../_images/cf070cc2d9d81431d9539d6d798610d24e48467362de7db8c3bfadef37229969.svg" /></div>
+</div>
+</section>
+<section id="convex-hull">
+<h4>Convex hull<a class="headerlink" href="#convex-hull" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" src="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">convex_hull</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5f8e8471b37ff6e05795981b09c0a5495889e7f544848ee1e31edf771cfdc1b4.svg" src="../_images/5f8e8471b37ff6e05795981b09c0a5495889e7f544848ee1e31edf771cfdc1b4.svg" /></div>
+</div>
+</section>
+</section>
+</section>
+<section id="id12">
+<h2>Σχέσεις μεταξύ αντικειμένων<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pol1</span><span class="p">,</span><span class="n">pol3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12c5847340cf79349e5e99ab8e95ba631d2813c892186939363169a75f153c2f.svg" src="../_images/12c5847340cf79349e5e99ab8e95ba631d2813c892186939363169a75f153c2f.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" src="../_images/87960418f1c8810956c717b2c6190fe2631d68d80c5f63134c80f0632d678ee9.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">pol3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pol1</span><span class="p">,</span><span class="n">pol2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3ef4039175669b6299c9848cf4ed5324d0e1571a7f0f1eac1528b3c4369e5e0d.svg" src="../_images/3ef4039175669b6299c9848cf4ed5324d0e1571a7f0f1eac1528b3c4369e5e0d.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">pol2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id13">
+<h2>Γεωμετρικές πράξεις<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a9c60fd4321985ec50158abd3a6219f546385d62ec0c17e2542359777782ebf2.svg" src="../_images/a9c60fd4321985ec50158abd3a6219f546385d62ec0c17e2542359777782ebf2.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/29feeb8d13a53df5d51e4d41a5b8611637cb0859e5d44930ab04ea5e6aa32333.svg" src="../_images/29feeb8d13a53df5d51e4d41a5b8611637cb0859e5d44930ab04ea5e6aa32333.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c118e18cd2cc51877a1f6ca49fdf24a34a466883946aea20289c66b71c055d7e.svg" src="../_images/c118e18cd2cc51877a1f6ca49fdf24a34a466883946aea20289c66b71c055d7e.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/236b29e74c4913f4671357ae75c99d899a4782c9f9fac30b713c491e0560d6b4.svg" src="../_images/236b29e74c4913f4671357ae75c99d899a4782c9f9fac30b713c491e0560d6b4.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/236b29e74c4913f4671357ae75c99d899a4782c9f9fac30b713c491e0560d6b4.svg" src="../_images/236b29e74c4913f4671357ae75c99d899a4782c9f9fac30b713c491e0560d6b4.svg" /></div>
+</div>
+<p>Υπολογισμός απόστασης ανάμεσα σε δύο αντικείμενα</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeometryCollection</span><span class="p">([</span><span class="n">pol1</span><span class="p">,</span> <span class="n">pol3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12c5847340cf79349e5e99ab8e95ba631d2813c892186939363169a75f153c2f.svg" src="../_images/12c5847340cf79349e5e99ab8e95ba631d2813c892186939363169a75f153c2f.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol1</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">pol3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.307764064044152
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pol3</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">pol1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.307764064044152
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μετασχηματισμός προβολικού συστήματος:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyproj</span>
+
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">transform</span>
+
+<span class="n">wgs84_pt</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">39.35858398397631</span><span class="p">,</span> <span class="mf">22.932070043920394</span><span class="p">)</span>
+
+<span class="n">wgs84</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">(</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
+<span class="n">greek_grid</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">(</span><span class="s1">&#39;EPSG:2100&#39;</span><span class="p">)</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">Transformer</span><span class="o">.</span><span class="n">from_crs</span><span class="p">(</span><span class="n">wgs84</span><span class="p">,</span> <span class="n">greek_grid</span><span class="p">,</span> <span class="n">always_xy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span>
+<span class="n">projected_point</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">wgs84_pt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">projected_point</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POINT (2087909.8290560723 2620022.621513317)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">wgs84_pt</span><span class="o">.</span><span class="n">coords</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(39.35858398397631, 22.932070043920394)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Προβολή δεδομένων σε διαδραστικό χάρτη leaflet μέσω της βιβλιοθήκης folium</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">wgs84_pt</span><span class="o">.</span><span class="n">coords</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#Create the map</span>
+<span class="n">my_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="n">coords</span><span class="p">,</span> <span class="n">zoom_start</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="c1"># Add marker</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">popup</span> <span class="o">=</span> <span class="s1">&#39;Volos&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">my_map</span><span class="p">)</span>
+
+<span class="c1">#Display the map</span>
+<span class="n">my_map</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_2cf55a2bc9a722df63d3759e27f52851 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_2cf55a2bc9a722df63d3759e27f52851&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_2cf55a2bc9a722df63d3759e27f52851 = L.map(
+                &quot;map_2cf55a2bc9a722df63d3759e27f52851&quot;,
+                {
+                    center: [39.35858398397631, 22.932070043920394],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0fe3ed2908632ab13b32fc603764ce45 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_0fe3ed2908632ab13b32fc603764ce45.addTo(map_2cf55a2bc9a722df63d3759e27f52851);
+        
+    
+            var marker_ecb4367ec5c18820fe555ef85304eb85 = L.marker(
+                [39.35858398397631, 22.932070043920394],
+                {}
+            ).addTo(map_2cf55a2bc9a722df63d3759e27f52851);
+        
+    
+        var popup_e93144f81fed309febbd7901e4ed39ad = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_1894390501d181a7bfe7479cc728b827 = $(`&lt;div id=&quot;html_1894390501d181a7bfe7479cc728b827&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Volos&lt;/div&gt;`)[0];
+                popup_e93144f81fed309febbd7901e4ed39ad.setContent(html_1894390501d181a7bfe7479cc728b827);
+            
+        
+
+        marker_ecb4367ec5c18820fe555ef85304eb85.bindPopup(popup_e93144f81fed309febbd7901e4ed39ad)
+        ;
+
+        
+    
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+<section id="geopandas">
+<h2>Η βιβλιοθήκη Geopandas<a class="headerlink" href="#geopandas" title="Link to this heading">#</a></h2>
+<p>Μέχρι τώρα είδαμε πως μπορούμε να διαχειριζόμαστε γεωμετρικά δεδομένα με την βιβλιοθήκη shapely.</p>
+<p>Όμως τα γεωγραφικά δεδομένα δεν περιλαμβάνουν μόνο της γεωγραφική πληροφορία και την γεωμετρική τους δομή αλλά συνοδεύονται από μια σειρά περιγραφικών δεδομένων.</p>
+<p>Η βιβλιοθήκη <a class="reference external" href="https://geopandas.org/">geopandas</a> είναι μια βιβλιοθήκη της Python η οποία υποστηρίζει την ανάγνωση, επεξεργασία, ανάλυση και εγγραφή γεωγραφικών και παράλληλα περιγραφικών δεδομένων. Αποτελεί επέκταση της βιβλιοθήκης <a class="reference external" href="https://pandas.pydata.org/">pandas</a> και «κληρονομεί» τα χαρακτηριστικά και τις δυνατότητές της.</p>
+<p>Στην υφιστάμενη δομή της pandas, η geopandas υποστηρίζει την γεωμετρία με την προσθήκη μιας νέας στήλης και το γεωγραφικό σύστημα αναφοράς.</p>
+<p><img alt="alt text" src="../_images/pandas-data-structure.svg" /></p>
+<p><img alt="alt text" src="../_images/dataframe.svg" /></p>
+<p>Εισάγουμε την βιβλιοθήκη με τον παρακάτω τρόπο</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Για να διαβάσουμε ένα αρχείο shapefile χρησιμοποιούμε την συνάρτηση <code class="docutils literal notranslate"><span class="pre">gpd.read_file</span></code>. Το αντικείμενο που προκύπτει είναι τύπου <em>geopandas.geodataframe.GeoDataFrame</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import shapefile using geopandas</span>
+<span class="n">dhmoi</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../docs/dhmoi.gpkg&quot;</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">dhmoi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geopandas.geodataframe.GeoDataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η στήλη της γεωμετρίας ονομάζεται προκαθορισμένα geometry και είναι αντικείμενο <em>geopandas.geoseries.GeoSeries</em> που περιλαμβάνει αντικείμενα shapely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">dhmoi</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geopandas.geoseries.GeoSeries
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με την μέθοδο <em>geom_type</em> μπορούμε να δούμε τον γεωμετρικό τύπο κάθε εγγραφής.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      MultiPolygon
+1      MultiPolygon
+2      MultiPolygon
+3      MultiPolygon
+4      MultiPolygon
+           ...     
+320    MultiPolygon
+321    MultiPolygon
+322    MultiPolygon
+323    MultiPolygon
+324    MultiPolygon
+Length: 325, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ας δούμε τις αρχικές εγγραφές του αρχείου</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>CodeELSTAT</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>616259.007833</td>
+      <td>4.551127e+06</td>
+      <td>KOMOTINIS</td>
+      <td>0101</td>
+      <td>29967.0</td>
+      <td>31534.0</td>
+      <td>61501.0</td>
+      <td>4.726948</td>
+      <td>6.051873</td>
+      <td>5.221281</td>
+      <td>21.817852</td>
+      <td>1.996780</td>
+      <td>10969.315256</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((631058.735 4574912.809, 631431...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>644783.135624</td>
+      <td>4.561364e+06</td>
+      <td>ARRIANON</td>
+      <td>0102</td>
+      <td>8952.0</td>
+      <td>9307.0</td>
+      <td>18259.0</td>
+      <td>1.955813</td>
+      <td>2.390181</td>
+      <td>2.154240</td>
+      <td>92.912436</td>
+      <td>0.038337</td>
+      <td>6398.641486</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((661976.597 4554253.076, 662118...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>602100.950461</td>
+      <td>4.555689e+06</td>
+      <td>IASMOU</td>
+      <td>0103</td>
+      <td>7290.0</td>
+      <td>7561.0</td>
+      <td>14851.0</td>
+      <td>5.653884</td>
+      <td>6.671554</td>
+      <td>6.062390</td>
+      <td>70.206767</td>
+      <td>1.339977</td>
+      <td>6608.897469</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((603623.489 4566376.502, 603657...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>633712.468442</td>
+      <td>4.539548e+06</td>
+      <td>MARONEIAS - SAPON</td>
+      <td>0104</td>
+      <td>8284.0</td>
+      <td>8342.0</td>
+      <td>16626.0</td>
+      <td>5.840957</td>
+      <td>10.270499</td>
+      <td>7.421934</td>
+      <td>57.748085</td>
+      <td>0.890172</td>
+      <td>6700.375345</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((650998.525 4557469.860, 651446...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>517831.195188</td>
+      <td>4.572544e+06</td>
+      <td>DRAMAS</td>
+      <td>0201</td>
+      <td>28041.0</td>
+      <td>29326.0</td>
+      <td>57367.0</td>
+      <td>8.831689</td>
+      <td>14.176926</td>
+      <td>10.851115</td>
+      <td>7.298838</td>
+      <td>2.961633</td>
+      <td>11299.106498</td>
+      <td>2</td>
+      <td>MULTIPOLYGON (((521986.700 4601855.354, 522271...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/d761b6bce666f882d576a03d71cbfb6b07700d0f914839daec52c248a3269ed6.png" src="../_images/d761b6bce666f882d576a03d71cbfb6b07700d0f914839daec52c248a3269ed6.png" />
+</div>
+</div>
+<p>Χαρτογραφική απόδοση σε διαδραστικό χάρτη</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/geopandas/explore.py:286,</span> in <span class="ni">_explore</span><span class="nt">(df, column, cmap, color, m, tiles, attr, tooltip, popup, highlight, categorical, legend, scheme, k, vmin, vmax, width, height, categories, classification_kwds, control_scale, marker_type, marker_kwds, style_kwds, highlight_kwds, missing_kwds, tooltip_kwds, popup_kwds, legend_kwds, map_kwds, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">--&gt; </span><span class="mi">286</span> <span class="kn">from</span> <span class="nn">mapclassify</span> <span class="kn">import</span> <span class="n">classify</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="c1"># isolate MPL version - GH#2596</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;mapclassify&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">109</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/geopandas/geodataframe.py:2111,</span> in <span class="ni">GeoDataFrame.explore</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2109</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">_explore</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2110</span> <span class="k">def</span> <span class="nf">explore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2111</span>     <span class="k">return</span> <span class="n">_explore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/geopandas/explore.py:296,</span> in <span class="ni">_explore</span><span class="nt">(df, column, cmap, color, m, tiles, attr, tooltip, popup, highlight, categorical, legend, scheme, k, vmin, vmax, width, height, categories, classification_kwds, control_scale, marker_type, marker_kwds, style_kwds, highlight_kwds, missing_kwds, tooltip_kwds, popup_kwds, legend_kwds, map_kwds, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span>         <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">296</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>         <span class="s2">&quot;The &#39;folium&#39;, &#39;matplotlib&#39; and &#39;mapclassify&#39; packages are required for &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>         <span class="s2">&quot;&#39;explore()&#39;. You can install them using &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>         <span class="s2">&quot;&#39;conda install -c conda-forge folium matplotlib mapclassify&#39; &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>         <span class="s2">&quot;or &#39;pip install folium matplotlib mapclassify&#39;.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="c1"># xyservices is an optional dependency</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ImportError</span>: The &#39;folium&#39;, &#39;matplotlib&#39; and &#39;mapclassify&#39; packages are required for &#39;explore()&#39;. You can install them using &#39;conda install -c conda-forge folium matplotlib mapclassify&#39; or &#39;pip install folium matplotlib mapclassify&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εκτύπωση λεπτομερειών για το γεωγραφικό σύστημα αναφοράς το οποίο όπως φαίνεται παρακάτω είναι το ΕΓΣΑ “87 (EPSG:2100)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Derived Projected CRS: PROJCS[&quot;unknown&quot;,GEOGCS[&quot;unknown&quot;,DATUM[&quot;Greek_Geo ...&gt;
+Name: unknown
+Axis Info [cartesian]:
+- [east]: Easting (metre)
+- [north]: Northing (metre)
+Area of Use:
+- undefined
+Coordinate Operation:
+- name: unnamed
+- method: Transverse Mercator
+Datum: Greek Geodetic Reference System 1987
+- Ellipsoid: GRS 1980
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να μετασχηματίσουμε τα δεδομένα σε ένα διαφορετικό προβολικό σύστημα με κλήση της μεθόδου <em>to_crs</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi_wgs84</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
+<span class="n">dhmoi_wgs84</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">geom_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      MultiPolygon
+1      MultiPolygon
+2      MultiPolygon
+3      MultiPolygon
+4      MultiPolygon
+           ...     
+320    MultiPolygon
+321    MultiPolygon
+322    MultiPolygon
+323    MultiPolygon
+324    MultiPolygon
+Length: 325, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εκτύπωση των γεωγραφικών ορίων του αρχείου oikismoi που είναι στο σύστημα αναφορά ΕΓΣΑ “87.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">total_bounds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 104040.7266, 3850938.    , 1007943.    , 4624010.2508])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Εκτύπωση των γεωγραφικών ορίων του αρχείου oikismoi που είναι στο σύστημα αναφορά WGS’84.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi_wgs84</span><span class="o">.</span><span class="n">total_bounds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([19.37377196, 34.80060523, 29.64123782, 41.74911332])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η μέθοδος <em>shape</em> μας επιστρέφει τον πλήθος των γραμμών (325) και των στηλών (15).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(325, 16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να εγγράψουμε ένα Geopandas Dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;dhmoi.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/anaconda3/envs/book/lib/python3.10/site-packages/geopandas/io/file.py:362: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  pd.Int64Index,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;PopTot01&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>CodeELSTAT</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>192</th>
+      <td>193</td>
+      <td>476676.870086</td>
+      <td>4.204338e+06</td>
+      <td>ATHINAION</td>
+      <td>4501</td>
+      <td>374900.0</td>
+      <td>414266.0</td>
+      <td>789166.0</td>
+      <td>4.890244</td>
+      <td>6.640842</td>
+      <td>5.624998</td>
+      <td>0.515649</td>
+      <td>17.426785</td>
+      <td>14497.393539</td>
+      <td>45</td>
+      <td>MULTIPOLYGON (((478164.675 4208572.203, 478015...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>411331.939920</td>
+      <td>4.497210e+06</td>
+      <td>THESSALONIKIS</td>
+      <td>0701</td>
+      <td>185771.0</td>
+      <td>211385.0</td>
+      <td>397156.0</td>
+      <td>5.402357</td>
+      <td>7.615427</td>
+      <td>6.336333</td>
+      <td>0.834415</td>
+      <td>7.200951</td>
+      <td>13388.724605</td>
+      <td>7</td>
+      <td>MULTIPOLYGON (((408112.992 4500238.217, 408264...</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>148</td>
+      <td>306893.782874</td>
+      <td>4.231792e+06</td>
+      <td>PATREON</td>
+      <td>3701</td>
+      <td>104429.0</td>
+      <td>106065.0</td>
+      <td>210494.0</td>
+      <td>7.613916</td>
+      <td>9.985632</td>
+      <td>8.493895</td>
+      <td>2.567481</td>
+      <td>5.301864</td>
+      <td>12699.732926</td>
+      <td>37</td>
+      <td>MULTIPOLYGON (((312258.406 4245213.000, 312382...</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>246</td>
+      <td>468574.034133</td>
+      <td>4.199691e+06</td>
+      <td>PEIRAIOS</td>
+      <td>5101</td>
+      <td>87362.0</td>
+      <td>94571.0</td>
+      <td>181933.0</td>
+      <td>5.742561</td>
+      <td>7.683770</td>
+      <td>6.480184</td>
+      <td>0.491722</td>
+      <td>8.515141</td>
+      <td>13526.486840</td>
+      <td>51</td>
+      <td>MULTIPOLYGON (((469779.406 4198249.000, 469760...</td>
+    </tr>
+    <tr>
+      <th>301</th>
+      <td>302</td>
+      <td>599279.522964</td>
+      <td>3.900401e+06</td>
+      <td>IRAKLEIOU</td>
+      <td>7101</td>
+      <td>81067.0</td>
+      <td>82048.0</td>
+      <td>163115.0</td>
+      <td>5.047587</td>
+      <td>8.832661</td>
+      <td>6.557167</td>
+      <td>7.477305</td>
+      <td>4.048727</td>
+      <td>12479.911946</td>
+      <td>71</td>
+      <td>MULTIPOLYGON (((602945.188 3911414.000, 602942...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>300</td>
+      <td>824000.991323</td>
+      <td>4.016217e+06</td>
+      <td>CHALKIS</td>
+      <td>6905</td>
+      <td>165.0</td>
+      <td>130.0</td>
+      <td>295.0</td>
+      <td>1.265823</td>
+      <td>4.166667</td>
+      <td>1.941748</td>
+      <td>31.683168</td>
+      <td>17.966102</td>
+      <td>8888.138597</td>
+      <td>69</td>
+      <td>MULTIPOLYGON (((830115.688 4011995.000, 830198...</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>271</td>
+      <td>659987.832319</td>
+      <td>4.025277e+06</td>
+      <td>ANAFIS</td>
+      <td>6002</td>
+      <td>135.0</td>
+      <td>137.0</td>
+      <td>272.0</td>
+      <td>1.369863</td>
+      <td>2.941176</td>
+      <td>1.869159</td>
+      <td>43.809524</td>
+      <td>1.102941</td>
+      <td>9062.404166</td>
+      <td>60</td>
+      <td>MULTIPOLYGON (((669453.375 4014893.000, 669444...</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>273</td>
+      <td>599675.697252</td>
+      <td>4.059438e+06</td>
+      <td>SIKINOU</td>
+      <td>6004</td>
+      <td>118.0</td>
+      <td>120.0</td>
+      <td>238.0</td>
+      <td>0.000000</td>
+      <td>4.545455</td>
+      <td>1.333333</td>
+      <td>27.027027</td>
+      <td>1.680672</td>
+      <td>7566.666874</td>
+      <td>60</td>
+      <td>MULTIPOLYGON (((593612.000 4054459.000, 593596...</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>276</td>
+      <td>762387.857032</td>
+      <td>4.149989e+06</td>
+      <td>AGATHONISIOU</td>
+      <td>6102</td>
+      <td>92.0</td>
+      <td>60.0</td>
+      <td>152.0</td>
+      <td>12.765957</td>
+      <td>10.000000</td>
+      <td>12.280702</td>
+      <td>56.000000</td>
+      <td>9.210526</td>
+      <td>5421.733909</td>
+      <td>61</td>
+      <td>MULTIPOLYGON (((763781.625 4146430.000, 763859...</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>321</td>
+      <td>507562.964610</td>
+      <td>3.855768e+06</td>
+      <td>GAVDOU</td>
+      <td>7403</td>
+      <td>49.0</td>
+      <td>32.0</td>
+      <td>81.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.350000</td>
+      <td>51.351351</td>
+      <td>9.876543</td>
+      <td>8498.080328</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((505925.688 3858625.000, 506062...</td>
+    </tr>
+  </tbody>
+</table>
+<p>325 rows × 16 columns</p>
+</div></div></div>
+</div>
+<p>Ορισμός του index στην στήλη <em>«CodeELSTAT»</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;CodeELSTAT&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>CodeELSTAT</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0101</th>
+      <td>1</td>
+      <td>616259.007833</td>
+      <td>4.551127e+06</td>
+      <td>KOMOTINIS</td>
+      <td>29967.0</td>
+      <td>31534.0</td>
+      <td>61501.0</td>
+      <td>4.726948</td>
+      <td>6.051873</td>
+      <td>5.221281</td>
+      <td>21.817852</td>
+      <td>1.996780</td>
+      <td>10969.315256</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((631058.735 4574912.809, 631431...</td>
+    </tr>
+    <tr>
+      <th>0102</th>
+      <td>2</td>
+      <td>644783.135624</td>
+      <td>4.561364e+06</td>
+      <td>ARRIANON</td>
+      <td>8952.0</td>
+      <td>9307.0</td>
+      <td>18259.0</td>
+      <td>1.955813</td>
+      <td>2.390181</td>
+      <td>2.154240</td>
+      <td>92.912436</td>
+      <td>0.038337</td>
+      <td>6398.641486</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((661976.597 4554253.076, 662118...</td>
+    </tr>
+    <tr>
+      <th>0103</th>
+      <td>3</td>
+      <td>602100.950461</td>
+      <td>4.555689e+06</td>
+      <td>IASMOU</td>
+      <td>7290.0</td>
+      <td>7561.0</td>
+      <td>14851.0</td>
+      <td>5.653884</td>
+      <td>6.671554</td>
+      <td>6.062390</td>
+      <td>70.206767</td>
+      <td>1.339977</td>
+      <td>6608.897469</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((603623.489 4566376.502, 603657...</td>
+    </tr>
+    <tr>
+      <th>0104</th>
+      <td>4</td>
+      <td>633712.468442</td>
+      <td>4.539548e+06</td>
+      <td>MARONEIAS - SAPON</td>
+      <td>8284.0</td>
+      <td>8342.0</td>
+      <td>16626.0</td>
+      <td>5.840957</td>
+      <td>10.270499</td>
+      <td>7.421934</td>
+      <td>57.748085</td>
+      <td>0.890172</td>
+      <td>6700.375345</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((650998.525 4557469.860, 651446...</td>
+    </tr>
+    <tr>
+      <th>0201</th>
+      <td>5</td>
+      <td>517831.195188</td>
+      <td>4.572544e+06</td>
+      <td>DRAMAS</td>
+      <td>28041.0</td>
+      <td>29326.0</td>
+      <td>57367.0</td>
+      <td>8.831689</td>
+      <td>14.176926</td>
+      <td>10.851115</td>
+      <td>7.298838</td>
+      <td>2.961633</td>
+      <td>11299.106498</td>
+      <td>2</td>
+      <td>MULTIPOLYGON (((521986.700 4601855.354, 522271...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7403</th>
+      <td>321</td>
+      <td>507562.964610</td>
+      <td>3.855768e+06</td>
+      <td>GAVDOU</td>
+      <td>49.0</td>
+      <td>32.0</td>
+      <td>81.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.350000</td>
+      <td>51.351351</td>
+      <td>9.876543</td>
+      <td>8498.080328</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((505925.688 3858625.000, 506062...</td>
+    </tr>
+    <tr>
+      <th>7404</th>
+      <td>322</td>
+      <td>475420.582085</td>
+      <td>3.905918e+06</td>
+      <td>KANTANOU - SELINOU</td>
+      <td>3271.0</td>
+      <td>3031.0</td>
+      <td>6302.0</td>
+      <td>2.312500</td>
+      <td>2.234637</td>
+      <td>2.284569</td>
+      <td>61.525841</td>
+      <td>14.680209</td>
+      <td>7989.958401</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((469969.812 3897335.000, 469955...</td>
+    </tr>
+    <tr>
+      <th>7405</th>
+      <td>323</td>
+      <td>465887.990746</td>
+      <td>3.920087e+06</td>
+      <td>KISSAMOU</td>
+      <td>5925.0</td>
+      <td>5545.0</td>
+      <td>11470.0</td>
+      <td>4.847458</td>
+      <td>5.894591</td>
+      <td>5.191257</td>
+      <td>45.701249</td>
+      <td>7.916303</td>
+      <td>8750.030129</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((457703.500 3902963.000, 457852...</td>
+    </tr>
+    <tr>
+      <th>7406</th>
+      <td>324</td>
+      <td>484468.969583</td>
+      <td>3.924051e+06</td>
+      <td>PLATANIA</td>
+      <td>9217.0</td>
+      <td>8647.0</td>
+      <td>17864.0</td>
+      <td>4.437401</td>
+      <td>8.586262</td>
+      <td>5.938448</td>
+      <td>51.305684</td>
+      <td>8.889386</td>
+      <td>8120.027122</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((476162.812 3949684.000, 476253...</td>
+    </tr>
+    <tr>
+      <th>7407</th>
+      <td>325</td>
+      <td>508083.904768</td>
+      <td>3.901847e+06</td>
+      <td>SFAKION</td>
+      <td>1288.0</td>
+      <td>1131.0</td>
+      <td>2419.0</td>
+      <td>1.920439</td>
+      <td>2.839117</td>
+      <td>2.198853</td>
+      <td>63.929619</td>
+      <td>4.960728</td>
+      <td>6602.391386</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((502587.434 3912125.553, 502774...</td>
+    </tr>
+  </tbody>
+</table>
+<p>325 rows × 15 columns</p>
+</div></div></div>
+</div>
+<p>Υπολογισμός έκτασης (σε <span class="math notranslate nohighlight">\(km^2\)</span>) σε μία νέα στήλη με το όνομα area</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">area</span><span class="o">*</span><span class="mf">10e-6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+      <th>area</th>
+    </tr>
+    <tr>
+      <th>CodeELSTAT</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0101</th>
+      <td>1</td>
+      <td>616259.007833</td>
+      <td>4.551127e+06</td>
+      <td>KOMOTINIS</td>
+      <td>29967.0</td>
+      <td>31534.0</td>
+      <td>61501.0</td>
+      <td>4.726948</td>
+      <td>6.051873</td>
+      <td>5.221281</td>
+      <td>21.817852</td>
+      <td>1.996780</td>
+      <td>10969.315256</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((631058.735 4574912.809, 631431...</td>
+      <td>6470.182562</td>
+    </tr>
+    <tr>
+      <th>0102</th>
+      <td>2</td>
+      <td>644783.135624</td>
+      <td>4.561364e+06</td>
+      <td>ARRIANON</td>
+      <td>8952.0</td>
+      <td>9307.0</td>
+      <td>18259.0</td>
+      <td>1.955813</td>
+      <td>2.390181</td>
+      <td>2.154240</td>
+      <td>92.912436</td>
+      <td>0.038337</td>
+      <td>6398.641486</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((661976.597 4554253.076, 662118...</td>
+      <td>7724.393191</td>
+    </tr>
+    <tr>
+      <th>0103</th>
+      <td>3</td>
+      <td>602100.950461</td>
+      <td>4.555689e+06</td>
+      <td>IASMOU</td>
+      <td>7290.0</td>
+      <td>7561.0</td>
+      <td>14851.0</td>
+      <td>5.653884</td>
+      <td>6.671554</td>
+      <td>6.062390</td>
+      <td>70.206767</td>
+      <td>1.339977</td>
+      <td>6608.897469</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((603623.489 4566376.502, 603657...</td>
+      <td>4870.493148</td>
+    </tr>
+    <tr>
+      <th>0104</th>
+      <td>4</td>
+      <td>633712.468442</td>
+      <td>4.539548e+06</td>
+      <td>MARONEIAS - SAPON</td>
+      <td>8284.0</td>
+      <td>8342.0</td>
+      <td>16626.0</td>
+      <td>5.840957</td>
+      <td>10.270499</td>
+      <td>7.421934</td>
+      <td>57.748085</td>
+      <td>0.890172</td>
+      <td>6700.375345</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((650998.525 4557469.860, 651446...</td>
+      <td>6441.606153</td>
+    </tr>
+    <tr>
+      <th>0201</th>
+      <td>5</td>
+      <td>517831.195188</td>
+      <td>4.572544e+06</td>
+      <td>DRAMAS</td>
+      <td>28041.0</td>
+      <td>29326.0</td>
+      <td>57367.0</td>
+      <td>8.831689</td>
+      <td>14.176926</td>
+      <td>10.851115</td>
+      <td>7.298838</td>
+      <td>2.961633</td>
+      <td>11299.106498</td>
+      <td>2</td>
+      <td>MULTIPOLYGON (((521986.700 4601855.354, 522271...</td>
+      <td>8401.321201</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7403</th>
+      <td>321</td>
+      <td>507562.964610</td>
+      <td>3.855768e+06</td>
+      <td>GAVDOU</td>
+      <td>49.0</td>
+      <td>32.0</td>
+      <td>81.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.350000</td>
+      <td>51.351351</td>
+      <td>9.876543</td>
+      <td>8498.080328</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((505925.688 3858625.000, 506062...</td>
+      <td>343.773091</td>
+    </tr>
+    <tr>
+      <th>7404</th>
+      <td>322</td>
+      <td>475420.582085</td>
+      <td>3.905918e+06</td>
+      <td>KANTANOU - SELINOU</td>
+      <td>3271.0</td>
+      <td>3031.0</td>
+      <td>6302.0</td>
+      <td>2.312500</td>
+      <td>2.234637</td>
+      <td>2.284569</td>
+      <td>61.525841</td>
+      <td>14.680209</td>
+      <td>7989.958401</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((469969.812 3897335.000, 469955...</td>
+      <td>3746.368061</td>
+    </tr>
+    <tr>
+      <th>7405</th>
+      <td>323</td>
+      <td>465887.990746</td>
+      <td>3.920087e+06</td>
+      <td>KISSAMOU</td>
+      <td>5925.0</td>
+      <td>5545.0</td>
+      <td>11470.0</td>
+      <td>4.847458</td>
+      <td>5.894591</td>
+      <td>5.191257</td>
+      <td>45.701249</td>
+      <td>7.916303</td>
+      <td>8750.030129</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((457703.500 3902963.000, 457852...</td>
+      <td>3421.398731</td>
+    </tr>
+    <tr>
+      <th>7406</th>
+      <td>324</td>
+      <td>484468.969583</td>
+      <td>3.924051e+06</td>
+      <td>PLATANIA</td>
+      <td>9217.0</td>
+      <td>8647.0</td>
+      <td>17864.0</td>
+      <td>4.437401</td>
+      <td>8.586262</td>
+      <td>5.938448</td>
+      <td>51.305684</td>
+      <td>8.889386</td>
+      <td>8120.027122</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((476162.812 3949684.000, 476253...</td>
+      <td>4925.063676</td>
+    </tr>
+    <tr>
+      <th>7407</th>
+      <td>325</td>
+      <td>508083.904768</td>
+      <td>3.901847e+06</td>
+      <td>SFAKION</td>
+      <td>1288.0</td>
+      <td>1131.0</td>
+      <td>2419.0</td>
+      <td>1.920439</td>
+      <td>2.839117</td>
+      <td>2.198853</td>
+      <td>63.929619</td>
+      <td>4.960728</td>
+      <td>6602.391386</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((502587.434 3912125.553, 502774...</td>
+      <td>4667.779146</td>
+    </tr>
+  </tbody>
+</table>
+<p>325 rows × 16 columns</p>
+</div></div></div>
+</div>
+<p>Υπολογισμός του centroid κάθε δήμου σε μια νέα στήλη (centroid)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="p">[</span><span class="s1">&#39;centroid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+      <th>area</th>
+      <th>centroid</th>
+    </tr>
+    <tr>
+      <th>CodeELSTAT</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0101</th>
+      <td>1</td>
+      <td>616259.007833</td>
+      <td>4.551127e+06</td>
+      <td>KOMOTINIS</td>
+      <td>29967.0</td>
+      <td>31534.0</td>
+      <td>61501.0</td>
+      <td>4.726948</td>
+      <td>6.051873</td>
+      <td>5.221281</td>
+      <td>21.817852</td>
+      <td>1.996780</td>
+      <td>10969.315256</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((631058.735 4574912.809, 631431...</td>
+      <td>6470.182562</td>
+      <td>POINT (616259.008 4551127.241)</td>
+    </tr>
+    <tr>
+      <th>0102</th>
+      <td>2</td>
+      <td>644783.135624</td>
+      <td>4.561364e+06</td>
+      <td>ARRIANON</td>
+      <td>8952.0</td>
+      <td>9307.0</td>
+      <td>18259.0</td>
+      <td>1.955813</td>
+      <td>2.390181</td>
+      <td>2.154240</td>
+      <td>92.912436</td>
+      <td>0.038337</td>
+      <td>6398.641486</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((661976.597 4554253.076, 662118...</td>
+      <td>7724.393191</td>
+      <td>POINT (644783.136 4561364.036)</td>
+    </tr>
+    <tr>
+      <th>0103</th>
+      <td>3</td>
+      <td>602100.950461</td>
+      <td>4.555689e+06</td>
+      <td>IASMOU</td>
+      <td>7290.0</td>
+      <td>7561.0</td>
+      <td>14851.0</td>
+      <td>5.653884</td>
+      <td>6.671554</td>
+      <td>6.062390</td>
+      <td>70.206767</td>
+      <td>1.339977</td>
+      <td>6608.897469</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((603623.489 4566376.502, 603657...</td>
+      <td>4870.493148</td>
+      <td>POINT (602100.950 4555689.138)</td>
+    </tr>
+    <tr>
+      <th>0104</th>
+      <td>4</td>
+      <td>633712.468442</td>
+      <td>4.539548e+06</td>
+      <td>MARONEIAS - SAPON</td>
+      <td>8284.0</td>
+      <td>8342.0</td>
+      <td>16626.0</td>
+      <td>5.840957</td>
+      <td>10.270499</td>
+      <td>7.421934</td>
+      <td>57.748085</td>
+      <td>0.890172</td>
+      <td>6700.375345</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((650998.525 4557469.860, 651446...</td>
+      <td>6441.606153</td>
+      <td>POINT (633712.468 4539548.490)</td>
+    </tr>
+    <tr>
+      <th>0201</th>
+      <td>5</td>
+      <td>517831.195188</td>
+      <td>4.572544e+06</td>
+      <td>DRAMAS</td>
+      <td>28041.0</td>
+      <td>29326.0</td>
+      <td>57367.0</td>
+      <td>8.831689</td>
+      <td>14.176926</td>
+      <td>10.851115</td>
+      <td>7.298838</td>
+      <td>2.961633</td>
+      <td>11299.106498</td>
+      <td>2</td>
+      <td>MULTIPOLYGON (((521986.700 4601855.354, 522271...</td>
+      <td>8401.321201</td>
+      <td>POINT (517831.195 4572544.478)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7403</th>
+      <td>321</td>
+      <td>507562.964610</td>
+      <td>3.855768e+06</td>
+      <td>GAVDOU</td>
+      <td>49.0</td>
+      <td>32.0</td>
+      <td>81.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.350000</td>
+      <td>51.351351</td>
+      <td>9.876543</td>
+      <td>8498.080328</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((505925.688 3858625.000, 506062...</td>
+      <td>343.773091</td>
+      <td>POINT (507562.965 3855767.657)</td>
+    </tr>
+    <tr>
+      <th>7404</th>
+      <td>322</td>
+      <td>475420.582085</td>
+      <td>3.905918e+06</td>
+      <td>KANTANOU - SELINOU</td>
+      <td>3271.0</td>
+      <td>3031.0</td>
+      <td>6302.0</td>
+      <td>2.312500</td>
+      <td>2.234637</td>
+      <td>2.284569</td>
+      <td>61.525841</td>
+      <td>14.680209</td>
+      <td>7989.958401</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((469969.812 3897335.000, 469955...</td>
+      <td>3746.368061</td>
+      <td>POINT (475420.582 3905917.949)</td>
+    </tr>
+    <tr>
+      <th>7405</th>
+      <td>323</td>
+      <td>465887.990746</td>
+      <td>3.920087e+06</td>
+      <td>KISSAMOU</td>
+      <td>5925.0</td>
+      <td>5545.0</td>
+      <td>11470.0</td>
+      <td>4.847458</td>
+      <td>5.894591</td>
+      <td>5.191257</td>
+      <td>45.701249</td>
+      <td>7.916303</td>
+      <td>8750.030129</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((457703.500 3902963.000, 457852...</td>
+      <td>3421.398731</td>
+      <td>POINT (465887.991 3920086.947)</td>
+    </tr>
+    <tr>
+      <th>7406</th>
+      <td>324</td>
+      <td>484468.969583</td>
+      <td>3.924051e+06</td>
+      <td>PLATANIA</td>
+      <td>9217.0</td>
+      <td>8647.0</td>
+      <td>17864.0</td>
+      <td>4.437401</td>
+      <td>8.586262</td>
+      <td>5.938448</td>
+      <td>51.305684</td>
+      <td>8.889386</td>
+      <td>8120.027122</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((476162.812 3949684.000, 476253...</td>
+      <td>4925.063676</td>
+      <td>POINT (484468.970 3924050.753)</td>
+    </tr>
+    <tr>
+      <th>7407</th>
+      <td>325</td>
+      <td>508083.904768</td>
+      <td>3.901847e+06</td>
+      <td>SFAKION</td>
+      <td>1288.0</td>
+      <td>1131.0</td>
+      <td>2419.0</td>
+      <td>1.920439</td>
+      <td>2.839117</td>
+      <td>2.198853</td>
+      <td>63.929619</td>
+      <td>4.960728</td>
+      <td>6602.391386</td>
+      <td>74</td>
+      <td>MULTIPOLYGON (((502587.434 3912125.553, 502774...</td>
+      <td>4667.779146</td>
+      <td>POINT (508083.905 3901847.180)</td>
+    </tr>
+  </tbody>
+</table>
+<p>325 rows × 17 columns</p>
+</div></div></div>
+</div>
+<p>Χαρτογραφική απόδοση του δείκτη ανεργίας (στήλη UnemrT01)  ανά δήμο</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;UnemrT01&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/569a6c1cefdcc139b743e65891660da34a0b88c722b0ff34482b7125efee1ba6.png" src="../_images/569a6c1cefdcc139b743e65891660da34a0b88c722b0ff34482b7125efee1ba6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Income01&quot;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span>  <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/595a7a2e5081605b56ef0e76176bf6de99111ea10590885d2010283e0f80ccb7.png" src="../_images/595a7a2e5081605b56ef0e76176bf6de99111ea10590885d2010283e0f80ccb7.png" />
+</div>
+</div>
+<p>Μπορούμε να οπτικοποιήσουμε διαφορετική στήλη τύπου <em>geopandas.geoseries.GeoSeries</em> αφού πρώτα την ορίσουμε με την μέθοδο <em>set_geometry</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;centroid&quot;</span><span class="p">)</span>
+<span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;UnemrT01&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/928f4073372bf0ec24bbdd2f20f1d9ca58081fde63279972c9a9c1559d467b93.png" src="../_images/928f4073372bf0ec24bbdd2f20f1d9ca58081fde63279972c9a9c1559d467b93.png" />
+</div>
+</div>
+<p>Ορισμός περιμετρικής ζώνης διαμέτρου 20χλμ γύρω από κάθε centroid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;centroid&quot;</span><span class="p">)</span> <span class="c1"># ορισμός default γεωμετρίας η στήλη centroid</span>
+<span class="n">dhmoi</span><span class="p">[</span><span class="s2">&quot;buffered&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">20000</span><span class="p">)</span> <span class="c1">#εκτέλεση περιμετρικών ζωνών</span>
+
+<span class="n">dhmoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;buffered&quot;</span><span class="p">)</span> <span class="c1"># ορισμός default γεωμετρίας η στήλη buffered</span>
+<span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># οπτικοποίηση</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/1032476ef12cdb4d0b0b863aea3eb0d59b3130806ca6aeab494de7c9271ac120.png" src="../_images/1032476ef12cdb4d0b0b863aea3eb0d59b3130806ca6aeab494de7c9271ac120.png" />
+</div>
+</div>
+<p>Ξανα ορίζουμε σαν προκαθορισμένη στήλη γεωμετρία την στήλη <em>geometry</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Μπορούμε να φιλτράρουμε γραμμές και στήλες όπως και στην pandas χρησιμοποιώντας το index και το όνομα στήλης:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lesvos</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;5301&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lesvos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/65cebe048040e50f8dc37f47f486e24d11957e177fa341df9a9fea8da8be1776.svg" src="../_images/65cebe048040e50f8dc37f47f486e24d11957e177fa341df9a9fea8da8be1776.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">lesvos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shapely.geometry.multipolygon.MultiPolygon
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η παραπάνω διαδικασία επιλογής επέστρεψε ένα shapely MultiPolygon object όπως φαίνεται.</p>
+<p>Με την μέθοδο <em>dissolve</em> μπορούμε να συγχωνεύσουμε γεωμετρικά αντικείμενα βάση κάποιας στήλης. Αντικείμενα με ίδια τιμή θα συγχωνευθούν σε ενιαίο γεωμετρικό αντικείμενο.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Name</th>
+      <th>PopM01</th>
+      <th>PopF01</th>
+      <th>PopTot01</th>
+      <th>UnemrM01</th>
+      <th>UnemrF01</th>
+      <th>UnemrT01</th>
+      <th>PrSect01</th>
+      <th>Foreig01</th>
+      <th>Income01</th>
+      <th>Perif</th>
+      <th>geometry</th>
+      <th>area</th>
+      <th>centroid</th>
+      <th>buffered</th>
+    </tr>
+    <tr>
+      <th>CodeELSTAT</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0101</th>
+      <td>1</td>
+      <td>616259.007833</td>
+      <td>4.551127e+06</td>
+      <td>KOMOTINIS</td>
+      <td>29967.0</td>
+      <td>31534.0</td>
+      <td>61501.0</td>
+      <td>4.726948</td>
+      <td>6.051873</td>
+      <td>5.221281</td>
+      <td>21.817852</td>
+      <td>1.996780</td>
+      <td>10969.315256</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((631058.735 4574912.809, 631431...</td>
+      <td>6470.182562</td>
+      <td>POINT (616259.008 4551127.241)</td>
+      <td>POLYGON ((636259.008 4551127.241, 636162.702 4...</td>
+    </tr>
+    <tr>
+      <th>0102</th>
+      <td>2</td>
+      <td>644783.135624</td>
+      <td>4.561364e+06</td>
+      <td>ARRIANON</td>
+      <td>8952.0</td>
+      <td>9307.0</td>
+      <td>18259.0</td>
+      <td>1.955813</td>
+      <td>2.390181</td>
+      <td>2.154240</td>
+      <td>92.912436</td>
+      <td>0.038337</td>
+      <td>6398.641486</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((661976.597 4554253.076, 662118...</td>
+      <td>7724.393191</td>
+      <td>POINT (644783.136 4561364.036)</td>
+      <td>POLYGON ((664783.136 4561364.036, 664686.830 4...</td>
+    </tr>
+    <tr>
+      <th>0103</th>
+      <td>3</td>
+      <td>602100.950461</td>
+      <td>4.555689e+06</td>
+      <td>IASMOU</td>
+      <td>7290.0</td>
+      <td>7561.0</td>
+      <td>14851.0</td>
+      <td>5.653884</td>
+      <td>6.671554</td>
+      <td>6.062390</td>
+      <td>70.206767</td>
+      <td>1.339977</td>
+      <td>6608.897469</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((603623.489 4566376.502, 603657...</td>
+      <td>4870.493148</td>
+      <td>POINT (602100.950 4555689.138)</td>
+      <td>POLYGON ((622100.950 4555689.138, 622004.645 4...</td>
+    </tr>
+    <tr>
+      <th>0104</th>
+      <td>4</td>
+      <td>633712.468442</td>
+      <td>4.539548e+06</td>
+      <td>MARONEIAS - SAPON</td>
+      <td>8284.0</td>
+      <td>8342.0</td>
+      <td>16626.0</td>
+      <td>5.840957</td>
+      <td>10.270499</td>
+      <td>7.421934</td>
+      <td>57.748085</td>
+      <td>0.890172</td>
+      <td>6700.375345</td>
+      <td>1</td>
+      <td>MULTIPOLYGON (((650998.525 4557469.860, 651446...</td>
+      <td>6441.606153</td>
+      <td>POINT (633712.468 4539548.490)</td>
+      <td>POLYGON ((653712.468 4539548.490, 653616.163 4...</td>
+    </tr>
+    <tr>
+      <th>0201</th>
+      <td>5</td>
+      <td>517831.195188</td>
+      <td>4.572544e+06</td>
+      <td>DRAMAS</td>
+      <td>28041.0</td>
+      <td>29326.0</td>
+      <td>57367.0</td>
+      <td>8.831689</td>
+      <td>14.176926</td>
+      <td>10.851115</td>
+      <td>7.298838</td>
+      <td>2.961633</td>
+      <td>11299.106498</td>
+      <td>2</td>
+      <td>MULTIPOLYGON (((521986.700 4601855.354, 522271...</td>
+      <td>8401.321201</td>
+      <td>POINT (517831.195 4572544.478)</td>
+      <td>POLYGON ((537831.195 4572544.478, 537734.890 4...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Perif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhmoi</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/f56dc23ed0d05e091cd8335bb5a6ae1b1717234b3a47e5aa41b42ac2079543d6.png" src="../_images/f56dc23ed0d05e091cd8335bb5a6ae1b1717234b3a47e5aa41b42ac2079543d6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomoi</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/583f6059f499e35944caec34a6f4b633eda37e2ce357e5c9acc9f0548325ff1d.png" src="../_images/583f6059f499e35944caec34a6f4b633eda37e2ce357e5c9acc9f0548325ff1d.png" />
+</div>
+</div>
+<p>Επιπλεόν κατά την συγχώνευση μπορούμε να εφαρμόσουμε μια συνάρτηση στις αριθμητικές στήλες π.χ. <em>mean</em> ή <em>sum</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomoi</span> <span class="o">=</span> <span class="n">dhmoi</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Perif&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;Income01&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/8dc0e67ea688e09b5f22288d159de4dd28ce7f5a32c378413aed11d0fcf4cd76.png" src="../_images/8dc0e67ea688e09b5f22288d159de4dd28ce7f5a32c378413aed11d0fcf4cd76.png" />
+</div>
+</div>
+</section>
+<section id="id14">
+<h2>Βιβλιογραφία:<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Kalogirou S., 2020, Local Correlation, Spatial Inequalities, Geographically Weighted Regression and Other Tools (R package)</p></li>
+<li><p>GeoPandas, <a class="reference external" href="https://geopandas.org/">https://geopandas.org/</a>, Πρόσβαση: 29/05/2022</p></li>
+<li><p>Prapas I., Analyze Geospatial Data in Python: GeoPandas and Shapely, <a class="reference external" href="https://www.learndatasci.com/tutorials/geospatial-data-python-geopandas-shapely/">https://www.learndatasci.com/tutorials/geospatial-data-python-geopandas-shapely/</a>, Πρόσβαση: 29/05/2022</p></li>
+<li><p>Dorman M., 2022, VECTOR LAYERS, Geometries (shapely), <a class="reference external" href="https://geobgu.xyz/py/shapely.html">https://geobgu.xyz/py/shapely.html</a>, Πρόσβαση: 29/05/2022</p></li>
+<li><p>Wasser, Leah, Korinek, Nathan, &amp; Palomino, Jenny. (2021). earthlab/earth-analytics-intermediate-earth-data-science-textbook: one more license fix (1.0.4) [Computer software]. Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.5571001">https://doi.org/10.5281/zenodo.5571001</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kokkytos/programming",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson_8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">προηγούμενο</p>
+        <p class="prev-next-title">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lesson_10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">10. Διαγράμματα</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Περιεχόμενα
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Ειδική ενότητα για εκτέλεση στο Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python βιβλιοθήκες για διανυσματικά δεδομένα</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely">Η βιβλιοθήκη Shapely</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-from-wkt">shapely from WKT</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Πολύγωνα</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Σημεία</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Γραμμές</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Shapely μέσω συναρτήσεων</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-shape">Shapely μέσω shape</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Γεωμετρικός τύπος δεδομένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Συντεταγμένες</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ιδιότητες αντικειμένων</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bounds">Υπολογισμός ορίων (bounds)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Υπολογισμός μήκους γραμμής</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Υπολογισμός εμβαδού</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Νέες γεωμετρίες</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#centroid">Κεντροειδές πολυγώνου (centroid)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">Περιμετρική ζώνη (buffer)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-hull">Convex hull</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Σχέσεις μεταξύ αντικειμένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Γεωμετρικές πράξεις</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas">Η βιβλιοθήκη Geopandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Βιβλιογραφία:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Με Λεωνίδας Λιάκος
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
