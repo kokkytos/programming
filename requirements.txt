@@ -4,6 +4,7 @@ bokeh
 folium
 ipywidgets
 jupytext
+jupyter-book
 matplotlib
 nbclient
 numpy
