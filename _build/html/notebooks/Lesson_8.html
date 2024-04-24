@@ -485,7 +485,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7f534e5ff310&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;COVID-19_Coronavirus_V2.csv&#39;, &lt;http.client.HTTPMessage at 0x7fab5836b850&gt;)
 </pre></div>
 </div>
 </div>
@@ -2557,7 +2557,7 @@ document.write(`
 <p>Λήψη αρχείου csv από το διαδίκτυο:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remote_url</span> <span class="o">=</span> <span class="s1">&#39;http://data.insideairbnb.com/greece/attica/athens/2021-12-23/visualisations/listings.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remote_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.insideairbnb.com/greece/attica/athens/2023-12-25/visualisations/listings.csv&#39;</span>
 <span class="c1"># Define the local filename to save data</span>
 <span class="n">local_file3</span> <span class="o">=</span> <span class="s1">&#39;listings.csv&#39;</span>
 <span class="c1"># Download remote and save locally</span>
@@ -2566,62 +2566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [28],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">local_file3</span> <span class="o">=</span> <span class="s1">&#39;listings.csv&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Download remote and save locally</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">remote_url</span><span class="p">,</span> <span class="n">local_file3</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:239,</span> in <span class="ni">urlretrieve</span><span class="nt">(url, filename, reporthook, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="sd"> Retrieve a URL into a temporary location on disk.</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="sd"> data file as well as the resulting HTTPMessage object.</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span> <span class="n">url_type</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">_splittype</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">239</span> <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">headers</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="c1"># Just return the local path and the &quot;headers&quot; for file://</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>     <span class="c1"># URLs. No sense in performing a copy unless requested.</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:214,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
-<span class="ne">--&gt; </span><span class="mi">214</span> <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:523,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="p">[]):</span>
-<span class="g g-Whitespace">    </span><span class="mi">522</span>     <span class="n">meth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">523</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="k">return</span> <span class="n">response</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:632,</span> in <span class="ni">HTTPErrorProcessor.http_response</span><span class="nt">(self, request, response)</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span> <span class="c1"># According to RFC 2616, &quot;2xx&quot; code indicates that the client&#39;s</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span> <span class="c1"># request was successfully received, understood, and accepted.</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">632</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">635</span> <span class="k">return</span> <span class="n">response</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:561,</span> in <span class="ni">OpenerDirector.error</span><span class="nt">(self, proto, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span> <span class="k">if</span> <span class="n">http_err</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;http_error_default&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">orig_args</span>
-<span class="ne">--&gt; </span><span class="mi">561</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:494,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">handlers</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">493</span>     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">494</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/miniconda3/envs/orange/lib/python3.9/urllib/request.py:641,</span> in <span class="ni">HTTPDefaultErrorHandler.http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span> <span class="k">def</span> <span class="nf">http_error_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">641</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
-
-<span class="ne">HTTPError</span>: HTTP Error 403: Forbidden
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;listings.csv&#39;, &lt;http.client.HTTPMessage at 0x7fab1907af70&gt;)
 </pre></div>
 </div>
 </div>
@@ -2685,7 +2630,7 @@ document.write(`
     <tr>
       <th>0</th>
       <td>10595</td>
-      <td>96m2, 3BR, 2BA, Metro, WI-FI etc...</td>
+      <td>Condo in Athens · ★4.84 · 3 bedrooms · 5 beds ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -2693,20 +2638,20 @@ document.write(`
       <td>37.98863</td>
       <td>23.76527</td>
       <td>Entire home/apt</td>
-      <td>70</td>
+      <td>93.0</td>
       <td>1</td>
-      <td>32</td>
-      <td>2021-09-24</td>
-      <td>0.25</td>
-      <td>6</td>
-      <td>114</td>
+      <td>45</td>
+      <td>2023-10-23</td>
+      <td>0.29</td>
       <td>7</td>
+      <td>351</td>
+      <td>11</td>
       <td>00000957568</td>
     </tr>
     <tr>
       <th>1</th>
       <td>10990</td>
-      <td>Athens Quality Apartments - Deluxe Apartment</td>
+      <td>Rental unit in Athens · ★4.81 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -2714,20 +2659,20 @@ document.write(`
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>50</td>
+      <td>41.0</td>
       <td>1</td>
-      <td>54</td>
-      <td>2021-11-01</td>
-      <td>0.48</td>
-      <td>6</td>
-      <td>364</td>
-      <td>10</td>
+      <td>71</td>
+      <td>2023-12-22</td>
+      <td>0.52</td>
+      <td>7</td>
+      <td>343</td>
+      <td>8</td>
       <td>00001070920</td>
     </tr>
     <tr>
       <th>2</th>
       <td>10993</td>
-      <td>Athens Quality Apartments - Studio</td>
+      <td>Rental unit in Athens · ★4.83 · Studio · 2 bed...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -2735,20 +2680,20 @@ document.write(`
       <td>37.98888</td>
       <td>23.76473</td>
       <td>Entire home/apt</td>
-      <td>38</td>
+      <td>42.0</td>
       <td>1</td>
-      <td>76</td>
-      <td>2021-12-09</td>
-      <td>0.67</td>
+      <td>93</td>
+      <td>2023-11-13</td>
+      <td>0.68</td>
+      <td>7</td>
+      <td>353</td>
       <td>6</td>
-      <td>312</td>
-      <td>22</td>
       <td>00000957080</td>
     </tr>
     <tr>
       <th>3</th>
       <td>10995</td>
-      <td>AQA-No2 1-bedroom, smart tv, fiber connection,</td>
+      <td>Rental unit in Athens · ★4.80 · 1 bedroom · 2 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -2756,20 +2701,20 @@ document.write(`
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>48</td>
+      <td>48.0</td>
       <td>1</td>
-      <td>27</td>
-      <td>2021-11-08</td>
-      <td>0.19</td>
-      <td>6</td>
-      <td>236</td>
-      <td>4</td>
+      <td>30</td>
+      <td>2023-06-02</td>
+      <td>0.18</td>
+      <td>7</td>
+      <td>358</td>
+      <td>1</td>
       <td>00000957422</td>
     </tr>
     <tr>
       <th>4</th>
       <td>27262</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
+      <td>Rental unit in Athens · ★4.83 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -2777,14 +2722,14 @@ document.write(`
       <td>37.98924</td>
       <td>23.76500</td>
       <td>Entire home/apt</td>
-      <td>52</td>
+      <td>48.0</td>
       <td>1</td>
-      <td>17</td>
-      <td>2020-01-08</td>
-      <td>0.15</td>
-      <td>6</td>
-      <td>176</td>
-      <td>0</td>
+      <td>23</td>
+      <td>2023-12-02</td>
+      <td>0.17</td>
+      <td>7</td>
+      <td>360</td>
+      <td>4</td>
       <td>00000957579</td>
     </tr>
   </tbody>
@@ -2839,214 +2784,214 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>9663</th>
-      <td>53913979</td>
-      <td>Beautiful Apt. closed to Monastiraki!</td>
-      <td>35760684</td>
-      <td>Eleni</td>
+      <th>13172</th>
+      <td>1052831358961926209</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>66158572</td>
+      <td>Panagiotis</td>
       <td>NaN</td>
-      <td>ΚΕΡΑΜΕΙΚΟΣ</td>
-      <td>37.980058</td>
-      <td>23.719821</td>
+      <td>ΝΕΟΣ ΚΟΣΜΟΣ</td>
+      <td>37.961107</td>
+      <td>23.732039</td>
       <td>Entire home/apt</td>
-      <td>90</td>
-      <td>2</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5</td>
-      <td>360</td>
-      <td>0</td>
-      <td>88749558874</td>
-    </tr>
-    <tr>
-      <th>9664</th>
-      <td>53914527</td>
-      <td>Cosy duplex apartment at Petralona</td>
-      <td>195674383</td>
-      <td>Selda</td>
-      <td>NaN</td>
-      <td>ΠΕΤΡΑΛΩΝΑ</td>
-      <td>37.974262</td>
-      <td>23.709322</td>
-      <td>Entire home/apt</td>
-      <td>48</td>
-      <td>3</td>
+      <td>72.0</td>
+      <td>1</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>1</td>
-      <td>354</td>
+      <td>270</td>
       <td>0</td>
-      <td>Exempt</td>
+      <td>0311K91000262801</td>
     </tr>
     <tr>
-      <th>9665</th>
-      <td>53914614</td>
-      <td>Classical vibes in this deluxe apt. in heart o...</td>
-      <td>35760684</td>
-      <td>Eleni</td>
-      <td>NaN</td>
-      <td>ΚΕΡΑΜΕΙΚΟΣ</td>
-      <td>37.980330</td>
-      <td>23.721530</td>
-      <td>Entire home/apt</td>
-      <td>90</td>
-      <td>2</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5</td>
-      <td>360</td>
-      <td>0</td>
-      <td>33332541105</td>
-    </tr>
-    <tr>
-      <th>9666</th>
-      <td>53915110</td>
-      <td>Family Room at the Trendy by Athens Prime Hotels</td>
-      <td>436756020</td>
-      <td>Paris</td>
+      <th>13173</th>
+      <td>1041975471423448283</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>549555819</td>
+      <td>Travelnest</td>
       <td>NaN</td>
       <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
-      <td>37.985432</td>
-      <td>23.732206</td>
-      <td>Private room</td>
-      <td>143</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>324</td>
-      <td>0</td>
-      <td>1190373</td>
-    </tr>
-    <tr>
-      <th>9667</th>
-      <td>53916052</td>
-      <td>Modern, stylish and big apartment in Athens ce...</td>
-      <td>436763650</td>
-      <td>Styliani</td>
-      <td>NaN</td>
-      <td>ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ</td>
-      <td>37.984031</td>
-      <td>23.721455</td>
+      <td>37.975630</td>
+      <td>23.729884</td>
       <td>Entire home/apt</td>
-      <td>70</td>
-      <td>2</td>
+      <td>121.0</td>
+      <td>1</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1</td>
+      <td>4</td>
       <td>364</td>
       <td>0</td>
-      <td>00001393010</td>
+      <td>00001845825</td>
     </tr>
     <tr>
-      <th>9668</th>
-      <td>53928165</td>
-      <td>About love AT015</td>
-      <td>428201678</td>
-      <td>Fenglin</td>
+      <th>13174</th>
+      <td>1041975662188553444</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>549555819</td>
+      <td>Travelnest</td>
       <td>NaN</td>
-      <td>ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ</td>
-      <td>37.991477</td>
-      <td>23.723229</td>
+      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
+      <td>37.977168</td>
+      <td>23.728127</td>
       <td>Entire home/apt</td>
-      <td>40</td>
-      <td>2</td>
+      <td>121.0</td>
+      <td>1</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2</td>
-      <td>167</td>
+      <td>4</td>
+      <td>364</td>
       <td>0</td>
-      <td>00001372314</td>
+      <td>00001845771</td>
     </tr>
     <tr>
-      <th>9669</th>
-      <td>53930376</td>
-      <td>Superior Queen Room by 33 Solonos suites</td>
-      <td>114156592</td>
-      <td>Bill &amp; John</td>
+      <th>13175</th>
+      <td>1041975834978137025</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>549555819</td>
+      <td>Travelnest</td>
+      <td>NaN</td>
+      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
+      <td>37.981610</td>
+      <td>23.733310</td>
+      <td>Entire home/apt</td>
+      <td>115.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>364</td>
+      <td>0</td>
+      <td>00001845846</td>
+    </tr>
+    <tr>
+      <th>13176</th>
+      <td>1041976032658866828</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>549555819</td>
+      <td>Travelnest</td>
+      <td>NaN</td>
+      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
+      <td>37.975129</td>
+      <td>23.728068</td>
+      <td>Entire home/apt</td>
+      <td>121.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>363</td>
+      <td>0</td>
+      <td>00001845810</td>
+    </tr>
+    <tr>
+      <th>13177</th>
+      <td>1041981160570257250</td>
+      <td>Condo in Athina · ★New · 1 bedroom · 2 beds · ...</td>
+      <td>550073856</td>
+      <td>Fotios</td>
+      <td>NaN</td>
+      <td>ΝΕΟΣ ΚΟΣΜΟΣ</td>
+      <td>37.965821</td>
+      <td>23.731857</td>
+      <td>Entire home/apt</td>
+      <td>39.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>241</td>
+      <td>0</td>
+      <td>00002097360</td>
+    </tr>
+    <tr>
+      <th>13178</th>
+      <td>1041986166054910435</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 2 b...</td>
+      <td>28624357</td>
+      <td>William</td>
+      <td>NaN</td>
+      <td>ΝΕΟΣ ΚΟΣΜΟΣ</td>
+      <td>37.963980</td>
+      <td>23.727280</td>
+      <td>Entire home/apt</td>
+      <td>56.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>127</td>
+      <td>0</td>
+      <td>00002371747</td>
+    </tr>
+    <tr>
+      <th>13179</th>
+      <td>1041995940594177341</td>
+      <td>Rental unit in Athina · ★New · 2 bedrooms · 2 ...</td>
+      <td>520807652</td>
+      <td>Nina</td>
+      <td>NaN</td>
+      <td>ΚΟΥΚΑΚΙ-ΜΑΚΡΥΓΙΑΝΝΗ</td>
+      <td>37.963869</td>
+      <td>23.721514</td>
+      <td>Entire home/apt</td>
+      <td>57.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18</td>
+      <td>264</td>
+      <td>0</td>
+      <td>00002012804</td>
+    </tr>
+    <tr>
+      <th>13180</th>
+      <td>1042000846383303032</td>
+      <td>Rental unit in Athina · ★New · 2 bedrooms · 3 ...</td>
+      <td>180153653</td>
+      <td>Andreas</td>
       <td>NaN</td>
       <td>ΚΟΛΩΝΑΚΙ</td>
-      <td>37.979829</td>
-      <td>23.736844</td>
-      <td>Private room</td>
-      <td>110</td>
+      <td>37.980160</td>
+      <td>23.748590</td>
+      <td>Entire home/apt</td>
+      <td>120.0</td>
       <td>1</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>32</td>
-      <td>365</td>
+      <td>1</td>
+      <td>264</td>
       <td>0</td>
-      <td>00001393195</td>
+      <td>00002159388</td>
     </tr>
     <tr>
-      <th>9670</th>
-      <td>53932240</td>
-      <td>2 room sunny modern apartment, top floor + bal...</td>
-      <td>34801484</td>
-      <td>Daria</td>
+      <th>13181</th>
+      <td>1042070861419155320</td>
+      <td>Rental unit in Athina · ★New · 1 bedroom · 1 b...</td>
+      <td>549422261</td>
+      <td>Alexandros</td>
       <td>NaN</td>
-      <td>ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ</td>
-      <td>37.982810</td>
-      <td>23.718970</td>
+      <td>ΠΕΤΡΑΛΩΝΑ</td>
+      <td>37.964303</td>
+      <td>23.713164</td>
       <td>Entire home/apt</td>
-      <td>33</td>
+      <td>65.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>4</td>
+      <td>310</td>
       <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>276</td>
-      <td>0</td>
-      <td>Exempt</td>
-    </tr>
-    <tr>
-      <th>9671</th>
-      <td>53934984</td>
-      <td>Διαμέρισμα στην πλατεία Αττικής ,πλησίον του μ...</td>
-      <td>381802767</td>
-      <td>Hakob</td>
-      <td>NaN</td>
-      <td>ΣΤΑΘΜΟΣ ΛΑΡΙΣΗΣ</td>
-      <td>37.997002</td>
-      <td>23.720508</td>
-      <td>Entire home/apt</td>
-      <td>32</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>365</td>
-      <td>0</td>
-      <td>Exempt</td>
-    </tr>
-    <tr>
-      <th>9672</th>
-      <td>53938913</td>
-      <td>A.P Athens</td>
-      <td>423806621</td>
-      <td>Anna</td>
-      <td>NaN</td>
-      <td>ΝΕΑ ΚΥΨΕΛΗ</td>
-      <td>37.996459</td>
-      <td>23.744231</td>
-      <td>Entire home/apt</td>
-      <td>40</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>365</td>
-      <td>0</td>
-      <td>00001396920</td>
+      <td>00002248311</td>
     </tr>
   </tbody>
 </table>
@@ -3095,57 +3040,57 @@ document.write(`
   <tbody>
     <tr>
       <th>count</th>
-      <td>9.673000e+03</td>
-      <td>9.673000e+03</td>
+      <td>1.318200e+04</td>
+      <td>1.318200e+04</td>
       <td>0.0</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
-      <td>7916.000000</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
-      <td>9673.000000</td>
+      <td>13182.000000</td>
+      <td>13182.000000</td>
+      <td>12816.000000</td>
+      <td>13182.000000</td>
+      <td>13182.000000</td>
+      <td>11068.000000</td>
+      <td>13182.000000</td>
+      <td>13182.000000</td>
+      <td>13182.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>3.255635e+07</td>
-      <td>1.475417e+08</td>
+      <td>3.954590e+17</td>
+      <td>2.166796e+08</td>
       <td>NaN</td>
-      <td>37.979912</td>
-      <td>23.731762</td>
-      <td>86.912850</td>
-      <td>3.234570</td>
-      <td>42.868913</td>
-      <td>1.520586</td>
-      <td>10.923292</td>
-      <td>240.921638</td>
-      <td>9.771632</td>
+      <td>37.980172</td>
+      <td>23.731728</td>
+      <td>105.484707</td>
+      <td>3.151267</td>
+      <td>49.470869</td>
+      <td>1.695702</td>
+      <td>12.034441</td>
+      <td>222.418146</td>
+      <td>14.025717</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>1.366145e+07</td>
-      <td>1.188964e+08</td>
+      <td>4.270628e+17</td>
+      <td>1.732957e+08</td>
       <td>NaN</td>
-      <td>0.013241</td>
-      <td>0.012369</td>
-      <td>326.785191</td>
-      <td>19.523021</td>
-      <td>71.038260</td>
-      <td>1.590922</td>
-      <td>22.798110</td>
-      <td>127.491219</td>
-      <td>15.926126</td>
+      <td>0.013427</td>
+      <td>0.012480</td>
+      <td>754.442075</td>
+      <td>16.231489</td>
+      <td>85.363863</td>
+      <td>1.703421</td>
+      <td>19.431829</td>
+      <td>136.667965</td>
+      <td>20.191377</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1.059500e+04</td>
-      <td>3.717700e+04</td>
+      <td>1.805000e+03</td>
       <td>NaN</td>
-      <td>37.950550</td>
+      <td>37.950322</td>
       <td>23.697700</td>
-      <td>7.000000</td>
+      <td>9.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
       <td>0.010000</td>
@@ -3155,63 +3100,63 @@ document.write(`
     </tr>
     <tr>
       <th>25%</th>
-      <td>2.293145e+07</td>
-      <td>3.904215e+07</td>
+      <td>3.166800e+07</td>
+      <td>6.022029e+07</td>
       <td>NaN</td>
-      <td>37.969230</td>
+      <td>37.969140</td>
       <td>23.723970</td>
-      <td>36.000000</td>
+      <td>46.000000</td>
       <td>1.000000</td>
+      <td>2.000000</td>
+      <td>0.430000</td>
       <td>1.000000</td>
-      <td>0.350000</td>
-      <td>1.000000</td>
-      <td>151.000000</td>
+      <td>88.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>3.335690e+07</td>
-      <td>1.304658e+08</td>
+      <td>5.312285e+07</td>
+      <td>1.821563e+08</td>
       <td>NaN</td>
-      <td>37.978340</td>
-      <td>23.729810</td>
-      <td>50.000000</td>
+      <td>37.978573</td>
+      <td>23.729719</td>
+      <td>65.000000</td>
       <td>2.000000</td>
       <td>13.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>296.000000</td>
-      <td>3.000000</td>
+      <td>1.090000</td>
+      <td>4.000000</td>
+      <td>268.000000</td>
+      <td>5.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>4.377216e+07</td>
-      <td>2.284115e+08</td>
+      <td>8.516889e+17</td>
+      <td>3.696750e+08</td>
       <td>NaN</td>
-      <td>37.987960</td>
-      <td>23.737820</td>
-      <td>80.000000</td>
+      <td>37.988298</td>
+      <td>23.737657</td>
+      <td>100.000000</td>
       <td>2.000000</td>
-      <td>52.000000</td>
-      <td>2.172500</td>
-      <td>9.000000</td>
-      <td>353.000000</td>
-      <td>13.000000</td>
+      <td>56.000000</td>
+      <td>2.440000</td>
+      <td>14.000000</td>
+      <td>348.000000</td>
+      <td>20.000000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>5.393891e+07</td>
-      <td>4.367636e+08</td>
+      <td>1.052831e+18</td>
+      <td>5.516695e+08</td>
       <td>NaN</td>
-      <td>38.034497</td>
+      <td>38.030830</td>
       <td>23.780220</td>
-      <td>8000.000000</td>
-      <td>1000.000000</td>
-      <td>753.000000</td>
-      <td>20.390000</td>
-      <td>153.000000</td>
+      <td>80275.000000</td>
+      <td>800.000000</td>
+      <td>890.000000</td>
+      <td>16.490000</td>
+      <td>121.000000</td>
       <td>365.000000</td>
-      <td>359.000000</td>
+      <td>223.000000</td>
     </tr>
   </tbody>
 </table>
@@ -3226,18 +3171,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                     96m2, 3BR, 2BA, Metro, WI-FI etc...
-1            Athens Quality Apartments - Deluxe Apartment
-2                      Athens Quality Apartments - Studio
-3          AQA-No2 1-bedroom, smart tv, fiber connection,
-4                      54m2, 1-br, cable tv, wi-fi, metro
-                              ...                        
-9668                                     About love AT015
-9669             Superior Queen Room by 33 Solonos suites
-9670    2 room sunny modern apartment, top floor + bal...
-9671    Διαμέρισμα στην πλατεία Αττικής ,πλησίον του μ...
-9672                                           A.P Athens
-Name: name, Length: 9673, dtype: object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        Condo in Athens · ★4.84 · 3 bedrooms · 5 beds ...
+1        Rental unit in Athens · ★4.81 · 1 bedroom · 1 ...
+2        Rental unit in Athens · ★4.83 · Studio · 2 bed...
+3        Rental unit in Athens · ★4.80 · 1 bedroom · 2 ...
+4        Rental unit in Athens · ★4.83 · 1 bedroom · 1 ...
+                               ...                        
+13177    Condo in Athina · ★New · 1 bedroom · 2 beds · ...
+13178    Rental unit in Athina · ★New · 1 bedroom · 2 b...
+13179    Rental unit in Athina · ★New · 2 bedrooms · 2 ...
+13180    Rental unit in Athina · ★New · 2 bedrooms · 3 ...
+13181    Rental unit in Athina · ★New · 1 bedroom · 1 b...
+Name: name, Length: 13182, dtype: object
 </pre></div>
 </div>
 </div>
@@ -3305,33 +3250,33 @@ Name: name, Length: 9673, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>9668</th>
-      <td>428201678</td>
-      <td>Fenglin</td>
+      <th>13177</th>
+      <td>550073856</td>
+      <td>Fotios</td>
     </tr>
     <tr>
-      <th>9669</th>
-      <td>114156592</td>
-      <td>Bill &amp; John</td>
+      <th>13178</th>
+      <td>28624357</td>
+      <td>William</td>
     </tr>
     <tr>
-      <th>9670</th>
-      <td>34801484</td>
-      <td>Daria</td>
+      <th>13179</th>
+      <td>520807652</td>
+      <td>Nina</td>
     </tr>
     <tr>
-      <th>9671</th>
-      <td>381802767</td>
-      <td>Hakob</td>
+      <th>13180</th>
+      <td>180153653</td>
+      <td>Andreas</td>
     </tr>
     <tr>
-      <th>9672</th>
-      <td>423806621</td>
-      <td>Anna</td>
+      <th>13181</th>
+      <td>549422261</td>
+      <td>Alexandros</td>
     </tr>
   </tbody>
 </table>
-<p>9673 rows × 2 columns</p>
+<p>13182 rows × 2 columns</p>
 </div></div></div>
 </div>
 <p>Επιστροφή του τύπου δεδομένων για όλες τις στήλες</p>
@@ -3351,7 +3296,7 @@ neighbourhood                      object
 latitude                          float64
 longitude                         float64
 room_type                          object
-price                               int64
+price                             float64
 minimum_nights                      int64
 number_of_reviews                   int64
 last_review                        object
@@ -3383,7 +3328,7 @@ neighbourhood                             object
 latitude                                 float64
 longitude                                float64
 room_type                                 object
-price                                      int64
+price                                    float64
 minimum_nights                             int64
 number_of_reviews                          int64
 last_review                       datetime64[ns]
@@ -3411,11 +3356,11 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2021
-1    2021
-2    2021
-3    2021
-4    2020
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2023
+1    2023
+2    2023
+3    2023
+4    2023
 Name: year, dtype: UInt16
 </pre></div>
 </div>
@@ -3459,7 +3404,7 @@ Name: year, dtype: UInt16
       <th>longitude</th>
       <th>room_type</th>
       <th>price</th>
-      <th>...</th>
+      <th>minimum_nights</th>
       <th>number_of_reviews</th>
       <th>last_review</th>
       <th>reviews_per_month</th>
@@ -3469,14 +3414,13 @@ Name: year, dtype: UInt16
       <th>license</th>
       <th>year</th>
       <th>month</th>
-      <th>day</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>10595</td>
-      <td>96m2, 3BR, 2BA, Metro, WI-FI etc...</td>
+      <td>Condo in Athens · ★4.84 · 3 bedrooms · 5 beds ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -3484,23 +3428,22 @@ Name: year, dtype: UInt16
       <td>37.98863</td>
       <td>23.76527</td>
       <td>Entire home/apt</td>
-      <td>70</td>
-      <td>...</td>
-      <td>32</td>
-      <td>2021-09-24</td>
-      <td>0.25</td>
-      <td>6</td>
-      <td>114</td>
+      <td>93.0</td>
+      <td>1</td>
+      <td>45</td>
+      <td>2023-10-23</td>
+      <td>0.29</td>
       <td>7</td>
+      <td>351</td>
+      <td>11</td>
       <td>00000957568</td>
-      <td>2021</td>
-      <td>9</td>
-      <td>24</td>
+      <td>2023</td>
+      <td>10</td>
     </tr>
     <tr>
       <th>1</th>
       <td>10990</td>
-      <td>Athens Quality Apartments - Deluxe Apartment</td>
+      <td>Rental unit in Athens · ★4.81 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -3508,23 +3451,22 @@ Name: year, dtype: UInt16
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>50</td>
-      <td>...</td>
-      <td>54</td>
-      <td>2021-11-01</td>
-      <td>0.48</td>
-      <td>6</td>
-      <td>364</td>
-      <td>10</td>
-      <td>00001070920</td>
-      <td>2021</td>
-      <td>11</td>
+      <td>41.0</td>
       <td>1</td>
+      <td>71</td>
+      <td>2023-12-22</td>
+      <td>0.52</td>
+      <td>7</td>
+      <td>343</td>
+      <td>8</td>
+      <td>00001070920</td>
+      <td>2023</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>2</th>
       <td>10993</td>
-      <td>Athens Quality Apartments - Studio</td>
+      <td>Rental unit in Athens · ★4.83 · Studio · 2 bed...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -3532,23 +3474,22 @@ Name: year, dtype: UInt16
       <td>37.98888</td>
       <td>23.76473</td>
       <td>Entire home/apt</td>
-      <td>38</td>
-      <td>...</td>
-      <td>76</td>
-      <td>2021-12-09</td>
-      <td>0.67</td>
+      <td>42.0</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2023-11-13</td>
+      <td>0.68</td>
+      <td>7</td>
+      <td>353</td>
       <td>6</td>
-      <td>312</td>
-      <td>22</td>
       <td>00000957080</td>
-      <td>2021</td>
-      <td>12</td>
-      <td>9</td>
+      <td>2023</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>3</th>
       <td>10995</td>
-      <td>AQA-No2 1-bedroom, smart tv, fiber connection,</td>
+      <td>Rental unit in Athens · ★4.80 · 1 bedroom · 2 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -3556,23 +3497,22 @@ Name: year, dtype: UInt16
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>48</td>
-      <td>...</td>
-      <td>27</td>
-      <td>2021-11-08</td>
-      <td>0.19</td>
-      <td>6</td>
-      <td>236</td>
-      <td>4</td>
+      <td>48.0</td>
+      <td>1</td>
+      <td>30</td>
+      <td>2023-06-02</td>
+      <td>0.18</td>
+      <td>7</td>
+      <td>358</td>
+      <td>1</td>
       <td>00000957422</td>
-      <td>2021</td>
-      <td>11</td>
-      <td>8</td>
+      <td>2023</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>4</th>
       <td>27262</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
+      <td>Rental unit in Athens · ★4.83 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -3580,22 +3520,20 @@ Name: year, dtype: UInt16
       <td>37.98924</td>
       <td>23.76500</td>
       <td>Entire home/apt</td>
-      <td>52</td>
-      <td>...</td>
-      <td>17</td>
-      <td>2020-01-08</td>
-      <td>0.15</td>
-      <td>6</td>
-      <td>176</td>
-      <td>0</td>
-      <td>00000957579</td>
-      <td>2020</td>
+      <td>48.0</td>
       <td>1</td>
-      <td>8</td>
+      <td>23</td>
+      <td>2023-12-02</td>
+      <td>0.17</td>
+      <td>7</td>
+      <td>360</td>
+      <td>4</td>
+      <td>00000957579</td>
+      <td>2023</td>
+      <td>12</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 21 columns</p>
 </div></div></div>
 </div>
 <p>Αν κάποια στήλη περιέχει κενά στην αρχή ή το τέλος της μπορούμε να τα αφαιρέσουμε ως εξής:</p>
@@ -3607,11 +3545,11 @@ Name: year, dtype: UInt16
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0               96m2, 3BR, 2BA, Metro, WI-FI etc...
-1      Athens Quality Apartments - Deluxe Apartment
-2                Athens Quality Apartments - Studio
-3    AQA-No2 1-bedroom, smart tv, fiber connection,
-4                54m2, 1-br, cable tv, wi-fi, metro
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    Condo in Athens · ★4.84 · 3 bedrooms · 5 beds ...
+1    Rental unit in Athens · ★4.81 · 1 bedroom · 1 ...
+2    Rental unit in Athens · ★4.83 · Studio · 2 bed...
+3    Rental unit in Athens · ★4.80 · 1 bedroom · 2 ...
+4    Rental unit in Athens · ★4.83 · 1 bedroom · 1 ...
 Name: name, dtype: object
 </pre></div>
 </div>
@@ -3626,11 +3564,11 @@ Name: name, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0               96m2, 3br, 2ba, metro, wi-fi etc...
-1      athens quality apartments - deluxe apartment
-2                athens quality apartments - studio
-3    aqa-no2 1-bedroom, smart tv, fiber connection,
-4                54m2, 1-br, cable tv, wi-fi, metro
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    condo in athens · ★4.84 · 3 bedrooms · 5 beds ...
+1    rental unit in athens · ★4.81 · 1 bedroom · 1 ...
+2    rental unit in athens · ★4.83 · studio · 2 bed...
+3    rental unit in athens · ★4.80 · 1 bedroom · 2 ...
+4    rental unit in athens · ★4.83 · 1 bedroom · 1 ...
 Name: name_lower, dtype: object
 </pre></div>
 </div>
@@ -3672,32 +3610,32 @@ Name: name_lower, dtype: object
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>70</td>
-      <td>70</td>
+      <td>93.0</td>
+      <td>93.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>50</td>
-      <td>50</td>
+      <td>41.0</td>
+      <td>41.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1</td>
-      <td>38</td>
-      <td>38</td>
+      <td>42.0</td>
+      <td>42.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
-      <td>48</td>
-      <td>48</td>
+      <td>48.0</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1</td>
-      <td>52</td>
-      <td>52</td>
+      <td>48.0</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3706,38 +3644,38 @@ Name: name_lower, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>9668</th>
+      <th>13177</th>
+      <td>1</td>
+      <td>39.0</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>13178</th>
+      <td>1</td>
+      <td>56.0</td>
+      <td>56.0</td>
+    </tr>
+    <tr>
+      <th>13179</th>
       <td>2</td>
-      <td>40</td>
-      <td>80</td>
+      <td>57.0</td>
+      <td>114.0</td>
     </tr>
     <tr>
-      <th>9669</th>
+      <th>13180</th>
       <td>1</td>
-      <td>110</td>
-      <td>110</td>
+      <td>120.0</td>
+      <td>120.0</td>
     </tr>
     <tr>
-      <th>9670</th>
-      <td>4</td>
-      <td>33</td>
-      <td>132</td>
-    </tr>
-    <tr>
-      <th>9671</th>
-      <td>1</td>
-      <td>32</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>9672</th>
-      <td>1</td>
-      <td>40</td>
-      <td>40</td>
+      <th>13181</th>
+      <td>2</td>
+      <td>65.0</td>
+      <td>130.0</td>
     </tr>
   </tbody>
 </table>
-<p>9673 rows × 3 columns</p>
+<p>13182 rows × 3 columns</p>
 </div></div></div>
 </div>
 <p>Υπολογισμός του μέσου όρου μιας στήλης</p>
@@ -3748,7 +3686,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.91285020159206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>105.48470661672908
 </pre></div>
 </div>
 </div>
@@ -3761,7 +3699,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.0
 </pre></div>
 </div>
 </div>
@@ -3800,22 +3738,22 @@ Name: name_lower, dtype: object
     <tr>
       <th>0</th>
       <td>Entire home/apt</td>
-      <td>84.221882</td>
+      <td>105.392089</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Hotel room</td>
-      <td>188.514706</td>
+      <td>258.742574</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Private room</td>
-      <td>100.025054</td>
+      <td>98.330484</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Shared room</td>
-      <td>61.857143</td>
+      <td>22.674699</td>
     </tr>
   </tbody>
 </table>
@@ -3857,19 +3795,19 @@ Name: name_lower, dtype: object
   <tbody>
     <tr>
       <th>Entire home/apt</th>
-      <td>51.0</td>
+      <td>66.0</td>
     </tr>
     <tr>
       <th>Hotel room</th>
-      <td>105.0</td>
+      <td>147.0</td>
     </tr>
     <tr>
       <th>Private room</th>
-      <td>38.0</td>
+      <td>52.0</td>
     </tr>
     <tr>
       <th>Shared room</th>
-      <td>14.0</td>
+      <td>18.0</td>
     </tr>
   </tbody>
 </table>
@@ -3911,151 +3849,193 @@ Name: name_lower, dtype: object
       <th>0</th>
       <td>Entire home/apt</td>
       <td>2013</td>
-      <td>133.000000</td>
+      <td>136.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Entire home/apt</td>
       <td>2014</td>
-      <td>89.666667</td>
+      <td>67.000000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Entire home/apt</td>
       <td>2015</td>
-      <td>63.500000</td>
+      <td>59.166667</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Entire home/apt</td>
       <td>2016</td>
-      <td>90.432432</td>
+      <td>101.210526</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Entire home/apt</td>
       <td>2017</td>
-      <td>92.000000</td>
+      <td>145.914286</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Entire home/apt</td>
       <td>2018</td>
-      <td>90.602094</td>
+      <td>75.391304</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Entire home/apt</td>
       <td>2019</td>
-      <td>111.112040</td>
+      <td>158.182927</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Entire home/apt</td>
       <td>2020</td>
-      <td>74.048780</td>
+      <td>135.187500</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Entire home/apt</td>
       <td>2021</td>
-      <td>69.686602</td>
+      <td>186.180556</td>
     </tr>
     <tr>
       <th>9</th>
+      <td>Entire home/apt</td>
+      <td>2022</td>
+      <td>304.455357</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Entire home/apt</td>
+      <td>2023</td>
+      <td>90.381326</td>
+    </tr>
+    <tr>
+      <th>11</th>
       <td>Hotel room</td>
       <td>2017</td>
       <td>116.333333</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>Hotel room</td>
-      <td>2018</td>
-      <td>96.800000</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Hotel room</td>
-      <td>2019</td>
-      <td>610.882353</td>
-    </tr>
-    <tr>
       <th>12</th>
       <td>Hotel room</td>
-      <td>2020</td>
-      <td>115.600000</td>
+      <td>2018</td>
+      <td>172.833333</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Hotel room</td>
-      <td>2021</td>
-      <td>108.051282</td>
+      <td>2019</td>
+      <td>1039.100000</td>
     </tr>
     <tr>
       <th>14</th>
+      <td>Hotel room</td>
+      <td>2020</td>
+      <td>126.666667</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Hotel room</td>
+      <td>2021</td>
+      <td>173.000000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Hotel room</td>
+      <td>2022</td>
+      <td>235.538462</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Hotel room</td>
+      <td>2023</td>
+      <td>118.900000</td>
+    </tr>
+    <tr>
+      <th>18</th>
       <td>Private room</td>
       <td>2015</td>
       <td>160.000000</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>Private room</td>
-      <td>2016</td>
-      <td>51.285714</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Private room</td>
-      <td>2017</td>
-      <td>67.000000</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Private room</td>
-      <td>2018</td>
-      <td>55.966667</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Private room</td>
-      <td>2019</td>
-      <td>53.809524</td>
-    </tr>
-    <tr>
       <th>19</th>
       <td>Private room</td>
-      <td>2020</td>
-      <td>124.762712</td>
+      <td>2016</td>
+      <td>70.750000</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Private room</td>
-      <td>2021</td>
-      <td>43.755376</td>
+      <td>2017</td>
+      <td>63.333333</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>Shared room</td>
-      <td>2017</td>
-      <td>42.000000</td>
+      <td>Private room</td>
+      <td>2018</td>
+      <td>50.285714</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>Shared room</td>
+      <td>Private room</td>
       <td>2019</td>
-      <td>257.500000</td>
+      <td>151.600000</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>Shared room</td>
+      <td>Private room</td>
       <td>2020</td>
-      <td>391.666667</td>
+      <td>61.181818</td>
     </tr>
     <tr>
       <th>24</th>
+      <td>Private room</td>
+      <td>2021</td>
+      <td>98.785714</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Private room</td>
+      <td>2022</td>
+      <td>95.360000</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Private room</td>
+      <td>2023</td>
+      <td>46.282979</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Shared room</td>
+      <td>2019</td>
+      <td>11.000000</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Shared room</td>
+      <td>2020</td>
+      <td>12.000000</td>
+    </tr>
+    <tr>
+      <th>29</th>
       <td>Shared room</td>
       <td>2021</td>
-      <td>12.952381</td>
+      <td>23.000000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Shared room</td>
+      <td>2022</td>
+      <td>21.833333</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Shared room</td>
+      <td>2023</td>
+      <td>19.977778</td>
     </tr>
   </tbody>
 </table>
@@ -4100,6 +4080,7 @@ Name: name_lower, dtype: object
       <th>room_type</th>
       <th>price</th>
       <th>...</th>
+      <th>last_review</th>
       <th>reviews_per_month</th>
       <th>calculated_host_listings_count</th>
       <th>availability_365</th>
@@ -4107,7 +4088,6 @@ Name: name_lower, dtype: object
       <th>license</th>
       <th>year</th>
       <th>month</th>
-      <th>day</th>
       <th>name_lower</th>
       <th>min_revenue</th>
     </tr>
@@ -4116,7 +4096,7 @@ Name: name_lower, dtype: object
     <tr>
       <th>0</th>
       <td>10595</td>
-      <td>96m2, 3BR, 2BA, Metro, WI-FI etc...</td>
+      <td>Condo in Athens · ★4.84 · 3 bedrooms · 5 beds ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -4124,23 +4104,23 @@ Name: name_lower, dtype: object
       <td>37.98863</td>
       <td>23.76527</td>
       <td>Entire home/apt</td>
-      <td>70</td>
+      <td>93.0</td>
       <td>...</td>
-      <td>0.25</td>
-      <td>6</td>
-      <td>114</td>
+      <td>2023-10-23</td>
+      <td>0.29</td>
       <td>7</td>
+      <td>351</td>
+      <td>11</td>
       <td>00000957568</td>
-      <td>2021</td>
-      <td>9</td>
-      <td>24</td>
-      <td>96m2, 3br, 2ba, metro, wi-fi etc...</td>
-      <td>70</td>
+      <td>2023</td>
+      <td>10</td>
+      <td>condo in athens · ★4.84 · 3 bedrooms · 5 beds ...</td>
+      <td>93.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>10990</td>
-      <td>Athens Quality Apartments - Deluxe Apartment</td>
+      <td>Rental unit in Athens · ★4.81 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -4148,23 +4128,23 @@ Name: name_lower, dtype: object
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>50</td>
+      <td>41.0</td>
       <td>...</td>
-      <td>0.48</td>
-      <td>6</td>
-      <td>364</td>
-      <td>10</td>
+      <td>2023-12-22</td>
+      <td>0.52</td>
+      <td>7</td>
+      <td>343</td>
+      <td>8</td>
       <td>00001070920</td>
-      <td>2021</td>
-      <td>11</td>
-      <td>1</td>
-      <td>athens quality apartments - deluxe apartment</td>
-      <td>50</td>
+      <td>2023</td>
+      <td>12</td>
+      <td>rental unit in athens · ★4.81 · 1 bedroom · 1 ...</td>
+      <td>41.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>10993</td>
-      <td>Athens Quality Apartments - Studio</td>
+      <td>Rental unit in Athens · ★4.83 · Studio · 2 bed...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -4172,23 +4152,23 @@ Name: name_lower, dtype: object
       <td>37.98888</td>
       <td>23.76473</td>
       <td>Entire home/apt</td>
-      <td>38</td>
+      <td>42.0</td>
       <td>...</td>
-      <td>0.67</td>
+      <td>2023-11-13</td>
+      <td>0.68</td>
+      <td>7</td>
+      <td>353</td>
       <td>6</td>
-      <td>312</td>
-      <td>22</td>
       <td>00000957080</td>
-      <td>2021</td>
-      <td>12</td>
-      <td>9</td>
-      <td>athens quality apartments - studio</td>
-      <td>38</td>
+      <td>2023</td>
+      <td>11</td>
+      <td>rental unit in athens · ★4.83 · studio · 2 bed...</td>
+      <td>42.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>10995</td>
-      <td>AQA-No2 1-bedroom, smart tv, fiber connection,</td>
+      <td>Rental unit in Athens · ★4.80 · 1 bedroom · 2 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -4196,23 +4176,23 @@ Name: name_lower, dtype: object
       <td>37.98903</td>
       <td>23.76448</td>
       <td>Entire home/apt</td>
-      <td>48</td>
+      <td>48.0</td>
       <td>...</td>
-      <td>0.19</td>
-      <td>6</td>
-      <td>236</td>
-      <td>4</td>
+      <td>2023-06-02</td>
+      <td>0.18</td>
+      <td>7</td>
+      <td>358</td>
+      <td>1</td>
       <td>00000957422</td>
-      <td>2021</td>
-      <td>11</td>
-      <td>8</td>
-      <td>aqa-no2 1-bedroom, smart tv, fiber connection,</td>
-      <td>48</td>
+      <td>2023</td>
+      <td>6</td>
+      <td>rental unit in athens · ★4.80 · 1 bedroom · 2 ...</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>27262</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
+      <td>Rental unit in Athens · ★4.83 · 1 bedroom · 1 ...</td>
       <td>37177</td>
       <td>Emmanouil</td>
       <td>NaN</td>
@@ -4220,22 +4200,22 @@ Name: name_lower, dtype: object
       <td>37.98924</td>
       <td>23.76500</td>
       <td>Entire home/apt</td>
-      <td>52</td>
+      <td>48.0</td>
       <td>...</td>
-      <td>0.15</td>
-      <td>6</td>
-      <td>176</td>
-      <td>0</td>
+      <td>2023-12-02</td>
+      <td>0.17</td>
+      <td>7</td>
+      <td>360</td>
+      <td>4</td>
       <td>00000957579</td>
-      <td>2020</td>
-      <td>1</td>
-      <td>8</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
-      <td>52</td>
+      <td>2023</td>
+      <td>12</td>
+      <td>rental unit in athens · ★4.83 · 1 bedroom · 1 ...</td>
+      <td>48.0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 23 columns</p>
+<p>5 rows × 22 columns</p>
 </div></div></div>
 </div>
 <p>Φιλτράρισμα με πολλαπλά κριτήρια (τιμή &lt;1000 και έτος 2020)</p>
@@ -4277,6 +4257,7 @@ Name: name_lower, dtype: object
       <th>room_type</th>
       <th>price</th>
       <th>...</th>
+      <th>last_review</th>
       <th>reviews_per_month</th>
       <th>calculated_host_listings_count</th>
       <th>availability_365</th>
@@ -4284,40 +4265,15 @@ Name: name_lower, dtype: object
       <th>license</th>
       <th>year</th>
       <th>month</th>
-      <th>day</th>
       <th>name_lower</th>
       <th>min_revenue</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>27262</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
-      <td>37177</td>
-      <td>Emmanouil</td>
-      <td>NaN</td>
-      <td>ΑΜΠΕΛΟΚΗΠΟΙ</td>
-      <td>37.98924</td>
-      <td>23.76500</td>
-      <td>Entire home/apt</td>
-      <td>52</td>
-      <td>...</td>
-      <td>0.15</td>
-      <td>6</td>
-      <td>176</td>
-      <td>0</td>
-      <td>00000957579</td>
-      <td>2020</td>
-      <td>1</td>
-      <td>8</td>
-      <td>54m2, 1-br, cable tv, wi-fi, metro</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>18</th>
+      <th>14</th>
       <td>138386</td>
-      <td>Apartment Dora , Service with style</td>
+      <td>Rental unit in Athens · ★4.95 · 2 bedrooms · 2...</td>
       <td>675611</td>
       <td>Yavor</td>
       <td>NaN</td>
@@ -4325,94 +4281,118 @@ Name: name_lower, dtype: object
       <td>37.96783</td>
       <td>23.74970</td>
       <td>Entire home/apt</td>
-      <td>58</td>
+      <td>59.0</td>
       <td>...</td>
-      <td>0.47</td>
+      <td>2020-01-20</td>
+      <td>0.40</td>
       <td>1</td>
-      <td>52</td>
+      <td>1</td>
       <td>0</td>
       <td>00000208960</td>
       <td>2020</td>
       <td>1</td>
-      <td>20</td>
-      <td>apartment dora , service with style</td>
-      <td>174</td>
+      <td>rental unit in athens · ★4.95 · 2 bedrooms · 2...</td>
+      <td>177.0</td>
     </tr>
     <tr>
-      <th>30</th>
-      <td>281158</td>
-      <td>Center 1, Metro 30m, Satelite TV</td>
-      <td>640163</td>
-      <td>Nikos</td>
+      <th>57</th>
+      <td>1004858</td>
+      <td>Rental unit in Athens · ★4.83 · 2 bedrooms · 3...</td>
+      <td>5527135</td>
+      <td>George</td>
       <td>NaN</td>
-      <td>ΠΛΑΤΕΙΑ ΑΤΤΙΚΗΣ</td>
-      <td>37.99253</td>
-      <td>23.73115</td>
+      <td>ΑΚΑΔΗΜΙΑ ΠΛΑΤΩΝΟΣ</td>
+      <td>37.98599</td>
+      <td>23.71586</td>
       <td>Entire home/apt</td>
-      <td>45</td>
+      <td>150.0</td>
       <td>...</td>
-      <td>0.48</td>
-      <td>9</td>
-      <td>144</td>
+      <td>2020-10-17</td>
+      <td>0.24</td>
+      <td>1</td>
       <td>0</td>
-      <td>00000251837</td>
-      <td>2020</td>
-      <td>2</td>
-      <td>29</td>
-      <td>center 1, metro 30m, satelite tv</td>
-      <td>90</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>469140</td>
-      <td>Our first love #01 | Thiseio Residencies</td>
-      <td>2289590</td>
-      <td>Live In Athens</td>
+      <td>0</td>
       <td>NaN</td>
-      <td>ΘΗΣΕΙΟ</td>
-      <td>37.97665</td>
-      <td>23.71850</td>
-      <td>Entire home/apt</td>
-      <td>89</td>
-      <td>...</td>
-      <td>0.51</td>
-      <td>13</td>
-      <td>301</td>
-      <td>0</td>
-      <td>00000546911</td>
-      <td>2020</td>
-      <td>11</td>
-      <td>2</td>
-      <td>our first love #01 | thiseio residencies</td>
-      <td>178</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>470219</td>
-      <td>Our Playground #02 | Thiseio Residencies</td>
-      <td>2289590</td>
-      <td>Live In Athens</td>
-      <td>NaN</td>
-      <td>ΘΗΣΕΙΟ</td>
-      <td>37.97525</td>
-      <td>23.71957</td>
-      <td>Entire home/apt</td>
-      <td>64</td>
-      <td>...</td>
-      <td>0.15</td>
-      <td>13</td>
-      <td>251</td>
-      <td>0</td>
-      <td>00001176980</td>
       <td>2020</td>
       <td>10</td>
-      <td>12</td>
-      <td>our playground #02 | thiseio residencies</td>
-      <td>64000</td>
+      <td>rental unit in athens · ★4.83 · 2 bedrooms · 3...</td>
+      <td>300.0</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>1473469</td>
+      <td>Rental unit in Athens · ★4.71 · 1 bedroom · 1 ...</td>
+      <td>5222732</td>
+      <td>Orchidea Monika</td>
+      <td>NaN</td>
+      <td>ΚΥΨΕΛΗ</td>
+      <td>38.00026</td>
+      <td>23.73823</td>
+      <td>Private room</td>
+      <td>30.0</td>
+      <td>...</td>
+      <td>2020-01-24</td>
+      <td>0.66</td>
+      <td>5</td>
+      <td>233</td>
+      <td>0</td>
+      <td>00000480969</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>rental unit in athens · ★4.71 · 1 bedroom · 1 ...</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>2973483</td>
+      <td>Home in Athens · ★4.59 · 1 bedroom · 1 bed · 1...</td>
+      <td>15167857</td>
+      <td>Makis</td>
+      <td>NaN</td>
+      <td>ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ</td>
+      <td>37.97809</td>
+      <td>23.72315</td>
+      <td>Private room</td>
+      <td>35.0</td>
+      <td>...</td>
+      <td>2020-01-03</td>
+      <td>1.62</td>
+      <td>2</td>
+      <td>344</td>
+      <td>0</td>
+      <td>00000477435</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>home in athens · ★4.59 · 1 bedroom · 1 bed · 1...</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>5759045</td>
+      <td>Rental unit in Athina · ★4.88 · 1 bedroom · 1 ...</td>
+      <td>29874173</td>
+      <td>Angela</td>
+      <td>NaN</td>
+      <td>ΣΤΑΔΙΟ</td>
+      <td>37.96906</td>
+      <td>23.74220</td>
+      <td>Entire home/apt</td>
+      <td>55.0</td>
+      <td>...</td>
+      <td>2020-02-09</td>
+      <td>0.91</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>rental unit in athina · ★4.88 · 1 bedroom · 1 ...</td>
+      <td>110.0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 23 columns</p>
+<p>5 rows × 22 columns</p>
 </div></div></div>
 </div>
 <p>Ιστόγραμμα για την στήλη price στον πίνακα airbnb_under_1000</p>
@@ -4423,7 +4403,7 @@ Name: name_lower, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/865a2f22c234782154ac14570a7b91caf100384625c475d118443ba29b61444c.png" src="../_images/865a2f22c234782154ac14570a7b91caf100384625c475d118443ba29b61444c.png" />
+<img alt="../_images/89eab76553cfc73e2f17c198f60b68d496e6476c4dffc53fa684ee1c10af48f2.png" src="../_images/89eab76553cfc73e2f17c198f60b68d496e6476c4dffc53fa684ee1c10af48f2.png" />
 </div>
 </div>
 </section>

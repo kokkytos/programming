@@ -4,6 +4,7 @@ bokeh
 folium
 ipywidgets
 jupytext
+jupyter-book
 matplotlib
 nbclient
 numpy
@@ -21,3 +22,7 @@ rasterio
 geopandas
 scikit-learn
 scikit-image
+seaborn
+mapclassify
+rtree
+pygeos
