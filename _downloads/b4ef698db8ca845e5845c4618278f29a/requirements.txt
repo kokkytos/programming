@@ -22,3 +22,7 @@ rasterio
 geopandas
 scikit-learn
 scikit-image
+seaborn
+mapclassify
+rtree
+pygeos
