@@ -457,7 +457,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>10. Διαγράμματα<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<p>Στόχος της τρέχουσας ενότητας είναι να παρουσιαστούν οι δυνατότητες που προσφέρει η Python για την οπτικοποίηση δεδομένων σε διαγράμματα. Για την δημιουργία των διαγραμμάτων θα χρησιμοποιηθεί η βιβλιοθήκη [seaborn] (<a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a>).</p>
+<p>Στόχος της τρέχουσας ενότητας είναι να παρουσιαστούν οι δυνατότητες που προσφέρει η Python για την οπτικοποίηση δεδομένων σε διαγράμματα. Για την δημιουργία των διαγραμμάτων θα χρησιμοποιηθεί η βιβλιοθήκη <a class="reference external" href="https://seaborn.pydata.org/">seaborn</a>.</p>
 <section id="google-colab">
 <h2>Ειδική ενότητα για εκτέλεση στο Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -490,7 +490,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># η βιβλιοθήκη pandas για την διαχείριση πινάκων</span>
 
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># η βιβλιοθήκη seaborn  για δημιουργία διαγραμμάτων </span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># η βιβλιοθήκη seaborn  για δημιουργία διαγραμμάτων, πιο σύνθετη</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># η βιβλιοθήκη matplotlib  για δημιουργία διαγραμμάτων, πιο σύνθετη</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span> <span class="c1"># ορισμός προκαθορισμένων ρυθμίσεων για την βιβλιοθήκη matplotlib και seaborn (themes, fonds, scaling, color palette)</span>
 </pre></div>
 </div>
@@ -840,7 +840,40 @@ document.write(`
 <p>1920 rows × 7 columns</p>
 </div></div></div>
 </div>
-<p>Μετά την μετατροπή οι στήλες με τον πληθυσμό ανά έτος συγχωνεύτηκαν σε δύο στήλες μόνο. Η στήλη <em>Population</em> περιλαμβάνει τον πληθυσμό και η στήλη <em>year</em> περιλαμβάνει το έτος.</p>
+<p>Μετά την μετατροπή οι στήλες με τον πληθυσμό ανά έτος συγχωνεύτηκαν σε μία στήλη. Η στήλη <em>Population</em> περιλαμβάνει τον πληθυσμό από όλα τα έτη. Ωστόσο η διάκριση ανά έτος γίνεται με βάση το index <em>year</em> που περιλαμβάνει το έτος αλλά και το όνομα της χώρας. Στην πράξη το <em>index</em> του πίνακα είναι <em>MultiIndex</em> αφού κάθε εγγραφή Index αποτελείται από μία πλειάδα με την Χώρα και το έτος. Αυτό μπορούμε να το επιβεβαιώσουμε με την παρακάτω εντολή.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydata_long</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MultiIndex([(                    &#39;Canada&#39;, 2010),
+            (                     &#39;Japan&#39;, 2010),
+            (                    &#39;Norway&#39;, 2010),
+            (                   &#39;Ireland&#39;, 2010),
+            (                   &#39;Hungary&#39;, 2010),
+            (                     &#39;Spain&#39;, 2010),
+            (  &#39;United States of America&#39;, 2010),
+            (                   &#39;Belgium&#39;, 2010),
+            (                &#39;Luxembourg&#39;, 2010),
+            (                   &#39;Finland&#39;, 2010),
+            ...
+            (                    &#39;Rwanda&#39;, 2019),
+            (     &#39;Sao Tome and Principe&#39;, 2019),
+            (                   &#39;Senegal&#39;, 2019),
+            (                &#39;Seychelles&#39;, 2019),
+            (              &#39;Sierra Leone&#39;, 2019),
+            (                   &#39;Somalia&#39;, 2019),
+            (                     &#39;Sudan&#39;, 2019),
+            (                  &#39;Eswatini&#39;, 2019),
+            (&#39;Kingdom of the Netherlands&#39;, 2019),
+            (              &#39;Danish Realm&#39;, 2019)],
+           names=[&#39;Name&#39;, &#39;year&#39;], length=1920)
+</pre></div>
+</div>
+</div>
+</div>
 <p>Σαν πρώτο παράδειγμα θα χρησιμοποιήσουμε μόνο τα δεδομένα της Ελλάδας, φιλτράροντας με βάση το πεδίο <em>Iso3166P1Alpha2Code</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -950,9 +983,7 @@ document.write(`
 <p>Στην συνέχεια φτιάχνουμε ένα διάγραμμα με γραμμές με βάση τα δεδομένα της Ελλάδας.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydata_long2</span> <span class="o">=</span><span class="n">mydata_long</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-<span class="c1"># create plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create plot</span>
 <span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">mydata_long</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;green&quot;</span><span class="p">]</span> <span class="p">)</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Πληθυσμιακή μεταβολή 2010-2019&#39;</span><span class="p">)</span> <span class="c1"># Ορισμός τίτλου</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># ορισμός y axis labels σε plain format αντι scientific</span>
@@ -971,7 +1002,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bar plot</span>
-<span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mydata_long2</span><span class="p">)</span>
+<span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mydata_long</span><span class="p">)</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">10700000</span><span class="p">,</span> <span class="mi">11150000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -988,7 +1019,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydata_2</span> <span class="o">=</span><span class="n">mydata</span><span class="p">[(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">&#39;Population, 2019&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10500000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">&#39;Population, 2019&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">11500000</span><span class="p">)]</span>
 <span class="n">mydata_long2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">wide_to_long</span><span class="p">(</span><span class="n">mydata_2</span><span class="p">,</span> <span class="n">stubnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Population&quot;</span><span class="p">],</span> <span class="n">i</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
-<span class="c1">#mydata_long2</span>
 </pre></div>
 </div>
 </div>
@@ -1001,9 +1031,8 @@ document.write(`
 <span class="n">myplot</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">mydata_long2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Έτος&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;Πληθυσμός&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
-<span class="n">myplot</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="c1">#myplot.legend(loc=&#39;upper right&#39;, fontsize = 15);</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">move_legend</span><span class="p">(</span><span class="n">myplot</span><span class="p">,</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">myplot</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># disable scientific format</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">move_legend</span><span class="p">(</span><span class="n">myplot</span><span class="p">,</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># μετακίνηση του Legend εκτός γραφήματος</span>
 </pre></div>
 </div>
 </div>
@@ -1011,9 +1040,15 @@ document.write(`
 <img alt="../_images/caf56a5b7cbd901958fd1cfbf6bdc8aa9cffe8b2f1a0420bd5bab9fcf068955a.png" src="../_images/caf56a5b7cbd901958fd1cfbf6bdc8aa9cffe8b2f1a0420bd5bab9fcf068955a.png" />
 </div>
 </div>
+</section>
+<section id="id5">
+<h4>Γράφημα πίτας<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>Αν θέλουμε να εκφράσουμε γραφικά την αναλογία του πληθυσμού του 2019 κάθε χώρας σε σχέση με το σύνολο των χωρών τότε μπορούμε να χρησιμοποιήσουμε ένα διάγραμμα «πίτας» (pie chart).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydata_long2</span><span class="p">[</span><span class="n">mydata_long2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2019</span><span class="p">],</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pie chart</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">mydata_long2</span><span class="p">[</span><span class="n">mydata_long2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2019</span><span class="p">],</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)]</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1128,15 +1163,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="id5">
-<h4>Γράφημα πίτας<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
-<p>Αν θέλουμε να εκφράσουμε γραφικά την αναλογία του πληθυσμού του 2019 κάθε χώρας σε σχέση με το σύνολο τους τότε μπορούμε να χρησιμοποιήσουμε ένα διάγραμμα «πίτας» (pie chart).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pie chart</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">mydata_long2</span><span class="p">[</span><span class="n">mydata_long2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2019</span><span class="p">],</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)]</span>
-<span class="n">palette_color</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;bright&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palette_color</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;bright&#39;</span><span class="p">)</span>
 
 <span class="n">pie</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Population&#39;</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NativeName&#39;</span><span class="p">],</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">palette_color</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.0f%%</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1180,7 +1209,7 @@ document.write(`
 <span class="n">myplot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Πληθυσμός&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
 <span class="n">myplot</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;Πλήθος&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">)})</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1203,7 +1232,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a86f3cfb526a43844ac44fcaa716065ea1a17f55c31e1bc74a132975701a6c0f.png" src="../_images/a86f3cfb526a43844ac44fcaa716065ea1a17f55c31e1bc74a132975701a6c0f.png" />
+<img alt="../_images/7e5250a11bad5391cf6935cdf09d47a96dde2ec069340ee2b047b68a74992cf3.png" src="../_images/7e5250a11bad5391cf6935cdf09d47a96dde2ec069340ee2b047b68a74992cf3.png" />
 </div>
 </div>
 <p>Για λόγους σύγκρισης μπορούμε να δημιουργήσουμε πολλαπλά θηκογράμματα με κριτήριο κατηγοριοποίησης των δεδομένων μια κατηγορική μεταβλητή.
@@ -1218,34 +1247,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2c8a342f37dfd0e7fc00e8a6a8e113918132ecbd7f2a18aee3ab783212e4a19d.png" src="../_images/2c8a342f37dfd0e7fc00e8a6a8e113918132ecbd7f2a18aee3ab783212e4a19d.png" />
+<img alt="../_images/622fdb3159dbdd8c93b60b6b9a78d3409c57fcfe3e5adc31d2369ab41ba657fb.png" src="../_images/622fdb3159dbdd8c93b60b6b9a78d3409c57fcfe3e5adc31d2369ab41ba657fb.png" />
 </div>
 </div>
 <p>Επιπλέον είναι εφικτό να δημιουργήσουμε ξεχωριστά θηκογράμματα ανά έτος μέσω της συνάρτησης <em>FacetGrid</em>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nuts2</span><span class="p">[</span><span class="s1">&#39;TIME_PERIOD&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2       2018
-3       2019
-4       2020
-8       2018
-9       2019
-        ... 
-3816    2019
-3823    2018
-3824    2019
-3825    2010
-3833    2018
-Name: TIME_PERIOD, Length: 1274, dtype: category
-Categories (4, int64): [2010, 2018, 2019, 2020]
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">nuts2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;TIME_PERIOD&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1299,10 +1304,116 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../docs/plots_data/A1602_SAM04_TB_DC_00_2011_B23_F_GR.csv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> 
-<span class="c1">#econ_data.head()</span>
+<span class="n">econ_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Επίπεδο διοικητικής διαίρεσης</th>
+      <th>Γεωγραφικός κωδικός</th>
+      <th>Περιγραφή</th>
+      <th>Σύνολο</th>
+      <th>Σύνολο οικονομικών ενεργών</th>
+      <th>Σύνολο απασχολούμενων</th>
+      <th>Πρωτογενής Τομέας</th>
+      <th>Δευτερογενής Τομέας</th>
+      <th>Τριτογενής Τομέας</th>
+      <th>Ανεργοι</th>
+      <th>Οικονομικά μη ενεργοί</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>ΣΥΝΟΛΟ ΧΩΡΑΣ</td>
+      <td>10816286</td>
+      <td>4586636</td>
+      <td>3727633</td>
+      <td>372209</td>
+      <td>654377</td>
+      <td>2701047</td>
+      <td>859003</td>
+      <td>6229650</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>11</td>
+      <td>ΠΕΡΙΦΕΡΕΙΑ ΑΝΑΤΟΛΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ ΚΑΙ ΘΡΑΚΗΣ</td>
+      <td>608182</td>
+      <td>234579</td>
+      <td>187306</td>
+      <td>38787</td>
+      <td>30892</td>
+      <td>117627</td>
+      <td>47273</td>
+      <td>373603</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>12</td>
+      <td>ΠΕΡΙΦΕΡΕΙΑ ΚΕΝΤΡΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ</td>
+      <td>1882108</td>
+      <td>771613</td>
+      <td>603133</td>
+      <td>69563</td>
+      <td>112559</td>
+      <td>421011</td>
+      <td>168480</td>
+      <td>1110495</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>21</td>
+      <td>ΠΕΡΙΦΕΡΕΙΑ ΔΥΤΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ</td>
+      <td>283689</td>
+      <td>108094</td>
+      <td>83530</td>
+      <td>11792</td>
+      <td>21697</td>
+      <td>50041</td>
+      <td>24564</td>
+      <td>175595</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>22</td>
+      <td>ΠΕΡΙΦΕΡΕΙΑ ΗΠΕΙΡΟΥ</td>
+      <td>336856</td>
+      <td>129712</td>
+      <td>106053</td>
+      <td>16002</td>
+      <td>18861</td>
+      <td>71190</td>
+      <td>23659</td>
+      <td>207144</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Το αρχείο περιλαμβάνει δεδομένα για διαφορετικά διοικητικά επίπεδα.
 Κρατάμε μόνο τους δήμους (έχουν Επίπεδο διοικητικής διαίρεσης με τιμή 3) και αφαιρούμε το Άγιο Όρος.</p>
@@ -1317,7 +1428,8 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 <p>Υπολογίζουμε το % απασχολουμένων ανά τομέα οικονομικής δραστηριότητας επί του οικονομικά ενεργού πληθυσμού, και το ποσοστό ανεργίας (ως νέα στήλη <em>unempl_pct</em>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span><span class="p">[[</span><span class="s1">&#39;A_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;B_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;C_pct&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">econ_data</span><span class="p">[[</span><span class="s1">&#39;Πρωτογενής Τομέας&#39;</span><span class="p">,</span> <span class="s1">&#39;Δευτερογενής Τομέας&#39;</span><span class="p">,</span> <span class="s1">&#39;Τριτογενής Τομέας&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span><span class="p">[[</span><span class="s1">&#39;A_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;B_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;C_pct&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">econ_data</span><span class="p">[[</span><span class="s1">&#39;Πρωτογενής Τομέας&#39;</span><span class="p">,</span> <span class="s1">&#39;Δευτερογενής Τομέας&#39;</span><span class="p">,</span> <span class="s1">&#39;Τριτογενής Τομέας&#39;</span><span class="p">]]</span> 
+                                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">econ_data</span><span class="p">[</span><span class="s1">&#39;unempl_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">econ_data</span><span class="p">[</span><span class="s1">&#39;Ανεργοι&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">econ_data</span><span class="p">[</span><span class="s1">&#39;Σύνολο οικονομικών ενεργών&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1350,7 +1462,7 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6514fad2fd1672a9370a7f5d7e55d00fd5686b76de0e22c1a94ce0b0b6ca4bf0.png" src="../_images/6514fad2fd1672a9370a7f5d7e55d00fd5686b76de0e22c1a94ce0b0b6ca4bf0.png" />
+<img alt="../_images/d9cebd60342f894d4ca71b6d42b6d3b52b295e65c59bb5c4ce619e0ee05f183e.png" src="../_images/d9cebd60342f894d4ca71b6d42b6d3b52b295e65c59bb5c4ce619e0ee05f183e.png" />
 </div>
 </div>
 </section>
@@ -1366,7 +1478,7 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cd4d423b46bde0ecb1652d331decdce871ba64ad0cb3fcaab9bc61223b2a09e4.png" src="../_images/cd4d423b46bde0ecb1652d331decdce871ba64ad0cb3fcaab9bc61223b2a09e4.png" />
+<img alt="../_images/000ce24ab691d2967009ee95bf6c95ef4afbdec1b28bcb4c43fb8773b6a6b817.png" src="../_images/000ce24ab691d2967009ee95bf6c95ef4afbdec1b28bcb4c43fb8773b6a6b817.png" />
 </div>
 </div>
 </section>
@@ -1455,7 +1567,7 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 <h3>Γραμμή παλινδρόμησης<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cd</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cd</span><span class="p">,</span> <span class="c1">#regplot: Plot data and a linear regression model fit.</span>
             <span class="n">x</span><span class="o">=</span><span class="s2">&quot;alevel_pct&quot;</span><span class="p">,</span> 
             <span class="n">y</span><span class="o">=</span><span class="s2">&quot;C_pct&quot;</span><span class="p">,</span> 
             <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">},</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">})</span>
@@ -1468,7 +1580,7 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/acd32c4505df007a45ff52cf05f1d8a9cb4c02f7f7e56d03cf0d584fde9fa05a.png" src="../_images/acd32c4505df007a45ff52cf05f1d8a9cb4c02f7f7e56d03cf0d584fde9fa05a.png" />
+<img alt="../_images/a9293b152490544cd192026fc643b65a9eb2b5610a71e3498a54ecd5625b3e88.png" src="../_images/a9293b152490544cd192026fc643b65a9eb2b5610a71e3498a54ecd5625b3e88.png" />
 </div>
 </div>
 <p>Είναι δυνατή η αποθήκευση ενός διαγράμματος σε μορφή εικόνας:</p>
@@ -1485,7 +1597,7 @@ Categories (4, int64): [2010, 2018, 2019, 2020]
 <h3>Γράφημα μήτρας συσχετίσεων (Correlation matrix)<a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h3>
 <p>Για το συγκεκριμένο παράδειγμα θα χρησιμοποιηθεί ένα διαδεδομένο αρχείο δεδομένων, το αρχείο Iris.
 Το αρχείο Iris χρησιμοποιείται σαν δοκιμαστικό αρχείο για μεθόδους στατιστικής ανάλυσης, μηχανικής εκμάθηση και οπτικοποίησης και περιλαμβάνει 50 εγγραφές για κάθε ένα από τα είδη λουλουδιών Iris setosa, Iris virginica, και Iris versicolor για το μήκος και το πλάτος για τα σέπαλα και τα πέταλα τους. Περισσότερες λεπτομέρειες για το συγκεκριμένο αρχείο δεδομένων μπορείτε να βρείτε στην <a class="reference external" href="https://en.wikipedia.org/wiki/Iris_flower_data_set">Wikipedia</a>.</p>
-<p>Ως συνήθως αρχικά γίνεται η ανάγνωνση του σχετικού αρχείου:</p>
+<p>Ως συνήθως αρχικά γίνεται η ανάγνωση του σχετικού αρχείου:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../docs/plots_data/Iris.csv&#39;</span><span class="p">)</span>

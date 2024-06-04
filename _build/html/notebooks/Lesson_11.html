@@ -675,7 +675,7 @@ document.write(`
 <p><strong>Προσοχή</strong> στην απώλεια δεδομένων κατά την μετατροπή από ακέραιο σε δεκαδικό. Η παρακάτω μετατροπή οδηγεί σε στρογγυλοποιήσεις</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.6</span><span class="p">])</span>
 <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -892,7 +892,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Μπορούμε να φτιάξουμε μια ακολουθία τιμών σε έναν πίνακα numpy:np.arange(start=1, stop=10, step=3)</p>
+<p>Μπορούμε να φτιάξουμε μια ακολουθία τιμών σε έναν πίνακα numpy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># η πιο απλά  np.arange(1, 10, 2) </span>
@@ -910,7 +910,19 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -923,7 +935,20 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2],
+       [3, 4, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1204,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Έστω ο παρακάρω πίνακας</p>
+<p>Έστω ο παρακάτω πίνακας</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -1297,7 +1322,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα ndarray objects.</p>
+<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα <em>ndarray objects</em>.</p>
 <p>Με τον παρακάτω τρόπο μπορούμε να εντοπίσουμε τις μοναδικές τιμές από τα στοιχεία ενός πίνακα. Έστω ο παρακάτω πίνακας</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1472,7 +1497,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Σε πολυ διάστατους πίνακες μπορούμε να κάνουμε την ένωση με βάση συγκεκριμένο άξονα (παράμετρος axis), δηλ. κατά γραμμή ή στήλη.</p>
+<p>Σε πολυδιάστατους πίνακες μπορούμε να κάνουμε την ένωση με βάση συγκεκριμένο άξονα (παράμετρος axis), δηλ. κατά γραμμή ή στήλη.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -1532,12 +1557,24 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="indexing-and-slicing">
 <h1>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this heading">#</a></h1>
-<p>Σε μονοδιάστατα arrays η επιλογή στοιχείων γίνεται με την ίδια λογική όπως της λίστες στην Python όπου το πρώτο στοιχείο έχει το ευρετήριο <code class="docutils literal notranslate"><span class="pre">0</span></code> και το τελευταίο το ευρετήριο <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
+<p>Σε μονοδιάστατα arrays η επιλογή στοιχείων γίνεται με την ίδια λογική όπως στις λίστες στην Python όπου το πρώτο στοιχείο έχει το ευρετήριο <code class="docutils literal notranslate"><span class="pre">0</span></code> και το τελευταίο το ευρετήριο <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">arr1</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
-<span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># στοιχείο με ευρετήριο 4</span>
+<span class="n">arr1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3,  3,  7,  2,  4, 10,  7,  2,  1,  2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># στοιχείο με ευρετήριο 5</span>
 <span class="n">last</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="n">arr1</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># τελευταίο στοιχείο</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fifth</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
 </pre></div>
@@ -1567,7 +1604,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή των γραμμών με ευρετήριο 1 και 3 και όλες τις στήλες</p>
+<p>Επιλογή των γραμμών με ευρετήριο από 1 ως 3 (ανοικτό διάστημα) και όλες τις στήλες</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,:]</span>
@@ -1581,7 +1618,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή όλες τις γραμμες και τις στήλες με ευρετήριο 1 και 3</p>
+<p>Επιλογή όλες τις γραμμες και τις στήλες με ευρετήριο από 1 και 3 (ανοικτό διάστημα)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -1597,7 +1634,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή των γραμμών και στηλών με ευρετήριο 1 και 3</p>
+<p>Επιλογή των γραμμών και στηλών με ευρετήριο 1 και 3 (ανοικτό διάστημα)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -1624,7 +1661,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιπλέον έχουμε την δυνατότητα να αντικαταστήσουμε τιμές σε ένα array, πχ στο array <code class="docutils literal notranslate"><span class="pre">x</span></code> μπορούμε να αντικάστήσουμε την τιμή 10 με 99</p>
+<p>Επιπλέον έχουμε την δυνατότητα να αντικαταστήσουμε τιμές σε ένα array, πχ στο array <code class="docutils literal notranslate"><span class="pre">x</span></code> μπορούμε να αντικαστήσουμε την τιμή 10 με 99</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
@@ -1702,6 +1739,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+
 <span class="n">x_masked</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
 
 <span class="c1"># ή ενναλλακτικά ορισμός των elements σε NaN τιμές</span>
