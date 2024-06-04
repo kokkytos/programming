@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=beaea9c7"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -209,7 +210,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -218,7 +219,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -676,7 +677,7 @@ document.write(`
 <p><strong>Προσοχή</strong> στην απώλεια δεδομένων κατά την μετατροπή από ακέραιο σε δεκαδικό. Η παρακάτω μετατροπή οδηγεί σε στρογγυλοποιήσεις</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.6</span><span class="p">])</span>
 <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -893,7 +894,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Μπορούμε να φτιάξουμε μια ακολουθία τιμών σε έναν πίνακα numpy:np.arange(start=1, stop=10, step=3)</p>
+<p>Μπορούμε να φτιάξουμε μια ακολουθία τιμών σε έναν πίνακα numpy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># η πιο απλά  np.arange(1, 10, 2) </span>
@@ -911,7 +912,19 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -924,7 +937,20 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2],
+       [3, 4, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1180,7 +1206,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Έστω ο παρακάρω πίνακας</p>
+<p>Έστω ο παρακάτω πίνακας</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -1296,12 +1322,9 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-- 1 2 3 4 5]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </div>
-</div>
-<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα ndarray objects.</p>
+<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα <em>ndarray objects</em>.</p>
 <p>Με τον παρακάτω τρόπο μπορούμε να εντοπίσουμε τις μοναδικές τιμές από τα στοιχεία ενός πίνακα. Έστω ο παρακάτω πίνακας</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1476,7 +1499,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Σε πολυ διάστατους πίνακες μπορούμε να κάνουμε την ένωση με βάση συγκεκριμένο άξονα (παράμετρος axis), δηλ. κατά γραμμή ή στήλη.</p>
+<p>Σε πολυδιάστατους πίνακες μπορούμε να κάνουμε την ένωση με βάση συγκεκριμένο άξονα (παράμετρος axis), δηλ. κατά γραμμή ή στήλη.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -1536,12 +1559,24 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="indexing-and-slicing">
 <h1>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Link to this heading">#</a></h1>
-<p>Σε μονοδιάστατα arrays η επιλογή στοιχείων γίνεται με την ίδια λογική όπως της λίστες στην Python όπου το πρώτο στοιχείο έχει το ευρετήριο <code class="docutils literal notranslate"><span class="pre">0</span></code> και το τελευταίο το ευρετήριο <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
+<p>Σε μονοδιάστατα arrays η επιλογή στοιχείων γίνεται με την ίδια λογική όπως στις λίστες στην Python όπου το πρώτο στοιχείο έχει το ευρετήριο <code class="docutils literal notranslate"><span class="pre">0</span></code> και το τελευταίο το ευρετήριο <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">arr1</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
-<span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># στοιχείο με ευρετήριο 4</span>
+<span class="n">arr1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3,  3,  7,  2,  4, 10,  7,  2,  1,  2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># στοιχείο με ευρετήριο 5</span>
 <span class="n">last</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="n">arr1</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># τελευταίο στοιχείο</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fifth</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
 </pre></div>
@@ -1571,7 +1606,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή των γραμμών με ευρετήριο 1 και 3 και όλες τις στήλες</p>
+<p>Επιλογή των γραμμών με ευρετήριο από 1 ως 3 (ανοικτό διάστημα) και όλες τις στήλες</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,:]</span>
@@ -1585,7 +1620,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή όλες τις γραμμες και τις στήλες με ευρετήριο 1 και 3</p>
+<p>Επιλογή όλες τις γραμμες και τις στήλες με ευρετήριο από 1 και 3 (ανοικτό διάστημα)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -1601,7 +1636,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιλογή των γραμμών και στηλών με ευρετήριο 1 και 3</p>
+<p>Επιλογή των γραμμών και στηλών με ευρετήριο 1 και 3 (ανοικτό διάστημα)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -1628,7 +1663,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιπλέον έχουμε την δυνατότητα να αντικαταστήσουμε τιμές σε ένα array, πχ στο array <code class="docutils literal notranslate"><span class="pre">x</span></code> μπορούμε να αντικάστήσουμε την τιμή 10 με 99</p>
+<p>Επιπλέον έχουμε την δυνατότητα να αντικαταστήσουμε τιμές σε ένα array, πχ στο array <code class="docutils literal notranslate"><span class="pre">x</span></code> μπορούμε να αντικαστήσουμε την τιμή 10 με 99</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
@@ -1679,7 +1714,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/73027b41c38d9f309daf6fd2a4ad0498a5deeb0b88ad7fa9a8374fc377a31b75.png" src="../_images/73027b41c38d9f309daf6fd2a4ad0498a5deeb0b88ad7fa9a8374fc377a31b75.png" />
+<img alt="../_images/9fc7fd0e6f461599bdd7984dd9ed22fa5fe2fc4d1f9dfc6f89b69a9ace16aacc.png" src="../_images/9fc7fd0e6f461599bdd7984dd9ed22fa5fe2fc4d1f9dfc6f89b69a9ace16aacc.png" />
 </div>
 </div>
 <p>Και έστω ότι έχουμε ένα άλλο αρχείο raster σε μορφή numpy ndarray το οποίο αποτελεί mask (πχ αρχείο νεφοκάλυψης). Τα στοιχεία που έχουν την τιμή <em>1</em> θα αποτελέσουν την μάσκα και τα <em>0</em> θα είναι τα έγκυρα εικονοστοιχεία. Με βάση αυτό το ndarray μπορούμε να θέσουμε ως μη έγκυρα όσα στοιχεία της image ταυτίζονται ευρετηριακά με τα στοιχεία της mask με τιμή <em>1</em>. Ας φτιάξουμε ένα υποθετικό αρχείο mask.</p>
@@ -1700,12 +1735,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0e0c8c2a8dcc6db9632585598e9140d9873a2fae994f35bcd37fc5bbe23a6206.png" src="../_images/0e0c8c2a8dcc6db9632585598e9140d9873a2fae994f35bcd37fc5bbe23a6206.png" />
+<img alt="../_images/8fb4ce4e881de4b98e6e5b0e566d33b1fe0eef5f99ced42ecd904022e2a7982b.png" src="../_images/8fb4ce4e881de4b98e6e5b0e566d33b1fe0eef5f99ced42ecd904022e2a7982b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+
 <span class="n">x_masked</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
 
 <span class="c1"># ή ενναλλακτικά ορισμός των elements σε NaN τιμές</span>
@@ -1722,7 +1758,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4016b126d470026cf5e462f456b55e3b439b0505cc07c05f57d3828e95067ec6.png" src="../_images/4016b126d470026cf5e462f456b55e3b439b0505cc07c05f57d3828e95067ec6.png" />
+<img alt="../_images/5e21afb2c86b2dbc4a8cc7e2483e01e2308cb406b0bf2e9148514446c1e72650.png" src="../_images/5e21afb2c86b2dbc4a8cc7e2483e01e2308cb406b0bf2e9148514446c1e72650.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1742,7 +1778,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/93e2d5bb8f8fbd9e1edb0bc06e82f1e2f94395c942abdcd2cc6fb0f44a5399eb.png" src="../_images/93e2d5bb8f8fbd9e1edb0bc06e82f1e2f94395c942abdcd2cc6fb0f44a5399eb.png" />
+<img alt="../_images/3ec533a0df97eee6ef1c3c72cf457f67b96fcb1fc3901a82ae6ad7fae59e7ca2.png" src="../_images/3ec533a0df97eee6ef1c3c72cf457f67b96fcb1fc3901a82ae6ad7fae59e7ca2.png" />
 </div>
 </div>
 <p>Αρκετές από τις βιβλιοθήκες για ψηφιδωτά δεδομένα στην Python επιστρέφουν τα δεδομένα των αρχείων ως numpy ndarrays. Στο παράδειγμα που ακολουθεί θα χρησιμοποιηθεί η βιβλιοθήκη <a class="reference external" href="https://github.com/rasterio/rasterio">rasterio</a> για την ανάγνωση μια πολυφασματικής δορυφορικής εικόνας.</p>
@@ -1803,7 +1839,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1895,8 +1931,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
