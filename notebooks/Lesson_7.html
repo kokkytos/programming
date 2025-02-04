@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="el" data-content_root="../" >
+<html lang="el" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών &#8212; Προγραμματισμός Η/Υ</title>
   
@@ -28,37 +29,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=beaea9c7"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="../_static/translations.js?v=dd0234b1"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_7';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
@@ -440,7 +439,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>7. Ανάγνωση &amp; εγγραφή αρχείων, μετονομασία, αναζήτηση, αντιγραφή μετακίνηση αρχείων και καταλογών<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Πριν ξεκινήσουμε την επίδειξη των εντολών για το σημερινό μάθημα, θα πρέπει να εισάγουμε μερικές απαραίτητες βιβλιοθήκες και να ορίσουμε τον τρέχων κατάλογο στη Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -470,14 +469,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/programming/programming/notebooks
-/home/runner/work/programming/programming/notebooks/some_directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks
+/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id2">
-<h2>Ανάγνωση &amp; εγγραφή αρχείων<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>Ανάγνωση &amp; εγγραφή αρχείων<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Μπορούμε να ανοίξουμε ένα αρχείο με την μέθοδο open, να δούμε μερικές ιδιότητες του και να το κλείσουμε</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -579,7 +578,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -625,6 +624,10 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -832,6 +835,10 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -856,6 +863,10 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
+Beagle
+Beagle
+Beagle
 Beagle
 Beagle
 Beagle
@@ -1049,13 +1060,17 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
+Beagle
+Beagle
+Beagle
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="pickle">
-<h2>Σειριοποίηση (pickle)<a class="headerlink" href="#pickle" title="Link to this heading">#</a></h2>
+<h2>Σειριοποίηση (pickle)<a class="headerlink" href="#pickle" title="Permalink to this heading">#</a></h2>
 <p>Στα προηγούμενα παραδείγματα διαβάσαμε ή γράψαμε συμβολοσειρές σε ένα αρχειο. Όμως, μέσω της σειριοποίησης μπορούμε να αποθηκεύσουμε σε ένα binary αρχείο τα αντικείμενα της python με τις ιδιότητές τους. Όχι μόνον σαν απλές συμβολοσειρές. Στο παρακάτω κομμάτι κώδικα θα αποθηκεύσουμε μία λίστα και μια μεταβλήτή σε ένα αρχείο με την βοήθεια της βιβλιοθήκης <em>pickle</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1087,7 +1102,7 @@ Beagle
 </div>
 </section>
 <section id="id3">
-<h2>Ανάκτηση περιεχομένων φακέλου<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>Ανάκτηση περιεχομένων φακέλου<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Μέσω της μεθόδου <em>os.scandir()</em> μπορούμε να λάβουμε μια λίστα με τα αρχεία και τους φακέλους σε ένα κατάλογο.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1099,22 +1114,24 @@ Beagle
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
-dog_breeds_reversed.txt
-foo.txt
-data_02.txt
-data_03_backup.txt
-tests.py
-data_03.txt
-admin.py
-sub_dir3
-data_01_backup.txt
-admin2.py
-data_01.txt
-pickle.txt
 sub_dir
-dog_breeds.txt
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
 file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
 </pre></div>
 </div>
 </div>
@@ -1128,22 +1145,24 @@ file1.py
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sub_dir2&#39;,
- &#39;dog_breeds_reversed.txt&#39;,
- &#39;foo.txt&#39;,
- &#39;data_02.txt&#39;,
- &#39;data_03_backup.txt&#39;,
- &#39;tests.py&#39;,
- &#39;data_03.txt&#39;,
- &#39;admin.py&#39;,
- &#39;sub_dir3&#39;,
- &#39;data_01_backup.txt&#39;,
- &#39;admin2.py&#39;,
- &#39;data_01.txt&#39;,
- &#39;pickle.txt&#39;,
  &#39;sub_dir&#39;,
- &#39;dog_breeds.txt&#39;,
+ &#39;dog_breeds_reversed.txt&#39;,
+ &#39;sub_dir3&#39;,
+ &#39;data_02.txt&#39;,
+ &#39;foo.txt&#39;,
  &#39;data_02_backup.txt&#39;,
- &#39;file1.py&#39;]
+ &#39;data_03_backup.txt&#39;,
+ &#39;data_01_backup.txt&#39;,
+ &#39;dog_breeds.txt&#39;,
+ &#39;2018&#39;,
+ &#39;example_directory&#39;,
+ &#39;pickle.txt&#39;,
+ &#39;file1.py&#39;,
+ &#39;data_03.txt&#39;,
+ &#39;data_01.txt&#39;,
+ &#39;tests.py&#39;,
+ &#39;admin.py&#39;,
+ &#39;admin2.py&#39;]
 </pre></div>
 </div>
 </div>
@@ -1159,22 +1178,24 @@ file1.py
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
-dog_breeds_reversed.txt
-foo.txt
-data_02.txt
-data_03_backup.txt
-tests.py
-data_03.txt
-admin.py
-sub_dir3
-data_01_backup.txt
-admin2.py
-data_01.txt
-pickle.txt
 sub_dir
-dog_breeds.txt
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
 file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
 </pre></div>
 </div>
 </div>
@@ -1190,22 +1211,24 @@ file1.py
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
-dog_breeds_reversed.txt
-foo.txt
-data_02.txt
-data_03_backup.txt
-tests.py
-data_03.txt
-admin.py
-sub_dir3
-data_01_backup.txt
-admin2.py
-data_01.txt
-pickle.txt
 sub_dir
-dog_breeds.txt
+dog_breeds_reversed.txt
+sub_dir3
+data_02.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+2018
+example_directory
+pickle.txt
 file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
 </pre></div>
 </div>
 </div>
@@ -1223,19 +1246,19 @@ file1.py
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog_breeds_reversed.txt
-foo.txt
 data_02.txt
-data_03_backup.txt
-tests.py
-data_03.txt
-admin.py
-data_01_backup.txt
-admin2.py
-data_01.txt
-pickle.txt
-dog_breeds.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
 file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
 </pre></div>
 </div>
 </div>
@@ -1253,8 +1276,8 @@ file1.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/programming/programming/notebooks/some_directory/foo.txt
-/home/runner/work/programming/programming/notebooks/some_directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/foo.txt
+/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
 foo.txt
 </pre></div>
 </div>
@@ -1273,8 +1296,10 @@ foo.txt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub_dir2
-sub_dir3
 sub_dir
+sub_dir3
+2018
+example_directory
 </pre></div>
 </div>
 </div>
@@ -1299,71 +1324,79 @@ sub_dir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Όνομα αρχείου: sub_dir2
 	Μέγεθος:  4096
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  777
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:41:52.403099+00:00
-
-Όνομα αρχείου: foo.txt
-	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:41:52.359099+00:00
-
-Όνομα αρχείου: data_02.txt
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: data_03_backup.txt
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: tests.py
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: data_03.txt
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: admin.py
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: sub_dir3
-	Μέγεθος:  4096
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: data_01_backup.txt
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: admin2.py
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: data_01.txt
-	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
-
-Όνομα αρχείου: pickle.txt
-	Μέγεθος:  4452
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:41:52.427099+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
 
 Όνομα αρχείου: sub_dir
 	Μέγεθος:  4096
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
 
-Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  777
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:41:52.395099+00:00
+Όνομα αρχείου: dog_breeds_reversed.txt
+	Μέγεθος:  805
+	Ημερομηνία τελευταίας τροποποίησης 2025-02-04 10:47:05.224525+00:00
+
+Όνομα αρχείου: sub_dir3
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: data_02.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: foo.txt
+	Μέγεθος:  168
+	Ημερομηνία τελευταίας τροποποίησης 2025-02-04 10:47:05.128526+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: data_03_backup.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: data_01_backup.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: dog_breeds.txt
+	Μέγεθος:  805
+	Ημερομηνία τελευταίας τροποποίησης 2025-02-04 10:47:05.196525+00:00
+
+Όνομα αρχείου: 2018
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.820793+00:00
+
+Όνομα αρχείου: example_directory
+	Μέγεθος:  4096
+	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
+
+Όνομα αρχείου: pickle.txt
+	Μέγεθος:  4660
+	Ημερομηνία τελευταίας τροποποίησης 2025-02-04 10:47:05.260525+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:40:15.419267+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: data_03.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: data_01.txt
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: tests.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
+
+Όνομα αρχείου: admin.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.162046+00:00
+
+Όνομα αρχείου: admin2.py
+	Μέγεθος:  0
+	Ημερομηνία τελευταίας τροποποίησης 2025-02-04 10:30:43.026884+00:00
 </pre></div>
 </div>
 </div>
@@ -1387,15 +1420,15 @@ sub_dir
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/programming/programming/notebooks/some_directory/in/input.xlsx
-/home/runner/work/programming/programming/notebooks/some_directory/out/output.xlsx
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/in/input.xlsx
+/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory/out/output.xlsx
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id4">
-<h2>Δημιουργία καταλόγων<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>Δημιουργία καταλόγων<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>Στόχος είναι η δημιουργία νέων καταλόγων (directories) στο σύστημα αρχείων του υπολογιστή μας.</p>
 <p>Πριν ξεκινήσουμε, επιβεβαιώνουμε για μια ακόμη φορά τον τρέχοντα κατάλογο</p>
 <div class="cell docutils container">
@@ -1407,7 +1440,7 @@ sub_dir
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/programming/programming/notebooks/some_directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leonidas/PARA/2_Areas/Academic/uth/Programming/JupyterNotebooks/notes/notebooks/some_directory
 </pre></div>
 </div>
 </div>
@@ -1421,6 +1454,11 @@ sub_dir
     <span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="c1"># δημιουργία καταλόγου</span>
 <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ο κατάλογος </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2"> υπάρχει ήδη&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ο κατάλογος example_directory υπάρχει ήδη
 </pre></div>
 </div>
 </div>
@@ -1455,19 +1493,19 @@ sub_dir
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sub_dir2&#39;, &#39;dog_breeds_reversed.txt&#39;, &#39;foo.txt&#39;, &#39;data_02.txt&#39;, &#39;data_03_backup.txt&#39;, &#39;example_directory&#39;, &#39;tests.py&#39;, &#39;data_03.txt&#39;, &#39;2018&#39;, &#39;admin.py&#39;, &#39;sub_dir3&#39;, &#39;data_01_backup.txt&#39;, &#39;admin2.py&#39;, &#39;data_01.txt&#39;, &#39;pickle.txt&#39;, &#39;sub_dir&#39;, &#39;dog_breeds.txt&#39;, &#39;data_02_backup.txt&#39;, &#39;file1.py&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sub_dir2&#39;, &#39;sub_dir&#39;, &#39;dog_breeds_reversed.txt&#39;, &#39;sub_dir3&#39;, &#39;data_02.txt&#39;, &#39;foo.txt&#39;, &#39;data_02_backup.txt&#39;, &#39;data_03_backup.txt&#39;, &#39;data_01_backup.txt&#39;, &#39;dog_breeds.txt&#39;, &#39;2018&#39;, &#39;example_directory&#39;, &#39;pickle.txt&#39;, &#39;file1.py&#39;, &#39;data_03.txt&#39;, &#39;data_01.txt&#39;, &#39;tests.py&#39;, &#39;admin.py&#39;, &#39;admin2.py&#39;]
 Εύρεση αρχείων με καταληξη txt
 
 dog_breeds_reversed.txt
-foo.txt
 data_02.txt
-data_03_backup.txt
-data_03.txt
-data_01_backup.txt
-data_01.txt
-pickle.txt
-dog_breeds.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
+data_03.txt
+data_01.txt
 </pre></div>
 </div>
 </div>
@@ -1486,9 +1524,9 @@ data_02_backup.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_03_backup.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
 data_01_backup.txt
-data_02_backup.txt
 </pre></div>
 </div>
 </div>
@@ -1503,9 +1541,9 @@ data_02_backup.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_03_backup.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
 data_01_backup.txt
-data_02_backup.txt
 </pre></div>
 </div>
 </div>
@@ -1519,9 +1557,9 @@ data_02_backup.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_03_backup.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_02_backup.txt
+data_03_backup.txt
 data_01_backup.txt
-data_02_backup.txt
 </pre></div>
 </div>
 </div>
@@ -1537,16 +1575,16 @@ data_02_backup.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tests.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
+tests.py
 admin.py
 admin2.py
-file1.py
 sub_dir2/file2.py
 sub_dir2/file1.py
-sub_dir3/file2.py
-sub_dir3/file1.py
 sub_dir/file2.py
 sub_dir/file1.py
+sub_dir3/file2.py
+sub_dir3/file1.py
 </pre></div>
 </div>
 </div>
@@ -1564,8 +1602,8 @@ sub_dir/file1.py
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file1.py
 sub_dir2/file1.py
-sub_dir3/file1.py
 sub_dir/file1.py
+sub_dir3/file1.py
 </pre></div>
 </div>
 </div>
@@ -1586,38 +1624,38 @@ sub_dir/file1.py
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found directory: ./sub_dir2
 file2.py
 file1.py
-Found directory: ./example_directory
-Found directory: ./2018/10/05
-Found directory: ./2018/10
-Found directory: ./2018
-Found directory: ./sub_dir3
-file2.py
-file1.py
 Found directory: ./sub_dir
 file2.py
 file1.py
+Found directory: ./sub_dir3
+file2.py
+file1.py
+Found directory: ./2018/10/05
+Found directory: ./2018/10
+Found directory: ./2018
+Found directory: ./example_directory
 Found directory: .
 dog_breeds_reversed.txt
-foo.txt
 data_02.txt
-data_03_backup.txt
-tests.py
-data_03.txt
-admin.py
-data_01_backup.txt
-admin2.py
-data_01.txt
-pickle.txt
-dog_breeds.txt
+foo.txt
 data_02_backup.txt
+data_03_backup.txt
+data_01_backup.txt
+dog_breeds.txt
+pickle.txt
 file1.py
+data_03.txt
+data_01.txt
+tests.py
+admin.py
+admin2.py
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id5">
-<h2>Προσωρινά αρχεία και κατάλογοι<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>Προσωρινά αρχεία και κατάλογοι<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Με την python μπορούμε να δημιουργήσουμε προσωρινά αρχεία και καταλόγους οι οποιού παύουν να υπάρχουν μετά την εκτέλεση του κώδικα. Αυτό γίνεται με την βοήθεια του αρθρώματος (module) tempfile και της συνάρτησης  TemporaryFile() και TemporaryDirectory()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1651,8 +1689,8 @@ file1.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpu7uxwbwu
-/tmp/tmpu7uxwbwu
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmptoe5s28t
+/tmp/tmptoe5s28t
 True
 </pre></div>
 </div>
@@ -1673,7 +1711,7 @@ True
 </div>
 </section>
 <section id="id6">
-<h2>Διαγραφή αρχείων και φακέλων<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2>Διαγραφή αρχείων και φακέλων<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Με την μέθοδο unlink() μπορούμε να διαγράψουμε έναν <strong>άδειο</strong> κατάλογο ή ένα αρχείο.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1725,7 +1763,7 @@ True
 </div>
 </section>
 <section id="id7">
-<h2>Αντιγραφή αρχείων και φακέλων<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2>Αντιγραφή αρχείων και φακέλων<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>Ταυτόχρονα μπορούμε να αντιγράψουμε αρχεία με την συνάρτηση copy() πάλι από το άρθρωμα shutil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1761,7 +1799,7 @@ True
 </div>
 </section>
 <section id="id8">
-<h2>Μετακίνηση<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>Μετακίνηση<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>ή ακόμα και να μετακινήσουμε αρχεία και καταλόγους με την συναρτηση move()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1830,7 +1868,7 @@ True
 </div>
 </section>
 <section id="id9">
-<h2>Μετονομασία<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<h2>Μετονομασία<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>Με την χρήση της μεθόδου rename() σε έναν Path αντικείμενο μπορούμε να το μετονομάσουμε.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1862,7 +1900,7 @@ True
 </div>
 </section>
 <section id="id10">
-<h2>Βιβλιογραφία<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2>Βιβλιογραφία<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Aγγελιδάκης, Ν., 2015. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο.</p></li>
 <li><p>Working With Files in Python, <a class="reference external" href="https://realpython.com/read-write-files-python/">https://realpython.com/read-write-files-python/</a>, Πρόσβαση: 13/05/2022</p></li>

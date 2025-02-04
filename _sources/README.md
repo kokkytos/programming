@@ -1,3 +1,5 @@
+[![deploy](https://github.com/kokkytos/programming/actions/workflows/deploy.yml/badge.svg)](https://github.com/kokkytos/programming/actions/workflows/deploy.yml)
+
 # Προγραμματισμός Η/Υ
 
 Τμήμα: Μηχανικών Χωροταξίας, Πολεοδομίας και Περιφερειακής Ανάπτυξης

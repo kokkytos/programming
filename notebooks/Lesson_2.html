@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="el" data-content_root="../" >
+<html lang="el" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>2. Τιμές, τύποι και μεταβλητές. Συμβολοσειρές &#8212; Προγραμματισμός Η/Υ</title>
   
@@ -28,37 +29,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=beaea9c7"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="../_static/translations.js?v=dd0234b1"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_2';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
@@ -447,9 +446,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="constants">
-<h2>Σταθερές (Constants)<a class="headerlink" href="#constants" title="Link to this heading">#</a></h2>
+<h2>Σταθερές (Constants)<a class="headerlink" href="#constants" title="Permalink to this heading">#</a></h2>
 <p>H Python δεν διαθέτει προκαθορισμένες <em>σταθερές</em> όπως άλλες γλώσσες προγραμματισμού.
 Όμως κατά σύμβαση και όχι κατά κανόνα έχει συμφωνηθεί οι <em>σταθερές</em> να ονοματίζονται με κεφαλαίους χαρακτήρες.
 Η αδυναμία της Python στην περίπτωση της δήλωσης <em>σταθερών</em> είναι ότι επιτρέπεται η αλλαγή των τιμών τους
@@ -465,14 +464,14 @@ document.write(`
 </div>
 </section>
 <section id="literal-constants">
-<h2>Κυριολεκτικές σταθερές (literal constants)<a class="headerlink" href="#literal-constants" title="Link to this heading">#</a></h2>
+<h2>Κυριολεκτικές σταθερές (literal constants)<a class="headerlink" href="#literal-constants" title="Permalink to this heading">#</a></h2>
 <p>Η κυριολεκτική <em>σταθερά</em> ή τιμή είναι ένας αριθμός, ή χαρακτήρας ή μιά συμβολοσειρά. Για παράδειγμα τα παρακάτω
 αποτελούν τιμές: <em>3.25</em> (στην python η υποδιαστολή ορίζεται με . και όχι ,), <em>«ένα τυχαίο κείμενο»</em>,  <em>5.25e-1</em>.
 Αυτές οι τιμές δεν μεταβάλλονται κατά τη διάρκεια εκτέλεσης του προγράμματος γι” αυτό και λέγονται σταθερές. Μπορούν να εκχωρηθούν σε μεταβλητές
 και να χρησιμοποιηθούν σαν τελεστέοι σε λογικές εκφράσεις ή σαν παραμέτροι σε συναρτήσεις.</p>
 </section>
 <section id="id2">
-<h2>Τύποι δεδομένων<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>Τύποι δεδομένων<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Οι τιμές ανήκουν σε τρεις τύπους δεδομένων (data types) ή κλάσσεις (class):</p>
 <ul class="simple">
 <li><p>τους ακέραιους αριθμούς (integer) π.χ. το 15</p></li>
@@ -495,7 +494,7 @@ document.write(`
 <p>Η Python είναι <em>Dynamic typing</em> δηλαδή δεν ο τύπος των μεταβλητών δεν προκαθορίζεται κατά την συγγραφή αλλά κατά την εκτέλεση.</p>
 </section>
 <section id="id3">
-<h2>Κανόνες ονοματοδοσίας μεταβλητών<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>Κανόνες ονοματοδοσίας μεταβλητών<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Τα ονόματα των μεταβλητών στην Python υπακούουν στους παρακάτω κανόνες:</p>
 <ul class="simple">
 <li><p>Το όνομα μίας μεταβλητής μπορεί να ξεκινά από ένα γράμμα ή από κάτω πάυλα.</p></li>
@@ -506,14 +505,14 @@ document.write(`
 </ul>
 </section>
 <section id="strings">
-<h2>Συμβολοσειρές (Strings)<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<h2>Συμβολοσειρές (Strings)<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h2>
 <p>Μια συμβολοσειρά είναι μια ακολουθία από χαρακτήρες όπως το <code class="docutils literal notranslate"><span class="pre">&quot;Το</span> <span class="pre">πεπρωμένον</span> <span class="pre">φυγείν</span> <span class="pre">αδύνατον.&quot;</span></code>.
 Μπορεί να είναι σε κάθε γλώσσα που υποστηρίζεται από το πρώτυπου Unicode. Οι συμβολοσειρές περικλείονται σε μονά, διπλά ή τριπλά εισαγωγικά.
 Με τριπλά εισαγωγικά μπορούν να ενσωματωθούν με ευκολία συμβολοσειρές σε πολλές γραμμές και πολλαπλά εισαγωγικά εντός αυτόν.
 Ακολουθούν παραδείγματα συμβολοσειρά.</p>
 </section>
 <section id="id4">
-<h2>Χαρακτήρες διαφυγής,κενά, νέες γραμμές<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>Χαρακτήρες διαφυγής,κενά, νέες γραμμές<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>Μπορούμε να σπάσουμε μια συμβολοσειρά κατά την συγγραφή σε νέα γραμμή με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\</span></code> και κατά την εκτέλεση με τον χαρακτήρα <code class="docutils literal notranslate"><span class="pre">\n</span></code> π.χ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,7 +585,7 @@ without fire
 </div>
 </section>
 <section id="raw-strings">
-<h2>Ανεπεξέργαστες συμβολοσειρές (Raw Strings)<a class="headerlink" href="#raw-strings" title="Link to this heading">#</a></h2>
+<h2>Ανεπεξέργαστες συμβολοσειρές (Raw Strings)<a class="headerlink" href="#raw-strings" title="Permalink to this heading">#</a></h2>
 <p>Παρόμοιο αποτέλεσμα με τα παραπάνω πετυχαίνουμε τις ανεπεξέργαστες συμβολοσειρές οι οποίες ορίζονται με ένα r σαν πρόθεμα</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +601,7 @@ without fire
 </div>
 </section>
 <section id="id5">
-<h2>Αφαίρεση κενών<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>Αφαίρεση κενών<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Σε αρκετές περιπτώσεις οι συμβολοσειρές περιέχουν κενά είτε στην αρχή είτε στο τέλος.
 Για παράδειγμα οι παρακάτω συμβολοσειρές δεν είναι το ίδιες για την Python. Και επιβεβαιώνεται σε μέσω ελέγχου ισότητας.</p>
 <div class="cell docutils container">
@@ -638,7 +637,7 @@ without fire
 </div>
 </section>
 <section id="concatenation">
-<h2>Συνένωση (Concatenation) συμβολοσειρών<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h2>
+<h2>Συνένωση (Concatenation) συμβολοσειρών<a class="headerlink" href="#concatenation" title="Permalink to this heading">#</a></h2>
 <p>Η απλή παράθεση συμβολοσειρών οδηγεί στην συνενωσή τους δηλ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -655,7 +654,7 @@ without fire
 </div>
 </section>
 <section id="id6">
-<h2>Συνένωση συμβολοσειρών και μεταβλητών<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2>Συνένωση συμβολοσειρών και μεταβλητών<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Η συνένωση μεταβλητών και συμβολοσειρών γίνεται με τον τελεστη <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -674,7 +673,7 @@ without fire
 </div>
 </section>
 <section id="format">
-<h2>Η μέθοδος format<a class="headerlink" href="#format" title="Link to this heading">#</a></h2>
+<h2>Η μέθοδος format<a class="headerlink" href="#format" title="Permalink to this heading">#</a></h2>
 <p>Άλλη μια πιο πρακτική μέθοδος κατά την συννένωση μεταβλητών και συμβολοσειρών είναι η μέθοδος format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,7 +693,7 @@ O Σμόλικας έχει υψόμετρο 2637 μέτρα
 </div>
 </section>
 <section id="reserved-words">
-<h2>Δεσμευμένες λέξεις (reserved words)<a class="headerlink" href="#reserved-words" title="Link to this heading">#</a></h2>
+<h2>Δεσμευμένες λέξεις (reserved words)<a class="headerlink" href="#reserved-words" title="Permalink to this heading">#</a></h2>
 <p>Ορισμένες λέξεις έχουν ιδιαίτερη σημασία για την python και δεν μπορούν να χρησιμοποιηθούν σαν ονόματα μεταβλητών. Τα παρακάτω κομμάτια κώδικα θα εκδηλώσουν σφάλμα μεταγλώττισης.</p>
 <p>Πρόκειται για 33 λέξεις στην τρέχουσα έκδοση της Python.
 Μπορούμε να δούμε ποιές είναι αυτές οι δεσμεύνες λέξεις με την παρακάτω εντολή:</p>
@@ -722,7 +721,7 @@ await               finally             nonlocal            yield
 </div>
 </section>
 <section id="help">
-<h2>Η εντολή help<a class="headerlink" href="#help" title="Link to this heading">#</a></h2>
+<h2>Η εντολή help<a class="headerlink" href="#help" title="Permalink to this heading">#</a></h2>
 <p>Γενικά με την εντολή <code class="docutils literal notranslate"><span class="pre">help</span></code> καλούμε για βοήθεια και πληροφορίες την Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -784,7 +783,7 @@ max(...)
 </div>
 </section>
 <section id="convert-case">
-<h2>Αλλαγή Πεζών Κεφαλαίων (Convert case)<a class="headerlink" href="#convert-case" title="Link to this heading">#</a></h2>
+<h2>Αλλαγή Πεζών Κεφαλαίων (Convert case)<a class="headerlink" href="#convert-case" title="Permalink to this heading">#</a></h2>
 <p>Μπορούμε να κάνουμε αλλαγή ανάμεσα σε κεφαλαία και πεζά με τις παρακάτω μεθόδους συμβολοσειρών:<code class="docutils literal notranslate"><span class="pre">upper()</span></code>, <code class="docutils literal notranslate"><span class="pre">title()</span></code>, <code class="docutils literal notranslate"><span class="pre">lower()</span></code>.
 Αξίζει να σημειώσουμε ότι οι μέθοδοι αυτές δεν έχουν επίδραση στην μεταβλητή που τις καλούμε αλλά πρέπει να επαναεκχωρήσουμε το αποτέλεσμα της μεθόδου στην μεταβλητή με το ίδιο όνομα.</p>
 <div class="cell docutils container">
@@ -814,7 +813,7 @@ max(...)
 </div>
 </section>
 <section id="id7">
-<h2>Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2>Οι συμβολοσειρές είναι μη μεταβαλλόμενη δομή δεδομένων<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>Οι συμβολοσειρές αποτελούνται από ακολουθίες χαρακτήρων με σταθερό μέγεθος
 και μη μεταβαλλόμενα περιεχόμενα. Αυτό σημαίνει ότι δεν είναι δυνατόν να προστίθενται ή να αφαιρούνται
 χαρακτήρες, ούτε να τροποποιούνται τα περιεχόμενα του αλφαριθμητικού.
@@ -830,7 +829,7 @@ max(...)
 <p>Η παραπάνω συμβολοσειρά έχει μήκος 6 χαρακτήρες.</p>
 </section>
 <section id="id8">
-<h2>Μήκος συμβολοσειράς<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>Μήκος συμβολοσειράς<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>Μέσω της συνάρτησης <code class="docutils literal notranslate"><span class="pre">len</span></code> η Python μας επιστρέφει το μήκος συμβολοσειράς δηλαδή το πλήθος των χαρακτήρων (μαζί με τα κενά) από τους οποιούς αποτελείται.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +846,7 @@ max(...)
 </div>
 </section>
 <section id="find">
-<h2>Η μέθοδος find<a class="headerlink" href="#find" title="Link to this heading">#</a></h2>
+<h2>Η μέθοδος find<a class="headerlink" href="#find" title="Permalink to this heading">#</a></h2>
 <p>Η μέθοδος <code class="docutils literal notranslate"><span class="pre">find</span></code> μας επιτρέπει να αναζητήσουμε μια συμβολοσειρά μέσα σε μια άλλη συμβολοσειρά.
 Η μέθοδος μας επιστρέφει την τοποθεσία από την ξεκινάει η αναζητούμενη συμβολοσειρά δηλαδή τον δείκτη (index) στην οποία εντοπίζεται
 ο πρώτος χαρακτηρας της αναζητούμενης συμβολοσειράς μέσα στα περιεχόμενα της αρχικής συμβολοσειράς.
