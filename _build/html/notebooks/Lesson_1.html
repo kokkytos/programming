@@ -452,7 +452,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Ορισμοί</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-python">H γλώσσα προγραμματισμού Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-o-thonny">To oλοκληρωμένο περιβάλλον ανάπτυξης thonny</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Περιβάλλον ανάπτυξης κώδικα</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thonny">Εκτέλεση εντολών στο περιβάλλον thonny</a></li>
 </ul>
             </nav>
@@ -558,12 +558,8 @@ document.write(`
 που αποκαλείται «ολοκληρωμένο περιβάλλον ανάπτυξης εφαρμογών» (Integrated
 Development Environment, IDE).</p>
 <p>Η διαδικασία μετατροπής του πηγαίου κώδικα σε εκτελέσιμο αρχείο περιγράφεται στο παρακάτω διάγραμμα:</p>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/5fdc9958123c8fb90de1393e35e813c29dba96c970dc34e22de533a7f19822d4.svg" src="../_images/5fdc9958123c8fb90de1393e35e813c29dba96c970dc34e22de533a7f19822d4.svg" /></div>
-</div>
 <figure class="align-default" id="figure-programming">
-<a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 0px;" /></a>
+<img alt="../_images/digraph.png" src="../_images/digraph.png" />
 <figcaption>
 <p><span class="caption-number">Εικ. 1 </span><span class="caption-text">Η ροή εκτέλεσης του κώδικα σε εκτελέσιμο.</span><a class="headerlink" href="#figure-programming" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">#</a></p>
 </figcaption>
@@ -591,7 +587,7 @@ Development Environment, IDE).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;an example&quot;</span>
                       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: unexpected EOF while parsing
@@ -612,7 +608,7 @@ Development Environment, IDE).</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -682,7 +678,7 @@ H Python είναι διαδραστική υπό την έννοια ότι ο 
 Το όνομά της, αν και παρεπέμπει, δεν έχει σχέση με το φίδι Πύθωνα αλλά προέρχεται από την γνωστή κωμικη σειρά του BBC, Monty Python’s Flying Circus.
 Αν και αρχικά αναπτύχθηκε σαν μεμονωμένη ατομική προσπάθεια στην συνέχεια υποστηρίχθηκε από μια παγκόσμια κοινότητα προγραμματιστών και χρηστών.
 Στις 6 Μαρτίου 2001 ιδρύθηκε το αμερικάνικο μη κερδοσκοπικό ίδρυμα <em>Python Software Foundation (PSF)</em>, το οποίο στόχο έχει την διάδοση και υποστήριξη της Python μέσω της διοργάνωσης συνεδρίων, την ανάπτυξη κοινοτήτων χρηστών, την υποστήριξη προσπαθειών μέσω υποτροφιών και την διασφάλιση οικονομικών πόρων για την ανάπτυξη της γλώσσας. Το ίδρυμα κατέχει τα πνευματικά δικαιώματα της γλώσσας και διασφαλίζει ότι αυτή θα διατίθεται με όρους ελεύθερου λογισμικού προς το ευρύτερο κοινό.</p>
-<p>Οι βασικοί στόχοι που έθεσε ο δημιουργός κατά την ανάπτυξή της είναι να είναι εύκολη και κατανοητή με ισχυρές δυνατότητες εφάμιλλες των ανταγωνιστικών γλωσσών. Ταυτόχρονα έθεσε το όρο να είναι ανοιχτού κώδικα (open source) για να μπορεί εύκολα να αναπτύσσεται απο τους ενδιαφερόμενους προγραμματιστες και να έχει πρακτική αξία σε καθημερινές εργασίες ρουτίνας. Την τρέχουσα περίοδο (02/2023) κατατάσσεται ως η κορυφαία γλώσσα προγραμματισμού σύμφωνα με την κοινότητα προγραμματιστών <a class="reference external" href="https://www.tiobe.com/tiobe-index/">TIOBE</a> αλλά και τον δείκτη <a class="reference external" href="https://pypl.github.io/PYPL.html">PopularitY of Programming Language Index (PYPL)</a>.</p>
+<p>Οι βασικοί στόχοι που έθεσε ο δημιουργός κατά την ανάπτυξή της είναι να είναι εύκολη και κατανοητή με ισχυρές δυνατότητες εφάμιλλες των ανταγωνιστικών γλωσσών. Ταυτόχρονα έθεσε το όρο να είναι ανοιχτού κώδικα (open source) για να μπορεί εύκολα να αναπτύσσεται απο τους ενδιαφερόμενους προγραμματιστες και να έχει πρακτική αξία σε καθημερινές εργασίες ρουτίνας. Την τρέχουσα περίοδο (01/2025) κατατάσσεται ως η κορυφαία γλώσσα προγραμματισμού σύμφωνα με την κοινότητα προγραμματιστών <a class="reference external" href="https://www.tiobe.com/tiobe-index/">TIOBE</a> αλλά και τον δείκτη <a class="reference external" href="https://pypl.github.io/PYPL.html">PopularitY of Programming Language Index (PYPL)</a>.</p>
 <figure class="align-default" id="figure-tiobe">
 <a class="reference internal image-reference" href="../_images/TIOBE.png"><img alt="../_images/TIOBE.png" src="../_images/TIOBE.png" style="height: 500px;" /></a>
 <figcaption>
@@ -733,13 +729,13 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </div>
 </div>
 </section>
-<section id="to-o-thonny">
-<h2>To oλοκληρωμένο περιβάλλον ανάπτυξης thonny<a class="headerlink" href="#to-o-thonny" title="Permalink to this heading">#</a></h2>
-<p>Η συγγραφή κώδικα θα γίνει στο ολοκληρωμένο περιβάλλον ανάπτυξης (Integrated Development Environment, IDE) <a class="reference external" href="https://thonny.org/">thonny</a>.
-Δεν απαιτείται η προεγκατάσταση της Python καθώς το thonny έρχεται με ενσωματωμένη την γλώσσα προγραμματισμού Python 3.7 και διατίθεται για Windows, Mac και Linux.
+<section id="id23">
+<h2>Περιβάλλον ανάπτυξης κώδικα<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h2>
+<p>Αρχικά, για εκπαιδευτικούς λόγους ο χρήστης μπορεί χρησιμοποιήσει το ολοκληρωμένο περιβάλλον ανάπτυξης (Integrated Development Environment, IDE) <a class="reference external" href="https://thonny.org/">thonny</a>.
+Δεν απαιτείται η προεγκατάσταση της Python καθώς το thonny έρχεται με ενσωματωμένη την γλώσσα προγραμματισμού Python και διατίθεται για Windows, Mac και Linux.
 Το thonny αποτελεί εκπαιδευτικό περιβάλλον για την συγγραφή και αποσφαλμάτωση κώδικα Python. Για τον λόγο αυτό διαθέτει πολύ συγκεκριμένες αλλά ζωτικές λειτουργίες και δεν είναι επιφορτισμένο με δυνατότητες που απαιτούνται από προχωρημένους προγραμματιστές. Το Γραφικό Περιβάλλον Χρήστη (GUI, Graphical User Interface) είναι λιτό ώστε να μην αποπροσανατολίζει τον αρχάριο χρήστη. Το thonny παρέχει βοηθητικές λειτουργίες για τον χρήστη όπως είναι η σήμανση συντακτικών λαθών, η αυτόματη συμπλήρωση κώδικα και η ευκολία στην επέκταση των λειτουργίων της Python με την εγκατάσταση συμπληρωματικών πακέτων.</p>
-<p>Ενναλλακτικά, στους χρήστες παρέχεται online περιβάλλον ανάπτυξης που βασίζεται στο <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a>. Η χρήση του δεν απαιτεί την εγκατάσταση λογισμικού παρά μόνον έναν απλό φυλλομετρητή (προτείνεται Chrome, Safari ή Firefox). Το online περιβάλλον Jupyter είναι προσβάσιμο από εδώ:
-<a class="reference external" href="https://kokkytos.github.io/programming">https://kokkytos.github.io/programming</a></p>
+<p>Ωστόσο, πιο διαδεδομένo περιβάλλον εργασίας για την Python, ιδίως για την ανάλυση δεδομένων, είναι το <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> το οποίο μάλιστα προσφέρεται και σε παραμετροποιημένη μορφή από την Google στο <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Άλλα περιβάλλοντα ανάπτυξης κώδικα είναι το <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, το  <a class="reference external" href="https://www.jetbrains.com/pycharm/">Pycharm</a> και το <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a></p>
+<p>Στους χρήστες παρέχεται online το περιεχόμενο του τρέχοντος μαθήματος σε μορφή notebooks του <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> (περισσότερα στο <a class="reference external" href="https://kokkytos.github.io/programming">https://kokkytos.github.io/programming</a>).</p>
 <figure class="align-default" id="figure-thonny">
 <a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 500px;" /></a>
 <figcaption>
@@ -930,7 +926,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Ορισμοί</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-python">H γλώσσα προγραμματισμού Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-o-thonny">To oλοκληρωμένο περιβάλλον ανάπτυξης thonny</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Περιβάλλον ανάπτυξης κώδικα</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thonny">Εκτέλεση εντολών στο περιβάλλον thonny</a></li>
 </ul>
   </nav></div>
