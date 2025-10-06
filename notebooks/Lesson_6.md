@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 6. Συναρτήσεις (functions)
+# 6. Συναρτήσεις
 
 +++ {"tags": []}
 
