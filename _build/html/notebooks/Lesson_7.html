@@ -62,7 +62,7 @@
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
     <link rel="next" title="8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas" href="Lesson_8.html" />
-    <link rel="prev" title="6. Συναρτήσεις (functions)" href="Lesson_6.html" />
+    <link rel="prev" title="6. Συναρτήσεις" href="Lesson_6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="el"/>
   </head>
@@ -179,17 +179,17 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lesson_1.html">1. Εισαγωγή στον προγραμματισμό</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2.  Τιμές, τύποι και μεταβλητές. Συμβολοσειρές</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες. Εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες, εκφράσεις, τελεστές</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις (functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Ανάγνωση &amp; εγγραφή αρχείων, διαχείριση καταλόγων</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Η βιβλιοθήκη rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_13.html">13. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
 
@@ -578,7 +578,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pug&#39;, &#39;Jack Russell Terrier&#39;, &#39;English Springer Spaniel&#39;, &#39;German Shepherd&#39;, &#39;Staffordshire Bull Terrier&#39;, &#39;Cavalier King Charles Spaniel&#39;, &#39;Golden Retriever&#39;, &#39;West Highland White Terrier&#39;, &#39;Boxer&#39;, &#39;Border Terrier&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;, &#39;Beagle&#39;]
 </pre></div>
 </div>
 </div>
@@ -624,6 +624,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -843,6 +844,7 @@ Beagle
 Beagle
 Beagle
 Beagle
+Beagle
 </pre></div>
 </div>
 </div>
@@ -867,6 +869,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -982,6 +985,7 @@ Golden Retriever
 West Highland White Terrier
 Boxer
 Border Terrier
+Beagle
 Beagle
 Beagle
 Beagle
@@ -1339,8 +1343,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
 
 Όνομα αρχείου: dog_breeds_reversed.txt
-	Μέγεθος:  819
-	Ημερομηνία τελευταίας τροποποίησης 2025-10-06 15:25:06.916132+00:00
+	Μέγεθος:  826
+	Ημερομηνία τελευταίας τροποποίησης 2025-10-09 09:12:12.182240+00:00
 
 Όνομα αρχείου: sub_dir3
 	Μέγεθος:  4096
@@ -1352,7 +1356,7 @@ example_directory
 
 Όνομα αρχείου: foo.txt
 	Μέγεθος:  168
-	Ημερομηνία τελευταίας τροποποίησης 2025-10-06 15:25:06.836132+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2025-10-09 09:12:12.110240+00:00
 
 Όνομα αρχείου: data_02_backup.txt
 	Μέγεθος:  0
@@ -1367,8 +1371,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2024-04-23 11:19:41.166046+00:00
 
 Όνομα αρχείου: dog_breeds.txt
-	Μέγεθος:  819
-	Ημερομηνία τελευταίας τροποποίησης 2025-10-06 15:25:06.896132+00:00
+	Μέγεθος:  826
+	Ημερομηνία τελευταίας τροποποίησης 2025-10-09 09:12:12.166240+00:00
 
 Όνομα αρχείου: 2018
 	Μέγεθος:  4096
@@ -1379,8 +1383,8 @@ example_directory
 	Ημερομηνία τελευταίας τροποποίησης 2022-05-13 18:28:15.800793+00:00
 
 Όνομα αρχείου: pickle.txt
-	Μέγεθος:  4764
-	Ημερομηνία τελευταίας τροποποίησης 2025-10-06 15:25:06.952132+00:00
+	Μέγεθος:  4816
+	Ημερομηνία τελευταίας τροποποίησης 2025-10-09 09:12:12.218240+00:00
 
 Όνομα αρχείου: file1.py
 	Μέγεθος:  0
@@ -1404,7 +1408,7 @@ example_directory
 
 Όνομα αρχείου: admin2.py
 	Μέγεθος:  0
-	Ημερομηνία τελευταίας τροποποίησης 2025-10-04 09:14:34.956326+00:00
+	Ημερομηνία τελευταίας τροποποίησης 2025-10-06 15:25:07.196131+00:00
 </pre></div>
 </div>
 </div>
@@ -1697,8 +1701,8 @@ admin2.py
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmp7gbmc7pi
-/tmp/tmp7gbmc7pi
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created temporary directory  /tmp/tmpz45z92mp
+/tmp/tmpz45z92mp
 True
 </pre></div>
 </div>
@@ -1953,7 +1957,7 @@ True
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">προηγούμενο</p>
-        <p class="prev-next-title">6. Συναρτήσεις (functions)</p>
+        <p class="prev-next-title">6. Συναρτήσεις</p>
       </div>
     </a>
     <a class="right-next"
