@@ -179,6 +179,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Εισαγωγή στον προγραμματισμό</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες, εκφράσεις, τελεστές</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
@@ -434,6 +435,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Εισαγωγή στον προγραμματισμό</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ενότητες του μαθήματος</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. Εισαγωγή  στον προγραμματισμό</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</a></li>
@@ -455,6 +457,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Περιβάλλον ανάπτυξης κώδικα</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thonny">Εκτέλεση εντολών στο περιβάλλον thonny</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-virtual-enviroments-package-managers">Python virtual enviroments και package managers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ενδεικτικά παραδείγματα χρήσης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#venv-pip">venv και pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">conda</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -852,6 +865,127 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 Αν κινείστε με μηδενική ταχύτητα (speed=0) τι μήνυμα θα λάβετε;
 Υπάρχουν περιπτώσεις που η Python, και δικαιολογημένα, αγνοεί να απαντήσει με μήνυμα στην ταχύτητα που ορίζεται.
 Μπορείτε να εντοπίσετε σε ποιές περιπτώσεις;</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python-virtual-enviroments-package-managers">
+<h1>Python virtual enviroments και package managers<a class="headerlink" href="#python-virtual-enviroments-package-managers" title="Permalink to this heading">#</a></h1>
+<p>Η Python προσφέρει την δυνατότητα δημιουργίας εικονικών περιβαλλόντων (virtual enviroments) δηλαδή απομονωμένα περιβάλλοντα στα οποία τα επιμέρους πακέτα/βιβλιοθήκες ή ακόμα και εκδόσεις της Python λειτουργούν ανεξάρτητα το ένα από το άλλο. Αυτό είναι ιδιαίτερα σημαντικό όταν ο προγραμματιστής εργάζεται σε διαφορετικά έργα με διαφορετικές ανάγκες ως προς τις εκδόσεις των βιβλιοθηκών. Με αυτόν το τρόπο εξασφαλίζεται η αυτονομία και η αποφυγή conflicts ανάμεσα στα επιμέρους εικονικά περιβάλλοντα. Κατά συνέπεια αλλαγές στις βιβλιοθήκες ενός έργου δεν επηρεάζουν την λειτουργικότητα ενός άλλου. Επιπλέον, εξασφαλίζεται η αναπαραγωγιμότητα ενός περιβάλλοντος και μιας έρευνας με εύκολο τρόπο. Κάποια από τα εργαλέια διαχείρισης εικονικών περιβαλλόντων λειτουργούν παράλληλα και ως εργαλεία για την διαχείριση πακέτων και βιβλιοθηκών. Οι διαχειριστές αυτοί (package managers) δίνουν την δυνατότητα στον χρήστη για την εγκατάσταση/απεγκατάσταση και επίλυση εξαρτήσεων επιμέρους πακέτων λογισμικού.</p>
+<p>Η Python διαθέτει μια σειρά εργαλείων που επιτρέπουν στον χρήστη να δημιουργήσουν εικονικά περιβάλλοντα ενώ κάποια από αυτά λειτουργούν και ως διαχειριστές πακέτων.</p>
+<p>Τα πιο διαδεδομένα είναι τα εξής:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>: ενσωματωμένο/build-in στην Python</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/pip/">pip</a>: είναι ο προκαθορισμένος διαχειριστής πακέτων στην python. Τα πακέτα του βρίσκονται σε ένα αποθετήριο που ονομάζεται <a class="reference external" href="https://pypi.org/">pypi</a></p></li>
+<li><p><a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>: πιο παλιό εργαλείο διαχείρισης εικονικών περιβαλλόντων αλλά αρκετά δημοφιλές</p></li>
+<li><p><a class="reference external" href="https://pipenv.pypa.io/en/latest/">pipenv</a>: ένα εργαλείο για την διαχείριση εικονικών περιβαλλόντων το οποίο είναι ταυτόχρονα και διαχειριστής πακέτων</p></li>
+<li><p><a class="reference external" href="https://anaconda.org/anaconda/conda">conda</a>: ένα εργαλείο που αποτελεί διαχειριστή πακέτων και εικονικών περιβαλλόντων. Είναι αρκετά διαδεδομένο στην Επιστήμη των Δεδομένων (data science) και αρκετά ισχυρό δεδομένου ότι υποστηρίζει την δημιουργία σύνθετων περιβαλλόντων πέρα από τα πλαίσια της python (πχ δημιουργία R environment ή εγκατάσταση Qgis).</p></li>
+<li><p><a class="reference external" href="https://docs.astral.sh/uv/">uv</a>: ένας σύγχρονος και ταχύτατος διαχειριστής πακέτων και εικονικών περιβαλλόντων γραμμένος στην γλώσσα προγραμματισμού Rust</p></li>
+</ul>
+<section id="id21">
+<h2>Ενδεικτικά παραδείγματα χρήσης<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h2>
+<p>Στα παρακάτω παραδείγματα επιδεικνύονται οι δυνατότητες διαχείρισης εικονικών περιβαλλόντων και πακέτων.</p>
+<section id="venv-pip">
+<h3>venv και pip<a class="headerlink" href="#venv-pip" title="Permalink to this heading">#</a></h3>
+<p>Στόχος είναι να δημιουργήσουμε ένα εικονικό περιβάλλον με τον <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> και να εγκαταστήσουμε ενδεικτικά κάποια πακέτα με το <a class="reference external" href="https://pypi.org/project/pip/">pip</a>.</p>
+<p>Και τα δύο εργαλεία έρχονται προεγκατεστημένα με την Python.</p>
+<p>Ανάλογα το λειτουργικό μας σύστημα οι εντολές μπορεί να διαφέρουν. Η λογική παραμένει η ίδια. Η ακολουθία των βημάτων είναι η εξής:</p>
+<ul class="simple">
+<li><p>δημιουργούμε ένα εικονικό περιβάλλον</p></li>
+<li><p>ενεργοποιούμε το εικονικό περιβάλλον</p></li>
+<li><p>εγκαθιστούμε τα επιθυμητά πακέτα</p></li>
+<li><p>τεστάρουμε αν μπορούμε να τα εισάγουμε στην Python</p></li>
+</ul>
+<p>Από την γραμμή εντολών (command line) και εφόσον βρισκόμαστε στον κατάλληλο κατάλογο (directory) που θέλουμε δίνουμε την παρακάτω εντολή για να δημιουργήσουμε το εικονικό περιβάλλον με το όνομα <code class="docutils literal notranslate"><span class="pre">test_env</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>test_env
+</pre></div>
+</div>
+<p>Κατόπιν της εκτέλεσης αυτού του κώδικα ένας νέος κατάλογος έχει δημιουργηθεί με το όνομα <code class="docutils literal notranslate"><span class="pre">test_env</span></code> και περιλαμβάνει μια δομή καταλόγων και αρχείων αναγκαίων για την λειτουργία του εικονικού περιβάλλοντος.</p>
+<p>Στην συνέχεια ενεργοποιούμε το εικονικό περιβάλλον με τις παρακάτω εντολές οι οποίες διαφοροποιούνται ανάλογα το λειτουργικό.</p>
+<p>Για τα windows δίνουμε σε απλό Command Prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>test_env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+<p>ή σε PowerShell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>test_env<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
+</pre></div>
+</div>
+<p>Ενώ για τα Linux:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>test_env/bin/activate
+</pre></div>
+</div>
+<p>Όταν γίνει η ενεργοποίηση θα δείτε να αναγράφεται το <code class="docutils literal notranslate"><span class="pre">test_env</span></code> στο command line όπως στην παρακάτω περίπτωση:</p>
+<figure class="align-default" id="terminal">
+<img alt="../_images/terminal.png" src="../_images/terminal.png" />
+</figure>
+<p>Πλέον το περιβάλλον είναι ενεργό και ο χρήστης μπορεί να εγκαταστήσει τα πακέτα που επιθυμεί με την χρήση του διαχειριστή πακέτων <code class="docutils literal notranslate"><span class="pre">pip</span></code>.
+Για να εγκαταστήσει για παράδειγμα τα πακέτα <a class="reference external" href="https://pandas.pydata.org/">pandas</a> και <a class="reference external" href="https://shapely.readthedocs.io/en/stable/">shapely</a> μπορεί να εκτελέσει την παρακάτω εντολή:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>shapely
+</pre></div>
+</div>
+<p>Κατά την εγκατάσταση ο διαχειριστής πακέτων θα αναλάβει να εγκαταστήσει και επιπλέον πακέτα τα οποία είναι απαραίτητα για την λειτουργία των <code class="docutils literal notranslate"><span class="pre">pandas</span></code> και <code class="docutils literal notranslate"><span class="pre">shapely</span></code> (dependency management).</p>
+<p>Για να επιβεβαιώσει ο χρήστης ότι τα πακέτα έχουν εγκατασταθεί μπορεί να ξεκινήσει την python στην γραμμή εντολών:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
+<p>Αφού ξεκινήσει η python, μέσα από το command prompt της ο χρήστης μπορεί να δώσει την παρακάτω εντολή:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">shapely</span>
+</pre></div>
+</div>
+<p>Αν δεν λάβει κάποιο μήνυμα σφάλματος η διαδικασία έχει ολοκληρωθεί επιτυχώς.</p>
+<p><strong>Tip</strong>: Σε περίπτωση που ο χρήστης κρίνει απαραίτητο να εξάγει σε ενα αρχείο (πχ requirements.txt) μια λίστα με τα πακέτα που εγκατέστησε μπορεί να το κάνει με την εντολή:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Αυτή η λίστα με τα πακέτα (αποθηκευμένη πλέον στο requirements.txt) είναι ιδιαίτερη χρήσιμη όταν θέλουμε να αναπαράγουμε το ίδιο περιβάλλον. Αυτό γίνεται με την παρακάτω εντολή:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="conda">
+<h3>conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h3>
+<p>Παράλληλα με την χρήση του <code class="docutils literal notranslate"><span class="pre">venv</span></code> και <code class="docutils literal notranslate"><span class="pre">pip</span></code> ο χρήστης έχει την επιλογή να χρησιμοποιήσει το <code class="docutils literal notranslate"><span class="pre">conda</span></code> για την δημιουργία εικονικών περιβαλλόντων και την εγκατάσταση πακέτων.
+To <code class="docutils literal notranslate"><span class="pre">conda</span></code> δεν έρχεται προεγκατεστημένο με την Python και ο χρήστης πρέπει να ανατρέξει στον <a class="reference external" href="https://anaconda.org/anaconda/conda">σχετικό ιστότοπο</a> για να το εγκαταστήσει.
+Εναλλακτικά μπορεί να εγκαταστήσει το <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/main">miniconda</a> σαν μια πιο ελαφριά και μινιμαλιστική εκδοχή της conda με παραπλήσιες ωστόσο δυνατότητες.</p>
+<p>Για την δημιουργία ενός εικονικού περιβάλλοντος με το όνομα <code class="docutils literal notranslate"><span class="pre">my_env</span></code> ο χρήστης καλεί την εντολή:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>my_env
+</pre></div>
+</div>
+<p>ή αν ο χρήστης θέλει να εγκαταστήσει διαφορετική έκδοση της python (πχ την έκδοση 3.9 της python) από την προκαθορισμένη μπορεί να το ορίσει ως εξής:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>my_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+</pre></div>
+</div>
+<p>Το νέο περιβάλλον θα δημιουργηθεί.
+Ο χρήστης έχει την δυνατότητα να δει μια λίστα με όλα τα εικονικά περιβάλλοντα που διαχειρίζεται η <code class="docutils literal notranslate"><span class="pre">conda</span></code> μέσω της εντολής:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>info<span class="w"> </span>--envs
+</pre></div>
+</div>
+<p>Σε αυτή την περίπτωση θα πρέπει να αναγράφεται και το νέο περιβάλλον <code class="docutils literal notranslate"><span class="pre">my_env</span></code>.</p>
+<p>Για την ενεργοποίηση του νέου περιβάλλοντος ( <code class="docutils literal notranslate"><span class="pre">my_env</span></code>) ο χρήστης δίνει την εντολή σε command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>my_env
+</pre></div>
+</div>
+<p>Αφού το νέο περιβάλλον έχει ενεργοποιηθεί ο χρήστης μπορεί να εγκαταστήσει τα πακέτα που επιθυμεί, στο παραδειγμά μας τo <code class="docutils literal notranslate"><span class="pre">pandas</span></code> καιτo <code class="docutils literal notranslate"><span class="pre">shapely</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>shapely
+</pre></div>
+</div>
+<p>Τέλος αφού ολοκληρωθεί η εγκατάσταση μέσα από την Python μπορεί να κάνει <code class="docutils literal notranslate"><span class="pre">import</span></code> αυτά τα πακέτα για να διαπιστώσει ότι είναι λειτουργικά:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">shapely</span>
+</pre></div>
+</div>
+<p>Αξίζει να σημειωθεί ότι η conda λαμβάνει τα πακέτα της από διάφορα αποθετήρια κώδικα που ονομάζονται <a class="reference external" href="https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-channels.html">channels</a>.
+Το προκαθορισμένο και επίσημο <code class="docutils literal notranslate"><span class="pre">channel</span></code> λήψης πακέτων στην conda είναι το <code class="docutils literal notranslate"><span class="pre">defaults</span></code>.
+Επιπλέον εξαιρετικά διαδεδομένο είναι το <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>  το οποίο έχει δημιουργηθεί από την κοινότητα χρηστών και θεωρείται ότι διαθέτει μεγαλύτερη γκάμα και πιο επικαιροποιημένα πακέτα.
+Αυτά τα κανάλια έχουν σειρά προτεραιότητας όταν ο χρήστης ζητάει να εγκαταστήσει κάποιο πακέτο.</p>
+<p>Αν θέλουμε ρητά να επιβάλλουμε την εγκατάσταση ενός πακέτου από συγκεκριμένο κανάλι μπορούμε να το κάνουμε κατά την σύνταξη της εντολής εγκατάστασης ως εξής:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>conda-forge::pandas
+</pre></div>
+</div>
+<p>Η συγκεκριμένη εντολή θα εγκαταστήσει την <code class="docutils literal notranslate"><span class="pre">pandas</span></code> από το channel <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Σημείωση</p>
+<p>Επειδή η conda για τεχνικούς λόγους είναι αργή έχει δημιουργηθεί η <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a> η οποία είναι εξαιρετικά γρήγορη και είναι ταυτόσημη με την conda ως προς την σύνταξη των εντολών.</p>
+</div>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="bug" role="note">
@@ -859,6 +993,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 <p>Η πρώτη περίπτωση <em>bug</em> σε υπολογιστή καταγράφεται το 1947 από τον Grace Murray Hopper και πρόκειται για την κυριολεκτική έννοια του όρου. Στο ημερολόγιό του καταγράφει προβλήματα στην λειτουργία του υπολογιστή του Harvard, Mark II, από την ύπαρξη ενός εντόμου στο εσωτερικό του κύκλωμα.</p>
 </aside>
 </aside>
+</section>
 </section>
 </section>
 
@@ -926,6 +1061,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Εισαγωγή στον προγραμματισμό</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ενότητες του μαθήματος</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. Εισαγωγή  στον προγραμματισμό</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</a></li>
@@ -947,6 +1083,17 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Περιβάλλον ανάπτυξης κώδικα</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thonny">Εκτέλεση εντολών στο περιβάλλον thonny</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-virtual-enviroments-package-managers">Python virtual enviroments και package managers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ενδεικτικά παραδείγματα χρήσης</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#venv-pip">venv και pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">conda</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
