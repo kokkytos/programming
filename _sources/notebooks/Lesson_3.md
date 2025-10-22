@@ -130,7 +130,7 @@ print("{} θεοί".format(len(gods)))
 print(gods)
 
 
-gods.append("Αππόλωνας")
+gods.append("Απόλλωνας")
 gods.append("Άρης")
 print("{} θεοί".format(len(gods)))
 print(gods)
@@ -206,6 +206,47 @@ gods = ['Δίας', 'Ερμής', 'Ποσειδώνας', 'Ερμής', 'Ήφα�
 gods.remove("Ερμής")
 print(gods)
 
+```
+
+Παράλληλα η Python προσφέρει μια συνοπτική μορφή για την δημιουργία λίστας από μία άλλη λίστα (list comprehension). Η μέθοδος αυτή χρησιμοποιεί τους βρόγχους (for loops) και τον έλεγχο ροής (if-else) προκειμένου να δημιουργήσει νέες λίστες και να μετασχηματίσει ή να φιλτράρει δεδομένα. 
+Δίνονται μερικά παραδείγματα.
+Στο παρακάτω παράδειγμα μετατρέπουμε μια λίστα με πόλεις σε μια δεύτερη όπου αναγράφονται οι πόλεις με κεφαλαία:
+
+```{code-cell}
+cities = ['Volos', 'Larisa', 'Patra', 'Kalamatata']
+
+cities_upper = [city.upper() for city in cities]
+print(cities_upper)
+
+```
+
+Με τον επόμενο κώδικα υπολογίζουμε τα τετράγωνα για μια ακολουθία ακέραιων από το 0 ως το 20:
+
+```{code-cell}
+nums =range(0,21)
+nums_sqr= [num**2  for num in nums]
+print(nums_sqr)
+```
+
+Στο ακόλουθο παράδειγμα γίνεται χρήση του έλεγχου ροής σε μία συνοπτική μορφή δημιουργίας λίστας.
+Από μία λίστα με αυτοκίνητα δημιουργούμε μία δεύτερη και κρατάμε όσα αρχίζουν με τον χαρακτήρα "A" από την πρώτη λίστα:
+
+```{code-cell}
+car_brands = [
+    "Audi",
+    "BMW",
+    "Chevrolet",
+    "Ford",
+    "Honda",
+    "Hyundai",
+    "Kia",
+    "Mercedes",
+    "Nissan",
+    "Alfa Romeo"
+]
+
+brands_starting_with_a = [brand for brand in car_brands if brand.startswith("A")]
+print(brands_starting_with_a)
 ```
 
 ## Χρήσιμες μέθοδοι (methods) και συναρτήσεις (functions)

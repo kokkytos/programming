@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="el" data-content_root="" >
+<html lang="el" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Εισαγωγή στον προγραμματισμό &#8212; Γεωχωρικός Προγραμματισμός Η/Υ</title>
   
@@ -15,52 +14,55 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/documentation_options.js?v=beaea9c7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=9b159968"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_1';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
+    <link rel="next" title="2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές" href="Lesson_2.html" />
     <link rel="prev" title="Γεωχωρικός Προγραμματισμός H/Y" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="el"/>
@@ -71,27 +73,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,8 +111,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -138,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -159,7 +164,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Αναζήτηση</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -179,6 +184,18 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Εισαγωγή στον προγραμματισμό</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="Lesson_2.html">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_3.html">3. Λίστες, εκφράσεις, τελεστές</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_4.html">4. Πλειάδες και λεξικά</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_5.html">5. Έλεγχος ροής εκτέλεσης</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_6.html">6. Συναρτήσεις</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_7.html">7. Ανάγνωση &amp; εγγραφή αρχείων, διαχείριση καταλόγων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_8.html">8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_9.html">9. Γεωεπεξεργασία διανυσματικών δεδομένων</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_12.html">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lesson_13.html">13. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
 
     </div>
@@ -194,7 +211,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -203,14 +220,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,10 +400,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -394,14 +411,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -466,68 +483,68 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1. Εισαγωγή στον προγραμματισμό<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1>1. Εισαγωγή στον προγραμματισμό<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2>Ενότητες του μαθήματος<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Ενότητες του μαθήματος<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Το μάθημα χωρίζεται στις ακόλουθες ενότητες:</p>
 <section id="id3">
-<h3>1. Εισαγωγή  στον προγραμματισμό<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>1. Εισαγωγή  στον προγραμματισμό<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Κατά την διάρκεια της διάλεξης διευκρινίζεται ο σκοπός του μαθήματος και περιγράφονται συνοπτικά οι ενότητες που θα διδαχθούν οι φοιτητές κατά την διάρκεια του εξαμήνου. Διατυπώνονται συγκεκριμένοι ορισμοί που αφορούν τον προγραμματισμό Η/Υ και αναπτύσσονται έννοιες για την επιστήμη των υπολογιστών. Στην συνέχεια εγκαθίσταται στους υπολογιστές των φοιτητών η γλώσσα προγραμματισμού Python μαζί με το απαραίτητο λογισμικό για την συγγραφή και αποσφαλμάτωση του κώδικα. Τέλος αποσαφηνίζονται τα εικονικά περιβάλλοντα (virtual enviroments) και οι διαχειριστές πακέτων (package managers) στην Python.</p>
 <p>Ακολουθεί εξοικείωση με το περιβάλλον εργασίας.</p>
 </section>
 <section id="id4">
-<h3>2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Περιγραφή της έννοιας των μεταβλητών, των σταθερών, τύποι δεδομένων, εκχώρηση τιμών στις μεταβλητές, κανόνες ονοματοδοσίας των μεταβλητών. Προσπέλαση συμβολοσειρών, χαρακτήρες διαφυγής, υποσύνολα συμβολοσειράς, συγκρίσεις και ιδιότητες, μέθοδοι συμβολοσειρών.</p>
 </section>
 <section id="id5">
-<h3>3. Λίστες, εκφράσεις, τελεστές<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>3. Λίστες, εκφράσεις, τελεστές<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Ορισμός εκφράσεων, τι είναι τελεστές, ποια είναι η προτεραιότητα των τελεστών, πως εισάγουμε σχόλια στον κώδικα και γιατί είναι σημαντική πρακτική.</p>
 </section>
 <section id="id6">
-<h3>4. Πλειάδες και λεξικά<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>4. Πλειάδες και λεξικά<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Εισαγωγή στις πλειάδες και τα λεξικά.</p>
 </section>
 <section id="id7">
-<h3>5. Έλεγχος ροής εκτέλεσης<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3>5. Έλεγχος ροής εκτέλεσης<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Η λογική Boolean, Εκτέλεση υπό συνθήκη, αλυσιδωτές και εμφωλευμένες συνθήκες, βρόχος και οι εντολές επανάληψης for και while.</p>
 </section>
 <section id="id8">
-<h3>6. Συναρτήσεις<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>6. Συναρτήσεις<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Ορισμός και κλήση συνάρτησης, παράμετροι συναρτήσεων, εμβέλεια μεταβλητών, αναδρομή.</p>
 </section>
 <section id="id9">
-<h3>7. Ανάγνωση &amp; εγγραφή αρχείων, διαχείριση καταλόγων<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<h3>7. Ανάγνωση &amp; εγγραφή αρχείων, διαχείριση καταλόγων<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>Ανάγνωση και εγγραφή σε αρχείο, σειριοποίηση (serialization) αντικειµένου, διαχείριση φακέλων και αρχείων.</p>
 </section>
 <section id="csv-pandas">
-<h3>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-pandas" title="Permalink to this heading">#</a></h3>
+<h3>8. Ανάγνωση αρχείων csv, η βιβλιοθήκη pandas<a class="headerlink" href="#csv-pandas" title="Link to this heading">#</a></h3>
 <p>Ανάγνωση αρχείων csv ή excel, pandas dataframes</p>
 </section>
 <section id="id10">
-<h3>9. Γεωεπεξεργασία διανυσματικών δεδομένων<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3>9. Γεωεπεξεργασία διανυσματικών δεδομένων<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>Η βιβλιοθήκη Shapely και geopandas, ανάγνωση και εγγραφή διανυσματικών δεδομένων, μετα-δεδομένα, φιλτράρισμα, αλλαγή προβολικού συστήματος.
 Χωρικές σχέσεις, στατιστικά ομαδοποιήσεων, οπτικοποίηση διανυσματικών δεδομένων.</p>
 </section>
 <section id="id11">
-<h3>10. Διαγράμματα<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<h3>10. Διαγράμματα<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>Διαγράμματα με την βιβλιοθήκη seaborn.</p>
 </section>
 <section id="numpy">
-<h3>11. Η βιβλιοθήκη numpy<a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h3>
+<h3>11. Η βιβλιοθήκη numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h3>
 <p>Επεξεργασία πολυδιάστατων πινάκων με την βιβλιοθήκη numpy</p>
 </section>
 <section id="rasterio">
-<h3>12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (Η βιβλιοθήκη rasterio)<a class="headerlink" href="#rasterio" title="Permalink to this heading">#</a></h3>
+<h3>12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (Η βιβλιοθήκη rasterio)<a class="headerlink" href="#rasterio" title="Link to this heading">#</a></h3>
 <p>Ανάγνωση και εγγραφή ψηφιδωτών δεδομένων, μετα-δεδομένα, ορισμός μάσκας/αποκοπή περιοχής, αλλαγή τιμών,  επαναταξινόμηση, αλλαγή προβολικού συστήματος.
 Άλγεβρα ψηφιδωτών αρχείων, στατιστικά ζωνών, ιστόγραμμα συχνοτήτων.</p>
 </section>
 <section id="id12">
-<h3>13. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<h3>13. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>Εφαρμογή της Python στην γεωεπεξεργασία και χωρικής ανάλυση με μελέτη περίπτωσης την πυρκαγιά στο Μάτι Αττικής.</p>
 </section>
 </section>
 <section id="id13">
-<h2>Ορισμοί<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<h2>Ορισμοί<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <div class="proof definition admonition" id="algor">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
 <section class="definition-content" id="proof-content">
@@ -563,7 +580,7 @@ Development Environment, IDE).</p>
 <figure class="align-default" id="figure-programming">
 <img alt="../_images/digraph.png" src="../_images/digraph.png" />
 <figcaption>
-<p><span class="caption-number">Εικ. 1 </span><span class="caption-text">Η ροή εκτέλεσης του κώδικα σε εκτελέσιμο.</span><a class="headerlink" href="#figure-programming" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">#</a></p>
+<p><span class="caption-number">Εικ. 1 </span><span class="caption-text">Η ροή εκτέλεσης του κώδικα σε εκτελέσιμο.</span><a class="headerlink" href="#figure-programming" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Τα εργαλεία προγραμματισμού τα οποία κάνουν την μεταγλωττιστή του πηγαίου προγράμματος σε
@@ -589,10 +606,10 @@ Development Environment, IDE).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;an example&quot;</span>
                       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: unexpected EOF while parsing
+<span class="ne">SyntaxError</span>: incomplete input
 </pre></div>
 </div>
 </div>
@@ -610,7 +627,7 @@ Development Environment, IDE).</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -671,7 +688,7 @@ Development Environment, IDE).</p>
 υπολογιστικές διαδικασίες που υλοποιεί. <span id="id19">[<a class="reference internal" href="bibliography.html#id7" title="Νικόλαος Aγγελιδάκης. Εισαγωγή στον προγραμματισμό με την Python. Αγγελιδάκης, Ηράκλειο, 2015. ISBN 978-960-93-7364-7.">Aγγελιδάκης, 2015</a>]</span>.</p>
 </section>
 <section id="h-python">
-<h2>H γλώσσα προγραμματισμού Python<a class="headerlink" href="#h-python" title="Permalink to this heading">#</a></h2>
+<h2>H γλώσσα προγραμματισμού Python<a class="headerlink" href="#h-python" title="Link to this heading">#</a></h2>
 <p>Η <a class="reference external" href="https://www.python.org/">Python</a> είναι μια ευρέως διαδομένη, αντικειμενοστραφής, υψηλού επιπέδου γλώσσα προγραμματισμού γενικής χρήσης.
 Η Python είναι μια γλώσσα που εκτελεί τις εντολές στον διερμηνέα (interpreter), που όπως αναφέρθηκε,διαβάζει τον πηγαίο κώδικα γραμμή προς γραμμή και το μετατρέπει σε γλώσσα μηχανής.
 Αυτός ο τρόπος λειτουργίας της Python την καθιστά πιο αργή σε σύγκριση με άλλες γλώσσες μεταγλωττιστού όπως η C.</p>
@@ -698,9 +715,10 @@ Development Environment, IDE).</p>
 Στις 6 Μαρτίου 2001 ιδρύθηκε το αμερικάνικο μη κερδοσκοπικό ίδρυμα <em><a class="reference external" href="https://www.python.org/psf-landing/">Python Software Foundation</a> (PSF)</em>, το οποίο στόχο έχει την διάδοση και υποστήριξη της Python μέσω της διοργάνωσης συνεδρίων, την ανάπτυξη κοινοτήτων χρηστών, την υποστήριξη προσπαθειών μέσω υποτροφιών και την διασφάλιση οικονομικών πόρων για την ανάπτυξη της γλώσσας. Το ίδρυμα κατέχει τα πνευματικά δικαιώματα της γλώσσας και διασφαλίζει ότι αυτή θα διατίθεται με όρους ελεύθερου λογισμικού προς το ευρύτερο κοινό.</p>
 <p>Οι βασικοί στόχοι που έθεσε ο δημιουργός κατά την ανάπτυξή της είναι να είναι εύκολη και κατανοητή με ισχυρές δυνατότητες εφάμιλλες των ανταγωνιστικών γλωσσών. Ταυτόχρονα έθεσε το όρο να είναι ανοιχτού κώδικα (open source) για να μπορεί εύκολα να αναπτύσσεται απο τους ενδιαφερόμενους προγραμματιστες και να έχει πρακτική αξία σε καθημερινές εργασίες ρουτίνας. Την τρέχουσα περίοδο (10/2025) κατατάσσεται ως η κορυφαία γλώσσα προγραμματισμού σύμφωνα με την κοινότητα προγραμματιστών <a class="reference external" href="https://www.tiobe.com/tiobe-index/">TIOBE</a> αλλά και τον δείκτη <a class="reference external" href="https://pypl.github.io/PYPL.html">PopularitY of Programming Language Index (PYPL)</a>.</p>
 <figure class="align-default" id="figure-tiobe">
-<a class="reference internal image-reference" href="../_images/TIOBE.png"><img alt="../_images/TIOBE.png" src="../_images/TIOBE.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/TIOBE.png"><img alt="../_images/TIOBE.png" src="../_images/TIOBE.png" style="height: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Εικ. 2 </span><span class="caption-text">Η κατάταξη σύμφωνα με την κοινότητα TIOBE (02/2023)</span><a class="headerlink" href="#figure-tiobe" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">#</a></p>
+<p><span class="caption-number">Εικ. 2 </span><span class="caption-text">Η κατάταξη σύμφωνα με την κοινότητα TIOBE (02/2023)</span><a class="headerlink" href="#figure-tiobe" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Η Python πλέον είναι μια ώριμη γλώσσα προγραμματισμού με εφαρμογές στην
@@ -716,7 +734,7 @@ Development Environment, IDE).</p>
 <p>Η φιλοσοφία της Python ως προς την μεθοδολογία ανάπτυξης και προγραμματισμού συνοψίζεται σε 20 αρχές, οι οποίες εκτυπώνονται μέσω της γλώσσας με την παρακάτω εντολή:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </pre></div>
 </div>
 </div>
@@ -748,21 +766,22 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </div>
 </section>
 <section id="id20">
-<h2>Περιβάλλον ανάπτυξης κώδικα<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h2>
+<h2>Περιβάλλον ανάπτυξης κώδικα<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
 <p>Αρχικά, για εκπαιδευτικούς λόγους ο χρήστης μπορεί χρησιμοποιήσει το ολοκληρωμένο περιβάλλον ανάπτυξης (Integrated Development Environment, IDE) <a class="reference external" href="https://thonny.org/">thonny</a>.
 Δεν απαιτείται η προεγκατάσταση της Python καθώς το thonny έρχεται με ενσωματωμένη την γλώσσα προγραμματισμού Python και διατίθεται για Windows, Mac και Linux.
 Το thonny αποτελεί εκπαιδευτικό περιβάλλον για την συγγραφή και αποσφαλμάτωση κώδικα Python. Για τον λόγο αυτό διαθέτει πολύ συγκεκριμένες αλλά ζωτικές λειτουργίες και δεν είναι επιφορτισμένο με δυνατότητες που απαιτούνται από προχωρημένους προγραμματιστές. Το Γραφικό Περιβάλλον Χρήστη (GUI, Graphical User Interface) είναι λιτό ώστε να μην αποπροσανατολίζει τον αρχάριο χρήστη. Το thonny παρέχει βοηθητικές λειτουργίες για τον χρήστη όπως είναι η σήμανση συντακτικών λαθών, η αυτόματη συμπλήρωση κώδικα και η ευκολία στην επέκταση των λειτουργίων της Python με την εγκατάσταση συμπληρωματικών πακέτων.</p>
 <p>Ωστόσο, πιο διαδεδομένo περιβάλλον εργασίας για την Python, ιδίως για την ανάλυση δεδομένων, είναι το <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> το οποίο μάλιστα προσφέρεται και σε παραμετροποιημένη μορφή από την Google στο <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Άλλα περιβάλλοντα ανάπτυξης κώδικα είναι το <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, το  <a class="reference external" href="https://www.jetbrains.com/pycharm/">Pycharm</a> και το <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a></p>
 <p>Στους χρήστες παρέχεται online το περιεχόμενο του τρέχοντος μαθήματος σε μορφή notebooks του <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> (περισσότερα στο <a class="reference external" href="https://kokkytos.github.io/programming">https://kokkytos.github.io/programming</a>).</p>
 <figure class="align-default" id="figure-thonny">
-<a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/screenshot.png"><img alt="../_images/screenshot.png" src="../_images/screenshot.png" style="height: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Εικ. 3 </span><span class="caption-text">Το περιβάλλον εργασία thonny.</span><a class="headerlink" href="#figure-thonny" title="Απευθείας σύνδεσμος σε αυτήν την εικόνα">#</a></p>
+<p><span class="caption-number">Εικ. 3 </span><span class="caption-text">Το περιβάλλον εργασία thonny.</span><a class="headerlink" href="#figure-thonny" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="thonny">
-<h2>Εκτέλεση εντολών στο περιβάλλον thonny<a class="headerlink" href="#thonny" title="Permalink to this heading">#</a></h2>
+<h2>Εκτέλεση εντολών στο περιβάλλον thonny<a class="headerlink" href="#thonny" title="Link to this heading">#</a></h2>
 <p>Στην παρακάτω ενότητα παρουσιάζονται μερικά εισαγωγικά παραδείγματα από εντολές της Python.
 Δεν θα επικεντρωθούμε σε λεπτομέρειες ούτε θα αναλύσουμε τις εντολές που διατυπώνονται στα αρχεία.
 Παρουσιάζονται σαν μια μορφή συνοπτικής επίδειξης των δυνατοτήτων που διαθέτει η γλώσσα και θα περιγράψουμε σε επόμενα μαθήματα.</p>
@@ -855,7 +874,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="python-virtual-enviroments-package-managers">
-<h1>Python virtual enviroments και package managers<a class="headerlink" href="#python-virtual-enviroments-package-managers" title="Permalink to this heading">#</a></h1>
+<h1>Python virtual enviroments και package managers<a class="headerlink" href="#python-virtual-enviroments-package-managers" title="Link to this heading">#</a></h1>
 <p>Η Python προσφέρει την δυνατότητα δημιουργίας εικονικών περιβαλλόντων (virtual enviroments) δηλαδή απομονωμένα περιβάλλοντα στα οποία τα επιμέρους πακέτα/βιβλιοθήκες ή ακόμα και εκδόσεις της Python λειτουργούν ανεξάρτητα το ένα από το άλλο. Αυτό είναι ιδιαίτερα σημαντικό όταν ο προγραμματιστής εργάζεται σε διαφορετικά έργα με διαφορετικές ανάγκες ως προς τις εκδόσεις των βιβλιοθηκών. Με αυτόν το τρόπο εξασφαλίζεται η αυτονομία και η αποφυγή conflicts ανάμεσα στα επιμέρους εικονικά περιβάλλοντα. Κατά συνέπεια αλλαγές στις βιβλιοθήκες ενός έργου δεν επηρεάζουν την λειτουργικότητα ενός άλλου. Επιπλέον, εξασφαλίζεται η αναπαραγωγιμότητα ενός περιβάλλοντος και μιας έρευνας με εύκολο τρόπο. Κάποια από τα εργαλέια διαχείρισης εικονικών περιβαλλόντων λειτουργούν παράλληλα και ως εργαλεία για την διαχείριση πακέτων και βιβλιοθηκών. Οι διαχειριστές αυτοί (package managers) δίνουν την δυνατότητα στον χρήστη για την εγκατάσταση/απεγκατάσταση και επίλυση εξαρτήσεων επιμέρους πακέτων λογισμικού.</p>
 <p>Η Python διαθέτει μια σειρά εργαλείων που επιτρέπουν στον χρήστη να δημιουργήσουν εικονικά περιβάλλοντα ενώ κάποια από αυτά λειτουργούν και ως διαχειριστές πακέτων.</p>
 <p>Τα πιο διαδεδομένα είναι τα εξής:</p>
@@ -868,10 +887,10 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 <li><p><a class="reference external" href="https://docs.astral.sh/uv/">uv</a>: ένας σύγχρονος και ταχύτατος διαχειριστής πακέτων και εικονικών περιβαλλόντων γραμμένος στην γλώσσα προγραμματισμού Rust</p></li>
 </ul>
 <section id="id21">
-<h2>Ενδεικτικά παραδείγματα χρήσης<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h2>
+<h2>Ενδεικτικά παραδείγματα χρήσης<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
 <p>Στα παρακάτω παραδείγματα επιδεικνύονται οι δυνατότητες διαχείρισης εικονικών περιβαλλόντων και πακέτων.</p>
 <section id="venv-pip">
-<h3>venv και pip<a class="headerlink" href="#venv-pip" title="Permalink to this heading">#</a></h3>
+<h3>venv και pip<a class="headerlink" href="#venv-pip" title="Link to this heading">#</a></h3>
 <p>Στόχος είναι να δημιουργήσουμε ένα εικονικό περιβάλλον με τον <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> και να εγκαταστήσουμε ενδεικτικά κάποια πακέτα με το <a class="reference external" href="https://pypi.org/project/pip/">pip</a>.</p>
 <p>Και τα δύο εργαλεία έρχονται προεγκατεστημένα με την Python.</p>
 <p>Ανάλογα το λειτουργικό μας σύστημα οι εντολές μπορεί να διαφέρουν. Η λογική παραμένει η ίδια. Η ακολουθία των βημάτων είναι η εξής:</p>
@@ -914,8 +933,8 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 <p>Αφού ξεκινήσει η python, μέσα από το command prompt της ο χρήστης μπορεί να δώσει την παρακάτω εντολή:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-<span class="kn">import</span> <span class="nn">shapely</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely</span>
 </pre></div>
 </div>
 <p>Αν δεν λάβει κάποιο μήνυμα σφάλματος η διαδικασία έχει ολοκληρωθεί επιτυχώς.</p>
@@ -929,7 +948,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </div>
 </section>
 <section id="conda">
-<h3>conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h3>
+<h3>conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h3>
 <p>Παράλληλα με την χρήση του <code class="docutils literal notranslate"><span class="pre">venv</span></code> και <code class="docutils literal notranslate"><span class="pre">pip</span></code> ο χρήστης έχει την επιλογή να χρησιμοποιήσει το <code class="docutils literal notranslate"><span class="pre">conda</span></code> για την δημιουργία εικονικών περιβαλλόντων και την εγκατάσταση πακέτων.
 To <code class="docutils literal notranslate"><span class="pre">conda</span></code> δεν έρχεται προεγκατεστημένο με την Python και ο χρήστης πρέπει να ανατρέξει στον <a class="reference external" href="https://anaconda.org/anaconda/conda">σχετικό ιστότοπο</a> για να το εγκαταστήσει.
 Εναλλακτικά μπορεί να εγκαταστήσει το <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/main">miniconda</a> σαν μια πιο ελαφριά και μινιμαλιστική εκδοχή της conda με παραπλήσιες ωστόσο δυνατότητες.</p>
@@ -956,8 +975,8 @@ To <code class="docutils literal notranslate"><span class="pre">conda</span></co
 </pre></div>
 </div>
 <p>Τέλος αφού ολοκληρωθεί η εγκατάσταση μέσα από την Python μπορεί να κάνει <code class="docutils literal notranslate"><span class="pre">import</span></code> αυτά τα πακέτα για να διαπιστώσει ότι είναι λειτουργικά:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-<span class="kn">import</span> <span class="nn">shapely</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely</span>
 </pre></div>
 </div>
 <p>Αξίζει να σημειωθεί ότι η conda λαμβάνει τα πακέτα της από διάφορα αποθετήρια κώδικα που ονομάζονται <a class="reference external" href="https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-channels.html">channels</a>.
@@ -975,7 +994,7 @@ To <code class="docutils literal notranslate"><span class="pre">conda</span></co
 </div>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="bug" role="note">
+<aside class="footnote brackets" id="bug" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">1</a><span class="fn-bracket">]</span></span>
 <p>Η πρώτη περίπτωση <em>bug</em> σε υπολογιστή καταγράφεται το 1947 από τον Grace Murray Hopper και πρόκειται για την κυριολεκτική έννοια του όρου. Στο ημερολόγιό του καταγράφει προβλήματα στην λειτουργία του υπολογιστή του Harvard, Mark II, από την ύπαρξη ενός εντόμου στο εσωτερικό του κύκλωμα.</p>
 </aside>
@@ -1011,7 +1030,7 @@ To <code class="docutils literal notranslate"><span class="pre">conda</span></co
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1022,6 +1041,15 @@ To <code class="docutils literal notranslate"><span class="pre">conda</span></co
         <p class="prev-next-subtitle">προηγούμενο</p>
         <p class="prev-next-title">Γεωχωρικός Προγραμματισμός H/Y</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Lesson_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">επόμενο</p>
+        <p class="prev-next-title">2. Τιμές, τύποι δεδομένων και μεταβλητές. Συμβολοσειρές</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1119,8 +1147,8 @@ To <code class="docutils literal notranslate"><span class="pre">conda</span></co
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="el" data-content_root="" >
+<html lang="el" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. Συναρτήσεις &#8212; Γεωχωρικός Προγραμματισμός Η/Υ</title>
   
@@ -15,49 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/documentation_options.js?v=beaea9c7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=9b159968"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Lesson_6';</script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
@@ -72,27 +73,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,8 +111,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -139,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -160,7 +164,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Αναζήτηση</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -207,7 +211,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -216,14 +220,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -396,10 +400,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -407,14 +411,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Αναζήτηση" aria-label="Αναζήτηση" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -459,21 +463,21 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>6. Συναρτήσεις<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1>6. Συναρτήσεις<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2>Τι είναι οι συναρτήσεις<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Τι είναι οι συναρτήσεις<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Οι συναρτήσεις (functions) είναι μια επαναχρησιμοποιούμενη ομάδα εντολών η οποία εκτελείται μόνο όταν κληθεί. Στο σύνολο αυτό των εντολών δίνεται ένα όνομα με το οποίο είναι αναγνωρίσιμο. Μπορούμε να καλέσουμε μια συνάρτηση όσες φορές θέλουμε στο πρόγραμμά μας.Μια συνάρτηση μπορεί να δέχεται παραμέτρους δηλαδή δεδομένα εισόδου και να παράγει αποτελέσματα δηλαδή δεδομένα εξόδου. Με την χρήση συναρτήσεων επιτυγχάνεται, αρθρωτή δομή (modularity), λιγότερη επανάληψη κώδικα (code reusing), ευκολότερη αποσφαλμάτωση, αναγνωσιμότητα και ευκολία διόρθωσης. Πέρα από τις συναρτήσεις που μπορεί να συντάξει ο προγραμματιστής (user-defined functions), η Python προσφέρει ήδη έτοιμες συναρτήσεις (built-in functions).</p>
 <p>Η βασική ιδέα με την χρήση των συναρτήσεων είναι να απομονώσουμε ένα κομμάτι κώδικα που επιτελεί πολύ συγκεκριμένη λειτουργία και να το καλούμε όταν μας είναι αναγκαίο. Για παράδειγμα αν σε ένα πρόγραμμα απαιτείται ο τακτικός υπολογισμός του Πυθαγόρειου θεωρήματος, αντί να επιλύουμε κάθε φορά την αντιστοίχη εξίσωση αρκεί να δημιουργήσουμε μια συνάρτηση που θα δέχεται σαν παραμέτρους τα μήκη δυο καθέτων πλευρών του ορθογωνίου τριγώνου και θα επιστρέφει το τετράγωνο της υποτείνουσας. Οπότε κάθε φορά που θα χρειάζεται η επίλυση του Πυθαγόρειου θεωρήματος αρκεί η κλήση της συνάρτησης και ο ορισμός των αντίστοιχων παραμέτρων σε αυτήν. Αν διαπιστώσουμε ότι ο μαθηματικός τύπος που έχουμε χρησιμοποιήσει είναι λάθος τότε αρκεί η διόρθωση μόνο σε ένα σημείο του κώδικα, σε αυτό της συνάρτησης. Αν αντιθέτως στο πρόγραμμά μας αντι για συνάρτηση είχαμε χρησιμοποιήσει ξεχωριστά την επίλυση της ίδιας εξίσωσης τότε θα έπρεπε να εντοπίσουμε και να διορθώσουμε όλα αυτά τα επιμέρους σημεία του κώδικα.</p>
 </section>
 <section id="id3">
-<h2>Τρόπος σύνταξης και κλήσης<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Τρόπος σύνταξης και κλήσης<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Ο ορισμός μιας συνάρτησης στην Python ξεκινάει με την δεσμευμένη λέξη <code class="docutils literal notranslate"><span class="pre">_def_</span></code>, στην συνέχει δίνεται ένα όνομα για την συνάρτηση, ακολουθούν οι παρενθέσεις (εντός τους μπορεί να ορίζονται και οι παράμετροι) και ακολουθεί η άνω/κάτω τελεία (colon). Στην συνέχει ακολουθεί (με εσοχές 4 space) μια σύντομη περιγραφή (docstrings) για το τι κάνει η συνάρτηση (προαιρετικά), και το σχετικό κομμάτι εντολών. Μπορεί κατά την ολοκλήρωση, επίσης προαιρετικά, η συνάρτηση να επιστρέφει κάποια τιμή μέσω της λέξης-κλειδί <code class="docutils literal notranslate"><span class="pre">_return_</span></code>. Σε κάθε περίπτωση όταν το <em>return</em> καλείται μέσα στην συνάρτηση τότε αυτή σταματάει την εκτέλεση του κώδικα που περιέχει και επιστρέφει στο σημείο απ” όπου καλέστηκε.
 Η ονοματολογία των συναρτήσεων υπακούει στους κανόνες ονοματολογίας των μεταβλητών και συνήθως περιγράφουν τι κάνουν.
 Προηγείται ο ορισμός μια συνάρτησης και μετά η κλήση της. Γι” αυτό τον λόγο οι συναρτήσεις δηλώνονται πρώτα σε ένα πρόγραμμα και μετά ακολουθεί το κυρίως σώμα του κώδικα μέσα στον οποίο μπορούμε να τις καλέσουμε.
 Παρακάτω δίνεται μια απλουστευτική μορφή της σύνταξης μιας συνάρτησης.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;docstring&quot;&quot;&quot;</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
@@ -483,7 +487,7 @@ document.write(`
 <p>Ας δούμε ένα πιο πρακτικό παράδειγμα. Παρακάτω ακολουθεί η σύναξη μιας απλής συνάρτηση όπου δεν ορίζονται κάποιοι παράμετροι ούτε επιστρέφεται κάποια τιμή.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sayHello</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Μια συνάρτηση που χαιρετά τον κόσμο.&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -505,11 +509,11 @@ document.write(`
 </div>
 </section>
 <section id="id4">
-<h2>Συνάρτηση με παραμέτρους<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>Συνάρτηση με παραμέτρους<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Σε αρκετές περιπτώσεις μια συνάρτηση μπορεί να περιλαμβάνει δεδομένα εισόδου (<code class="docutils literal notranslate"><span class="pre">παράμετροι</span></code>) τα οποιά είναι χρήσιμα κατά την εκτέλεση του κώδικά της. Οι παράμετροι αυτοί ορίζονται κατά την σύνταξη της συνάρτησης, μέσα στις παρενθέσεις που ακολουθούν το όνομα της. Κατά την κλήση οι παράμετροι αυτοί λαμβάνουν τιμές ή μεταβλητές και ονομάζονται <code class="docutils literal notranslate"><span class="pre">ορίσματα</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sayHelloUser</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sayHelloUser</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Μια συνάρτηση που χαιρετά τον κάποιο.</span>
 <span class="sd">    Παράμετροι:</span>
@@ -608,7 +612,7 @@ sayHelloUser(name)
 <p>Παρακάτω ορίζεται μια συνάρτηση με δύο παραμέτρους:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers&quot;&quot;&quot;</span>
     <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Το άθροισμα των αριθμών &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; και &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;  είναι &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num3</span><span class="p">))</span>
@@ -641,13 +645,13 @@ sayHelloUser(name)
 </div>
 </div>
 <section id="positional-arguments">
-<h3>Ορίσματα θέσης (Positional arguments)<a class="headerlink" href="#positional-arguments" title="Permalink to this heading">#</a></h3>
+<h3>Ορίσματα θέσης (Positional arguments)<a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h3>
 <p>Όταν συντάσσεται μια συνάρτηση με πολλές παραμέτρους κατά την κλήση της πρέπει να ορίσουμε και αντίστοιχα ορίσματα.
 Το πέρασμα αυτών των ορισμάτων γίνεται είτε α) κατα θέση (<code class="docutils literal notranslate"><span class="pre">positional</span> <span class="pre">arguments</span></code>) είτε β) με βάση την λέξη κλειδί (<code class="docutils literal notranslate"><span class="pre">keyword</span> <span class="pre">arguments</span></code>).
 Τα <em>ορίσματα θέσης</em> ορίζονται κατά σειρά με βάση τις αντίστοιχες παραμέτρους που έχουν οριστεί κατά την σύνταξη της συνάρτησης. Το παρακάτω παράδειγμα είναι πιο κατανοητό:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Information about a car&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ο τύπους του αυτοκινήτου είναι:&quot;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;και έχει χρώματα:&quot;</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
@@ -683,7 +687,7 @@ sayHelloUser(name)
 </div>
 </section>
 <section id="keyword-arguments">
-<h3>Ορίσματα με βάση την λέξη-κλειδί (keyword arguments)<a class="headerlink" href="#keyword-arguments" title="Permalink to this heading">#</a></h3>
+<h3>Ορίσματα με βάση την λέξη-κλειδί (keyword arguments)<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h3>
 <p>Τα ορίσματα κλειδιά είναι πιο ευέλικτα καθότι περνάμε ένα ζεύγος κλειδιού-τιμής. Έτσι ορίζουμε ρητά και ονομαστικά σε κάθε παράμετρο τι τιμή θα λάβει. Σε αυτή την περίπτωση δεν παίζει ρόλο η σειρά που περνάμε τιμές αλλά η αντιστοιχεία ονομασία παραμέτρου με τιμή ορίσματος. Για αυτόν τον λόγο χρειάζεται προσοχή κατά την αντιστοιχία να χρησιμοποοιούμε τα σωστλα ονόματα παραμέτρων όπως διατυπώνονται στην σύνταξη της συνάρτησης. Ας δούμε το παραπάνω παράδειγμα με ορίσματα κλειδιά:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -703,11 +707,11 @@ sayHelloUser(name)
 </div>
 </section>
 <section id="id5">
-<h3>Προκαθορισμένη τιμή παραμέτρου<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>Προκαθορισμένη τιμή παραμέτρου<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Μια παράμετρο μπορεί να έχει μια προκαθορισμένη τιμή κατά την σύνταξη της συνάρτησης. Αν κατά την κλήση της συνάρτησης δώσουμε τιμή σε αυτήν την παράμετρο τότε αγνοείται η προκαθορισμένη τιμή. Όμως αν δεν δώσουμε τιμή τότε η παράμετρος κρατάει την προκαθορισμένη τιμή. Έτσι σε αρκετές περιπτώσεις όταν καλούμε μια συνάρτηση μπορεί οι προκαθορισμένες τιμές να αρκούν και να μην χρειάζεται να ορίσουμε τιμές στην αντίστοιχη παράμετρο. Ας δούμε το παρακάτω παράδειγμα:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wheels</span><span class="o">=</span><span class="s2">&quot;τέσσερις&quot;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wheels</span><span class="o">=</span><span class="s2">&quot;τέσσερις&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Information about a car&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ο τύπους του αυτοκινήτου είναι:&quot;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Έχει χρώμα&quot;</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="s2">&quot;και έχει&quot;</span><span class="p">,</span> <span class="n">wheels</span><span class="p">,</span> <span class="s2">&quot;τροχούς&quot;</span><span class="p">)</span>
@@ -760,7 +764,7 @@ sayHelloUser(name)
 </section>
 </section>
 <section id="id6">
-<h2>Επιστροφή τιμής από μία συνάρτηση<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Επιστροφή τιμής από μία συνάρτηση<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Στα προηγούμενα παραδείγματα περιγράφεται η σύνταξη συναρτήσεων χωρίς να επιστρέφονται τιμές από αυτές. Στην συνέχεια θα δούμε πως μια συνάρτηση μπορεί να επιστρέψει τιμές μέσω της λέξης-κλειδιού <code class="docutils literal notranslate"><span class="pre">return</span></code>. Ας επεκτείνουμε το προηγούμενο παράδειγμα με την συνάρτηση που προσθέτει δύο αριθμούς. Η συνάρτηση αυτή μέχρι τώρα απλά δημιουργεί μια νέα μεταβλητή με το άθροισμα και στην συνέχεια εκτυπώνει ένα μήνυμα. Δεν επιστρέφει τίποτα. Αν δοκιμάσουμε να δούμε τι τύπο δεδομένων επιστρέφει θα δούμε ότι είναι <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -780,7 +784,7 @@ sayHelloUser(name)
 <p>Ας τροποποιήσουμε την συνάρτηση ώστε να επιστρέφει μία τιμή. Θα δώσουμε νέο όνομα στην συνάρτηση, addV2</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addV2</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addV2</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers&quot;&quot;&quot;</span>
     <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
     <span class="k">return</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>
@@ -850,11 +854,11 @@ sayHelloUser(name)
 </div>
 </section>
 <section id="id7">
-<h2>Πολλαπλές επιστρεφόμενες τιμές<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Πολλαπλές επιστρεφόμενες τιμές<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Σε ορισμένες περιπτώσεις συναρτήσεων μπορεί να απαιτούμε να επιστρέφονται παραπάνω από μία τιμές. Τότε χρησιμοποιούμε μια μέθοδος που λέγεται tuple packing κατά την οποία δημιουργούμε μια πλειάδα με τις αναγκαίες τιμές. Κατά την κλήση της συνάρτησης μπορούμε να προσαρτήσουμε το αποτέλεσμα που επιστρέφει σε αντίστοιχο πλήθος μεταβλητών (tuple unpacking).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addV3</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addV3</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers&quot;&quot;&quot;</span>
     <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
     <span class="k">return</span><span class="p">(</span><span class="n">num3</span><span class="p">,</span> <span class="n">num3</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#tuple packing</span>
@@ -878,13 +882,13 @@ sayHelloUser(name)
 <p>Μια συνάρτηση μπορεί να επιστρέφει και ένα λεξικό ή μία λίστα.</p>
 </section>
 <section id="id8">
-<h2>Εμβέλεια μεταβλητών<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>Εμβέλεια μεταβλητών<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Οι μεταβλήτες στην Python διαχωρίζονται με βάση την εμβέλειά τους (δηλαδή από ποιό σημείο του κώδικα είναι «ορατές»),  σε <em>τοπικές (local)</em> και <em>καθολικές (global)</em>.</p>
 <p><strong>Καθολικές</strong> είναι οι μεταβλητές που ορίζονται στο κυρίως σώμα του κώδικα και δεν εντάσσονται μέσα σε κάποια συνάρτηση. Αυτές είναι προσπελάσιμες από κάθε σημείο του κώδικα ακόμα και μέσα από συναρτήσεις.</p>
 <p><strong>Τοπικές</strong> είναι οι μεταβλητές οι οποίες ορίζονται μέσα σε συναρτήσεις, είναι προσπελάσιμες μόνο μέσα σε αυτές και διαρκούν όσο διαρκεί η εκτέλεση μιας συνάρτησης. Κατά την πολλάπλή κλήση μιας συνάρτησης δημιουργούνται αντίστοιχες τοπικές μεταβλητές που περιγράφονται στην σύνταξή της. Οι παράμετροι μιας συνάρτησης αποτελούν και αυτές τοπικές μεταβλητές. Ας ορίσουμε μια τοπική μεταβλητή. Στην παρακάτω συνάρτηση ορίζεται η τοπική μεταβλητή <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PrintMyText</span><span class="p">():</span>      
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>      
     <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Athens&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     
@@ -908,7 +912,7 @@ sayHelloUser(name)
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [29],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;text&#39; is not defined
@@ -929,7 +933,7 @@ PrintMyText(&quot;Βόλος&quot;)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;Λάρισα&quot;</span>
-<span class="k">def</span> <span class="nf">PrintMyText</span><span class="p">():</span>      
+<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>      
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΝΤΟΣ της συνάρτησης&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="c1"># η καθολική μεταβλητή είναι προσβάσιμη μέσα στην συνάρτηση</span>
     
 <span class="n">PrintMyText</span><span class="p">()</span> <span class="c1"># γι αύτό και εκτυπώνεται κατά την κλήση</span>
@@ -949,7 +953,7 @@ PrintMyText(&quot;Βόλος&quot;)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;Λάρισα&quot;</span>
-<span class="k">def</span> <span class="nf">PrintMyText</span><span class="p">():</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span> 
     <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Βόλος&quot;</span> <span class="c1"># τοπική μεταβλητή, προτεραιότητα έναντι της καθολικής</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΝΤΟΣ της συνάρτησης (τοπική)&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="c1"># εδώ εκτυπώνεται η τοπική μεταβλητή</span>
     
@@ -970,7 +974,7 @@ PrintMyText(&quot;Βόλος&quot;)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Αυτή η συνάρτηση θα τροποποιήσει την καθολική μεταβλητή city</span>
-<span class="k">def</span> <span class="nf">printCity</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">printCity</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">city</span>
     <span class="n">city</span> <span class="o">+=</span> <span class="s1">&#39;, πρωτεύουσα της Ελλάδας&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
@@ -995,7 +999,7 @@ PrintMyText(&quot;Βόλος&quot;)
 </div>
 </section>
 <section id="lambda">
-<h2>Συναρτήσεις lambda<a class="headerlink" href="#lambda" title="Permalink to this heading">#</a></h2>
+<h2>Συναρτήσεις lambda<a class="headerlink" href="#lambda" title="Link to this heading">#</a></h2>
 <p>Οι συναρτήσεις <em>lambda</em> είναι μικρές ανώνυμες συναρτήσεις που μπορούν να έχουν πολλά ορίσματα αλλά μία έκφραση. Για παράδειγμα:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1105,7 +1109,7 @@ PrintMyText(&quot;Βόλος&quot;)
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1202,8 +1206,8 @@ PrintMyText(&quot;Βόλος&quot;)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
