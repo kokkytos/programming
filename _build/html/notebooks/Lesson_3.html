@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -625,7 +625,7 @@ specialized
 <span class="nb">print</span><span class="p">(</span><span class="n">gods</span><span class="p">)</span>
 
 
-<span class="n">gods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Αππόλωνας&quot;</span><span class="p">)</span>
+<span class="n">gods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Απόλλωνας&quot;</span><span class="p">)</span>
 <span class="n">gods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Άρης&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> θεοί&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gods</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gods</span><span class="p">)</span>
@@ -636,7 +636,7 @@ specialized
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 θεοί
 [&#39;Δίας&#39;, &#39;Ερμής&#39;, &#39;Ποσειδώνας&#39;, &#39;Ήφαιστος&#39;]
 6 θεοί
-[&#39;Δίας&#39;, &#39;Ερμής&#39;, &#39;Ποσειδώνας&#39;, &#39;Ήφαιστος&#39;, &#39;Αππόλωνας&#39;, &#39;Άρης&#39;]
+[&#39;Δίας&#39;, &#39;Ερμής&#39;, &#39;Ποσειδώνας&#39;, &#39;Ήφαιστος&#39;, &#39;Απόλλωνας&#39;, &#39;Άρης&#39;]
 </pre></div>
 </div>
 </div>
@@ -744,6 +744,67 @@ specialized
 </div>
 </div>
 </div>
+<p>Παράλληλα η Python προσφέρει μια συνοπτική μορφή για την δημιουργία λίστας από μία άλλη λίστα (list comprehension). Η μέθοδος αυτή χρησιμοποιεί τους βρόγχους (for loops) και τον έλεγχο ροής (if-else) προκειμένου να δημιουργήσει νέες λίστες και να μετασχηματίσει ή να φιλτράρει δεδομένα.
+Δίνονται μερικά παραδείγματα.
+Στο παρακάτω παράδειγμα μετατρέπουμε μια λίστα με πόλεις σε μια δεύτερη όπου αναγράφονται οι πόλεις με κεφαλαία:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Volos&#39;</span><span class="p">,</span> <span class="s1">&#39;Larisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Patra&#39;</span><span class="p">,</span> <span class="s1">&#39;Kalamatata&#39;</span><span class="p">]</span>
+
+<span class="n">cities_upper</span> <span class="o">=</span> <span class="p">[</span><span class="n">city</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cities_upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;VOLOS&#39;, &#39;LARISA&#39;, &#39;PATRA&#39;, &#39;KALAMATATA&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Με τον επόμενο κώδικα υπολογίζουμε τα τετράγωνα για μια ακολουθία ακέραιων από το 0 ως το 20:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">nums_sqr</span><span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="o">**</span><span class="mi">2</span>  <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums_sqr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Στο ακόλουθο παράδειγμα γίνεται χρήση του έλεγχου ροής σε μία συνοπτική μορφή δημιουργίας λίστας.
+Από μία λίστα με αυτοκίνητα δημιουργούμε μία δεύτερη και κρατάμε όσα αρχίζουν με τον χαρακτήρα «A» από την πρώτη λίστα:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_brands</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Audi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BMW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Chevrolet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ford&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Honda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hyundai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Kia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mercedes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nissan&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Alfa Romeo&quot;</span>
+<span class="p">]</span>
+
+<span class="n">brands_starting_with_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">brand</span> <span class="k">for</span> <span class="n">brand</span> <span class="ow">in</span> <span class="n">car_brands</span> <span class="k">if</span> <span class="n">brand</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brands_starting_with_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Audi&#39;, &#39;Alfa Romeo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="methods-functions">
 <h2>Χρήσιμες μέθοδοι (methods) και συναρτήσεις (functions)<a class="headerlink" href="#methods-functions" title="Link to this heading">#</a></h2>
@@ -827,7 +888,7 @@ specialized
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cars</span><span class="o">=</span><span class="p">[</span> <span class="s2">&quot;Porsche&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfa Romeo&quot;</span><span class="p">,</span> <span class="s2">&quot;Renault&quot;</span><span class="p">,</span> <span class="s2">&quot;BMW&quot;</span><span class="p">,</span> <span class="s2">&quot;Audi&quot;</span> <span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Το μήκος της λίστας (πλήθος στοιχείων) είναι: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cars</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
@@ -889,8 +950,8 @@ chemistry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0x7fb3564a9580
-0x7fb3564a9580
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0x7f01babf9640
+0x7f01babf9640
 </pre></div>
 </div>
 </div>
