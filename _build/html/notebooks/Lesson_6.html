@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -471,7 +471,7 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Τρόπος σύνταξης και κλήσης<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>Ο ορισμός μιας συνάρτησης στην Python ξεκινάει με την δεσμευμένη λέξη <code class="docutils literal notranslate"><span class="pre">_def_</span></code>, στην συνέχει δίνεται ένα όνομα για την συνάρτηση, ακολουθούν οι παρενθέσεις (εντός τους μπορεί να ορίζονται και οι παράμετροι) και ακολουθεί η άνω/κάτω τελεία (colon). Στην συνέχει ακολουθεί (με εσοχές 4 space) μια σύντομη περιγραφή (docstrings) για το τι κάνει η συνάρτηση (προαιρετικά), και το σχετικό κομμάτι εντολών. Μπορεί κατά την ολοκλήρωση, επίσης προαιρετικά, η συνάρτηση να επιστρέφει κάποια τιμή μέσω της λέξης-κλειδί <code class="docutils literal notranslate"><span class="pre">_return_</span></code>. Σε κάθε περίπτωση όταν το <em>return</em> καλείται μέσα στην συνάρτηση τότε αυτή σταματάει την εκτέλεση του κώδικα που περιέχει και επιστρέφει στο σημείο απ” όπου καλέστηκε.
+<p>Ο ορισμός μιας συνάρτησης στην Python ξεκινάει με την δεσμευμένη λέξη <code class="docutils literal notranslate"><span class="pre">def</span></code>, στην συνέχεια δίνεται ένα όνομα για την συνάρτηση, ακολουθούν οι παρενθέσεις (εντός τους μπορεί να ορίζονται και οι παράμετροι) και ακολουθεί η άνω/κάτω τελεία (colon). Στην συνέχεια ακολουθεί (με εσοχές 4 space) μια σύντομη περιγραφή (docstrings) για το τι κάνει η συνάρτηση (προαιρετικά), και το σχετικό κομμάτι εντολών. Μπορεί κατά την ολοκλήρωση, επίσης προαιρετικά, η συνάρτηση να επιστρέφει κάποια τιμή μέσω της λέξης-κλειδί <code class="docutils literal notranslate"><span class="pre">return</span></code>. Σε κάθε περίπτωση όταν το <code class="docutils literal notranslate"><span class="pre">return</span></code> καλείται μέσα στην συνάρτηση τότε αυτή σταματάει την εκτέλεση του κώδικα που περιέχει και επιστρέφει στο σημείο απ” όπου καλέστηκε.
 Η ονοματολογία των συναρτήσεων υπακούει στους κανόνες ονοματολογίας των μεταβλητών και συνήθως περιγράφουν τι κάνουν.
 Προηγείται ο ορισμός μια συνάρτησης και μετά η κλήση της. Γι” αυτό τον λόγο οι συναρτήσεις δηλώνονται πρώτα σε ένα πρόγραμμα και μετά ακολουθεί το κυρίως σώμα του κώδικα μέσα στον οποίο μπορούμε να τις καλέσουμε.
 Παρακάτω δίνεται μια απλουστευτική μορφή της σύνταξης μιας συνάρτησης.</p>
@@ -484,7 +484,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Ας δούμε ένα πιο πρακτικό παράδειγμα. Παρακάτω ακολουθεί η σύναξη μιας απλής συνάρτηση όπου δεν ορίζονται κάποιοι παράμετροι ούτε επιστρέφεται κάποια τιμή.</p>
+<p>Ας δούμε ένα πιο πρακτικό παράδειγμα. Παρακάτω ακολουθεί η σύνταξη μιας απλής συνάρτηση όπου δεν ορίζονται κάποιοι παράμετροι ούτε επιστρέφεται κάποια τιμή.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">():</span>
@@ -510,7 +510,7 @@ document.write(`
 </section>
 <section id="id4">
 <h2>Συνάρτηση με παραμέτρους<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>Σε αρκετές περιπτώσεις μια συνάρτηση μπορεί να περιλαμβάνει δεδομένα εισόδου (<code class="docutils literal notranslate"><span class="pre">παράμετροι</span></code>) τα οποιά είναι χρήσιμα κατά την εκτέλεση του κώδικά της. Οι παράμετροι αυτοί ορίζονται κατά την σύνταξη της συνάρτησης, μέσα στις παρενθέσεις που ακολουθούν το όνομα της. Κατά την κλήση οι παράμετροι αυτοί λαμβάνουν τιμές ή μεταβλητές και ονομάζονται <code class="docutils literal notranslate"><span class="pre">ορίσματα</span></code>.</p>
+<p>Σε αρκετές περιπτώσεις μια συνάρτηση μπορεί να περιλαμβάνει δεδομένα εισόδου (<code class="docutils literal notranslate"><span class="pre">παράμετροι</span></code>) τα οποία είναι χρήσιμα κατά την εκτέλεση του κώδικά της. Οι παράμετροι αυτοί ορίζονται κατά την σύνταξη της συνάρτησης, μέσα στις παρενθέσεις που ακολουθούν το όνομα της. Κατά την κλήση οι παράμετροι αυτοί λαμβάνουν τιμές ή μεταβλητές και ονομάζονται <code class="docutils literal notranslate"><span class="pre">ορίσματα</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sayHelloUser</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -669,7 +669,7 @@ sayHelloUser(name)
 </div>
 </div>
 </div>
-<p>Στην παραπάνω περίπτωση ορίσαμε μια function που εκτυπώνει το <em>style</em> και το <em>color</em> ενός αυτοκινήτου.
+<p>Στην παραπάνω περίπτωση ορίσαμε μια συνάρτηση (function) που εκτυπώνει το <em>style</em> και το <em>color</em> ενός αυτοκινήτου.
 Κατά την κλήση της περνάμε τα ορίσματα κατά θέση. Δηλαδή στην πρώτη θέση κατά την σύνταξη έχουμε την παράμετρο <em>style</em> που παίρνει το όρισμα <em>«Sedan»</em> και στην δεύτερη θέση έχουμε την παράμετρο <em>color</em> που παίρνει το όρισμα <em>«μαύρο»</em>.
 Με τα ορίσματα θέσης πρέπει να είμαστε ακριβής στις τιμές που περνάμε σε κάθε γιατί αλλιώς μπορεί να έχουμε απροσδιόριστα αποτελέσματα. Δείτε το παρακάτω παράδειγμα:</p>
 <div class="cell docutils container">
@@ -688,7 +688,7 @@ sayHelloUser(name)
 </section>
 <section id="keyword-arguments">
 <h3>Ορίσματα με βάση την λέξη-κλειδί (keyword arguments)<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h3>
-<p>Τα ορίσματα κλειδιά είναι πιο ευέλικτα καθότι περνάμε ένα ζεύγος κλειδιού-τιμής. Έτσι ορίζουμε ρητά και ονομαστικά σε κάθε παράμετρο τι τιμή θα λάβει. Σε αυτή την περίπτωση δεν παίζει ρόλο η σειρά που περνάμε τιμές αλλά η αντιστοιχεία ονομασία παραμέτρου με τιμή ορίσματος. Για αυτόν τον λόγο χρειάζεται προσοχή κατά την αντιστοιχία να χρησιμοποοιούμε τα σωστλα ονόματα παραμέτρων όπως διατυπώνονται στην σύνταξη της συνάρτησης. Ας δούμε το παραπάνω παράδειγμα με ορίσματα κλειδιά:</p>
+<p>Τα ορίσματα κλειδιά είναι πιο ευέλικτα καθότι περνάμε ένα ζεύγος κλειδιού-τιμής. Έτσι ορίζουμε ρητά και ονομαστικά σε κάθε παράμετρο τι τιμή θα λάβει. Σε αυτή την περίπτωση δεν παίζει ρόλο η σειρά που περνάμε τιμές αλλά η αντιστοιχία παραμέτρου με τιμή ορίσματος. Γι” αυτόν τον λόγο χρειάζεται προσοχή κατά την αντιστοιχία να χρησιμοποοιούμε τα σωστά ονόματα παραμέτρων όπως διατυπώνονται στην σύνταξη της συνάρτησης. Ας δούμε το παραπάνω παράδειγμα με ορίσματα κλειδιά:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;κόκκινo&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;SUV&quot;</span><span class="p">)</span>
@@ -787,6 +787,7 @@ sayHelloUser(name)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addV2</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers&quot;&quot;&quot;</span>
     <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Το άθροισμα των αριθμών &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; και &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;  είναι &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num3</span><span class="p">))</span>
     <span class="k">return</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -796,6 +797,11 @@ sayHelloUser(name)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">=</span><span class="n">addV2</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το άθροισμα των αριθμών 5 και 3  είναι 8
 </pre></div>
 </div>
 </div>
@@ -834,7 +840,8 @@ sayHelloUser(name)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το αποτέλεσμα της πράξης είναι:18
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το άθροισμα των αριθμών 9 και 9  είναι 18
+Το αποτέλεσμα της πράξης είναι:18
 </pre></div>
 </div>
 </div>
@@ -847,6 +854,9 @@ sayHelloUser(name)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Το άθροισμα των αριθμών 1 και 2  είναι 3
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
@@ -888,10 +898,10 @@ sayHelloUser(name)
 <p><strong>Τοπικές</strong> είναι οι μεταβλητές οι οποίες ορίζονται μέσα σε συναρτήσεις, είναι προσπελάσιμες μόνο μέσα σε αυτές και διαρκούν όσο διαρκεί η εκτέλεση μιας συνάρτησης. Κατά την πολλάπλή κλήση μιας συνάρτησης δημιουργούνται αντίστοιχες τοπικές μεταβλητές που περιγράφονται στην σύνταξή της. Οι παράμετροι μιας συνάρτησης αποτελούν και αυτές τοπικές μεταβλητές. Ας ορίσουμε μια τοπική μεταβλητή. Στην παρακάτω συνάρτηση ορίζεται η τοπική μεταβλητή <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>      
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>
     <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Athens&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-    
+
 <span class="n">PrintMyText</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -921,21 +931,28 @@ sayHelloUser(name)
 </div>
 </div>
 <p>Όπως προαναφέρθηκε και μια παράμετρος αποτελεί τοπική μεταβλητή:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-```{code-cell} ipython3
-def PrintMyText(p):      
-    print(p)
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
-PrintMyText(&quot;Βόλος&quot;)
+<span class="n">PrintMyText</span><span class="p">(</span><span class="s2">&quot;Βόλος&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Βόλος
+</pre></div>
+</div>
+</div>
 </div>
 <p>Αντιθέτως μια καθολική μεταβλητή είναι προσβάσιμη σε μία συνάρτηση.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;Λάρισα&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>      
+<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΝΤΟΣ της συνάρτησης&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="c1"># η καθολική μεταβλητή είναι προσβάσιμη μέσα στην συνάρτηση</span>
-    
+
 <span class="n">PrintMyText</span><span class="p">()</span> <span class="c1"># γι αύτό και εκτυπώνεται κατά την κλήση</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΚΤΟΣ συνάρτησης&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>  <span class="c1"># και φυσικά είναι διαθέσιμη και εκτός συνάρτησης από οποιοδήποτε σημείο του κώδικα</span>
@@ -953,10 +970,10 @@ PrintMyText(&quot;Βόλος&quot;)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;Λάρισα&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">PrintMyText</span><span class="p">():</span>
     <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Βόλος&quot;</span> <span class="c1"># τοπική μεταβλητή, προτεραιότητα έναντι της καθολικής</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΝΤΟΣ της συνάρτησης (τοπική)&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="c1"># εδώ εκτυπώνεται η τοπική μεταβλητή</span>
-    
+
 <span class="n">PrintMyText</span><span class="p">()</span> <span class="c1"># θα εκτυπώσει την τοπική</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Η τιμή της μεταβλητής city ΕΚΤΟΣ συνάρτησης (καθολική)&quot;</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>  <span class="c1"># θα εκτυπώσει την καθολική</span>
