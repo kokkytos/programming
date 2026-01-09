@@ -470,28 +470,6 @@ document.write(`
 <p>Επιπλέον είναι δυνατή η ανάγνωση αρχείων που φιλοξενούνται διαδικτυακά (<a class="reference external" href="https://cogeo.org/">Cloud Optimized GeoTIFF (COG)</a>). Ανεξάρτητα που είναι το αρχείο προς ανάγνωση (τοπικά ή απομακρυσμένα) είναι δυνατόν κατά την ανάγνωση να οριστεί ένα τμήμα του αρχείου μόνο. Το τμήμα αυτό μπορεί να οριστεί με δύο τρόπους. Είτε να οριστεί ένα υποσύνολο δίνοντας σαν αρχικό σημείο κατάτμησης το index του πάνω αριστερά pixel ενός bounding box και στην συνέχεια το πλάτος και το ύψος του πάλι σε pixels. Είτε ορίζοντας τις γεωγραφικές συντενταγμένες (στο προβολικό σύστημα του αρχείου) του bounding box που ενδιαφέρει τον χρήστη. Στο παρακάτω παράδειγμα δίνεται η ανάγνωση ενός αρχείου Cloud Optimized GeoTIFF (COG) μέσω του ορισμού bounding box σε γεωγραφικές συντεταγμένες αντίστοιχες με το προβολικό σύστημα του αρχείου προς ανάγνωση.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.env</span><span class="w"> </span><span class="kn">import</span> <span class="n">Env</span>
-
-<span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">(</span>
-    <span class="n">GDAL_DISABLE_READDIR_ON_OPEN</span><span class="o">=</span><span class="s2">&quot;EMPTY_DIR&quot;</span><span class="p">,</span>
-    <span class="n">CPL_VSIL_CURL_ALLOWED_EXTENSIONS</span><span class="o">=</span><span class="s2">&quot;.tif&quot;</span><span class="p">,</span>
-    <span class="n">GDAL_HTTP_TIMEOUT</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
-    <span class="n">GDAL_HTTP_MAX_RETRY</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">env</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;rasterio.env.Env at 0x7f73a8142770&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_bounds</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://huggingface.co/datasets/leoliakos/LandSat8/resolve/main/LC08_L2SP_183033_20250906_20250912_02_T1_SR.tif&#39;</span>
 
