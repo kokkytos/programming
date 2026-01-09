@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -423,6 +423,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγκατάσταση της βιβλιοθήκης, βασικές λειτουργίες</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Άνοιγμα αρχείου</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ανάγνωση μεταδεδομένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Αλλαγή προβολικού συστήματος</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-geopandas-integration">Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling-nearest-bilinear-cubic">Resampling (nearest, bilinear, cubic)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescale-data">Rescale Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-mask">Apply mask</a></li>
 </ul>
             </nav>
         </div>
@@ -436,21 +443,435 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rasterio">
 <h1>12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)<a class="headerlink" href="#rasterio" title="Link to this heading">#</a></h1>
-<p>Η βιβλιοθήκη <a class="reference external" href="https://rasterio.readthedocs.io/en/stable/">Rasterio</a> αποτελεί μια από τις πιο διαδεδομένες βιβλιοθήκες για την ανάγνωση και εγγραφή αρχείων ψηφιδωτών αρχείων (raster).
+<p>Η βιβλιοθήκη <a class="reference external" href="https://rasterio.readthedocs.io/en/stable/">Rasterio</a> αποτελεί μια από τις πιο διαδεδομένες βιβλιοθήκες για την ανάγνωση και εγγραφή ψηφιδωτών αρχείων (raster).
 Είναι δομημένη πάνω στην βιβλιοθήκη GDAL (Geospatial Data Abstraction Library) και παρέχει πιο εύχρηστο τρόπο συγγραφής κώδικα στα πρότυπα που απαιτεί η Python (pythonic).</p>
-<p>Ως προς τι δυνατότητες παρέχει ανάγνωση και εγγραφή ψηφιδωτών αρχείων, πρόσβαση στα μεταδεδομένα και τις ιδιότητές τους (πχ γεωγραφικό σύστημα αναφορά, διακριτική ικανότητα, πρόσβαση σε πολλαπλά κανάλια εικόνας). Επιπλέον συνδυάζεται άριστα με την βιβλιοθήκη <a class="reference external" href="https://numpy.org/">numpy</a> και είναι συμβατή με βιβλιοθήκες για αλληλεπίδραση με διανυσματικά δεδομένα (<a class="reference external" href="https://shapely.readthedocs.io/">Shapely</a>, <a class="reference external" href="https://geopandas.org/">GeoPandas</a>, and <a class="reference external" href="https://pyproj4.github.io/pyproj/stable/">PyProj</a> ενώ μέσω της βιβλιοθήκης matplotlib δίνει την δυνατότητα οπτικοποίησης ψηφιδωτών δεδομένων. Ταυτόχρονα ένα από τα πλεονεκτήματά της είναι η δυνατότητα ανάγνωσης μεγάλων δεδομένων (block wise reading).</p>
+<p>Ως προς τις δυνατότητες παρέχει ανάγνωση και εγγραφή ψηφιδωτών αρχείων, πρόσβαση στα μεταδεδομένα και τις ιδιότητές τους (πχ γεωγραφικό σύστημα αναφορά, διακριτική ικανότητα, πρόσβαση σε πολλαπλά κανάλια εικόνας). Επιπλέον συνδυάζεται άριστα με την βιβλιοθήκη <a class="reference external" href="https://numpy.org/">numpy</a> και είναι συμβατή με βιβλιοθήκες για αλληλεπίδραση με διανυσματικά δεδομένα (<a class="reference external" href="https://shapely.readthedocs.io/">Shapely</a>, <a class="reference external" href="https://geopandas.org/">GeoPandas</a>, and <a class="reference external" href="https://pyproj4.github.io/pyproj/stable/">PyProj</a> ενώ μέσω της βιβλιοθήκης <a class="reference external" href="https://matplotlib.org/">matplotlib</a> δίνει την δυνατότητα οπτικοποίησης ψηφιδωτών δεδομένων. Ταυτόχρονα ένα από τα πλεονεκτήματά της είναι η δυνατότητα ανάγνωσης μεγάλων δεδομένων (block wise reading).</p>
 <section id="id1">
 <h2>Εγκατάσταση της βιβλιοθήκης, βασικές λειτουργίες<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Άνοιγμα αρχείου</p>
-<p>Ανάγνωση μεταδεδομένων (meta, crs, shape, bounds)</p>
-<p>Χειρισμός πολυκαναλικών καναλιών</p>
-<p>Ανάγνωση ψηφιδωτών δεδομένων σε NumPy arrays</p>
-<p>Εγγραφή ψηφιδωτών δεδομένων με custom metadata</p>
-<p>Επεξήγηση γεωναφοράς (transform και bounds, αλλαγή προβολικού συστήματος)</p>
-<p>Ανάγνωση υποσυνόλου αρχείου (windowed read)</p>
-<p>Εφαρμογή μασκών και χωρικών φίλτρων</p>
-<p>Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)</p>
-<p>Επιλογή μεθόδοων resampling (nearest, bilinear, cubic)</p>
+<p>Η εγκατάσταση της βιβλιοθήκης <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> εξαρτάται από το περιβάλλον εργασίας. Σε περίπτωση που το περιβάλλον εργασίας είναι το <code class="docutils literal notranslate"><span class="pre">conda</span></code> τότε η εγκατάσταση της <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> από το κανάλι <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> γίνεται με την εντολή  <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">rasterio</span></code>. Για το <code class="docutils literal notranslate"><span class="pre">pip</span></code> χρησιμοποιείται η εντολή <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">rasterio</span></code>. Περισσότερες λεπτομέρειες για την εγκατάσταση της βιβλιοθήκης αναφέρονται εδώ: <a class="reference external" href="https://rasterio.readthedocs.io/en/stable/installation.html">https://rasterio.readthedocs.io/en/stable/installation.html</a></p>
+</section>
+<section id="id2">
+<h2>Άνοιγμα αρχείου<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Για το άνοιγμα ενός ψηφιδωτού αρχείου χρησιμοποιείται η μέθοδος <code class="docutils literal notranslate"><span class="pre">open</span></code> από την βιβλιοθήκη <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>. Στην συνέχεια, στο object του αρχείου που έχει ανοίξει καλούμε την μέθοδο <code class="docutils literal notranslate"><span class="pre">read</span></code> η οποία διαβάζει τις τιμές των pixel από όλα τα κανάλια (bands) της εικόνας (ή από επιλεγμένα αν οριστεί index) και τα επισυνάπτει σε ένα numpy array. Η μέθοδος <code class="docutils literal notranslate"><span class="pre">read</span></code> δέχεται σαν παράμετρο είτε τον index του καναλίου που θέλουμε να ανοίξουμε είτε τίποτα οπότε και θα διαβάσει όλα τα κανάλια. Αξίζει να σημειωθεί ότι το index για το πρώτο κανάλι είναι το <code class="docutils literal notranslate"><span class="pre">1</span></code> και όχι το <code class="docutils literal notranslate"><span class="pre">0</span></code> όπως συνηθίζεται στην Python. Στο παρακάτω παράδειγμα χρησιμοποιείται η  <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> για την ανάγνωση όλων των καναλιών μιας εικόνας LandSat8 σαν numpy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+
+<span class="c1"># Source: Landsat 8-9 OLI/TIRS Collection 2 Level-2 Science Products </span>
+<span class="c1"># https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;LC08_L2SP_183033_20250906_20250912_02_T1_SR_VOLOS.tif&#39;</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># ανάγνωση όλων των καναλιών</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Επιπλέον είναι δυνατή η ανάγνωση αρχείων που φιλοξενούνται διαδικτυακά (<a class="reference external" href="https://cogeo.org/">Cloud Optimized GeoTIFF (COG)</a>). Ανεξάρτητα που είναι το αρχείο προς ανάγνωση (τοπικά ή απομακρυσμένα) είναι δυνατόν κατά την ανάγνωση να οριστεί ένα τμήμα του αρχείου μόνο. Το τμήμα αυτό μπορεί να οριστεί με δύο τρόπους. Είτε να οριστεί ένα υποσύνολο δίνοντας σαν αρχικό σημείο κατάτμησης το index του πάνω αριστερά pixel ενός bounding box και στην συνέχεια το πλάτος και το ύψος του πάλι σε pixels. Είτε ορίζοντας τις γεωγραφικές συντενταγμένες (στο προβολικό σύστημα του αρχείου) του bounding box που ενδιαφέρει τον χρήστη. Στο παρακάτω παράδειγμα δίνεται η ανάγνωση ενός αρχείου Cloud Optimized GeoTIFF (COG) μέσω του ορισμού bounding box σε γεωγραφικές συντεταγμένες αντίστοιχες με το προβολικό σύστημα του αρχείου προς ανάγνωση.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.env</span><span class="w"> </span><span class="kn">import</span> <span class="n">Env</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">(</span>
+    <span class="n">GDAL_DISABLE_READDIR_ON_OPEN</span><span class="o">=</span><span class="s2">&quot;EMPTY_DIR&quot;</span><span class="p">,</span>
+    <span class="n">CPL_VSIL_CURL_ALLOWED_EXTENSIONS</span><span class="o">=</span><span class="s2">&quot;.tif&quot;</span><span class="p">,</span>
+    <span class="n">GDAL_HTTP_TIMEOUT</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+    <span class="n">GDAL_HTTP_MAX_RETRY</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">env</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;rasterio.env.Env at 0x7f73a8142770&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_bounds</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://huggingface.co/datasets/leoliakos/LandSat8/resolve/main/LC08_L2SP_183033_20250906_20250912_02_T1_SR.tif&#39;</span>
+
+<span class="c1"># Συντεταγμένες για τον Βόλο. Οι συντεταγμένες δίνονται στο προβολικό σύστημα της εικόνας προς ανάγνωση.</span>
+<span class="n">left</span>   <span class="o">=</span> <span class="mi">632003</span>
+<span class="n">bottom</span> <span class="o">=</span> <span class="mi">4315978</span>
+<span class="n">right</span>  <span class="o">=</span> <span class="mi">717315</span>
+<span class="n">top</span>    <span class="o">=</span> <span class="mi">4395603</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">from_bounds</span><span class="p">(</span>
+        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+        <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
+        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+        <span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">transform</span>
+    <span class="p">)</span>
+    <span class="n">data1</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span> <span class="c1"># ανάγνωση πρώτης μπάντας και σε γεωγραφικό υποσύνολο της εικόνας</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Το object <code class="docutils literal notranslate"><span class="pre">data</span></code> είναι ένα numpy array το οπόιο μπορεί να οπτικοποιηθεί με την βοήθεια της βιβλιοθήκης numpy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Οπτικοποίηση του &#39;data&#39; array</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>  <span class="c1"># &#39;viridis&#39;: χρωματική παλέτα για συνεχή δεδομένα</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pixel Value&#39;</span><span class="p">)</span> <span class="c1"># υπόμνημα</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Raster subset of Landsat 8 Image &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Column Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Row Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a2be2dac77fbeac6fe87412412268300411f1362c460b3d46d6183bebaeb48c2.png" src="../_images/a2be2dac77fbeac6fe87412412268300411f1362c460b3d46d6183bebaeb48c2.png" />
+</div>
+</div>
+<p>Στο παρακάτω παράδειγμα γίνεται ανάγνωση τμήματος του αρχείου μέσω της ορισμού window (pixel έναρξης μέσω του ορισμού col_off και row_off και του πλάτους και ύψους).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">col_off</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">row_off</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">data2</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Οπτικοποίηση του &#39;data&#39; array</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>  <span class="c1"># &#39;viridis&#39;: χρωματική παλέτα για συνεχή δεδομένα</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pixel Value&#39;</span><span class="p">)</span> <span class="c1"># υπόμνημα</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Raster subset of Landsat 8 Image &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Column Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Row Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/876b5f16fa9edcd90641bbd79dfc5267eeaf0b1b57341b3a76b16e592d6bf419.png" src="../_images/876b5f16fa9edcd90641bbd79dfc5267eeaf0b1b57341b3a76b16e592d6bf419.png" />
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Ανάγνωση μεταδεδομένων<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Όπως αναφέρθηκε κατά την ανάγνωση είναι δυνατόν να αγνοηθεί το index του καναλιού και κατά συνέπεια να αναγνωστούν όλα τα κανάλια της εικόνας:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">from_bounds</span><span class="p">(</span>
+        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+        <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
+        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+        <span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">transform</span>
+    <span class="p">)</span>
+    <span class="n">data_all_bands</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span> <span class="c1"># ανάγνωση όλων των καναλιών και σε γεωγραφικό υποσύνολο της εικόνας</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Από ένα ανοικτό αρχείο μέσω του <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> μπορούμε να ανακτήσουμε χρήσιμες ιδιότητες για το raster. Για παράδειγμα μπορούμε να ανακτήσουμε το προβολικό σύστημα, τις διαστάσεις (width, height) του σε pixels, το bounding box και τον αριθμό των καναλιών. Επίσης, στην <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>, το <code class="docutils literal notranslate"><span class="pre">meta</span></code> (ή <code class="docutils literal notranslate"><span class="pre">profile</span></code>) είναι ένα λεξικό μεταδεδομένων που περιγράφει διάφορες ιδιότητες για το raster αρχείο. Η ιδιότητα <code class="docutils literal notranslate"><span class="pre">profile</span></code> παρέχει πιο πολλές λεπτομέρειες αναφορικά με τις ιδιότητες του αρχείου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">from_bounds</span><span class="p">(</span>
+        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+        <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
+        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+        <span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">transform</span>
+    <span class="p">)</span>
+    <span class="n">data_all_bands</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span> <span class="c1"># ανάγνωση όλων των καναλιών και σε γεωγραφικό υποσύνολο της εικόνας# Print</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRS: </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">crs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape (rows, cols): (</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bounds: </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">bounds</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of bands: </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cell resolution (x, y): </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRS: EPSG:32634
+Shape (rows, cols): (7731, 7601)
+Bounds: BoundingBox(left=608385.0, bottom=4192785.0, right=836415.0, top=4424715.0)
+Number of bands: 7
+Cell resolution (x, y): (30.0, 30.0)
+--------------------------------------------------
+{&#39;driver&#39;: &#39;GTiff&#39;, &#39;dtype&#39;: &#39;uint16&#39;, &#39;nodata&#39;: 0.0, &#39;width&#39;: 7601, &#39;height&#39;: 7731, &#39;count&#39;: 7, &#39;crs&#39;: CRS.from_wkt(&#39;PROJCS[&quot;WGS 84 / UTM zone 34N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32634&quot;]]&#39;), &#39;transform&#39;: Affine(30.0, 0.0, 608385.0,
+       0.0, -30.0, 4424715.0)}
+--------------------------------------------------
+{&#39;driver&#39;: &#39;GTiff&#39;, &#39;dtype&#39;: &#39;uint16&#39;, &#39;nodata&#39;: 0.0, &#39;width&#39;: 7601, &#39;height&#39;: 7731, &#39;count&#39;: 7, &#39;crs&#39;: CRS.from_wkt(&#39;PROJCS[&quot;WGS 84 / UTM zone 34N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32634&quot;]]&#39;), &#39;transform&#39;: Affine(30.0, 0.0, 608385.0,
+       0.0, -30.0, 4424715.0), &#39;blockxsize&#39;: 512, &#39;blockysize&#39;: 512, &#39;tiled&#39;: True, &#39;compress&#39;: &#39;lzw&#39;, &#39;interleave&#39;: &#39;pixel&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Αλλαγή προβολικού συστήματος<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Η βιβλιοθήκη rasterio δίνει την δυνατότητα μετατροπής του προβολικού συστήματος ενός αρχείου σε ένα άλλο (reprojection).
+Αν και δεν είναι ιδιαίτερα εύχρηστη ως προς την διαδικασία σε σχέση με άλλες βιβλιοθήκες ή λογισμικά ωστόσο δίνει μεγάλη ευλιξία στον χρήστη.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.warp</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_default_transform</span><span class="p">,</span> <span class="n">reproject</span><span class="p">,</span> <span class="n">Resampling</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">src_path</span>  <span class="o">=</span> <span class="s1">&#39;LC08_L2SP_183033_20250906_20250912_02_T1_SR_VOLOS.tif&#39;</span>
+<span class="n">dst_path</span> <span class="o">=</span> <span class="s2">&quot;Volos_2100.tif&quot;</span>
+<span class="n">dst_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:2100&quot;</span>  <span class="c1"># προβολικό σύστημα αναφοράς που θα γίνει το reprojection </span>
+<span class="n">target_res</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># ανάλυση (resolution) στο νέο σύστημα αναφοράς</span>
+
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="c1"># 1. Υπολογισμός του default transform για το target CRS</span>
+    <span class="n">transform</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">calculate_default_transform</span><span class="p">(</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="o">*</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 2. τροποποίηση του transform ώστε να οριστεί η ανάλυση στα 30m ακριβώς</span>
+    <span class="n">scale_x</span> <span class="o">=</span> <span class="n">target_res</span> <span class="o">/</span> <span class="n">transform</span><span class="o">.</span><span class="n">a</span>
+    <span class="n">scale_y</span> <span class="o">=</span> <span class="n">target_res</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">transform</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
+    
+    <span class="n">width</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">scale_x</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="n">scale_y</span><span class="p">)</span>
+    
+    <span class="c1"># δημιουργία νέου transform object (με ανάλυση 30m)</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">Affine</span><span class="p">(</span>
+        <span class="n">target_res</span><span class="p">,</span> <span class="n">transform</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">transform</span><span class="o">.</span><span class="n">c</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="o">-</span><span class="n">target_res</span><span class="p">,</span> <span class="n">transform</span><span class="o">.</span><span class="n">f</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 3. metadata για το εξαγώγιμο αρχείο</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;crs&quot;</span><span class="p">:</span> <span class="n">dst_crs</span><span class="p">,</span>
+        <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="n">transform</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span>
+        <span class="s2">&quot;nodata&quot;</span><span class="p">:</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
+    <span class="p">})</span>
+
+    <span class="c1"># 4. εφαρμογή Reproject</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dst_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">reproject</span><span class="p">(</span>
+                <span class="n">source</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span>
+                <span class="n">destination</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span>
+                <span class="n">src_transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span>
+                <span class="n">src_crs</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+                <span class="n">dst_transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
+                <span class="n">dst_crs</span><span class="o">=</span><span class="n">dst_crs</span><span class="p">,</span>
+                <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">bilinear</span>  <span class="c1"># or nearest  για κατηγορικά δεδομένα</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shapely-geopandas-integration">
+<h2>Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)<a class="headerlink" href="#shapely-geopandas-integration" title="Link to this heading">#</a></h2>
+<p>Επιπλέον υπάρχει η λειτουργία της αποκοπής (crop) και κάλυψη (mask) μιας εικόνας με βάση ένα διανυσματικό αρχείο. Στο παρακάτω παράδειγμα η εικόνα LandSat αποκόπτεται και γίνεται mask στα όρια του Δήμου Βόλου.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.mask</span><span class="w"> </span><span class="kn">import</span> <span class="n">mask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+
+
+<span class="n">vector_path</span> <span class="o">=</span> <span class="s2">&quot;data/OTA/0adb0521-2223-43cd-96d3-d816ad7a193c.shp&quot;</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;LandSat8_Volos_clipped.tif&quot;</span>
+
+<span class="c1"># 1. Read shapefile with GeoPandas</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">vector_path</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;NAME_LATIN&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;D. BOLOY&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># 2. Ensure CRS matches raster CRS</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">from_bounds</span><span class="p">(</span>
+        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+        <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
+        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+        <span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">transform</span>
+    <span class="p">)</span>
+
+    
+    <span class="k">if</span> <span class="n">gdf</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+    <span class="c1"># Convert geometries to GeoJSON-like dicts</span>
+    <span class="n">geoms</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Shapely geometries</span>
+    <span class="n">geoms</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">__geo_interface__</span> <span class="k">for</span> <span class="n">geom</span> <span class="ow">in</span> <span class="n">geoms</span><span class="p">]</span>
+
+    <span class="c1"># 3. Clip &amp; mask raster</span>
+    <span class="n">out_image</span><span class="p">,</span> <span class="n">out_transform</span> <span class="o">=</span> <span class="n">mask</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">geoms</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># 4. Update metadata for output</span>
+    <span class="n">out_meta</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">out_meta</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">out_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">out_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="n">out_transform</span><span class="p">,</span>
+        <span class="s2">&quot;nodata&quot;</span><span class="p">:</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
+    <span class="p">})</span>
+
+<span class="c1"># 5. Write the clipped raster</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">out_meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out_image</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✔ Clipped raster saved to </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔ Clipped raster saved to LandSat8_Volos_clipped.tif
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resampling-nearest-bilinear-cubic">
+<h2>Resampling (nearest, bilinear, cubic)<a class="headerlink" href="#resampling-nearest-bilinear-cubic" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resampling</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_origin</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="n">src_path</span> <span class="o">=</span> <span class="s2">&quot;Volos_2100.tif&quot;</span>
+<span class="n">dst_path</span> <span class="o">=</span> <span class="s2">&quot;Volos_2100_100m.tif&quot;</span>
+
+<span class="n">target_res</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># 100 meters per pixel</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="c1"># 1. Calculate new width and height based on target resolution</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="n">target_res</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">top</span> <span class="o">-</span> <span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">bottom</span><span class="p">)</span> <span class="o">/</span> <span class="n">target_res</span><span class="p">)</span>
+
+    <span class="c1"># 2. Create new affine transform</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="n">from_origin</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="n">target_res</span><span class="p">,</span> <span class="n">target_res</span><span class="p">)</span>
+
+    <span class="c1"># 3. Read resampled data</span>
+    <span class="n">data_resampled</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
+        <span class="n">out_shape</span><span class="o">=</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span>
+        <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">bilinear</span>  <span class="c1"># use nearest for categorical data</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 4. Update metadata</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span>
+        <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="n">transform</span><span class="p">,</span>
+        <span class="s2">&quot;nodata&quot;</span><span class="p">:</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
+    <span class="p">})</span>
+
+<span class="c1"># 5. Write resampled raster</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dst_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data_resampled</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✔ Raster resampled to 100m and saved as </span><span class="si">{</span><span class="n">dst_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔ Raster resampled to 100m and saved as Volos_2100_100m.tif
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rescale-data">
+<h2>Rescale Data<a class="headerlink" href="#rescale-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Paths</span>
+<span class="n">input_path</span> <span class="o">=</span> <span class="s2">&quot;Volos_2100.tif&quot;</span>
+<span class="n">ndvi_path</span> <span class="o">=</span> <span class="s2">&quot;NDVI.tif&quot;</span>
+
+<span class="c1"># Landsat 8 bands for NDVI</span>
+<span class="c1"># B4 = Red (Band 4), B5 = NIR (Band 5) 1-based index in Rasterio</span>
+<span class="n">RED_BAND</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">NIR_BAND</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Scale factor formula</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_sr</span><span class="p">(</span><span class="n">dn</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dn</span> <span class="o">*</span> <span class="mf">0.0000275</span> <span class="o">-</span> <span class="mf">0.2</span>
+
+<span class="c1"># Read multiband image</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1"># Read RED and NIR bands</span>
+    <span class="n">red</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">RED_BAND</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">nir</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">NIR_BAND</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    
+    <span class="c1"># Apply scale factor</span>
+    <span class="n">red_sr</span> <span class="o">=</span> <span class="n">apply_sr</span><span class="p">(</span><span class="n">red</span><span class="p">)</span>
+    <span class="n">nir_sr</span> <span class="o">=</span> <span class="n">apply_sr</span><span class="p">(</span><span class="n">nir</span><span class="p">)</span>
+    
+    <span class="c1"># Handle nodata</span>
+    <span class="n">nodata</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
+    <span class="k">if</span> <span class="n">nodata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span> <span class="o">==</span> <span class="n">nodata</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">nir</span> <span class="o">==</span> <span class="n">nodata</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">red</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate NDVI</span>
+    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="o">~</span><span class="n">mask</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">nir_sr</span> <span class="o">-</span> <span class="n">red_sr</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir_sr</span> <span class="o">+</span> <span class="n">red_sr</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="p">)</span>
+
+<span class="c1"># Update metadata for single-band output</span>
+<span class="n">meta</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;dtype&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nodata&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="p">})</span>
+
+<span class="c1"># Write NDVI to GeoTIFF</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ndvi_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ndvi</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✔ NDVI saved as </span><span class="si">{</span><span class="n">ndvi_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔ NDVI saved as NDVI.tif
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-mask">
+<h2>Apply mask<a class="headerlink" href="#apply-mask" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -519,6 +940,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγκατάσταση της βιβλιοθήκης, βασικές λειτουργίες</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Άνοιγμα αρχείου</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ανάγνωση μεταδεδομένων</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Αλλαγή προβολικού συστήματος</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-geopandas-integration">Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling-nearest-bilinear-cubic">Resampling (nearest, bilinear, cubic)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescale-data">Rescale Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-mask">Apply mask</a></li>
 </ul>
   </nav></div>
 
