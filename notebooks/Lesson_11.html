@@ -616,7 +616,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Μπορούμε να δημιουργήσουμε ένα numpy array μέσω μιας λίστα python:</p>
+<p>Μπορούμε να δημιουργήσουμε ένα numpy array μέσω μιας λίστας python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -673,7 +673,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Προσοχή</strong> στην απώλεια δεδομένων κατά την μετατροπή από ακέραιο σε δεκαδικό. Η παρακάτω μετατροπή οδηγεί σε στρογγυλοποιήσεις</p>
+<p><strong>Προσοχή</strong> στην απώλεια δεδομένων κατά την μετατροπή από δεκαδικό σε ακέραιο. Η παρακάτω μετατροπή οδηγεί σε στρογγυλοποιήσεις</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">4.6</span><span class="p">])</span>
@@ -754,7 +754,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>ή να είναι πολυδιάστατος πίνακας με στοιχεία με τιμές 1:</p>
+<p>ή να είναι πολυδιάστατος πίνακας με στοιχεία που περιλαμβάνουν τις τιμές 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
@@ -807,7 +807,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Αντιστοιχα μπορούμε να προσθέσουμε το array με έναν μόνο ακέραιο:</p>
+<p>Αντίστοιχα μπορούμε να προσθέσουμε το array με έναν μόνο ακέραιο:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
@@ -963,7 +963,7 @@ document.write(`
 <p>Ας δημιουργήσουμε ένα πίνακα με ακέραιους διαστάσεων:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span> <span class="c1"># προβλέψιμη και επαναλήψιμη παραγωγή &quot;τυχαίων&quot; αριθμών</span>
 <span class="n">myarray</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
 </pre></div>
@@ -974,9 +974,6 @@ document.write(`
  [ 2  4 10]
  [ 7  2  1]
  [ 2 10  1]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -994,7 +991,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Αν ορίσουμε την παράμετρο <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> θα πάρουμε το άθροισμα για τις στήλες αν <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> το άθροισμα για τις γραμμές.</p>
+<p>Αν ορίσουμε την παράμετρο <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> θα πάρουμε το άθροισμα για τις στήλες ενώ αν <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> το άθροισμα για τις γραμμές.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">myarray</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># άθροισμα για τις στήλες, άξονας x</span>
@@ -1019,10 +1016,11 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Αντίστοιχα μπορούμε να χρησιμοποιήσουμε και άλλες συναρτήσεις:</p>
+<p>Αντίστοιχα μπορούμε να χρησιμοποιήσουμε και άλλες συναρτήσεις.
+Στο παρακάτω παράδειγμα υπολογίζεται ο μικρότερος αριθμός σε έναν πίνακα</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span> <span class="c1"># ή np.amin(myarray)</span>
 </pre></div>
 </div>
 </div>
@@ -1032,9 +1030,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>ή ο μεγαλύτερος, πχ. κατά στήλη</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">myarray</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># max κατά στήλη</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">myarray</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># max κατά στήλη, ή ισοδύναμα np.amax(myarray, axis=0) </span>
 </pre></div>
 </div>
 </div>
@@ -1133,8 +1132,28 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Σε αρκετές περιπτώσεις στα στοιχεία ενός πίνακας μπορεί να εχουν την τιμή <em>NaN</em> που σημαίνει «<em>Not a number</em>». Η τιμή του <em>Nan</em> χρησιμοποιείται όταν δεν υπάρχουν δεδομένα (missing values). Χαρακτηριστικό παράδειγμα είναι όταν διαβάζουμε μια δορυφορική εικόνα και κάνουμε flag ως NaN τα pixels που εχουν νεφοκάλυψη για να τα αποκλείσουμε από την ανάλυση. Και γενικότερα όταν θέλουμε να εξαιρέσουμε τιμές ή στοιχεία από μαθηματικές πράξεις μπορούμε να τα θέσουμε ως <em>NaN</em>. Προσοχή, το <em>NaN</em> δεν ισούται με 0.
-Να σημειωθεί ότι σε ένα array που περιέχει <em>NaN</em> στοιχεία πολλές από τις συναρτήσεις που προαναφέρθηκαν για τον υπολογισμό στατιστικών μέτρων επιστρέφουν <em>NaN</em>. Στην περίπτωση αυτή χρησιμοποιούνται παραλλαγές των συναρτήσεων (π.χ. <code class="docutils literal notranslate"><span class="pre">nansum</span></code> αντί <code class="docutils literal notranslate"><span class="pre">sum</span></code>). Για παράδειγμα έστω το παραπάνω array που περιέχει <em>NaN</em> στοιχεία μεταξύ των άλλων,</p>
+<p>Σε αρκετές περιπτώσεις στα στοιχεία ενός πίνακας μπορεί να εχουν την τιμή <em>NaN</em> που σημαίνει «<em>Not a number</em>». Οι τιμές <em>NaN</em> υποστηρίζονται μόνο από συγκεκριμένους τύπους δεδομένων δηλ. <em>np.float16</em>, <em>np.float32</em>, <em>np.float64</em>, <em>np.complex64/128</em>. Οι τύποι ακεραίων όπως np.int32 ή np.int64 δεν υποστηρίζουν <em>NaN</em>. Αν κατά δημιουργία πίνακα ακεραίων, γίνει εισάγωγή ενός <em>np.nan</em>, η NumPy θα κάνει αυτόματα upcasting (αναβάθμιση) ολόκληρου του πίνακα σε float.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Δημιουργία πίνακα ακεραίων</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># int64</span>
+
+<span class="c1"># Εισαγωγή NaN</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># float64 (έγινε αυτόματη μετατροπή)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int64
+float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Η τιμή του <em>Nan</em> χρησιμοποιείται όταν δεν υπάρχουν δεδομένα (missing values). Χαρακτηριστικό παράδειγμα είναι όταν διαβάζουμε μια δορυφορική εικόνα και κάνουμε flag ως NaN τα pixels που εχουν νεφοκάλυψη για να τα αποκλείσουμε από την ανάλυση. Και γενικότερα όταν θέλουμε να εξαιρέσουμε τιμές ή στοιχεία από μαθηματικές πράξεις μπορούμε να τα θέσουμε ως <em>NaN</em>. Προσοχή, το <em>NaN</em> δεν ισούται με 0.
+Να σημειωθεί ότι σε ένα array που περιέχει <em>NaN</em> στοιχεία πολλές από τις συναρτήσεις που προαναφέρθηκαν για τον υπολογισμό στατιστικών μέτρων επιστρέφουν <em>NaN</em>. Στην περίπτωση αυτή χρησιμοποιούνται παραλλαγές των συναρτήσεων (π.χ. <code class="docutils literal notranslate"><span class="pre">nansum</span></code> αντί <code class="docutils literal notranslate"><span class="pre">sum</span></code>). Για παράδειγμα έστω το παραπάνω array που περιέχει <em>NaN</em> στοιχεία μεταξύ των άλλων:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray</span><span class="o">=</span><span class="n">myarray</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="c1">#μετατροπη σε float (ακέραιο τύπο δεδομένων), αναγκαίο για να θέσουμε κάποια στοιχέια σε NaN</span>
@@ -1326,12 +1345,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα <em>ndarray objects</em>.</p>
-<p>Με τον παρακάτω τρόπο μπορούμε να εντοπίσουμε τις μοναδικές τιμές από τα στοιχεία ενός πίνακα. Έστω ο παρακάτω πίνακας</p>
+<p>Επιπλέον μπορούμε να χρησιμοποιήσουμε και άλλες χρήσιμες συναρτήσεις και μεθόδους στα <em>ndarray objects</em>.
+Έστω ο παρακάτω πίνακας 10x10 με τυχαίους ακέραιους από το 1 ως το 10:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">myarray</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">myarray</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># τυχαίοι αριθμοί από το 0-10 σε έναν πίνακα 10x10</span>
 <span class="n">myarray</span>
 </pre></div>
 </div>
@@ -1351,6 +1370,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Με τον παρακάτω τρόπο μπορούμε να εντοπίσουμε τις μοναδικές τιμές και το πλήθος κατά τιμή από τα στοιχεία του πίνακα <em>myarray</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">myarray</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1366,7 +1386,7 @@ document.write(`
 </div>
 </div>
 <p>Μπορούμε να μετατρέψουμε ένα πίνακα διαστάσεων <span class="math notranslate nohighlight">\(i⋅j\)</span> σε διάνυσμα δηλ. σε πίνακα μιας μόνο στήλης με την χρήση της μεθόδου <code class="docutils literal notranslate"><span class="pre">flatten</span></code>.
-Ο πίνακας myarray είναι διαστάσεων 10x10 και έχει 100 στοιχεία:</p>
+Ο πίνακας <em>myarray</em> είναι διαστάσεων 10x10 και έχει 100 στοιχεία:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray</span><span class="o">.</span><span class="n">shape</span>
@@ -1391,7 +1411,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Καλώ την μέθοδο <code class="docutils literal notranslate"><span class="pre">flatten</span></code> και επιβεβαιώ τις διαστάσεις. Πλέον ολα τα στοιχεία είναι σε μια στήλη.</p>
+<p>Καλώ την μέθοδο <code class="docutils literal notranslate"><span class="pre">flatten</span></code> και επιβεβαιώ τις διαστάσεις. Πλέον ολα τα στοιχεία είναι σε ένα διάνυσμα.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray_f</span> <span class="o">=</span> <span class="n">myarray</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -1469,7 +1489,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Μπορούμε να κάνουμε τον αντίστοιχο έλεγχο κατά συγκεκριμένο άξονα (xaxis) δηλαδή κατά στήλη ή γραμμή. Στην επόμενη γραμμή δοκιμάζουμε σε κάθε στήλη (axis=0) αν περιλαμβάνεται έστω και μια τιμή &gt;8. Όπως φαίνεται στην 4η και 9η στήλη δεν υπάρχει ούτε μια τιμή &gt;8.</p>
+<p>Μπορούμε να κάνουμε τον αντίστοιχο έλεγχο κατά συγκεκριμένο άξονα (xaxis) δηλαδή κατά στήλη ή γραμμή. Στην επόμενη γραμμή δοκιμάζουμε σε κάθε στήλη (axis=0) αν περιλαμβάνεται έστω και μια τιμή &gt;8. Όπως φαίνεται στην 9η στήλη δεν υπάρχει ούτε μια τιμή &gt;8.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">myarray</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1506,7 +1526,26 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">con</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># κατά στήλη</span>
+<span class="n">arr</span><span class="p">,</span> <span class="n">arr1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 0,  1,  2,  3,  4],
+        [ 5,  6,  7,  8,  9],
+        [10, 11, 12, 13, 14],
+        [15, 16, 17, 18, 19]]),
+ array([[30, 31, 32, 33, 34],
+        [35, 36, 37, 38, 39],
+        [40, 41, 42, 43, 44],
+        [45, 46, 47, 48, 49]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># κατά στήλη</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1525,7 +1564,23 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">arr2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">))</span>
+<span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 0,  1,  2,  3,  4],
+        [ 5,  6,  7,  8,  9],
+        [10, 11, 12, 13, 14]]),
+ array([[0, 1, 2, 3, 4],
+        [5, 6, 7, 8, 9]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1543,7 +1598,28 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">arr2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">))</span>
+<span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 0,  1,  2],
+        [ 3,  4,  5],
+        [ 6,  7,  8],
+        [ 9, 10, 11],
+        [12, 13, 14]]),
+ array([[0, 1],
+        [2, 3],
+        [4, 5],
+        [6, 7],
+        [8, 9]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1577,14 +1653,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># στοιχείο με ευρετήριο 5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fifth</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># 5ο στοιχείο, δηλ. στοιχείο με ευρετήριο 4</span>
 <span class="n">last</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">[</span><span class="n">arr1</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># τελευταίο στοιχείο</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fifth</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 2
 </pre></div>
 </div>
 </div>
@@ -1701,7 +1777,9 @@ document.write(`
 <p>Αυτή η δυνατότητα είναι ιδιαίτερα χρήσιμη στην τηλεπισκόπηση. Έστω ότι έχουμε μια δορυφορική εικόνα τα εικονοστοιχεία της οποίας έχουν τις παρακάτω τιμές:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># επιλογή αριθμών με την ίδια πιθανότητα από μια ομοιόμορφη κατανομή (Uniform Distribution) στο διάστημα [0.5,10).</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span> 
 </pre></div>
 </div>
 </div>
@@ -1721,7 +1799,7 @@ document.write(`
 <p>Και έστω ότι έχουμε ένα άλλο αρχείο raster σε μορφή numpy ndarray το οποίο αποτελεί mask (πχ αρχείο νεφοκάλυψης). Τα στοιχεία που έχουν την τιμή <em>1</em> θα αποτελέσουν την μάσκα και τα <em>0</em> θα είναι τα έγκυρα εικονοστοιχεία. Με βάση αυτό το ndarray μπορούμε να θέσουμε ως μη έγκυρα όσα στοιχεία της image ταυτίζονται ευρετηριακά με τα στοιχεία της mask με τιμή <em>1</em>. Ας φτιάξουμε ένα υποθετικό αρχείο mask.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># δηλαδή np.zeros((25, 25))</span>
 <span class="n">mask</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">mask</span><span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">19</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
@@ -1801,12 +1879,14 @@ document.write(`
 <p>όπως βλέπουμε η παραπάνω βιβλιοθήκη επιστρέφει ένα numpy.ndarray object όπου έχει, 3 διαστάσεις, 5 bands διαστάσεων 572x1040 η κάθε μία.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Διαστάσεις: &quot;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Shape: &quot;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, (5, 572, 1040))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Διαστάσεις:  3
+Shape:  (5, 572, 1040)
 </pre></div>
 </div>
 </div>
