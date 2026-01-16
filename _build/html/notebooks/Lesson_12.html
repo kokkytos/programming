@@ -195,7 +195,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Lesson_10.html">10. Διαγράμματα</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lesson_11.html">11. Η βιβλιοθήκη numpy</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="Lesson_13.html">13. Άσκηση επεξεργασίας και ανάλυσης γεωχωρικών δεδομένων</a></li>
 </ul>
 
@@ -423,7 +422,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγκατάσταση της βιβλιοθήκης, βασικές λειτουργίες</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Εισαγωγή βιβλιοθηκών</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Άνοιγμα αρχείου</a></li>
@@ -434,11 +432,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-geopandas-integration">Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resample">Resample</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ndvi">NDVI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Πηγές δεδομένων</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Πηγές δεδομένων</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -473,7 +468,7 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Άνοιγμα αρχείου<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>Για το άνοιγμα ενός ψηφιδωτού αρχείου χρησιμοποιείται η μέθοδος <code class="docutils literal notranslate"><span class="pre">open</span></code> από την βιβλιοθήκη <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>. Στην συνέχεια, στο object του αρχείου που έχει ανοίξει καλούμε την μέθοδο <code class="docutils literal notranslate"><span class="pre">read</span></code> η οποία διαβάζει τις τιμές των pixel από όλα τα κανάλια (bands) της εικόνας (ή από επιλεγμένα αν οριστεί index) και τα επισυνάπτει σε ένα numpy array. Η μέθοδος <code class="docutils literal notranslate"><span class="pre">read</span></code> δέχεται σαν παράμετρο είτε τον index του καναλίου που θέλουμε να ανοίξουμε είτε τίποτα οπότε και θα διαβάσει όλα τα κανάλια. Αξίζει να σημειωθεί ότι στο <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> το index για το πρώτο κανάλι είναι το <code class="docutils literal notranslate"><span class="pre">1</span></code> και όχι το <code class="docutils literal notranslate"><span class="pre">0</span></code> όπως συνηθίζεται στην Python.  Ωστόσο η μέθοδος <code class="docutils literal notranslate"><span class="pre">read</span></code> επιστρέφει ένα numpy array 3 διαστάσεων της μορφής (band,row,column), τα index του οποίου, σαν τυπικό numpy ndarray, αρχίζουν από το <code class="docutils literal notranslate"><span class="pre">0</span></code> (zero based). Στο παρακάτω παράδειγμα χρησιμοποιείται η  <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> για την ανάγνωση όλων των καναλιών μιας εικόνας LandSat8 σαν numpy array.</p>
+<p>Για το άνοιγμα ενός ψηφιδωτού αρχείου χρησιμοποιείται η μέθοδος <code class="docutils literal notranslate"><span class="pre">open</span></code> από την βιβλιοθήκη <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>. Στην συνέχεια, στο object του αρχείου που έχει ανοίξει καλούμε την μέθοδο <code class="docutils literal notranslate"><span class="pre">read</span></code> η οποία διαβάζει τις τιμές των pixel από όλα τα κανάλια (bands) της εικόνας (ή από επιλεγμένα αν οριστεί index) και τα επισυνάπτει σε ένα numpy array. Η μέθοδος <code class="docutils literal notranslate"><span class="pre">read</span></code>, εκτός των άλλων, δέχεται σαν παράμετρο είτε τον index του καναλίου που θέλουμε να ανοίξουμε είτε τίποτα οπότε και θα διαβάσει όλα τα κανάλια. Αξίζει να σημειωθεί ότι στο <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> το index για το πρώτο κανάλι είναι το <code class="docutils literal notranslate"><span class="pre">1</span></code> και όχι το <code class="docutils literal notranslate"><span class="pre">0</span></code> όπως συνηθίζεται στην Python.  Ωστόσο η μέθοδος <code class="docutils literal notranslate"><span class="pre">read</span></code> επιστρέφει ένα numpy array 3 διαστάσεων της μορφής (band,row,column), τα index του οποίου, σαν τυπικό numpy ndarray, αρχίζουν από το <code class="docutils literal notranslate"><span class="pre">0</span></code> (zero based). Στο παρακάτω παράδειγμα χρησιμοποιείται η  <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> για την ανάγνωση όλων των καναλιών μιας εικόνας LandSat8 σαν numpy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Source: Landsat 8-9 OLI/TIRS Collection 2 Level-2 Science Products </span>
@@ -481,7 +476,7 @@ document.write(`
 <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;LC08_L2SP_183033_20250906_20250912_02_T1_SR_VOLOS.tif&#39;</span>
 
 <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># ανάγνωση όλων των καναλιών</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># ανάγνωση όλων των καναλιών, επιστρέφει numpy ndarray</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -511,14 +506,14 @@ document.write(`
 <img alt="../_images/515d4d3661c41e38068c4d79675120d42b33f5779b44f442090926f1889131d2.png" src="../_images/515d4d3661c41e38068c4d79675120d42b33f5779b44f442090926f1889131d2.png" />
 </div>
 </div>
-<p>Επιπλέον, είναι δυνατή η ανάγνωση αρχείων geotiff που φιλοξενούνται διαδικτυακά (<a class="reference external" href="https://cogeo.org/">Cloud Optimized GeoTIFF (COG)</a>). Ανεξάρτητα που είναι αποθηκευμένο το αρχείο προς ανάγνωση (τοπικά ή απομακρυσμένα) είναι δυνατόν κατά την ανάγνωση να οριστεί ένα τμήμα του αρχείου μόνο. Το τμήμα αυτό μπορεί να οριστεί με δύο τρόπους. Είτε να οριστεί ένα υποσύνολο δίνοντας σαν αρχικό σημείο κατάτμησης το index του πάνω αριστερά pixel ενός bounding box και στην συνέχεια το πλάτος και το ύψος του πάλι σε pixels. Στο παρακάτω παράδειγμα, και σε ένα υποθετικό raster διαστάσεων 100x100 ορίζεται μια περιοχή κατάτμησης ξεκινώντας από το σημείο (20,30) με πλάτος 50 pixels και ύψος 40 pixels.</p>
-<img src="raster_clip.svg" alt="drawing" style="width:400px;"/><p>Ακολουθεί το παρακάτω παράδειγμα με την χρήση της συνάρτησης <code class="docutils literal notranslate"><span class="pre">Window</span></code> από το submodule <code class="docutils literal notranslate"><span class="pre">windows</span></code> του πακέτου <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>.Γίνεται ανάγνωση τμήματος του αρχείου μέσω της ορισμού window (pixel έναρξης μέσω του ορισμού row_start και col_start και του width και height σε pixels).</p>
+<p>Επιπλέον, είναι δυνατή η ανάγνωση αρχείων geotiff που φιλοξενούνται διαδικτυακά (<a class="reference external" href="https://cogeo.org/">Cloud Optimized GeoTIFF (COG)</a>). Ανεξάρτητα που είναι αποθηκευμένο το αρχείο προς ανάγνωση (τοπικά ή απομακρυσμένα) είναι δυνατόν κατά την ανάγνωση να οριστεί ένα τμήμα του αρχείου μόνο. Το τμήμα αυτό μπορεί να οριστεί με δύο τρόπους. Είτε να οριστεί ένα υποσύνολο δίνοντας σαν αρχικό σημείο κατάτμησης το index του πάνω αριστερά pixel ενός bounding box και στην συνέχεια το πλάτος και το ύψος του πάλι σε pixels. Στο παρακάτω παράδειγμα, και σε ένα υποθετικό raster διαστάσεων 100x100 ορίζεται μια περιοχή κατάτμησης ξεκινώντας από το σημείο (20,20) με πλάτος 50 pixels και ύψος 40 pixels.</p>
+<img src="raster_clip.svg" alt="drawing" style="width:400px;"/><p>Ακολουθεί το παρακάτω παράδειγμα με την χρήση της συνάρτησης <code class="docutils literal notranslate"><span class="pre">Window</span></code> από το submodule <code class="docutils literal notranslate"><span class="pre">windows</span></code> του πακέτου <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>. Γίνεται ανάγνωση τμήματος του αρχείου μέσω της ορισμού window (pixel έναρξης μέσω του ορισμού row_start και col_start και του width και height σε pixels).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
 
 <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="c1"># Pixel bounding box</span>
+    <span class="c1"># Pixel πάνω αριστερά στο bounding box</span>
     <span class="n">row_start</span> <span class="o">=</span> <span class="mi">20</span>
     <span class="n">col_start</span> <span class="o">=</span><span class="mi">30</span>
     
@@ -544,7 +539,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Το object <code class="docutils literal notranslate"><span class="pre">data</span></code> είναι τυπικό ένα numpy ndarray το οπoίο μπορεί να οπτικοποιηθεί με την βοήθεια της βιβλιοθήκης numpy array.</p>
+<p>Το object <code class="docutils literal notranslate"><span class="pre">data</span></code> είναι ένα τυπικό numpy ndarray το οπoίο μπορεί να οπτικοποιηθεί με την βοήθεια της βιβλιοθήκης <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Οπτικοποίηση του &#39;data&#39; array</span>
@@ -562,7 +557,7 @@ document.write(`
 <img alt="../_images/3af9e5341289d0b6bd89e7c372a549aad57c08ac608c38ec0f0478d56ee15958.png" src="../_images/3af9e5341289d0b6bd89e7c372a549aad57c08ac608c38ec0f0478d56ee15958.png" />
 </div>
 </div>
-<p>Επίσης μπορούμε να αποκόψουμε ένα raster ορίζοντας τις γεωγραφικές συντενταγμένες (στο προβολικό σύστημα του αρχείου) του bounding box που ενδιαφέρει τον χρήστη. Στο παρακάτω παράδειγμα δίνεται η ανάγνωση ενός αρχείου Cloud Optimized GeoTIFF (COG) μέσω του ορισμού bounding box σε γεωγραφικές συντεταγμένες αντίστοιχες με το προβολικό σύστημα του αρχείου προς ανάγνωση.</p>
+<p>Επίσης μπορούμε να αποκόψουμε ένα raster ορίζοντας τις συντενταγμένες των ακραίων σημείων (στο προβολικό σύστημα του αρχείου) ενός bounding box που ενδιαφέρει τον χρήστη. Στο παρακάτω παράδειγμα δίνεται η ανάγνωση ενός αρχείου Cloud Optimized GeoTIFF (COG) μέσω του ορισμού bounding box σε γεωγραφικές συντεταγμένες αντίστοιχες με το προβολικό σύστημα του αρχείου προς ανάγνωση.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_bounds</span>
@@ -592,7 +587,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Οπτικοποίηση του &#39;data&#39; array</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>  <span class="c1"># &#39;viridis&#39;: χρωματική παλέτα για συνεχή δεδομένα</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pixel Value&#39;</span><span class="p">)</span> <span class="c1"># υπόμνημα</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DN&#39;</span><span class="p">)</span> <span class="c1"># υπόμνημα</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Raster subset of Landsat 8 Image&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Column Index&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Row Index&quot;</span><span class="p">)</span>
@@ -601,7 +596,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0451d949ff077fbb21084c15bac3a64897e971e159b9e440e42b08f7a05f55a0.png" src="../_images/0451d949ff077fbb21084c15bac3a64897e971e159b9e440e42b08f7a05f55a0.png" />
+<img alt="../_images/3a8c94ca794a17bfd290e9615031832ab439b71fdd492947ce3ea3f6daa06517.png" src="../_images/3a8c94ca794a17bfd290e9615031832ab439b71fdd492947ce3ea3f6daa06517.png" />
 </div>
 </div>
 <p>Όπως φαίνεται η οπτικοποίηση των δεδομένων μιας δορυφορικής εικόνας μέσω της <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> δεν ενδείκνυεται, δεδομένου ότι δεν υποστηρίζει την γεωγραφική πληροφορία, γι” αυτό και στους άξονες περιγράφονται μόνο η σειρά των ευρετηρίων των γραμμών και στηλών. Επιπλέον η σειρά των καναλιών της <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> ακολουθεί την λογική (bands, rows, columns) κατά την ανάγνωση ενώ το <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> δέχεται numpy ndarrays της δομής (rows, columns, bands). Γι αυτό τον λόγο η <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> προσφέρει την συνάρτηση <code class="docutils literal notranslate"><span class="pre">show</span></code> η οποία αποδίδει την γεωγραφική πληροφορία στους άξονες και αναμένει numpy arrays συμβατά με αυτά που επιστρέφει η <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> κατά την ανάγνωση ψηφιδώτων δεδομένων.</p>
@@ -655,7 +650,7 @@ document.write(`
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultipleLocator</span> <span class="c1"># δίνει την δυνατότητα ορισμού του format και της θέσης των axis labels</span>
 
-<span class="c1"># ορισμός x-axis tick interval σε 5000</span>
+<span class="c1"># ορισμός x-axis tick interval σε 1000</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
 
 <span class="c1"># ορισμός font size και rotation στα x-axis labels</span>
@@ -939,7 +934,7 @@ Cell resolution (x, y): (30.0, 30.0)
 <section id="resample">
 <h2>Resample<a class="headerlink" href="#resample" title="Link to this heading">#</a></h2>
 <p>Σε αρκετές περιπτώσεις, είτε για λόγους γενίκευσης της πληροφορίας, είτε για λόγους σύγκρισης και ανάλυσης ταυτόχρονα με άλλα raster αρχεία, είναι απαραίτητος ο μετασχηματισμός της χωρικής ανάλυσης ενός ψηφιδωτού αρχείου (resampling).</p>
-<p>Με τον όρο <code class="docutils literal notranslate"><span class="pre">resampling</span></code> εννοείται η διαδικασία κατά την οποία αλλάζει η χωρική ανάλυση (spatial resolution) ενός ψηφιδωτού αρχείου διατηρώντας την αρχική γεωγραφική έκταση που αυτό καλύπτεί.</p>
+<p>Με τον όρο <code class="docutils literal notranslate"><span class="pre">resampling</span></code> εννοείται η διαδικασία κατά την οποία αλλάζει η χωρική ανάλυση (spatial resolution) ενός ψηφιδωτού αρχείου διατηρώντας την αρχική γεωγραφική έκταση που αυτό καλύπτει.</p>
 <p>Έτσι η διαδικασία αυτή μπορεί είτε να μεγαλώσει τις διαστάσεις του κάθε pixel (downsampling) και κατα συνέπεια η ίδια περιοχή να καλύπτεται από λιγότερα pixels σε σχέση με τις αρχικές διαστάσεις. Είτε η αντίστροφη διαδικασία, δηλαδή να μικραίνουν οι διαστάσεις των pixel (upsampling) και έτσι η αρχική έκταση του αρχείου να καλύπτεται από περισσότερα pixels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -998,7 +993,7 @@ Cell resolution (x, y): (30.0, 30.0)
 </section>
 <section id="ndvi">
 <h2>NDVI<a class="headerlink" href="#ndvi" title="Link to this heading">#</a></h2>
-<p>Μέσω της ανάγνωσης ψηφιδωτών αρχείων και της μετατροπής τους σε numpy array είναι προσιτός η άλγεβρα χαρτών και ο υπολογισμός δεικτών. Το επόμενο τμήμα κώδικα αφορά την δημιουργία του δείκτη πρασίνου <a class="reference external" href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">NDVI (Normalized Difference Vegetation Index)</a> με βάση μια δορυφορική εικόνα <a class="reference external" href="https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance">Landsat 8 Collection 2 Surface Reflectance</a>. Τα απαραίτητα κανάλια για την δημιουργία δείκτη NDVI είναι το κοντινό υπέρυθρο (near-infrared) το ερυθρό (red), κανάλια 5 και 4 αντίστοιχα για τον Landsat 8.</p>
+<p>Μέσω της ανάγνωσης ψηφιδωτών αρχείων και της μετατροπής τους σε numpy array είναι εφικτή η άλγεβρα χαρτών και ο υπολογισμός δεικτών. Το επόμενο τμήμα κώδικα αφορά την δημιουργία του δείκτη πρασίνου <a class="reference external" href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">NDVI (Normalized Difference Vegetation Index)</a> με βάση μια δορυφορική εικόνα <a class="reference external" href="https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance">Landsat 8 Collection 2 Surface Reflectance</a>. Τα απαραίτητα κανάλια για την δημιουργία δείκτη NDVI είναι το κοντινό υπέρυθρο (near-infrared) το ερυθρό (red), κανάλια 5 και 4 αντίστοιχα για τον Landsat 8.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paths</span>
@@ -1092,12 +1087,12 @@ Cell resolution (x, y): (30.0, 30.0)
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id7">
-<h1>Πηγές δεδομένων<a class="headerlink" href="#id7" title="Link to this heading">#</a></h1>
+<section id="id7">
+<h2>Πηγές δεδομένων<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. <a class="reference external" href="https://doi.org/10.5066/P9OGBGM6">https://doi.org/10.5066/P9OGBGM6</a></p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1164,7 +1159,6 @@ Cell resolution (x, y): (30.0, 30.0)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Γεωεπεξεργασία ψηφιδωτών δεδομένων (rasterio)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Εγκατάσταση της βιβλιοθήκης, βασικές λειτουργίες</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Εισαγωγή βιβλιοθηκών</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Άνοιγμα αρχείου</a></li>
@@ -1175,11 +1169,8 @@ Cell resolution (x, y): (30.0, 30.0)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely-geopandas-integration">Αποκοπή εικόνας με βάση διανυσματικά δεδομένα  (πχ με Shapely/GeoPandas integration)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resample">Resample</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ndvi">NDVI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Πηγές δεδομένων</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Πηγές δεδομένων</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
