@@ -2,18 +2,27 @@
 version: 1
 project:
   id: 4c6e9761-012d-449e-ab52-2cfc85bd1816
-  # title:
+
+  title: "Γεωχωρικός Προγραμματισμός Η/Υ"
   # description:
   # keywords: []
-  # authors: []
+  date: 2026-03-14
+  authors:
+    - name: Λεωνίδας Λιάκος
+      affiliations:
+        - ΤΜΧΠΠΑ-ΠΘ
   github: https://github.com/kokkytos/programming
+ 
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   settings:
     output_matplotlib_strings: remove
     output_stderr: remove-warn
-    
+
 site:
   template: book-theme
+  options:
+     logo: UTH-logo-greek.jpg
+
   # options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
