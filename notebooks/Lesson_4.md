@@ -1,6 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: -all
   formats: md:myst
   text_representation:
     extension: .md
@@ -254,7 +253,8 @@ thisdict = {
   "model": "Mustang"
 }
 
-print(sorted(thisdict))
+thisdict_sorted = {k: v for k, v in sorted(thisdict.items(), key=lambda item: item[0])}
+print(thisdict_sorted)
 
 ```
 
