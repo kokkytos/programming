@@ -41,7 +41,6 @@ h2==4.3.0
 hpack==4.1.0
 hyperframe==6.1.0
 idna==3.11
-imagecodecs==2023.9.4
 imageio==2.37.0
 imagesize==1.4.1
 importlib_metadata==8.7.0
