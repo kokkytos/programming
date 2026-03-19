@@ -12,6 +12,21 @@ project:
       affiliations:
         - ΤΜΧΠΠΑ-ΠΘ
   github: https://github.com/kokkytos/programming
+  toc:
+    - file: notebooks/intro.md
+    - file: notebooks/Lesson_1.md
+    - file: notebooks/Lesson_2.ipynb
+    - file: notebooks/Lesson_3.md
+    - file: notebooks/Lesson_4.md
+    - file: notebooks/Lesson_5.md
+    - file: notebooks/Lesson_6.md
+    - file: notebooks/Lesson_7.ipynb
+    - file: notebooks/Lesson_8.ipynb
+    - file: notebooks/Lesson_9.ipynb
+    - file: notebooks/Lesson_10.ipynb
+    - file: notebooks/Lesson_11.ipynb
+    - file: notebooks/Lesson_12.ipynb
+    - file: notebooks/Lesson_13.ipynb
  
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   settings:
