@@ -32,13 +32,25 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      # --- NEW SECTION: Install Python and Dependencies ---
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.6' # You can change this to your preferred version
+          cache: 'pip'           # This speeds up subsequent runs by caching your libraries
+          
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # ----------------------------------------------------
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
       - name: Build HTML Assets
-        run: jupyter-book build --html
+        run: jupyter-book build --execute
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
