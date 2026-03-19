@@ -41,6 +41,14 @@ jobs:
           
       - name: Install Python dependencies
         run: |
+          # Install the native GDAL libraries required by the Python GDAL package
+          sudo apt-get update
+          sudo apt-get install -y libgdal-dev gdal-bin
+
+          # Set environment variables so the pip installer knows where to find GDAL
+          export CPLUS_INCLUDE_PATH=/usr/include/gdal
+          export C_INCLUDE_PATH=/usr/include/gdal
+
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # ----------------------------------------------------
