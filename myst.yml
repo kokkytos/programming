@@ -25,7 +25,7 @@ project:
     - file: notebooks/Lesson_9.ipynb
     - file: notebooks/Lesson_10.ipynb
     - file: notebooks/Lesson_11.ipynb
-
+    - file: notebooks/Lesson_13.ipynb
  
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   settings:
