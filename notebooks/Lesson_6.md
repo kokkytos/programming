@@ -421,7 +421,7 @@ print(pi)         # pi είναι η σταθερά π
 
 ```{code-cell} ipython3
 import pandas as pd # pd είναι το ψευδώνυμο της βιβλιοθήκης pandas και κάθε φορά θα την καλούμε με αυτό
-df = pd.read_csv("data.csv") # ανάγνωση του αρχείου "data.csv" ως pandas dataframe
+df = pd.read_csv("../docs/cities.csv") # ανάγνωση του αρχείου "../docs/cities.csv" ως pandas dataframe
 ```
 
 ### 4. Εισαγωγή όλων των συναρτήσεων (from ... import *)
