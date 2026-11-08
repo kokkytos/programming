@@ -39,7 +39,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11.6' # You can change this to your preferred version
+          python-version: '3.11' # You can change this to your preferred version
           cache: 'pip'           # This speeds up subsequent runs by caching your libraries
           
       - name: Install Python dependencies
