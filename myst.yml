@@ -27,10 +27,7 @@ project:
   settings:
     output_matplotlib_strings: remove
     output_stderr: remove-warn
-  # Increase timeout to 10 mins for slow network reads / raster processing
-  timeout: 600
-
 site:
-  template: book-theme
+  template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip
   options:
     logo: UTH-logo-greek.jpg
