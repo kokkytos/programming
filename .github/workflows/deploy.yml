@@ -17,11 +17,13 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
+
 jobs:
   deploy:
     environment:
@@ -29,43 +31,51 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-            lfs: true
-            fetch-depth: 0
+          lfs: true
+          fetch-depth: 0
+
       - name: Setup Pages
-        uses: actions/configure-pages@v3
-      # --- NEW SECTION: Install Python and Dependencies ---
+        uses: actions/configure-pages@v5
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # You can change this to your preferred version
-          cache: 'pip'           # This speeds up subsequent runs by caching your libraries
-          
+          python-version: '3.11'
+          cache: 'pip'
+
       - name: Install Python dependencies
         run: |
-          # Install the native GDAL libraries required by the Python GDAL package
           sudo apt-get update
           sudo apt-get install -y libgdal-dev gdal-bin
 
-          # Set environment variables so the pip installer knows where to find GDAL
           export CPLUS_INCLUDE_PATH=/usr/include/gdal
           export C_INCLUDE_PATH=/usr/include/gdal
 
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      # ----------------------------------------------------
-      - uses: actions/setup-node@v4
+          python -m pip install ipykernel
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: '22'
+
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
+
       - name: Build HTML Assets
         run: jupyter book build --execute --html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './_build/html'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
